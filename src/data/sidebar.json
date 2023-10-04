@@ -1,0 +1,62 @@
+[
+    {
+        "title": "หน้าแรก",
+        "icon": "bi-gear-fill",
+        "childrens": [
+            {
+                "title": "Home",
+                "icon": "bi-house-fill",
+                "path": "/"
+            },
+            {
+                "title": "About",
+                "icon": "bi-info-circle-fill",
+                "path": "/about"
+            },
+            {
+                "title": "Contact",
+                "icon": "bi-phone-fill",
+                "childrens": [
+                    {
+                        "title": "Facebook",
+                        "icon": "bi-facebook"
+                    },
+                    {
+                        "title": "Twitter",
+                        "icon": "bi-twitter"
+                    },
+                    {
+                        "title": "Instagram",
+                        "icon": "bi-instagram"
+                    }
+                ]
+            },
+            {
+                "title": "FAQ",
+                "icon": "bi-question-circle-fill"
+            }
+        ]
+    },
+    {
+        "title": "TQF.7",
+        "icon": "bi-info-circle-fill",
+        "childrens": [
+            {
+                "title": "TQF.7 - คำนำ",
+                "path": "/tqf.7_0"
+            },
+            {
+                "title": "TQF.7 - หมวดที่ 1",
+                "path": "/tqf.7_1"
+            },
+            {
+                "title": "TQF.7 - หมวดที่ 2",
+                "path": "/tqf.7_2"
+            },
+            {
+                "title": "TQF.7 - หมวดที่ 3",
+                "path": "/tqf.7_3"
+            }
+        ]
+    }
+]
