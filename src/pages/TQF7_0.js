@@ -4,17 +4,106 @@ import 'primereact/resources/themes/saga-blue/theme.css'; // เลือก the
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { Panel } from 'primereact/panel';
-import { Calendar } from 'primereact/calendar';
+// import { Calendar } from 'primereact/calendar';
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Button } from 'primereact/button';
+import 'react-datepicker/dist/react-datepicker.css';
+
+import TQF7_0123 from '../data/TQF1-2-3';
 
 
 function TQF7_0() {
 
-  const [dates2, setDates2] = useState(null);
-  const [date10, setDate10] = useState(null);
+  const [dataTqf7_0, setDateTqf7_0] = useState({
+        ประจำปีการศึกษา:"2565",
+        เริ่มวันที่:" ",
+        สิ้นสุดวันที่:" ",
+        ชื่อหลักสูตรภาษาไทย:"วิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร",
+        ชื่อหลักสูตรภาษาอังกฤษ:"Bachelor of Engineering Program in Computer Engineering",
+        ชื่อหลักสูตรย่อ:"วศ.บ.(วิศวกรรมคอมพิวเตอร์)",
+        คณะ:"คณะเทคโนโลยีอุตสาหกรรม",
+        มหาวิทยาลัย:"มหาวิทยาลัยราชภัฏสวนสุนันทา",
+        หลักสูตรปรับปรุง:"2563",
+        ปีเกณฑ์มาตรฐานหลักสูตร:"2558",
+        บทสรุปผู้บริหาร:"",
+        คะแนนการประเมินเฉลี่ย1:"",
+        คะแนนการประเมินเฉลี่ย2:"",
+        คะแนนการประเมินเฉลี่ย3:"",
+        คะแนนการประเมินเฉลี่ย4:"",
+        คะแนนการประเมินเฉลี่ย5:"",
+        คะแนนการประเมินเฉลี่ย6:"",
+        ระดับคุณภาพ1:"",
+        ระดับคุณภาพ2:"",
+        ระดับคุณภาพ3:"",
+        ระดับคุณภาพ4:"",
+        ระดับคุณภาพ5:"",
+        ระดับคุณภาพ6:"",
+        หมายเหตุ1:"",
+        หมายเหตุ2:"",
+        หมายเหตุ3:"",
+        หมายเหตุ4:"",
+        หมายเหตุ5:"",
+        หมายเหตุ6:"",
+        หมายเหตุ7:"",
+        คำนำ:"",
+        ลงชื่อคำนำ:"",
+        ประวัติความเป็นมาของหลักสูตร:"",
+        จุดแข็งองค์ประกอบ1_1: "",
+        จุดแข็งองค์ประกอบ2_1: "",
+        จุดแข็งองค์ประกอบ3_1 : " ",
+        จุดแข็งองค์ประกอบ3_2 : "",
+        จุดแข็งองค์ประกอบ4_1 : "้",
+        จุดแข็งองค์ประกอบ4_2 : "",
+        จุดแข็งองค์ประกอบ5_1 : "",
+        จุดแข็งองค์ประกอบ5_2 : "",
+        จุดแข็งองค์ประกอบ5_3 : "",
+        จุดแข็งองค์ประกอบ5_4 : " ",
+        จุดแข็งองค์ประกอบ6_1: "",
+        องค์ประกอบเกณฑ์การประเมิน1 : "",
+        องค์ประกอบเกณฑ์การประเมิน2 : "",
+        องค์ประกอบเกณฑ์การประเมิน3_1 : "",
+        องค์ประกอบเกณฑ์การประเมิน3_2 : "",
+        องค์ประกอบเกณฑ์การประเมิน4_1 : "",
+        องค์ประกอบเกณฑ์การประเมิน4_2 : "",
+        องค์ประกอบเกณฑ์การประเมิน5_1 : "",
+        องค์ประกอบเกณฑ์การประเมิน5_2 : "",
+        องค์ประกอบเกณฑ์การประเมิน5_3 : "",
+        องค์ประกอบเกณฑ์การประเมิน5_4 : "",
+        องค์ประกอบเกณฑ์การประเมิน6 : "",
+        การดำเนินการโครงการ1 : "",
+        การดำเนินการโครงการ2 : "",    
+        การดำเนินการโครงการ3_1 : "",
+        การดำเนินการโครงการ3_2 : "",
+        การดำเนินการโครงการ4_1 : "",
+        การดำเนินการโครงการ4_2 : "",
+        การดำเนินการโครงการ5_1 : "",
+        การดำเนินการโครงการ5_2 : "",
+        การดำเนินการโครงการ5_3 : "",
+        การดำเนินการโครงการ5_4 : "",
+        การดำเนินการโครงการ6 : "",
+        ผลการดำเนินงาน1 : "",
+        ผลการดำเนินงาน2 : "",
+        ผลการดำเนินงาน3_1 : "",
+        ผลการดำเนินงาน3_2 : "",
+        ผลการดำเนินงาน4_1 : "",
+        ผลการดำเนินงาน4_2 : "",
+        ผลการดำเนินงาน5_1 : "",
+        ผลการดำเนินงาน5_2 : "",
+        ผลการดำเนินงาน5_3 : "",
+        ผลการดำเนินงาน5_4 : "",
+        ผลการดำเนินงาน6 : "",
+  });
+
+  const handleChange = (event, property) => {
+    setDateTqf7_0({
+      ...dataTqf7_0,
+      [property]: event.target.value,
+    });
+    console.log(dataTqf7_0);
+  };
 
   {/***********************************************/}
   const [editableColumn, setEditableColumn] = useState(null);
@@ -33,30 +122,35 @@ function TQF7_0() {
     setEditableColumn(null);
   };
   {/***********************************************/}
-  
+
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
   return (
     <div>
       <Panel header="สร้างผลการดำเนินงาน">
         {/***********************************************/}
         <div className="field col-12 md:col-4">
-          <label htmlFor="range">ระยะเวลาดำเนินงาน <br/><br/></label>
-            <Calendar
-            id="range"
-            value={dates2}
-            onChange={(e) => setDates2(e.value)} // ใช้ setDates2 เพื่ออัปเดตค่า dates2
-            selectionMode="range"
-            readOnlyInput
+          <label>เริ่มวันที่</label>
+          <InputText
+          value={dataTqf7_0.เริ่มวันที่}
+          onChange={(e) => handleChange(e, 'เริ่มวันที่')}
+          />
+          <label>ถึงวันที่</label>
+          <InputText
+          value={dataTqf7_0.สิ้นสุดวันที่}
+          onChange={(e) => handleChange(e, 'สิ้นสุดวันที่')}
           />
         </div>
         <br/>
         {/***********************************************/}
-        <div className="field col-12 md:col-4">
-          <label htmlFor="yearpicker">ปีการศึกษา<br/><br/></label>
-          <Calendar id="yearpicker" 
-          value={date10} 
-          onChange={(e) => setDate10(e.value)} 
-          view="year" 
-          dateFormat="yy" />
+        <div>
+          <label>ประจำปีการศึกษา</label>
+          <InputText
+          value={dataTqf7_0.ประจำปีการศึกษา} 
+          onChange={(e) => handleChange(e, 'ประจำปีการศึกษา')} />
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
@@ -64,58 +158,121 @@ function TQF7_0() {
         {/***********************************************/}
         <div>
           <span>ชื่อหลักสูตร(ภาษาไทย)</span>
-          <InputText value='วิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร'/>
+          <InputText
+          value={dataTqf7_0.ชื่อหลักสูตรภาษาไทย} 
+          onChange={(e) => handleChange(e, 'ชื่อหลักสูตรภาษาไทย')} />
+          
           <span>หลักสูตรปรับปรุงปี</span>
-          <InputText value='2563'/>
+          <InputText
+          value={dataTqf7_0.หลักสูตรปรับปรุง} 
+          onChange={(e) => handleChange(e, 'หลักสูตรปรับปรุง')} />
         </div>
         {/***********************************************/}
         <div>
           <span>ชื่อหลักสูตร(ภาษาอังกฤษ)</span>
-          <InputText value='Bachelor of Engineering Program in Computer Engineering'/>
+          <InputText 
+          value={dataTqf7_0.ชื่อหลักสูตรภาษาอังกฤษ}
+          onChange={(e)=> handleChange(e, 'ชื่อหลักสูตรภาษาอังกฤษ')}
+          />
           <span>ชื่อย่อ</span>
-          <InputText value='วศ.บ.(วิศวกรรมคอมพิวเตอร์)'/>
+          <InputText
+           value={dataTqf7_0.ชื่อหลักสูตรย่อ}
+           onChange={(e)=> handleChange(e, 'ชื่อหลักสูตรย่อ')}
+          />
         </div>
         {/***********************************************/}
         <div>
           <span>คณะ</span>
-          <InputText value='คณะเทคโนโลยีอุตสาหกรรม'/>
+          <InputText 
+          value={dataTqf7_0.คณะ}
+          onChange={(e)=> handleChange(e, 'คณะ')}
+          />
           <span>มหาวิทยาลัย</span>
-          <InputText value='มหาวิทยาลัยราชภัฏสวนสุนันทา'/>
+          <InputText 
+          value={dataTqf7_0.มหาวิทยาลัย}
+          onChange={(e)=> handleChange(e, 'มหาวิทยาลัย')}
+          />
         </div>
         {/***********************************************/}
         <div>
           <span>ปีเกณฑ์มาตรฐานหลักสูตร</span>
-          <InputText value='2558'/>
+          <InputText
+          value={dataTqf7_0.ปีเกณฑ์มาตรฐานหลักสูตร}
+          onChange={(e)=> handleChange(e, 'ปีเกณฑ์มาตรฐานหลักสูตร')}
+          />
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
       <Panel header="บทสรุปผู้บริหาร">
         {/***********************************************/}
         <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                  <InputTextarea autoResize rows={4} cols={80}  value='' />
+            <InputTextarea 
+            autoResize 
+            rows={4} 
+            cols={80}  
+            value={dataTqf7_0.บทสรุปผู้บริหาร}
+            onChange={(e)=> handleChange(e, 'บทสรุปผู้บริหาร')}
+            />
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
       <Panel header="สรุปผลการประเมินตนเองตามองค์ประกอบ">
         {/***********************************************/}
-        <div className="datatable-wrapper">
-        <DataTable value={tableData}>
-          <Column field="องค์ประกอบ" header="องค์ประกอบ" />
-          <Column
-            field="คะแนนการประเมินเฉลี่ย"
-            header="คะแนนการประเมินเฉลี่ย"
-            editor={(props) => (
-              <InputText
-                type="number"
-                {...props}
-                onFocus={(e) => onEditorOpen(props)}
-                onBlur={onEditorClose}
-              ></InputText>
-            )}
-          />
-          <Column field="ระดับคุณภาพ" header="ระดับคุณภาพ" />
-          <Column field="หมายเหตุ" header="หมายเหตุ" />
-        </DataTable>
+        <div>
+          <table className='TA'>
+            <thead>
+              <tr>
+                <th className='TH'>องค์ประกอบ</th>
+                <th className='TH'>คะแนนการประเมินเฉลี่ย</th>
+                <th className='TH'>ระดับคุณภาพ</th>
+                <th className='TH'>หมายเหตุ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className='TD'>องค์ประกอบที่ 1</td>
+                <td className='TD'><InputText value = {dataTqf7_0.คะแนนการประเมินเฉลี่ย1} onChange={(e) => handleChange(e, 'คะแนนการประเมินเฉลี่ย1')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.ระดับคุณภาพ1} onChange={(e) => handleChange(e, 'ระดับคุณภาพ1')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.หมายเหตุ1} onChange={(e) => handleChange(e, 'หมายเหตุ1')}></InputText></td>
+              </tr>
+              <tr>
+                <td className='TD'>องค์ประกอบที่ 2</td>
+                <td className='TD'><InputText value = {dataTqf7_0.คะแนนการประเมินเฉลี่ย2} onChange={(e) => handleChange(e, 'คะแนนการประเมินเฉลี่ย2')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.ระดับคุณภาพ2} onChange={(e) => handleChange(e, 'ระดับคุณภาพ2')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.หมายเหตุ2} onChange={(e) => handleChange(e, 'หมายเหตุ2')}></InputText></td>
+              </tr>
+              <tr>
+                <td className='TD'>องค์ประกอบที่ 3</td>
+                <td className='TD'><InputText value = {dataTqf7_0.คะแนนการประเมินเฉลี่ย3} onChange={(e) => handleChange(e, 'คะแนนการประเมินเฉลี่ย3')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.ระดับคุณภาพ3} onChange={(e) => handleChange(e, 'ระดับคุณภาพ3')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.หมายเหตุ3} onChange={(e) => handleChange(e, 'หมายเหตุ3')}></InputText></td>
+              </tr>
+              <tr>
+                <td className='TD'>องค์ประกอบที่ 4</td>
+                <td className='TD'><InputText value = {dataTqf7_0.คะแนนการประเมินเฉลี่ย4} onChange={(e) => handleChange(e, 'คะแนนการประเมินเฉลี่ย4')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.ระดับคุณภาพ4} onChange={(e) => handleChange(e, 'ระดับคุณภาพ4')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.หมายเหตุ4} onChange={(e) => handleChange(e, 'หมายเหตุ4')}></InputText></td>
+              </tr>
+              <tr>
+                <td className='TD'>องค์ประกอบที่ 5</td>
+                <td className='TD'><InputText value = {dataTqf7_0.คะแนนการประเมินเฉลี่ย5} onChange={(e) => handleChange(e, 'คะแนนการประเมินเฉลี่ย5')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.ระดับคุณภาพ5} onChange={(e) => handleChange(e, 'ระดับคุณภาพ5')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.หมายเหตุ5} onChange={(e) => handleChange(e, 'หมายเหตุ5')}></InputText></td>
+              </tr>
+              <tr>
+                <td className='TD'>องค์ประกอบที่ 6</td>
+                <td className='TD'><InputText value = {dataTqf7_0.คะแนนการประเมินเฉลี่ย6} onChange={(e) => handleChange(e, 'คะแนนการประเมินเฉลี่ย6')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.ระดับคุณภาพ6} onChange={(e) => handleChange(e, 'ระดับคุณภาพ6')}></InputText></td>
+                <td className='TD'><InputText value = {dataTqf7_0.หมายเหตุ6} onChange={(e) => handleChange(e, 'หมายเหตุ6')}></InputText></td>
+              </tr>
+              <tr>
+                <td className='TD'>เฉลี่ยรวมทุกตัวบ่งชี้ของทุกองค์ประกอบ</td>
+                <td className='TD'><InputText onChange={(e) => handleChange(e, '')}></InputText></td>
+                <td className='TD'><InputText onChange={(e) => handleChange(e, '')}></InputText></td>
+                <td className='TD'><InputText onChange={(e) => handleChange(e, '')}></InputText></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
@@ -123,31 +280,133 @@ function TQF7_0() {
         {/***********************************************/}
         <div style={{ display: 'flex', alignItems: 'flex-start' }}>
         <span>คำนำ</span>
-        <InputTextarea autoResize rows={4} cols={80}  value='หลักสูตรวิศวกรรมศาสตรบัณฑิตสาขาวิชาวิศวกรรมคอมพิวเตอร์คณะเทคโนโลยีอุตสาหกรรมมหาวิทยาลัยราชภัฏสวนสุนันทา จัดท ารายงานผลการด าเนินงานของหลักสูตร (มคอ. 7) ที่เป็นรายงาน การประเมินตนเอง(SelfAssessmentReport) ฉบับนี้ขึ้นมาเพื่อวิเคราะห์และประเมินผลการด าเนินงานตามเกณฑ์คุณภาพการศึกษาภายใน ประจ าปีการศึกษา 2564 (1 สิงหาคม 2564-31กรกฎาคม2565)ภายใต้ระบบและกลไกการประกันคุณภาพ6องค์ประกอบ14ตัวบ่งชี้โดยการรวบรวมและสังเคราะห์ผลการด าเนินงานของหลักสูตร ประจ าปีการศึกษา 2564 หวังเป็นอย่างยิ่งว่ารายงานผลการด าเนินงานของหลักสูตร (มคอ. 7) ที่เป็นรายงานการประเมินตนเอง (Self-Assessment Report) ฉบับนี้ จะสะท้อนผลการด าเนินงาน จุดเด่น จุดที่ควรพัฒนา เพื่อเป็นโอกาสให้หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์คณะเทคโนโลยีอุตสาหกรรมมหาวิทยาลัยราชภัฏสวนสุนันทาน าไปพัฒนาปรับปรุงคุณภาพการจัดการศึกษาสู่ความเป็นเลิศในอนาคตรวมทั้งเป็นการให้ความเชื่อมั่นแก่ผู้รับบริการและผู้มีส่วนได้ส่วนเสียตลอดจนประชาชนทั่วไปต่อคุณภาพการจัดการศึกษาของหลักสูตรวิศวกรรมศาสตรบัณฑิตสาขาวิชาวิศวกรรมคอมพิวเตอร์คณะเทคโนโลยีอุตสาหกรรมมหาวิทยาลัยราชภัฏสวนสุนันทาท้ายนี้ขอขอบคุณผู้บริหารคณาจารย์และบุคลากรทุกฝ่ายที่ให้ความร่วมมือในการปฏิบัติงานและมีความมุ่งมั่นที่จะร่วมกันพัฒนาคุณภาพมาอย่างต่อเนื่องจนท าให้การด าเนินงานด้านการประกันคุณภาพการศึกษาภายในของหลักสูตรวิศวกรรมศาสตรบัณฑิตสาขาวิชาวิศวกรรมคอมพิวเตอร์คณะเทคโนโลยีอุตสาหกรรมมหาวิทยาลัยราชภัฏสวนสุนันทา สำเร็จไปได้ด้วยดี
-        '/>
+        <InputTextarea 
+        autoResize 
+        rows={4} 
+        cols={80}  
+        value={dataTqf7_0.คำนำ} 
+        onChange={(e)=> handleChange(e, 'คำนำ')}
+        />
         </div>
         {/***********************************************/}
-        <span>ลงชื่อ</span>
+        <label>ลงชื่อ</label>
         {/***********************************************/}
         <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                  <InputTextarea autoResize rows={4} cols={80}  value='อาจารย์ ผศ.ดร.รวิ อุตตมธนินทร์ประธานหลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์วันที่ 31 กรกฎาคม พ.ศ. 2564'/>
+        <InputTextarea 
+        autoResize 
+        rows={4} 
+        cols={80}  
+        value={dataTqf7_0.ลงชื่อคำนำ}
+        onChange={(e)=> handleChange(e, 'ลงชื่อคำนำ')}
+        />
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
       <Panel header="ประวัติความเป็นมาของหลักสูตร">
         {/***********************************************/}
         <div style={{ display: 'flex', alignItems: 'flex-start' }}>
-                  <InputTextarea autoResize rows={4} cols={80}  value='' />
+          <InputTextarea 
+          autoResize 
+          rows={4} 
+          cols={80}  
+          value={dataTqf7_0.ประวัติความเป็นมาของหลักสูตร}
+          onChange={(e)=> handleChange(e, 'ประวัติความเป็นมาของหลักสูตร')}
+        />
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
       <Panel header="ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา">
         {/***********************************************/}
         <div>
-          ต้องเป็นตาราง ขก. อยู่
+          <table className='TA'>
+            <thead>
+              <tr>
+                <th className='TH'>จุดแข็ง แนวทางเสริมจุดแข็ง จุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ ปีการศึกษา 2564</th>
+                <th className='TH'>องค์ประกอบ/ตัวบ่งชี้/เกณฑ์การประเมิน</th>
+                <th className='TH'>การดำเนินการ/กิจกรรม/โครงการ</th>
+                <th className='TH'>ผลการดำเนินงาน</th>
+              </tr>
+            </thead>
+            <tbody>
+            องค์ประกอบที่ 1 การกำกับมาตรฐาน
+              <tr>
+                <td className='TD'><InputTextarea value = {dataTqf7_0.จุดแข็งองค์ประกอบ1_1} onChange={(e) => handleChange(e, 'จุดแข็งองค์ประกอบ1_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea value = {dataTqf7_0.องค์ประกอบเกณฑ์การประเมิน1} onChange={(e) => handleChange(e, 'จุดแข็งองค์ประกอบ1_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea value = {dataTqf7_0.การดำเนินการโครงการ1} onChange={(e) => handleChange(e, 'จุดแข็งองค์ประกอบ1_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea value = {dataTqf7_0.ผลการดำเนินงาน1} onChange={(e) => handleChange(e, 'จุดแข็งองค์ประกอบ1_1')}></InputTextarea></td>
+              </tr>
+            องค์ประกอบที่ 2  บัณฑิต
+              <tr>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+              </tr>
+            องค์ประกอบที่ 3 นักศึกษา
+              <tr>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+              </tr>
+              <tr>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+              </tr>
+            องค์ประกอบที่ 4 อาจารย์
+              <tr>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+              </tr>
+              <tr>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+              </tr>
+            องค์ประกอบที่ 5 หลักสูตร การเรียนการสอน  การประเมินผู้เรียน
+              <tr>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+              </tr>
+              <tr>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+              </tr>
+              <tr>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+              </tr>
+              <tr>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+              </tr>
+            6. สิ่งสนับสนุนการเรียนรู้
+              <tr>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+                <td className='TD'><InputTextarea onChange={(e) => handleChange(e, '')}></InputTextarea></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         {/***********************************************/}
       </Panel>
+      <br/><br/>
+      <Button label="ยืนยัน" onClick={() => console.log("คลิกปุ่มยืนยัน")}/>
     </div>
   )
 }

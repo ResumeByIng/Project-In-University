@@ -5,3 +5,4 @@ npm install react-router-dom
 npm install primereact
 npm install primereact primeicons --save
 npm install moment
+npm install react-datepicker --save
