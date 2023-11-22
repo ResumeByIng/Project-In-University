@@ -182,7 +182,51 @@ function TQF7_2() {
     ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน : "5",
     คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน : "5",
     การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน : "บรรลุ",
-
+    การคงอยู่ของอาจารย์ประจำหลักสูตร_2560 : "5",
+    การคงอยู่ของอาจารย์ประจำหลักสูตร_2561 : "5",
+    การคงอยู่ของอาจารย์ประจำหลักสูตร_2562 : "5",
+    การคงอยู่ของอาจารย์ประจำหลักสูตร_2563 : "5",
+    การคงอยู่ของอาจารย์ประจำหลักสูตร_2564 : "5",
+    ความพึงพอใจของอาจารย์ประจำหลักสูตร_2560 : "4.78",
+    ความพึงพอใจของอาจารย์ประจำหลักสูตร_2561 : "4.85",
+    ความพึงพอใจของอาจารย์ประจำหลักสูตร_2562 : "4.86",
+    ความพึงพอใจของอาจารย์ประจำหลักสูตร_2563 : "4.87",
+    ความพึงพอใจของอาจารย์ประจำหลักสูตร_2564 : "4.88",
+    การคงอยู่ของอาจารย์_เรื่องย่อ : "ในปีการศึกษา 2562 อัตราการคงอยู่ของอาจารย์คิดเป็น ร้อยละ 100 ซึ่งสามารถแสดงผลอัตราการคงอยู่ ของอาจารย์ประจําหลักสูตรรายปีได้ ดังนี้",
+    รายชื่ออาจารย์ประจำหลักสูตร_1 : "นายรวิ อุตตมธนินทร์",
+    รายชื่ออาจารย์ประจำหลักสูตร_2 : "นายอภิสิทธิ์ รัตนาตรานุรักษ์",
+    รายชื่ออาจารย์ประจำหลักสูตร_3 : "นายเศรษฐกาล โปร่งนุช",
+    รายชื่ออาจารย์ประจำหลักสูตร_4 : "นางสาวขวัญเรือน รัศมี",
+    รายชื่ออาจารย์ประจำหลักสูตร_5 : "นางสาววรณัน วรมงคล",
+    รายชื่ออาจารย์ประจำหลักสูตร_6 : "นายพรภวิษย์ บุญศรีเมือง",
+    รายชื่ออาจารย์ประจำหลักสูตร_7 : "นางกัลยณัฏฐ์ กุหลาบเพ็ชรทอง",
+    คงอยู่1 : "",
+    คงอยู่2 : "",
+    คงอยู่3 : "",
+    เกษียณ1 : "",
+    เกษียณ2 : "",
+    เกษียณ3 : "",
+    ออกจากสาขา1 : "",
+    ออกจากสาขา2 : "",
+    ออกจากสาขา3 : "",
+    อัตราการคงอยู่ของอาจารย์ประจําหลักสูตรรายปี_รายละเอียด : "ปี 2564 	มีอาจารย์ลาออก 1 ท่าน และ ย้ายสาขา 1 ท่าน และได้หาอาจารย์ใหม่มาทดแทนจำนวน 2 ท่าน ทำให้สาขายังคงมีอาจารย์ทั้งหมด 5 ท่าน คิดเป็นอัตราร้อยละ 100 ปี 2563 ไม่มีอาจารย์ลาออก คิดเป็นอัตราร้อยละ 100 ปี 2562 ไม่มีอาจารย์ลาออก คิดเป็นอัตราร้อยละ 100 ปี 2561 ไม่มีอาจารย์ลาออก คิดเป็นอัตราร้อยละ 100",
+    ความพึงพอใจอาจารย์1 : "	หลักเกณฑ์การแปลผลคะแนนมีหลักเกณฑ์ดังนี้ ค่าเฉลี่ย 4.50 – 5.00 หมายความว่า มีระดับความพึงพอใจมากที่สุด ค่าเฉลี่ย 3.50 – 4.49 หมายความว่า มีระดับความพึงพอใจมาก ค่าเฉลี่ย 2.50 – 3.49 หมายความว่า มีระดับความพึงพอใจปานกลาง ค่าเฉลี่ย 1.50 – 2.49 หมายความว่า มีระดับความพึงพอใจน้อย ค่าเฉลี่ย 1.00 – 1.49 หมายความว่า มีระดับความพึงพอใจน้อยที่สุด ความพึงพอใจของอาจารย์ ต่อการบริหารหลักสูตรในปีการศึกษา 2564 โดยประเมินจากอาจารย์ประจําหลักสูตรทั้ง 5 คน มีค่าคะแนนเฉลี่ยในแต่ละปี ดังนี้ ปี 2564  คะแนนเฉลี่ยความพึงพอใจ รวม 4.88 อยู่ในระดับความพึงพอใจมากที่สุด ปี 2563  คะแนนเฉลี่ยความพึงพอใจ รวม 4.87 อยู่ในระดับความพึงพอใจมากที่สุด อาจารย์เข้าร่วมการบริหารงานร้อยละ 100 ปี 2562  คะแนนเฉลี่ยความพึงพอใจ รวม 4.86 อยู่ในระดับความพึงพอใจมากที่สุด อาจารย์เข้าร่วมการบริหารงานร้อยละ 100 ปี 2561  คะแนนเฉลี่ยความพึงพอใจ รวม 4.85 อยู่ในระดับความพึงพอใจมากที่สุด อาจารย์เข้าร่วมการบริหารงานร้อยละ 100 ",
+    เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน : "ระดับ 3",
+    ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน : "4",
+    คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน : "4",
+    การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน : "บรรลุ",
+    รหัสเอกสาร_รายการหลักฐานอ้างอิง : "B.ENG 4.3-1-01",
+    รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง : "ค่าคะแนนเฉลี่ยความพึงพอใจของอาจารย์ 4.88",
+    ผลการดำเนินงาน_การบริหารและพัฒนาอาจารย์ประจำหลักสูตร : "ระดับ 3",
+    คะแนนการประเมินตนเอง_การบริหารและพัฒนาอาจารย์ประจำหลักสูตร : "3 คะแนน",
+    ผลการดำเนินงาน_คุณภาพอาจารย์ประจำหลักสูตร : "5 คะแนน 5 = (5+5+5)/3",
+    คะแนนการประเมินตนเอง_คุณภาพอาจารย์ประจำหลักสูตร : "5 คะแนน",
+    ผลการดำเนินงาน_ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก : "ร้อยละ 60 (5 คะแนน)",
+    คะแนนการประเมินตนเอง_ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก : "",
+    ผลการดำเนินงาน_ร้อยละของอาจารย์ประจําหลักสูตรที่ดํารงตําแหน่งทางวิชาการ : "ร้อยละ 40 (5 คะแนน)",
+    คะแนนการประเมินตนเอง_ร้อยละของอาจารย์ประจําหลักสูตรที่ดํารงตําแหน่งทางวิชาการ : "",
+    ผลการดำเนินงาน_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร : "ร้อยละ 120 (5 คะแนน)",
+    คะแนนการประเมินตนเอง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร : "",
   });
 
   const handleChange = (event, property) => {
@@ -758,18 +802,235 @@ function TQF7_2() {
       {/***********************************************/}
       <Panel header="ผลที่เกิดกับอาจารย์ประจําหลักสูตร">
         <div>
-            <span>*เดี๋ยวกลับมาทำ*เป็นตาราง.ข้อมูลพื้นฐานประกอบผลการดำเนินงาน</span><br/><br/>
-            <span>*เดี๋ยวกลับมาทำ*เป็นตาราง.ผลการดำเนินการ</span><br/><br/>
-            <span>ความพึงพอใจของอาจารย์</span>
-            <InputTextarea value='{ความพึงพอใจของอาจารย์}'/>
-            <span>*เดี๋ยวกลับมาทำ*เป็นตาราง.การประเมินตนเองจากผลการดำเนินงาน</span>
-            <span>*เดี๋ยวกลับมาทำ*เป็นตาราง.รายการหลักฐานอ้างอิง</span>
+          <table className='TA'>
+            <thead>
+              <tr>
+                <th className='TH' rowspan = "2">ตัวบ่งชี้ย่อย</th>
+                <th className='TH' colspan = "5">ปีการศึกษา</th>
+              </tr>
+              <tr>
+                <th>2560</th>
+                <th>2561</th>
+                <th>2562</th>
+                <th>2563</th>
+                <th>2564</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td className='TD'>การคงอยู่ของอาจารย์ประจำหลักสูตร</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.การคงอยู่ของอาจารย์ประจำหลักสูตร_2560} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.การคงอยู่ของอาจารย์ประจำหลักสูตร_2561} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.การคงอยู่ของอาจารย์ประจำหลักสูตร_2562} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.การคงอยู่ของอาจารย์ประจำหลักสูตร_2563} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.การคงอยู่ของอาจารย์ประจำหลักสูตร_2564} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>ความพึงพอใจของอาจารย์ประจำหลักสูตร</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ความพึงพอใจของอาจารย์ประจำหลักสูตร_2560} onChange={(e) => handleChange(e, 'ความพึงพอใจของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ความพึงพอใจของอาจารย์ประจำหลักสูตร_2561} onChange={(e) => handleChange(e, 'ความพึงพอใจของอาจารย์ประจำหลักสูตร_2561')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ความพึงพอใจของอาจารย์ประจำหลักสูตร_2562} onChange={(e) => handleChange(e, 'ความพึงพอใจของอาจารย์ประจำหลักสูตร_2562')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ความพึงพอใจของอาจารย์ประจำหลักสูตร_2563} onChange={(e) => handleChange(e, 'ความพึงพอใจของอาจารย์ประจำหลักสูตร_2563')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ความพึงพอใจของอาจารย์ประจำหลักสูตร_2564} onChange={(e) => handleChange(e, 'ความพึงพอใจของอาจารย์ประจำหลักสูตร_2564')}></InputText></td>
+              </tr>
+            </tbody>
+          </table><br/><br/>
+
+            <span>ผลการดำเนินการ</span><br/>
+            <span>4.3.1 การคงอยู่ของอาจารย์</span><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_2.การคงอยู่ของอาจารย์_เรื่องย่อ}/><br/><br/>
+            <span>ตารางที่ 4 อัตราการคงอยู่ของอาจารย์ประจําหลักสูตรรายปี</span><br/><br/>
+            <table className='TA'>
+            <thead>
+              <tr>
+                <th className='TH' rowspan = "3">รายชื่ออาจารย์ประจำหลักสูตร</th>
+                <th className='TH' colspan = "3">ปี พ.ศ. ที่เข้ามาเป็นอาจารย์หลักสูตร</th>
+              </tr>
+              <tr>
+                <th colspan="3">2562</th>
+                <th colspan="3">2563</th>
+                <th colspan="3">2564</th>
+              </tr>
+              <tr>
+                <th>คงอยู่</th>
+                <th>เกษียณ</th>
+                <th>ออกจากสาขา</th>
+                <th>คงอยู่</th>
+                <th>เกษียณ</th>
+                <th>ออกจากสาขา</th>
+                <th>คงอยู่</th>
+                <th>เกษียณ</th>
+                <th>ออกจากสาขา</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td className='TD'>{dataTqf7_2.รายชื่ออาจารย์ประจำหลักสูตร_1}</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่1} onChange={(e) => handleChange(e, 'คงอยู่1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ1} onChange={(e) => handleChange(e, 'เกษียณ1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา1} onChange={(e) => handleChange(e, 'ออกจากสาขา1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่2} onChange={(e) => handleChange(e, 'คงอยู่2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ2} onChange={(e) => handleChange(e, 'เกษียณ2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา2} onChange={(e) => handleChange(e, 'ออกจากสาขา2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่3} onChange={(e) => handleChange(e, 'คงอยู่3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ3} onChange={(e) => handleChange(e, 'เกษียณ3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา3} onChange={(e) => handleChange(e, 'ออกจากสาขา3')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>{dataTqf7_2.รายชื่ออาจารย์ประจำหลักสูตร_2}</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่1} onChange={(e) => handleChange(e, 'คงอยู่1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ1} onChange={(e) => handleChange(e, 'เกษียณ1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา1} onChange={(e) => handleChange(e, 'ออกจากสาขา1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่2} onChange={(e) => handleChange(e, 'คงอยู่2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ2} onChange={(e) => handleChange(e, 'เกษียณ2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา2} onChange={(e) => handleChange(e, 'ออกจากสาขา2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่3} onChange={(e) => handleChange(e, 'คงอยู่3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ3} onChange={(e) => handleChange(e, 'เกษียณ3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา3} onChange={(e) => handleChange(e, 'ออกจากสาขา3')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>{dataTqf7_2.รายชื่ออาจารย์ประจำหลักสูตร_3}</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่1} onChange={(e) => handleChange(e, 'คงอยู่1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ1} onChange={(e) => handleChange(e, 'เกษียณ1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา1} onChange={(e) => handleChange(e, 'ออกจากสาขา1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่2} onChange={(e) => handleChange(e, 'คงอยู่2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ2} onChange={(e) => handleChange(e, 'เกษียณ2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา2} onChange={(e) => handleChange(e, 'ออกจากสาขา2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่3} onChange={(e) => handleChange(e, 'คงอยู่3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ3} onChange={(e) => handleChange(e, 'เกษียณ3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา3} onChange={(e) => handleChange(e, 'ออกจากสาขา3')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>{dataTqf7_2.รายชื่ออาจารย์ประจำหลักสูตร_4}</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่1} onChange={(e) => handleChange(e, 'คงอยู่1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ1} onChange={(e) => handleChange(e, 'เกษียณ1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา1} onChange={(e) => handleChange(e, 'ออกจากสาขา1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่2} onChange={(e) => handleChange(e, 'คงอยู่2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ2} onChange={(e) => handleChange(e, 'เกษียณ2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา2} onChange={(e) => handleChange(e, 'ออกจากสาขา2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่3} onChange={(e) => handleChange(e, 'คงอยู่3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ3} onChange={(e) => handleChange(e, 'เกษียณ3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา3} onChange={(e) => handleChange(e, 'ออกจากสาขา3')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>{dataTqf7_2.รายชื่ออาจารย์ประจำหลักสูตร_5}</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่1} onChange={(e) => handleChange(e, 'คงอยู่1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ1} onChange={(e) => handleChange(e, 'เกษียณ1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา1} onChange={(e) => handleChange(e, 'ออกจากสาขา1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่2} onChange={(e) => handleChange(e, 'คงอยู่2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ2} onChange={(e) => handleChange(e, 'เกษียณ2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา2} onChange={(e) => handleChange(e, 'ออกจากสาขา2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่3} onChange={(e) => handleChange(e, 'คงอยู่3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ3} onChange={(e) => handleChange(e, 'เกษียณ3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา3} onChange={(e) => handleChange(e, 'ออกจากสาขา3')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>{dataTqf7_2.รายชื่ออาจารย์ประจำหลักสูตร_6}</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่1} onChange={(e) => handleChange(e, 'คงอยู่1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ1} onChange={(e) => handleChange(e, 'เกษียณ1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา1} onChange={(e) => handleChange(e, 'ออกจากสาขา1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่2} onChange={(e) => handleChange(e, 'คงอยู่2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ2} onChange={(e) => handleChange(e, 'เกษียณ2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา2} onChange={(e) => handleChange(e, 'ออกจากสาขา2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่3} onChange={(e) => handleChange(e, 'คงอยู่3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ3} onChange={(e) => handleChange(e, 'เกษียณ3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา3} onChange={(e) => handleChange(e, 'ออกจากสาขา3')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>{dataTqf7_2.รายชื่ออาจารย์ประจำหลักสูตร_7}</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่1} onChange={(e) => handleChange(e, 'คงอยู่1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ1} onChange={(e) => handleChange(e, 'เกษียณ1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา1} onChange={(e) => handleChange(e, 'ออกจากสาขา1')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่2} onChange={(e) => handleChange(e, 'คงอยู่2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ2} onChange={(e) => handleChange(e, 'เกษียณ2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา2} onChange={(e) => handleChange(e, 'ออกจากสาขา2')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คงอยู่3} onChange={(e) => handleChange(e, 'คงอยู่3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.เกษียณ3} onChange={(e) => handleChange(e, 'เกษียณ3')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ออกจากสาขา3} onChange={(e) => handleChange(e, 'ออกจากสาขา3')}></InputText></td>
+              </tr>
+            </tbody>
+          </table>
+          <InputTextarea autoResize value={dataTqf7_2.อัตราการคงอยู่ของอาจารย์ประจําหลักสูตรรายปี_รายละเอียด}/><br/><br/>
+
+            <span>4.3.2 ความพึงพอใจของอาจารย์</span><br/><br/>
+            
+            <InputTextarea autoResize value={dataTqf7_2.ความพึงพอใจอาจารย์1}/><br/><br/>
+            <span>การประเมินตนเองจากผลการดำเนินงาน</span><br/><br/>
+            <table className='TA'>
+            <thead>
+              <tr>
+                <th className='TH'>เป้าหมาย</th>
+                <th className='TH'>ผลการดำเนินงาน</th>
+                <th className='TH'>คะแนนการประเมินตนเอง</th>
+                <th className='TH'>การบรรลุเป้าหมาย</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td className='TD'><InputText  value = {dataTqf7_2.เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              </tr>
+            </tbody>
+          </table><br/><br/>
+            <span>รายการหลักฐานอ้างอิง</span><br/><br/>
+            <table className='TA'>
+            <thead>
+              <tr>
+                <th className='TH'>รหัสเอกสาร</th>
+                <th className='TH'>รายการเอกสารหลักฐาน</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td className='TD'><InputText  value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              <td className='TD'><InputTextarea autoResize  value = {dataTqf7_2.รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputTextarea></td>
+              </tr>
+            </tbody>
+          </table><br/><br/>
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
       <Panel header="สรุปผลการประเมินตนเอง">
         <div>
-            <span>*เดี๋ยวกลับมาทำ*เป็นตาราง.อาจารย์ประจำหลักสูตร</span>
+            <span>องค์ประกอบที่ 4 อาจารย์ประจำหลักสูตร</span>
+            <table className='TA'>
+            <thead>
+              <tr>
+                <th className='TH'>ตัวบ่งชี้้ที่</th>
+                <th className='TH'>ผลการดำเนินงาน</th>
+                <th className='TH'>คะแนนการประเมินตนเอง</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td className='TD'>ตัวบ่งชี้ที่ 4.1 การบริหารและพัฒนาอาจารย์ประจำหลักสูตร</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ผลการดำเนินงาน_การบริหารและพัฒนาอาจารย์ประจำหลักสูตร} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารและพัฒนาอาจารย์ประจำหลักสูตร')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คะแนนการประเมินตนเอง_การบริหารและพัฒนาอาจารย์ประจำหลักสูตร} onChange={(e) => handleChange(e, 'คะแนนการประเมินตนเอง_การบริหารและพัฒนาอาจารย์ประจำหลักสูตร')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>ตัวบ่งชี้ที่ 4.2 คุณภาพอาจารย์ประจำหลักสูตร</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ผลการดำเนินงาน_คุณภาพอาจารย์ประจำหลักสูตร} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_คุณภาพอาจารย์ประจำหลักสูตร')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คะแนนการประเมินตนเอง_คุณภาพอาจารย์ประจำหลักสูตร} onChange={(e) => handleChange(e, 'คะแนนการประเมินตนเอง_คุณภาพอาจารย์ประจำหลักสูตร')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>ประเด็นที่ 4.2.1 ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ผลการดำเนินงาน_ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คะแนนการประเมินตนเอง_ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก} onChange={(e) => handleChange(e, 'คะแนนการประเมินตนเอง_ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>ประเด็นที่ 4.2.2 ร้อยละของอาจารย์ประจําหลักสูตรที่ดํารงตําแหน่งทางวิชาการ</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ผลการดำเนินงาน_ร้อยละของอาจารย์ประจําหลักสูตรที่ดํารงตําแหน่งทางวิชาการ} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_ร้อยละของอาจารย์ประจําหลักสูตรที่ดํารงตําแหน่งทางวิชาการ')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คะแนนการประเมินตนเอง_ร้อยละของอาจารย์ประจําหลักสูตรที่ดํารงตําแหน่งทางวิชาการ} onChange={(e) => handleChange(e, 'คะแนนการประเมินตนเอง_ร้อยละของอาจารย์ประจําหลักสูตรที่ดํารงตําแหน่งทางวิชาการ')}></InputText></td>
+              </tr>
+              <tr>
+              <td className='TD'>ประเด็นที่ 4.2.3 ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร</td>
+              <td className='TD'><InputText  value = {dataTqf7_2.ผลการดำเนินงาน_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร')}></InputText></td>
+              <td className='TD'><InputText  value = {dataTqf7_2.คะแนนการประเมินตนเอง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร} onChange={(e) => handleChange(e, 'คะแนนการประเมินตนเอง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร')}></InputText></td>
+              </tr>
+            </tbody>
+          </table><br/><br/>
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
@@ -777,5 +1038,4 @@ function TQF7_2() {
     </div>
   )
 }
-
 export default TQF7_2
