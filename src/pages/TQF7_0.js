@@ -11,7 +11,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import 'react-datepicker/dist/react-datepicker.css';
-
+import { ScrollPanel } from 'primereact/scrollpanel';
 import TQF7_0123 from '../data/TQF1-2-3';
 
 
@@ -129,76 +129,93 @@ function TQF7_0() {
     setSelectedDate(date);
   };
   return (
-    <div>
+    <div style={{ width: '100%',marginLeft: '10px'}}>
+      <ScrollPanel style={{ width: '100%', height: '875px' }}>
       <Panel header="สร้างผลการดำเนินงาน">
         {/***********************************************/}
-        <div className="field col-12 md:col-4">
+      <div className="field col-12 md:col-4">
+        <div style={{ marginBottom: '10px' }}>
           <label>เริ่มวันที่</label>
           <InputText
           value={dataTqf7_0.เริ่มวันที่}
           onChange={(e) => handleChange(e, 'เริ่มวันที่')}
+          style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
           />
           <label>ถึงวันที่</label>
           <InputText
           value={dataTqf7_0.สิ้นสุดวันที่}
           onChange={(e) => handleChange(e, 'สิ้นสุดวันที่')}
+          style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
           />
         </div>
+       </div>
         <br/>
         {/***********************************************/}
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           <label>ประจำปีการศึกษา</label>
           <InputText
           value={dataTqf7_0.ประจำปีการศึกษา} 
-          onChange={(e) => handleChange(e, 'ประจำปีการศึกษา')} />
+          onChange={(e) => handleChange(e, 'ประจำปีการศึกษา')} 
+          style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
+          />
+          
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
       <Panel header="เลือกหลักสูตร">
         {/***********************************************/}
-        <div>
+        <div style={{ marginBottom: '20px' }}>
           <span>ชื่อหลักสูตร(ภาษาไทย)</span>
           <InputText
           value={dataTqf7_0.ชื่อหลักสูตรภาษาไทย} 
-          onChange={(e) => handleChange(e, 'ชื่อหลักสูตรภาษาไทย')} />
+          onChange={(e) => handleChange(e, 'ชื่อหลักสูตรภาษาไทย')} 
+          style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
+          />
           
           <span>หลักสูตรปรับปรุงปี</span>
           <InputText
           value={dataTqf7_0.หลักสูตรปรับปรุง} 
-          onChange={(e) => handleChange(e, 'หลักสูตรปรับปรุง')} />
+          onChange={(e) => handleChange(e, 'หลักสูตรปรับปรุง')} 
+          style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
+          />
         </div>
         {/***********************************************/}
-        <div>
+        <div style={{ marginBottom: '20px' }}>
           <span>ชื่อหลักสูตร(ภาษาอังกฤษ)</span>
           <InputText 
           value={dataTqf7_0.ชื่อหลักสูตรภาษาอังกฤษ}
           onChange={(e)=> handleChange(e, 'ชื่อหลักสูตรภาษาอังกฤษ')}
+          style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
           />
           <span>ชื่อย่อ</span>
           <InputText
            value={dataTqf7_0.ชื่อหลักสูตรย่อ}
            onChange={(e)=> handleChange(e, 'ชื่อหลักสูตรย่อ')}
+           style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
           />
         </div>
         {/***********************************************/}
-        <div>
+        <div style={{ marginBottom: '20px' }}>
           <span>คณะ</span>
           <InputText 
           value={dataTqf7_0.คณะ}
           onChange={(e)=> handleChange(e, 'คณะ')}
+          style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
           />
           <span>มหาวิทยาลัย</span>
           <InputText 
           value={dataTqf7_0.มหาวิทยาลัย}
           onChange={(e)=> handleChange(e, 'มหาวิทยาลัย')}
+          style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
           />
         </div>
         {/***********************************************/}
-        <div>
+        <div style={{ marginBottom: '20px' }}>
           <span>ปีเกณฑ์มาตรฐานหลักสูตร</span>
           <InputText
           value={dataTqf7_0.ปีเกณฑ์มาตรฐานหลักสูตร}
           onChange={(e)=> handleChange(e, 'ปีเกณฑ์มาตรฐานหลักสูตร')}
+          style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
           />
         </div>
         {/***********************************************/}
@@ -278,7 +295,7 @@ function TQF7_0() {
       </Panel><br/><br/>
       <Panel header="คำนำ">
         {/***********************************************/}
-        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start',marginBottom: '20px' }}>
         <span>คำนำ</span>
         <InputTextarea 
         autoResize 
@@ -286,18 +303,18 @@ function TQF7_0() {
         cols={80}  
         value={dataTqf7_0.คำนำ} 
         onChange={(e)=> handleChange(e, 'คำนำ')}
+        style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
         />
         </div>
-        {/***********************************************/}
+        <div style={{ display: 'flex', alignItems: 'flex-start',marginBottom: '20px' }}>
         <label>ลงชื่อ</label>
-        {/***********************************************/}
-        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
         <InputTextarea 
         autoResize 
         rows={4} 
         cols={80}  
         value={dataTqf7_0.ลงชื่อคำนำ}
         onChange={(e)=> handleChange(e, 'ลงชื่อคำนำ')}
+        style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
         />
         </div>
         {/***********************************************/}
@@ -405,8 +422,9 @@ function TQF7_0() {
         </div>
         {/***********************************************/}
       </Panel>
+      </ScrollPanel>
       <br/><br/>
-      <Button label="ยืนยัน" onClick={() => console.log("คลิกปุ่มยืนยัน")}/>
+      <Button style={{ marginLeft: '50%' }}label="ยืนยัน" onClick={() => console.log("คลิกปุ่มยืนยัน")}/>
     </div>
   )
 }

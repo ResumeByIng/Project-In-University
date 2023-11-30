@@ -6,6 +6,7 @@ import 'primeicons/primeicons.css';
 import { Panel } from 'primereact/panel';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { InputText } from 'primereact/inputtext';
+import { ScrollPanel } from 'primereact/scrollpanel';
 
 function TQF7_1() {
 
@@ -27,7 +28,7 @@ function TQF7_1() {
       หมายเหตุ8:"",
       หมายเหตุ9:"",
       หมายเหตุ10:"",
-      หมายเหตุ11:"เปลี่ยนชื่อ-สกุล",
+      หมายเหตุ11:"เปลี่ยนชื่อ-นามสกุล",
       หมายเหตุ12:"",
       //คุณวุฒิอาจารย์ผู้รับผิดชอบหลักสูตร
       ชื่อ_นามสกุล1 : "นายรวิ อุตตมธนินทร",
@@ -68,9 +69,9 @@ function TQF7_1() {
       เกณฑ์การประเมิน4 : "4.คุณสมบัติอาจารย์ผู้สอน",
       เกณฑ์การประเมิน5 : "5.การปรับปรุงหลักสูตรตามรอบระยะเวลาที่กำหนด",
       ผลการดำเนินงาน7 : "ในปีการศึกษา 2564 หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์ มีอาจารย์ผู้รับผิดชอบหลักสูตรตลอดระยะเวลาที่จัดการศึกษาทั้ง 5 คน",
-      ผลการดำเนินงาน8 : "อาจารย์ผู้รับผิดชอบหลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์ มีคุณวุฒิและต าแหน่งทางวิชาการ ดังนี้ 1.อาจารย์ดร.รวิ อุตตมธนินทร์ คุณวุฒิ - วศ.ด. (วิศวกรรมไฟฟ้า สาขาย่อยวิศวกรรมคอมพิวเตอร์) มหาวิทยาลัยเทคโนโลยีมหานคร พ.ศ. 2557 - วศ.ม.(วิศวกรรมไฟฟ้า สาขาย่อยวิศวกรรมคอมพิวเตอร์) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ. 2541 - วศ.บ. (วิศวกรรมคอมพิวเตอร์)สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ. 2533 2. รองศาสตราจารย์ดร.กัลยณัฏฐ์กุหลาบเพ็ชรทอง คุณวุฒิ - ปร.ด.(เทคโนโลยีสารสนเทศ(นานาชาติ))มหาวิทยาลัยเทคโนโลยีพระจอมเกล้า พระนครเหนือพศ. 2555 - วท.ม.(วิทยาการคอมพิวเตอร์)สถาบันบัณฑิตพัฒนบริหารศาสตร์ พศ. 2540 - บธ.บ(คอมพิวเตอร์ธุรกิจ)มหาวิทยาลัยธุรกิจบัณฑิตย์พศ. 2535 1. ผู้ช่วยศาสตราจารย์ดร.พรภวิษย์ บุญศรีเมือง คุณวุฒิ Ph.D. (Communication EngineeringMie University , Japan2013 วศ.ม. (วิศวกรรมโทรคมนาคม)สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ. 2550 วศ.บ. (วิศวกรรมโทรคมนาคมสถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ. 2546 2. ผู้ช่วยศาสตราจารย์ขวัญเรือน รัศมี คุณวุฒิ - วศ.ม. (วิศวกรรมสารสนเทศ)สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ. 2558 - บธ.ม. (การจัดการทั่วไป)มหาวิทยาลัยราชภัฏพระนคร พ.ศ. 2547 - วศ.บ.(วิศวกรรมคอมพิวเตอร์)มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรีพ.ศ. 2545 3. นางสาววรณัน วรมงคล (เปลี่ยนชื่อและนามสกุล)คุณวุฒิ - วท.ม.(วิทยาการคอมพิวเตอร์)สถาบันบัณฑิตพัฒนบริหารศาสตร์ พ.ศ. 2542 - วท.บ. (สถิติประยุกต์) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ.2535",
-      ผลการดำเนินงาน9 : "อาจารย์ประจำหลักสูตรทุกคนมีคุณวุฒิไม่ต ่ากว่าระดับปริญญาโทหรือเทียบเท่าหรือดำรงตำแหน่งทางวิชาการไม่ต่ำกว่าผู้ช่วยศาสตราจารย์ ในสาขาที่ตรงหรือสัมพันธ์กับสาขาวิชาที่เปิดสอน และมีผลงานทางวิชาการอย่างน้อย 1รายการในรอบ 5 ปีย้อนหลัง",
-      ผลการดำเนินงาน10 : "4.1 อาจารย์ผู้สอนทุกคนเป็นอาจารย์ประจ าที่มีคุณวุฒิระดับปริญญาโทหรือเทียบเท่าหรือดำรงตำแหน่งทางวิชาการไม่ต่ำกว่าผู้ช่วยศาสตราจารย์ ในสาขาวิชา หรือสาขาวิชาที่สัมพันธ์กัน หรือสาขาวิชาของรายวิชาที่สอน 4.2อาจารย์พิเศษทุกคน มีคุณวุฒิระดับปริญญาโท หรือเทียบเท่า และมีประสบการณ์ทำงานที่เกี่ยวข้องกับวิชาที่สอนไม่น้อยกว่า 6 ปี ทั้งนี้มีชั่วโมงสอนไม่เกินร้อยละ 50 ของรายวิชา โดยมีอาจารย์ประจำเป็นผู้รับผิดชอบรายวิชา นั้น",
+      ผลการดำเนินงาน8 : "อาจารย์ผู้รับผิดชอบหลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์ มีคุณวุฒิและตำแหน่งทางวิชาการ ดังนี้ 1.อาจารย์ดร.รวิ อุตตมธนินทร์ คุณวุฒิ - วศ.ด. (วิศวกรรมไฟฟ้า สาขาย่อยวิศวกรรมคอมพิวเตอร์) มหาวิทยาลัยเทคโนโลยีมหานคร พ.ศ. 2557 - วศ.ม.(วิศวกรรมไฟฟ้า สาขาย่อยวิศวกรรมคอมพิวเตอร์) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ. 2541 - วศ.บ. (วิศวกรรมคอมพิวเตอร์)สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ. 2533 2. รองศาสตราจารย์ดร.กัลยณัฏฐ์กุหลาบเพ็ชรทอง คุณวุฒิ - ปร.ด.(เทคโนโลยีสารสนเทศ(นานาชาติ))มหาวิทยาลัยเทคโนโลยีพระจอมเกล้า พระนครเหนือพศ. 2555 - วท.ม.(วิทยาการคอมพิวเตอร์)สถาบันบัณฑิตพัฒนบริหารศาสตร์ พศ. 2540 - บธ.บ(คอมพิวเตอร์ธุรกิจ)มหาวิทยาลัยธุรกิจบัณฑิตย์พศ. 2535 1. ผู้ช่วยศาสตราจารย์ดร.พรภวิษย์ บุญศรีเมือง คุณวุฒิ Ph.D. (Communication EngineeringMie University , Japan2013 วศ.ม. (วิศวกรรมโทรคมนาคม)สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ. 2550 วศ.บ. (วิศวกรรมโทรคมนาคมสถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ. 2546 2. ผู้ช่วยศาสตราจารย์ขวัญเรือน รัศมี คุณวุฒิ - วศ.ม. (วิศวกรรมสารสนเทศ)สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ. 2558 - บธ.ม. (การจัดการทั่วไป)มหาวิทยาลัยราชภัฏพระนคร พ.ศ. 2547 - วศ.บ.(วิศวกรรมคอมพิวเตอร์)มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรีพ.ศ. 2545 3. นางสาววรณัน วรมงคล (เปลี่ยนชื่อและนามสกุล)คุณวุฒิ - วท.ม.(วิทยาการคอมพิวเตอร์)สถาบันบัณฑิตพัฒนบริหารศาสตร์ พ.ศ. 2542 - วท.บ. (สถิติประยุกต์) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง พ.ศ.2535",
+      ผลการดำเนินงาน9 : "อาจารย์ประจำหลักสูตรทุกคนมีคุณวุฒิไม่ต่ำกว่าระดับปริญญาโทหรือเทียบเท่าหรือดำรงตำแหน่งทางวิชาการไม่ต่ำกว่าผู้ช่วยศาสตราจารย์ ในสาขาที่ตรงหรือสัมพันธ์กับสาขาวิชาที่เปิดสอน และมีผลงานทางวิชาการอย่างน้อย 1รายการในรอบ 5 ปีย้อนหลัง",
+      ผลการดำเนินงาน10 : "4.1 อาจารย์ผู้สอนทุกคนเป็นอาจารย์ประจำที่มีคุณวุฒิระดับปริญญาโทหรือเทียบเท่าหรือดำรงตำแหน่งทางวิชาการไม่ต่ำกว่าผู้ช่วยศาสตราจารย์ ในสาขาวิชา หรือสาขาวิชาที่สัมพันธ์กัน หรือสาขาวิชาของรายวิชาที่สอน 4.2อาจารย์พิเศษทุกคน มีคุณวุฒิระดับปริญญาโท หรือเทียบเท่า และมีประสบการณ์ทำงานที่เกี่ยวข้องกับวิชาที่สอนไม่น้อยกว่า 6 ปี ทั้งนี้มีชั่วโมงสอนไม่เกินร้อยละ 50 ของรายวิชา โดยมีอาจารย์ประจำเป็นผู้รับผิดชอบรายวิชา นั้น",
       ผลการดำเนินงาน11 : "หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์เป็นหลักสูตรปรับปรุง พ.ศ. 2563 ซึ่งจะครบรอบการปรับปรุงหลักสูตรในพ.ศ. 2568 ปัจจุบันมีนักศึกษาก าลังศึกษาในชั้นปีที่ 1-4",
       เอกสารหลักฐาน1 : "B.ENG 1.1-1-02 สมอ 08",
       เอกสารหลักฐาน2 : "ผลงานทางวิชาการ อาจารย์ดร.รวิ อตุ ตมธนินทร์ Boonsrimuang. P., Uttamatanin. R., Intawichai.K., & Boonsrimaung P. (2018).Performance Evaluation on Sub-optimum Algorithm for Trellis-based SLM in FBMC-OQAM System.Proceedings of 96th The IRES InternationalConference, Amsterdam, Netherlands, pp 1-4,Jan. 9-10, 2018.ผลงานทางวิชาการ รองศาสตราจารย์ดร.กัลยณัฏฐ์กุหลาบเพ็ชรทอง HPFs filtering solutionsfor reduced the harmonic current generated by SMPS and ac drive systems K.Kularbphettonga , C. Boonsengb,* Energy Reports (Q1) Volume 6,Supplement 2, February 2020, Pages 648-658 Failure Analysis and Investigation of Electrical Insulation of 10 MVA Oil-Type TransformersDamaged due to Direct Lightning Strikes Boonseng, C., Kammaroeng, D., Kularbphettong,K.23rd International Conference on Electrical Machinesand Systems, ICEMS 2020this link is disabled, 2020, pp. 1358–1363, 9291069 ผลงานทางวิชาการ ผู้ช่วยศาสตราจารย์ดร.พรภวิษย ์บุญศรีเมืองBoonsrimuang. P., Narongrat. N., Thitinaruemit.A., Uttamatanin. R. & Nakyoy, T. (2019). Study on PAPR Reduction Performance of IPTS for FBMCSignals in the Non-Linear Channel, Proceedings of the International Academic Multidisciplinary Research Conference, Switzerland, December23-24, 2019. pp.52-59. Boonsrimuang. P., Uttamatanin. R., Intawichai.K., & Boonsrimuang. P. (2018). Performance Evaluation on Sub-optimumAlgorithm for Trellis-Based SLM in FBMC-OQAM System, Proceedings of the IRES International Conference, Netherlands, January 9-10, 2018. pp114-117.ผลงานทางวิชาการผู้ช่วยศาสตราจารย์ขวัญเรือน รัศมี ขวัญเรือน รัศมี. (2562).การจำแนกหมวดหมู่ภาพผลไม้ด้วยคุณลักษณะรูปร่างในอุตสาหกรรมส่งออก. การประชุมระดับชาติราชภัฏหมู่บ้านจอมบึง วิจัยบูรณาการศาสตร์พัฒนาชาติก้าวไกลสังคมไทยยั่งยืน ครั้งที่7 มหาวิทยาลัยราชภัฏหมู่บ้านจอมบึง. หน้า 91-98. มีนาคม 2562 ผลงานทางวิชาการนางสาววรณัน วรมงคล สุชาดา สิทธิ์จงสถาพรและธนภรณ์ พันธุปรีชารัตน์. (2561). การคำนวณหาความยาวของท่ออบแห้งแบบหมุนในงานอุตสาหกรรมโดยการวิเคราะห์ความไวที่ใช้พารามิเตอร์.วารสารวิชาการคณะเทคโนโลยีอุตสาหกรรม: มหาวิทยาลัยราชภัฏสวนสุนันทา, 6(2) กรกฎาคม-ธันวาคม. 2561, หน้า 81-91",
@@ -88,16 +89,23 @@ function TQF7_1() {
     };
   
       return (
-        <div>
+        <div style={{ width: '100%',marginLeft: '10px' }}>
+            <ScrollPanel style={{ width: '100%', height: '950px' }}>
             <Panel header="รหัสหลักสูตร">
             {/***********************************************/}
-            <div>
+            <div style={{ marginBottom: '10px' }}>
                 <span>รหัสหลักสูตร</span>
-                <InputText value={dataTqf7_1.รหัสหลักสูตร}/><br/><br/>
+                <InputText value={dataTqf7_1.รหัสหลักสูตร} 
+                style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
+                /><br/><br/>
                 <span>วัตถุประสงค์ของหลักสูตร</span>
-                <InputTextarea value={dataTqf7_1.วัตถุประสงค์ของหลักสูตร}/><br/><br/>
+                <InputTextarea value={dataTqf7_1.วัตถุประสงค์ของหลักสูตร}
+                style={{ display: 'flex', alignItems: 'flex-start',marginTop:'10px',width: '1000px',height:'120px',marginLeft: '10px',marginRight: '10px',padding: '5px', borderRadius: '3px', border: '1px solid #ccc' }}
+                /><br/><br/>
                 <span>คุณลักษณะบัณฑิตที่พึงประสงค์ของหลักสูตร</span>
-                <InputTextarea value={dataTqf7_1.คุณลักษณะบัณฑิตที่พึงประสงค์ของหลักสูตร}/>
+                <InputTextarea value={dataTqf7_1.คุณลักษณะบัณฑิตที่พึงประสงค์ของหลักสูตร}
+                style={{ display: 'flex', alignItems: 'flex-start',marginTop:'10px',width: '1000px',marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc'}}
+                />
             </div>
             {/***********************************************/}
           </Panel><br/><br/>
@@ -160,31 +168,31 @@ function TQF7_1() {
                   <td className='TD'>1</td>
                     <td className='TD'><InputTextarea value = {dataTqf7_1.ชื่อ_นามสกุล1} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล1')}></InputTextarea></td>
                     <td className='TD'><InputTextarea value = {dataTqf7_1.ตำแหน่งทางวิชาการ1} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา1} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'500px'}} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา1} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา1')}></InputTextarea></td>
                   </tr>
                   <tr>
                     <td className='TD'>2</td>
                     <td className='TD'><InputTextarea value = {dataTqf7_1.ชื่อ_นามสกุล2} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล2')}></InputTextarea></td>
                     <td className='TD'><InputTextarea value = {dataTqf7_1.ตำแหน่งทางวิชาการ2} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา2} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'500px'}} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา2} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา2')}></InputTextarea></td>
                   </tr>
                   <tr>
                     <td className='TD'>3</td>
                     <td className='TD'><InputTextarea value = {dataTqf7_1.ชื่อ_นามสกุล3} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล3')}></InputTextarea></td>
                     <td className='TD'><InputTextarea value = {dataTqf7_1.ตำแหน่งทางวิชาการ3} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา3} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'500px'}} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา3} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา3')}></InputTextarea></td>
                   </tr>
                   <tr>
                     <td className='TD'>4</td>
                     <td className='TD'><InputTextarea value = {dataTqf7_1.ชื่อ_นามสกุล4} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล4')}></InputTextarea></td>
                     <td className='TD'><InputTextarea value = {dataTqf7_1.ตำแหน่งทางวิชาการ4} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา4} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'500px'}} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา4} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา4')}></InputTextarea></td>
                   </tr>
                   <tr>
                     <td className='TD'>5</td>
                     <td className='TD'><InputTextarea value = {dataTqf7_1.ชื่อ_นามสกุล5} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล5')}></InputTextarea></td>
                     <td className='TD'><InputTextarea value = {dataTqf7_1.ตำแหน่งทางวิชาการ5} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา5} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'500px'}} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา5} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา5')}></InputTextarea></td>
                   </tr>
                 </tbody>
               </table>
@@ -204,29 +212,29 @@ function TQF7_1() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.อาจารย์ผู้สอน1} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.คณวุฒิ1} onChange={(e) => handleChange(e, 'คณวุฒิ1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.ประสบการณ์วิจัย1} onChange={(e) => handleChange(e, 'ประสบการณ์วิจย1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{height:'150px'}} value = {dataTqf7_1.อาจารย์ผู้สอน1} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{height:'150px'}} value = {dataTqf7_1.คณวุฒิ1} onChange={(e) => handleChange(e, 'คณวุฒิ1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'600px',height:'150px'}} value = {dataTqf7_1.ประสบการณ์วิจัย1} onChange={(e) => handleChange(e, 'ประสบการณ์วิจย1')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.อาจารย์ผู้สอน2} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.คณวุฒิ2} onChange={(e) => handleChange(e, 'คณวุฒิ2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.ประสบการณ์วิจัย2} onChange={(e) => handleChange(e, 'ประสบการณ์วิจย2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{height:'170px'}} value = {dataTqf7_1.อาจารย์ผู้สอน2} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{height:'170px'}} value = {dataTqf7_1.คณวุฒิ2} onChange={(e) => handleChange(e, 'คณวุฒิ2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'600px',height:'170px'}} value = {dataTqf7_1.ประสบการณ์วิจัย2} onChange={(e) => handleChange(e, 'ประสบการณ์วิจย2')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.อาจารย์ผู้สอน3} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.คณวุฒิ3} onChange={(e) => handleChange(e, 'คณวุฒิ3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.ประสบการณ์วิจัย3} onChange={(e) => handleChange(e, 'ประสบการณ์วิจย3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{height:'110px'}} value = {dataTqf7_1.อาจารย์ผู้สอน3} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{height:'110px'}} value = {dataTqf7_1.คณวุฒิ3} onChange={(e) => handleChange(e, 'คณวุฒิ3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'600px',height:'110px'}} value = {dataTqf7_1.ประสบการณ์วิจัย3} onChange={(e) => handleChange(e, 'ประสบการณ์วิจย3')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.อาจารย์ผู้สอน4} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.คณวุฒิ4} onChange={(e) => handleChange(e, 'คณวุฒิ4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.ประสบการณ์วิจัย4} onChange={(e) => handleChange(e, 'ประสบการณ์วิจย4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{height:'295px'}} value = {dataTqf7_1.อาจารย์ผู้สอน4} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{height:'295px'}} value = {dataTqf7_1.คณวุฒิ4} onChange={(e) => handleChange(e, 'คณวุฒิ4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'600px',height:'295px'}} value = {dataTqf7_1.ประสบการณ์วิจัย4} onChange={(e) => handleChange(e, 'ประสบการณ์วิจย4')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.อาจารย์ผู้สอน5} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.คณวุฒิ5} onChange={(e) => handleChange(e, 'คณวุฒิ5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.ประสบการณ์วิจัย5} onChange={(e) => handleChange(e, 'ประสบการณ์วิจย5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{height:'100px'}} value = {dataTqf7_1.อาจารย์ผู้สอน5} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{height:'100px'}} value = {dataTqf7_1.คณวุฒิ5} onChange={(e) => handleChange(e, 'คณวุฒิ5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'600px',height:'100px'}} value = {dataTqf7_1.ประสบการณ์วิจัย5} onChange={(e) => handleChange(e, 'ประสบการณ์วิจย5')}></InputTextarea></td>
                   </tr>
                 </tbody>
               </table>
@@ -247,29 +255,29 @@ function TQF7_1() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.เกณฑ์การประเมิน1} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.ผลการดำเนินงาน7} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน7')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.เอกสารหลักฐาน1} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'300px',height:'130px'}} value = {dataTqf7_1.เกณฑ์การประเมิน1} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'800px',height:'130px'}} value = {dataTqf7_1.ผลการดำเนินงาน7} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน7')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'450px',height:'130px'}} value = {dataTqf7_1.เอกสารหลักฐาน1} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน1')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.เกณฑ์การประเมิน2} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.ผลการดำเนินงาน8} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน8')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.เอกสารหลักฐาน2} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'300px',height:'200px'}} value = {dataTqf7_1.เกณฑ์การประเมิน2} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'800px',height:'200px'}} value = {dataTqf7_1.ผลการดำเนินงาน8} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน8')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'450px',height:'200px'}} value = {dataTqf7_1.เอกสารหลักฐาน2} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน2')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.เกณฑ์การประเมิน3} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.ผลการดำเนินงาน9} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน9')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.เอกสารหลักฐาน3} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'300px',height:'100px'}} value = {dataTqf7_1.เกณฑ์การประเมิน3} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'800px',height:'100px'}} value = {dataTqf7_1.ผลการดำเนินงาน9} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน9')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'450px',height:'100px'}} value = {dataTqf7_1.เอกสารหลักฐาน3} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน3')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.เกณฑ์การประเมิน4} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.ผลการดำเนินงาน10} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน10')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.เอกสารหลักฐาน4} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'300px',height:'120px'}} value = {dataTqf7_1.เกณฑ์การประเมิน4} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'800px',height:'120px'}} value = {dataTqf7_1.ผลการดำเนินงาน10} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน10')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'450px',height:'120px'}} value = {dataTqf7_1.เอกสารหลักฐาน4} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน4')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.เกณฑ์การประเมิน5} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.ผลการดำเนินงาน11} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน11')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea value = {dataTqf7_1.เอกสารหลักฐาน5} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'300px',height:'100px'}} value = {dataTqf7_1.เกณฑ์การประเมิน5} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'800px',height:'100px'}} value = {dataTqf7_1.ผลการดำเนินงาน11} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน11')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'450px',height:'100px'}} value = {dataTqf7_1.เอกสารหลักฐาน5} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน5')}></InputTextarea></td>
                   </tr>
                 </tbody>
               </table>
@@ -277,10 +285,11 @@ function TQF7_1() {
                 <br/><br/>
                 <span>ผลการดำเนินงาน</span>
                 <br/><br/>
-                <InputTextarea value='ผลการประเมินตัวบ่งชี้ที่ 1.1 หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์ “ผ่าน” ตามเกณฑ์มาตรฐานหลักสูตร พ.ศ. 2558 และกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ พ.ศ. 2558'/><br/><br/>
+                <InputTextarea style={{width:'700px'}} value='ผลการประเมินตัวบ่งชี้ที่ 1.1 หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์ “ผ่าน” ตามเกณฑ์มาตรฐานหลักสูตร พ.ศ. 2558 และกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ พ.ศ. 2558'/><br/><br/>
             </div>
             {/***********************************************/}
           </Panel><br/><br/>
+          </ScrollPanel>
         </div>
       )
     }
