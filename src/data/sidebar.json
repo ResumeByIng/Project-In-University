@@ -1,6 +1,6 @@
 [
     {
-        "title": "หน้าแรก",
+        "title": "Home",
         "icon": "bi-gear-fill",
         "childrens": [
             {
@@ -56,6 +56,76 @@
             {
                 "title": "TQF.7 - หมวดที่ 3",
                 "path": "/tqf.7_3"
+            }
+        ]
+    },
+    {
+        "title": "อาจารย์",
+        "icon": "bi-info-circle-fill",
+        "childrens": [
+            {
+                "title": "หน้าแรก",
+                "path": "/tqf.7_0"
+            },
+            {
+                "title": "ข้อมูล",
+                "path": "/tqf.7_1"
+            },
+            {
+                "title": "กิจกรรม",
+                "path": "/tqf.7_2"
+            },
+            {
+                "title": "ตรวจคะแนนพิเศษ",
+                "path": "/tqf.7_3"
+            },
+            {
+                "title": "ตรวจแบบประเมิน",
+                "path": "/tqf.7_3"
+            }
+        ]
+    },
+    {
+        "title": "นักศึกษา",
+        "icon": "bi-building-fill",
+        "childrens": [
+            {
+                "title": "หน้าแรก",
+                "path": "/tqf.7_0"
+            },
+            {
+                "title": "ข้อมูล",
+                "path": "/tqf.7_1"
+            },
+            {
+                "title": "กิจกรรม",
+                "path": "/tqf.7_2"
+            },
+            {
+                "title": "คะแนนพิเศษ",
+                "path": "/tqf.7_3"
+            },
+            {
+                "title": "แบบประเมิน",
+                "path": "/tqf.7_3"
+            }
+        ]
+    },
+    {
+        "title": "บัณฑิต",
+        "icon": "bi-watch",
+        "childrens": [
+            {
+                "title": "หน้าแรก",
+                "path": "/tqf.7_0"
+            },
+            {
+                "title": "ข้อมูล",
+                "path": "/tqf.7_1"
+            },
+            {
+                "title": "กิจกรรม",
+                "path": "/tqf.7_2"
             }
         ]
     }
