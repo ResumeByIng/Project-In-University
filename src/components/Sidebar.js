@@ -1,11 +1,21 @@
-import SidebarItem from "./SidebarItem"
-import items from "../data/sidebar.json"
-import './Sidebar.css';
+import React from "react";
+import SidebarItem from "./SidebarItem";
+import items from "../data/sidebar.json";
+import { useLocation } from "react-router-dom";
+import "./Sidebar.css";
 
-export default function Sidebar(){
-    return(
-        <div className="sidebar">
-            { items.map((item, index) => <SidebarItem key={index} item={item} />) }
-        </div>
-    )
+export default function Sidebar({ router }) {
+  const location = useLocation();
+
+  if (location.pathname === "/") {
+    return null; // ไม่แสดง Sidebar ในหน้า Login
+  }
+
+  return (
+    <div className="sidebar">
+      {items.map((item, index) => (
+        <SidebarItem key={index} item={item} />
+      ))}
+    </div>
+  );
 }
