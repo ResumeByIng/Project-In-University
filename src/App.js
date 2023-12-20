@@ -7,10 +7,10 @@ import TQF7_2 from "./pages/TQF7_2";
 import TQF7_3 from "./pages/TQF7_3";
 import Extrapoints from "./pages/Extrapoints";
 import Assessment from "./pages/Assessment";
-import Information from "./pages/Information";
+// import Information from "./pages/Information";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import HP_professor from "./pages/HP_professor"
+// import Login from "./pages/Login";
+import HP_professor from './pages/HP_professor'
 
 function App() {
   return (
