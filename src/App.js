@@ -10,6 +10,7 @@ import Assessment from "./pages/Assessment";
 import Information from "./pages/Information";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import HP_professor from "./pages/HP_professor"
 
 function App() {
   return (
@@ -17,15 +18,16 @@ function App() {
       <div className="main">
         <Sidebar />
         <Routes>
-          <Route path="/" element={<Login />} />
+          {/* <Route path="/" element={<Login />} /> */}
           <Route path="/tqf.7_0" element={<TQF7_0 />} />
           <Route path="/tqf.7_1" element={<TQF7_1 />} />
           <Route path="/tqf.7_2" element={<TQF7_2 />} />
           <Route path="/tqf.7_3" element={<TQF7_3 />} />
           <Route path="/extrapoints" element={<Extrapoints />} />
           <Route path="/assessment" element={<Assessment />} />
-          <Route path="/information" element={<Information />} />
+          {/* <Route path="/information" element={<Information />} /> */}
           <Route path="/home" element={<Home />} />
+          <Route path="/HP_professor" element={<HP_professor />} />
         </Routes>
       </div>
     </Router>
