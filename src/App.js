@@ -10,6 +10,10 @@ import TQF7_1 from './pages/TQF7_1';
 import TQF7_2 from './pages/TQF7_2';
 import TQF7_3 from './pages/TQF7_3';
 
+import Teacher_Hp from './pages/Teacher_Hp';
+import Student_Hp from './pages/Student_Hp';
+import Graduate_Hp from './pages/Graduate_Hp';
+
 import Home from './pages/Home';
 
 
@@ -25,6 +29,9 @@ function App() {
             <Route path="/tqf.7_1" element={<TQF7_1/>} />
             <Route path="/tqf.7_2" element={<TQF7_2/>} />
             <Route path="/tqf.7_3" element={<TQF7_3/>} />
+            <Route path="/student-home-page" element={<Student_Hp/>} />
+            <Route path="/teacher-home-page" element={<Teacher_Hp/>} />
+            <Route path="/graduate-home-page" element={<Graduate_Hp/>} />
          </Routes>
        </Router>
       </div>

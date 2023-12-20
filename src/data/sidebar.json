@@ -65,7 +65,7 @@
         "childrens": [
             {
                 "title": "หน้าแรก",
-                "path": "/tqf.7_0"
+                "path": "/teacher-home-page"
             },
             {
                 "title": "ข้อมูล",
@@ -91,7 +91,7 @@
         "childrens": [
             {
                 "title": "หน้าแรก",
-                "path": "/tqf.7_0"
+                "path": "/student-home-page"
             },
             {
                 "title": "ข้อมูล",
@@ -117,7 +117,7 @@
         "childrens": [
             {
                 "title": "หน้าแรก",
-                "path": "/tqf.7_0"
+                "path": "/graduate-home-page"
             },
             {
                 "title": "ข้อมูล",
