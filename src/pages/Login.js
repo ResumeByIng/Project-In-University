@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'; 
@@ -7,8 +7,16 @@ import myImage1 from './ce.png';
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const navigate = useNavigate();
+
+   // Disable scrolling when the component mounts
+   useEffect(() => {
+    document.body.style.overflow = 'hidden'; // Disable scrolling
+    // Re-enable scrolling when the component unmounts
+    return () => {
+      document.body.style.overflow = 'visible';
+    };
+  }, []);
 
   const handleLogin = async () => {
     try {
