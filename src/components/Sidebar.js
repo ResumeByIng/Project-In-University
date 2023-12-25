@@ -7,7 +7,7 @@ import "./Sidebar.css";
 export default function Sidebar({ onLogout }) {
   const location = useLocation();
 
-  if (location.pathname === "/") {
+  if (location.pathname === "/login") {
     return null; // ไม่แสดง Sidebar ในหน้า Login
   }
 
