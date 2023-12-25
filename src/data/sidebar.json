@@ -128,5 +128,10 @@
                 "path": "/tqf.7_2"
             }
         ]
+    },
+    {
+        "title": "ออกจากระบบ",
+        "icon": "bi-watch",
+        "path": "/login"
     }
 ]
