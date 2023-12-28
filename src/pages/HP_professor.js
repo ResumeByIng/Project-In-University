@@ -52,14 +52,14 @@ const HP_professor = () => {
                 <Column header="ตอบกลับ" field="reply"></Column>
                 <Column header="Actions" body={(rowData) => (
                     <div>
-                        <Button onClick={() => handleEdit(rowData)}>แก้ไข</Button>
-                        <Button onClick={() => {setSelectedProduct(rowData);
+                        <Button style={{marginRight:'10px'}} onClick={() => handleEdit(rowData)}>แก้ไข</Button>
+                        <Button style={{marginLeft:'10px'}} onClick={() => {setSelectedProduct(rowData);
                             handleDelete();
                         }}>ลบ</Button>
                     </div>
                 )}></Column>
             </DataTable>
-            <Button onClick={handleAdd} >เพิ่มหัวข้อข่าว</Button>
+            <Button style={{ width: '135px',marginTop: '20px',marginLeft:'90%'}} onClick={handleAdd} >เพิ่มหัวข้อข่าว</Button>
 
             <HP_professorComponent
                 open={openDialog}

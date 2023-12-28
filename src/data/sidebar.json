@@ -69,7 +69,7 @@
             },
             {
                 "title": "ข้อมูล",
-                "path": "/tqf.7_1"
+                "path": "/Data_professor"
             },
             {
                 "title": "กิจกรรม",
@@ -91,11 +91,11 @@
         "childrens": [
             {
                 "title": "หน้าแรก",
-                "path": "/"
+                "path": "/HP_Student"
             },
             {
                 "title": "ข้อมูล",
-                "path": "/tqf.7_1"
+                "path": "/Data_Student"
             },
             {
                 "title": "กิจกรรม",

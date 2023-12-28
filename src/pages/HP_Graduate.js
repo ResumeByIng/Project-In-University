@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Student_Hp() {
+function HP_Graduate() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Student_Hp() {
   )
 }
 
-export default Student_Hp
+export default HP_Graduate

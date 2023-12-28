@@ -42,7 +42,7 @@ function Assessment() {
     };
     //////////////////////////////////////////////////////////////////////////////   ปุ่ม ประเมิน    ///////////////////////////////////////////////////////////////////////////// 
     const actionTemplate = () => (
-      <Button label="ประเมิน" onClick={() => setVisible(true)} />
+      <Button style={{ width: '100px'}} label="ประเมิน" onClick={() => setVisible(true)} />
     );
   
     /////////////////////////////////////////////////////////////////////////////   กล่องติ๊กถูก     //////////////////////////////////////////////////////////////////////////////
@@ -97,7 +97,7 @@ function Assessment() {
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
                      <Toast ref={toast} />
               <div className="flex flex-wrap gap-2">
-                  <Button label="บันทึก" className="p-button-success" onClick={()=>{
+                  <Button style={{ width: '100px'}} label="บันทึก" className="p-button-success" onClick={()=>{
                handleClose();
                ShowToastSuccess();
               }} />

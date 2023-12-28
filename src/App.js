@@ -10,7 +10,9 @@ import Assessment from "./pages/Assessment";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import HP_professor from './pages/HP_professor'
-
+import HP_Student from "./pages/HP_Student";
+import Data_Student from "./pages/Data_Student";
+import Data_professor from "./pages/Data_professor";
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'));
@@ -37,6 +39,9 @@ function App() {
             element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
           />
           <Route path="/HP_professor" element={parseInt(user) === 2 ? <HP_professor /> : <Navigate to="/home" />} />
+          <Route path="/HP_Student" element={parseInt(user) === 1 ? <HP_Student /> : <Navigate to="/home" />} />
+          <Route path="/Data_Student" element={parseInt(user) === 1 ? <Data_Student /> : <Navigate to="/home" />} />
+          <Route path="/Data_professor" element={parseInt(user) === 2 ? <Data_professor /> : <Navigate to="/home" />} />
         </Routes>
       </div>
     </Router>
