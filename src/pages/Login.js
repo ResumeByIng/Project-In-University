@@ -3,8 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'; 
 import myImage1 from './ce.png';
-
-const Login = ({ onLogin }) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -27,21 +26,20 @@ const Login = ({ onLogin }) => {
       const userData = response.data[0];
       const user = response.data[0].role;
 
-      localStorage.setItem('Data', JSON.stringify(userData));
-      localStorage.setItem('Role', JSON.stringify(user));
+      localStorage.setItem('userData', JSON.stringify(userData));
+      localStorage.setItem('user', JSON.stringify(user));
+
+      console.log('user : ', user);
+      console.log('userData : ', userData);
 
 
       switch (user) {
         case 1:
-          navigate('/home');
-          break;
-        case 2:
-          navigate('/home');
-          break;
-        case 3:
-          navigate('/home');
-          break;
-        default:
+      case 2:
+      case 3:
+        navigate('/home');
+        break;
+      default:
           console.error('Invalid role:', user);
       }
     } catch (error) {

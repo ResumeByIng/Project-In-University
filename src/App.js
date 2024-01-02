@@ -16,13 +16,12 @@ import Data_professor from "./pages/Data_professor";
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'));
-  
   const handleLogin = (loggedInUser) => {
     setUser(loggedInUser);
   };
 
   console.log('user:', user);
-
+  
   return (
     <Router>
       <div className="main">
@@ -30,7 +29,6 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/" element={<Navigate to="/login" />} />
-
           <Route path="/tqf.7_0" element={parseInt(user) === 2 ? <TQF7_0 /> : <Navigate to="/home" />} />
           <Route path="/tqf.7_1" element={parseInt(user) === 2 ? <TQF7_1 /> : <Navigate to="/home" />} />
           <Route path="/tqf.7_2" element={parseInt(user) === 2 ? <TQF7_2 /> : <Navigate to="/home" />} />
@@ -39,7 +37,7 @@ function App() {
           <Route path="/assessment" element={parseInt(user) === 1 ? <Assessment /> : <Navigate to="/home" />} />
           <Route
             path="/home"
-            element={parseInt(user) === 1 || parseInt(user) === 2 || parseInt(user) === 3 ? <Home /> : <Navigate to="/login" />}
+            element={parseInt(user) === 1 || parseInt(user) === 2 || parseInt(user) === 3 ? <Home /> : <Navigate to="/home" />}
           />
           <Route path="/HP_professor" element={parseInt(user) === 2 ? <HP_professor /> : <Navigate to="/home" />} />
           <Route path="/HP_Student" element={parseInt(user) === 1 ? <HP_Student /> : <Navigate to="/home" />} />
