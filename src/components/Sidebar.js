@@ -4,17 +4,18 @@ import items from "../data/sidebar.json";
 import { useLocation } from "react-router-dom";
 import "./Sidebar.css";
 
-export default function Sidebar({ onLogout }) {
+export default function Sidebar({ }) {
   const location = useLocation();
 
   if (location.pathname === "/login") {
-    return null; // ไม่แสดง Sidebar ในหน้า Login
+    localStorage.clear()
+    return null;
   }
 
   return (
     <div className="sidebar">
       {items.map((item, index) => (
-        <SidebarItem key={index} item={item} onLogout={onLogout} />
+        <SidebarItem key={index} item={item} />
       ))}
     </div>
   );

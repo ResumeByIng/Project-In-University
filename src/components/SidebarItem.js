@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-export default function SidebarItem({ item, onLogout }) {
+export default function SidebarItem({ item }) {
   const [open, setOpen] = useState(false);
 
   
   const handleItemClick = () => {
-    if (item.path === "/login" && onLogout) {
-      onLogout();
+    if (item.path === "/login") {
     }
   };
   

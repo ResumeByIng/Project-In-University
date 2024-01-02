@@ -24,20 +24,22 @@ const Login = ({ onLogin }) => {
         email: email,
         password: password
       });
-
+      const userData = response.data[0];
       const user = response.data[0].role;
-      localStorage.setItem('isLoggedin', 'false');
-      localStorage.setItem('user', JSON.stringify(user));
 
-      onLogin(user);
+      localStorage.setItem('Data', JSON.stringify(userData));
+      localStorage.setItem('Role', JSON.stringify(user));
+
 
       switch (user) {
         case 1:
+          navigate('/home');
+          break;
         case 2:
           navigate('/home');
           break;
         case 3:
-          navigate('/tqf.7_1');
+          navigate('/home');
           break;
         default:
           console.error('Invalid role:', user);
