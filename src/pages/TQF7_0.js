@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import 'primereact/resources/themes/saga-blue/theme.css'; // เลือก theme ตามที่คุณต้องการ
 import 'primereact/resources/primereact.min.css';
@@ -13,7 +13,8 @@ import { Button } from 'primereact/button';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ScrollPanel } from 'primereact/scrollpanel';
 import TQF7_0123 from '../data/TQF1-2-3';
-
+import moment from 'moment-timezone';
+import axios from 'axios';
 
 function TQF7_0() {
 
@@ -97,6 +98,131 @@ function TQF7_0() {
         ผลการดำเนินงาน6 : "",
   });
 
+  // (generateDocument) แก้ไข docx
+  const PizZip = require('pizzip');
+  const Docxtemplater = require('docxtemplater');
+  const formattedDate = moment.tz('Asia/Bangkok');
+  const year = Number(formattedDate.format('YYYY')) + 543;
+
+  
+  const handleGenerateDocx = async (e) => {
+    e.preventDefault();
+
+    
+    try {
+      // เรียก API เพื่อดึงข้อมูลเทมเพลต DOCX
+      const response = await axios.get('https://project-in-back.vercel.app/api/gettqf7', {
+        params: { id: '1' },
+        responseType: 'arraybuffer',
+      });
+
+    axios.post('https://project-in-back.vercel.app/api/gettqf7', {
+    })
+    .then((response) => {
+      console.log('Status updated successfully:', response.data);
+    })
+    .catch((error) => {
+      console.error('Error updating status:', error);
+    });
+    const zip = new PizZip(response.data);
+    const doc = new Docxtemplater();
+    doc.loadZip(zip);
+    doc.setOptions({ linebreaks: true });
+
+    doc.setData({
+      ประจำปีการศึกษา:"2565",
+      เริ่มวันที่:" ",
+      สิ้นสุดวันที่:" ",
+      ชื่อหลักสูตรภาษาไทย:"วิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร",
+      ชื่อหลักสูตรภาษาอังกฤษ:"Bachelor of Engineering Program in Computer Engineering",
+      ชื่อหลักสูตรย่อ:"วศ.บ.(วิศวกรรมคอมพิวเตอร์)",
+      คณะ:"คณะเทคโนโลยีอุตสาหกรรม",
+      มหาวิทยาลัย:"มหาวิทยาลัยราชภัฏสวนสุนันทา",
+      หลักสูตรปรับปรุง:"2563",
+      ปีเกณฑ์มาตรฐานหลักสูตร:"2558",
+      บทสรุปผู้บริหาร:"",
+      คะแนนการประเมินเฉลี่ย1:"",
+      คะแนนการประเมินเฉลี่ย2:"",
+      คะแนนการประเมินเฉลี่ย3:"",
+      คะแนนการประเมินเฉลี่ย4:"",
+      คะแนนการประเมินเฉลี่ย5:"",
+      คะแนนการประเมินเฉลี่ย6:"",
+      ระดับคุณภาพ1:"",
+      ระดับคุณภาพ2:"",
+      ระดับคุณภาพ3:"",
+      ระดับคุณภาพ4:"",
+      ระดับคุณภาพ5:"",
+      ระดับคุณภาพ6:"",
+      หมายเหตุ1:"",
+      หมายเหตุ2:"",
+      หมายเหตุ3:"",
+      หมายเหตุ4:"",
+      หมายเหตุ5:"",
+      หมายเหตุ6:"",
+      หมายเหตุ7:"",
+      คำนำ:"",
+      ลงชื่อคำนำ:"",
+      ประวัติความเป็นมาของหลักสูตร:"",
+      จุดแข็งองค์ประกอบ1_1: "",
+      จุดแข็งองค์ประกอบ2_1: "",
+      จุดแข็งองค์ประกอบ3_1 : " ",
+      จุดแข็งองค์ประกอบ3_2 : "",
+      จุดแข็งองค์ประกอบ4_1 : "้",
+      จุดแข็งองค์ประกอบ4_2 : "",
+      จุดแข็งองค์ประกอบ5_1 : "",
+      จุดแข็งองค์ประกอบ5_2 : "",
+      จุดแข็งองค์ประกอบ5_3 : "",
+      จุดแข็งองค์ประกอบ5_4 : " ",
+      จุดแข็งองค์ประกอบ6_1: "",
+      องค์ประกอบเกณฑ์การประเมิน1 : "",
+      องค์ประกอบเกณฑ์การประเมิน2 : "",
+      องค์ประกอบเกณฑ์การประเมิน3_1 : "",
+      องค์ประกอบเกณฑ์การประเมิน3_2 : "",
+      องค์ประกอบเกณฑ์การประเมิน4_1 : "",
+      องค์ประกอบเกณฑ์การประเมิน4_2 : "",
+      องค์ประกอบเกณฑ์การประเมิน5_1 : "",
+      องค์ประกอบเกณฑ์การประเมิน5_2 : "",
+      องค์ประกอบเกณฑ์การประเมิน5_3 : "",
+      องค์ประกอบเกณฑ์การประเมิน5_4 : "",
+      องค์ประกอบเกณฑ์การประเมิน6 : "",
+      การดำเนินการโครงการ1 : "",
+      การดำเนินการโครงการ2 : "",    
+      การดำเนินการโครงการ3_1 : "",
+      การดำเนินการโครงการ3_2 : "",
+      การดำเนินการโครงการ4_1 : "",
+      การดำเนินการโครงการ4_2 : "",
+      การดำเนินการโครงการ5_1 : "",
+      การดำเนินการโครงการ5_2 : "",
+      การดำเนินการโครงการ5_3 : "",
+      การดำเนินการโครงการ5_4 : "",
+      การดำเนินการโครงการ6 : "",
+      ผลการดำเนินงาน1 : "",
+      ผลการดำเนินงาน2 : "",
+      ผลการดำเนินงาน3_1 : "",
+      ผลการดำเนินงาน3_2 : "",
+      ผลการดำเนินงาน4_1 : "",
+      ผลการดำเนินงาน4_2 : "",
+      ผลการดำเนินงาน5_1 : "",
+      ผลการดำเนินงาน5_2 : "",
+      ผลการดำเนินงาน5_3 : "",
+      ผลการดำเนินงาน5_4 : "",
+      ผลการดำเนินงาน6 : "",
+    });
+
+    doc.render();
+    const content = doc.getZip().generate({ type: 'blob' }); // <-- ถาม
+    const url = URL.createObjectURL(content);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `มคอ.7 หมวดที่ 1 2 และ 3.docx`; // <-- ถาม
+    link.click();
+  } catch (error) {
+    console.error('Error generating document:', error);
+  }
+};
+
+
+
   const handleChange = (event, property) => {
     setDateTqf7_0({
       ...dataTqf7_0,
@@ -129,6 +255,7 @@ function TQF7_0() {
     setSelectedDate(date);
   };
   return (
+    <form onSubmit={handleGenerateDocx}  >
     <div style={{ width: '100%',marginLeft: '10px'}}>
       <ScrollPanel style={{ width: '100%', height: '875px' }}>
       <Panel header="สร้างผลการดำเนินงาน">
@@ -424,8 +551,9 @@ function TQF7_0() {
       </Panel>
       </ScrollPanel>
       <br/><br/>
-      <Button style={{ marginLeft: '50%' }}label="ยืนยัน" onClick={() => console.log("คลิกปุ่มยืนยัน")}/>
+      <Button type="submit" style={{ marginLeft: '50%' }} label="ยืนยัน" onClick={handleGenerateDocx} />
     </div>
+    </form>
   )
 }
 
