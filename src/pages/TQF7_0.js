@@ -127,7 +127,7 @@ function TQF7_0() {
       const url = URL.createObjectURL(content);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `Generated_Document.docx`;
+      link.download = `คำนำ มคอ.7.docx`;
       link.click();
     } catch (error) {
       console.error('Error generating document:', error);
