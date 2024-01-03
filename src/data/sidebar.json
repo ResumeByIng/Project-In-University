@@ -2,130 +2,159 @@
     {
         "title": "Home",
         "icon": "bi-gear-fill",
+        "roles": [1, 2, 3],
         "childrens": [
             {
                 "title": "Home",
                 "icon": "bi-house-fill",
-                "path": "/home"
+                "path": "/home",
+                "roles": [1, 2, 3]
             },
             {
                 "title": "About",
                 "icon": "bi-info-circle-fill",
-                "path": "/about"
+                "path": "/about",
+                "roles": [1, 2, 3]
             },
             {
                 "title": "Contact",
                 "icon": "bi-phone-fill",
+                "roles": [1, 2, 3],
                 "childrens": [
                     {
                         "title": "Facebook",
-                        "icon": "bi-facebook"
+                        "icon": "bi-facebook",
+                        "roles": [1, 2, 3]
                     },
                     {
                         "title": "Twitter",
-                        "icon": "bi-twitter"
+                        "icon": "bi-twitter",
+                        "roles": [1, 2, 3]
                     },
                     {
                         "title": "Instagram",
-                        "icon": "bi-instagram"
+                        "icon": "bi-instagram",
+                        "roles": [1, 2, 3]
                     }
                 ]
             },
             {
                 "title": "FAQ",
-                "icon": "bi-question-circle-fill"
+                "icon": "bi-question-circle-fill",
+                "roles": [1, 2, 3]
             }
         ]
     },
     {
         "title": "TQF.7",
         "icon": "bi-info-circle-fill",
+        "roles": [2],
         "childrens": [
             {
                 "title": "TQF.7 - คำนำ",
-                "path": "/tqf.7_0"
+                "path": "/tqf.7_0",
+                "roles": [2]
             },
             {
                 "title": "TQF.7 - หมวดที่ 1",
-                "path": "/tqf.7_1"
+                "path": "/tqf.7_1",
+                "roles": [2]
             },
             {
                 "title": "TQF.7 - หมวดที่ 2",
-                "path": "/tqf.7_2"
+                "path": "/tqf.7_2",
+                "roles": [2]
             },
             {
                 "title": "TQF.7 - หมวดที่ 3",
-                "path": "/tqf.7_3"
+                "path": "/tqf.7_3",
+                "roles": [2]
             }
         ]
     },
     {
         "title": "อาจารย์",
         "icon": "bi-info-circle-fill",
+        "roles": [2],
         "childrens": [
             {
                 "title": "หน้าแรก",
-                "path": "/HP_professor"
+                "path": "/HP_professor",
+                "roles": [2]
             },
             {
                 "title": "ข้อมูล",
-                "path": "/Data_professor"
+                "path": "/Data_professor",
+                "roles": [2]
             },
             {
                 "title": "กิจกรรม",
-                "path": "/tqf.7_2"
+                "path": "/tqf.7_2",
+                "roles": [2]
             },
             {
                 "title": "ตรวจคะแนนพิเศษ",
-                "path": "/tqf.7_3"
+                "path": "/tqf.7_3",
+                "roles": [2]
             },
             {
                 "title": "ตรวจแบบประเมิน",
-                "path": "/tqf.7_3"
+                "path": "/tqf.7_3",
+                "roles": [2]
             }
         ]
     },
     {
         "title": "นักศึกษา",
         "icon": "bi-building-fill",
+        "roles": [1],
         "childrens": [
             {
                 "title": "หน้าแรก",
-                "path": "/HP_Student"
+                "path": "/HP_Student",
+                "roles": [1]
             },
             {
                 "title": "ข้อมูล",
-                "path": "/Data_Student"
+                "path": "/Data_Student",
+                "roles": [1]
             },
             {
                 "title": "กิจกรรม",
-                "path": "/tqf.7_2"
+                "path": "/tqf.7_2",
+                "roles": [1]
             },
             {
                 "title": "คะแนนพิเศษ",
-                "path": "/extrapoints"
+                "path": "/extrapoints",
+                "roles": [1]
             },
             {
                 "title": "แบบประเมิน",
-                "path": "/assessment"
+                "path": "/assessment",
+                "roles": [1]
             }
         ]
     },
     {
         "title": "บัณฑิต",
         "icon": "bi-watch",
+        "roles": [3],
         "childrens": [
             {
                 "title": "หน้าแรก",
-                "path": "/"
+                "path": "/",
+                "roles": [3]
             },
             {
                 "title": "ข้อมูล",
-                "path": "/tqf.7_1"
+                "path": "/tqf.7_1",
+                "roles": [3]
             },
             {
                 "title": "กิจกรรม",
-                "path": "/tqf.7_2"
+                "path": "/tqf.7_2",
+                "roles": [3]
             }
         ]
     },

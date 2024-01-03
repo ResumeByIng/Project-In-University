@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { ScrollPanel } from 'primereact/scrollpanel';
 import { Panel } from 'primereact/panel'
 import { InputTextarea } from 'primereact/inputtextarea'
 
@@ -12,7 +12,8 @@ function TQF7_3() {
   });
 
   return (
-    <div>
+    <div style={{ width: '100%',marginLeft: '10px'}}>
+      <ScrollPanel style={{ width: '100%', height: '875px' }}>
       <Panel header="ข้อมูลนนักศึกษา">
         {/***********************************************/}
         <div>
@@ -1020,6 +1021,7 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
+      </ScrollPanel>
     </div>
   )
 }

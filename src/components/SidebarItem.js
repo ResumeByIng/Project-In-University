@@ -1,15 +1,20 @@
 import { useState } from "react";
-
-export default function SidebarItem({ item }) {
+export default function SidebarItem({ item, userRole }) {
   const [open, setOpen] = useState(false);
 
-  
   const handleItemClick = () => {
+    // จัดการตรงนี้หากต้องการทำตรงกับการคลิกที่รายการ
     if (item.path === "/login") {
+      // ทำงานเมื่อคลิกที่รายการล็อกอิน
     }
   };
-  
-   if (item.childrens) {
+
+  const hasPermission = !item.roles || item.roles.includes(userRole);
+  if (!hasPermission) {
+    return null;
+  }
+
+  if (item.childrens) {
     return (
       <div className={open ? 'sidebar-item open' : 'sidebar-item'}>
         <div className="sidebar-title" onClick={handleItemClick}>
@@ -21,7 +26,7 @@ export default function SidebarItem({ item }) {
         </div>
         <div className="sidebar-content">
           {item.childrens.map((child, index) => (
-            <SidebarItem key={index} item={child} />
+            <SidebarItem key={index} item={child} userRole={userRole} />
           ))}
         </div>
       </div>
