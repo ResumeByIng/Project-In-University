@@ -1,6 +1,21 @@
 .data_student{
     color: #000;
 }
+.data_professor {
+    white-space: nowrap;
+    flex-direction: column;
+    color: #000000;
+}
+.data_professor h1 {
+    display: inline;
+    margin-left: 20px ;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font-family: 'Kanit', sans-serif;
+}
+.p-dataview .p-dataview-content {
+    border: none !important;
+}
 body {
     overflow: hidden;
   }  
