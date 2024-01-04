@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import TQF7_0 from "./pages/TQF7_0";
@@ -19,9 +19,21 @@ function App() {
   const handleLogin = (loggedInUser) => {
     setUser(loggedInUser);
   };
-
   console.log('user:', user);
-  
+  useEffect(() => {
+    // Effect Hook นี้จะทำงานเมื่อค่าใน localStorage เปลี่ยนแปลง
+    const handleStorageChange = () => {
+      setUser(localStorage.getItem('user'));
+    };
+
+    // ติดตามการเปลี่ยนแปลงของ localStorage
+    window.addEventListener('storage', handleStorageChange);
+
+    // Cleanup function เมื่อ component unmount หรือถูกเรียกใช้ Effect Hook อีกครั้ง
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []); // แน่ใจว่า useEffect นี้ถูกเรียกหนึ่งครั้งเมื่อ component mount
   return (
     <Router>
       <div className="main">
