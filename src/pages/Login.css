@@ -1,5 +1,14 @@
-.data_student{
-    color: #000;
+.data_student {
+    white-space: nowrap;
+    flex-direction: column;
+    color: #000000;
+}
+.data_student h1 {
+    display: inline;
+    margin-left: 20px ;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font-family: 'Kanit', sans-serif;
 }
 .data_professor {
     white-space: nowrap;
@@ -53,6 +62,16 @@ button {
   button:active {
     transform: scale(0.95);
   }
+  .center-button {
+    background-color: #AEDEFC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
   
 /* STRUCTURE */
 

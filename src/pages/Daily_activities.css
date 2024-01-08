@@ -1,0 +1,113 @@
+h2 {
+    color: #000000;
+    text-align: center;
+  }
+h2,
+input,
+button {
+  display: block;
+  margin: 0 auto;
+}
+.buttons-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    margin: 0 5px;
+  }
+
+input {
+  width: 50%; /* ปรับขนาดของ input ตามที่ต้องการ */
+  height: 30%;
+  margin-top: 10px; /* ปรับระยะห่างของ input กับปุ่ม */
+  margin-bottom: 10px; /* ปรับระยะห่างของ input กับปุ่ม */
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Kanit', sans-serif;
+}
+
+button {
+  background-color: #000000; /* สีพื้นหลังของปุ่ม */
+  color: #ffffff; /* สีตัวอักษรของปุ่ม */
+  padding: 10px 20px; /* ปรับขนาดของปุ่ม */
+  border: none;
+  cursor: pointer;
+}
+.daily-activities-container {
+    color: #E36414;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  .calendar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #39A7FF; /* สีพื้นหลังของปฏิทิน */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+  }
+  
+  .day-activities {
+    background-color: #ffffff; /* สีพื้นหลังของกิจกรรมประจำวัน */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+  }
+  .page-title {
+    color: #39A7FF;
+    font-size: 2rem; /* กำหนดขนาดตัวหนังสือ */
+  }
+  
+  .react-calendar {
+    width: 1200px;
+    height: 100%;
+    font-size: 1rem; /* กำหนดขนาดตัวหนังสือภายในปฎิทิน */
+    font-family: 'Kanit', sans-serif;
+  }
+  
+  .react-calendar__tile {
+    /* ปรับแต่งสไตล์ของแต่ละวันในปฎิทิน */
+    padding: 1rem;
+    margin-bottom: 10px;
+  }
+  .react-calendar__tile--inactive {
+    color: rgba(0, 0, 0, 0.3); /* กำหนดสีของวันที่ไม่ได้เลือก */
+  }
+  
+  .react-calendar__tile--hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* กำหนดเงาเมื่อนำเมาส์ไปชี้ที่วันที่ในปฏิทิน */
+    color: #000000; /* กำหนดสีของวันที่เมื่อนำเมาส์ไปชี้ */
+  }
+  
+  .react-calendar__tile--active {
+    border-radius: 0%; /* กำหนด border-radius ของวันที่ที่กดเลือก */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* กำหนดเงาเมื่อนำเมาส์ไปชี้ที่วันที่ที่กดเลือก */
+    color: #000000; /* กำหนดสีของวันที่ที่กดเลือก */
+  }
+  .react-calendar__tile--now {
+    /* ปรับแต่งสไตล์ของวันปัจจุบัน */
+    background-color: #86B6F6; /* กำหนดสีพื้นหลังของวันปัจจุบัน */
+    color: rgb(0, 0, 0); /* กำหนดสีตัวหนังสือของวันปัจจุบัน */
+    border-radius: 0%;
+  }
+.react-calendar__tile abbr,
+.react-calendar__navigation__label,
+.react-calendar__month-view__days__day {
+    color: #000000; /* สีทั้งหมดที่ต้องการให้เป็น #f200ff */
+  }
+  
+.react-calendar__navigation__label,
+.react-calendar__navigation__arrow {
+    color: #000000; /* สีดำสำหรับ .react-calendar__navigation__label และลูกศรทั้งสองข้าง */
+  }
+.react-calendar__tile,
+.react-calendar__year-view__years__year {
+  color: #000000; /* สีดำสำหรับปี พ.ศ. */
+}
+    

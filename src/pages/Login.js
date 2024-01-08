@@ -60,7 +60,7 @@ const Login = () => {
       <label className="fadeIn third" >Password:</label>
       <input className="password fadeIn third" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </form>
-      <button className="fadeIn fourth" type="button" onClick={handleLogin}>Login</button>
+      <button className="fadeIn fourth center-button" type="button" onClick={handleLogin}>Login</button>
     </div>
     </div>
   );
