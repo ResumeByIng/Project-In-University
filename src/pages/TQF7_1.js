@@ -7,6 +7,8 @@ import { Panel } from 'primereact/panel';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { InputText } from 'primereact/inputtext';
 import { ScrollPanel } from 'primereact/scrollpanel';
+import axios from 'axios';
+import { Button } from 'primereact/button';
 
 function TQF7_1() {
 
@@ -80,15 +82,53 @@ function TQF7_1() {
       เอกสารหลักฐาน5 : "B.ENG 1.1-1-01 เล่มหลักสูตร (มคอ.2) ฉบับที่ สกอ.ประทับตรารับทราบ",
     });
 
+    const PizZip = require('pizzip');
+    const Docxtemplater = require('docxtemplater');
+  
+    const handleGenerateDocx = async (e) => {
+      e.preventDefault();
+      try {
+        // เรียก API เพื่อดึงข้อมูลเทมเพลต DOCX
+        const response = await axios.get('https://project-in-back.vercel.app/api/gettqf7', {
+          params: { id: '1' },
+          responseType: 'arraybuffer',
+        });
+        const userFormData = dataTqf7_1;  // ใช้ dataTqf7_0 ที่ได้จาก state แทน doc.getData()
+    
+        const zip = new PizZip(response.data);
+        doc = new Docxtemplater();
+        doc.loadZip(zip);
+        doc.setOptions({ linebreaks: true });
+    
+        doc.setData(userFormData);
+    
+        doc.render();
+    
+        const content = doc.getZip().generate({ type: 'blob' });
+        const url = URL.createObjectURL(content);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `มคอ.7 หมวดที่ 1.docx`;
+        link.click();
+      } catch (error) {
+        console.error('Error generating document:', error);
+      }
+    };
+    let doc;
     const handleChange = (event, property) => {
-      setDateTqf7_1({
-        ...dataTqf7_1,
+      setDateTqf7_1((prevData) => ({
+        ...prevData,
         [property]: event.target.value,
-      });
-      console.log(dataTqf7_1);
+      }));
+    
+      if (doc) {
+        doc.setData(dataTqf7_1);
+      }
     };
   
+  
       return (
+        <form onSubmit={handleGenerateDocx}  >
         <div style={{ width: '100%',marginLeft: '10px' }}>
             <ScrollPanel style={{ width: '100%', height: '950px' }}>
             <Panel header="รหัสหลักสูตร">
@@ -290,7 +330,9 @@ function TQF7_1() {
             {/***********************************************/}
           </Panel><br/><br/>
           </ScrollPanel>
+          <Button type="submit" style={{ marginLeft: '50%' }} label="ยืนยัน" onClick={handleGenerateDocx} />
         </div>
+        </form>
       )
     }
 
