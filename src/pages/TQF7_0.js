@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 
 import 'primereact/resources/themes/saga-blue/theme.css'; // เลือก theme ตามที่คุณต้องการ
 import 'primereact/resources/primereact.min.css';
@@ -10,7 +10,6 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { Button } from 'primereact/button';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ScrollPanel } from 'primereact/scrollpanel';
-import moment from 'moment-timezone';
 import axios from 'axios';
 
 function TQF7_0() {
@@ -100,9 +99,6 @@ function TQF7_0() {
   // (generateDocument) แก้ไข docx
   const PizZip = require('pizzip');
   const Docxtemplater = require('docxtemplater');
-  const formattedDate = moment.tz('Asia/Bangkok');
-  const year = Number(formattedDate.format('YYYY')) + 543;
-
   
   const handleGenerateDocx = async (e) => {
     e.preventDefault();
@@ -144,8 +140,6 @@ function TQF7_0() {
       doc.setData(dataTqf7_0);
     }
   };
-
-  {/***********************************************/}
 
   return (
     <form onSubmit={handleGenerateDocx}  >
