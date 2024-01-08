@@ -4,7 +4,7 @@ import 'react-calendar/dist/Calendar.css';
 import Modal from 'react-modal';
 import './Daily_activities.css';
 
-function App() {
+function Daily_activities() {
   const [date, setDate] = useState(new Date());
   const [activities, setActivities] = useState({});
   const [newActivityTitle, setNewActivityTitle] = useState('');
@@ -82,4 +82,4 @@ function App() {
 );
 }
 
-export default App;
+export default Daily_activities;
