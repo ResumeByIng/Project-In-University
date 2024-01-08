@@ -9,6 +9,11 @@ const HP_professor = () => {
     const [openDialog, setOpenDialog] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [products, setProducts] = useState([]);
+    const [sequence, setSequence] = useState(1);
+
+    const resetSequence = () => {
+        setSequence(1); // ทำการรีเซ็ตค่าลำดับเป็น 1
+    };
 
     const handleEdit = (product) => {
         setSelectedProduct(product);
@@ -38,6 +43,8 @@ const HP_professor = () => {
             const updatedProducts = products.filter((product) => product.code !== selectedProduct.code);
             setProducts(updatedProducts);
             setOpenDialog(false);
+            resetSequence(); // เรียกใช้ resetSequence เมื่อมีการลบข้อมูล
+            setSelectedProduct(null);
         }
     };
 
@@ -66,6 +73,7 @@ const HP_professor = () => {
                 onClose={() => setOpenDialog(false)}
                 onSave={handleSave}
                 product={selectedProduct}
+                resetSequence={resetSequence} // ส่งฟังก์ชัน resetSequence เข้าไป
             />
 
         </div>
