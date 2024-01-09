@@ -41,7 +41,17 @@ function Daily_activities() {
     <div className="daily-activities-container">
     <h1>กิจกรรมประจำเดือน</h1>
     <div className="calendar-container">
-      <Calendar onChange={onChange} value={date} />
+      <Calendar
+          onChange={onChange}
+          value={date}
+          tileContent={({ date, view }) => {
+          const dateKey = date.toISOString().split('T')[0];
+          if (activities[dateKey] && activities[dateKey].length > 0) {
+          return <div className="activity-indicator"></div>;
+            }
+          return null;
+          }}
+      />
       <div className="day-activities">
           <h2>กิจกรรมประจำวัน ({date.toLocaleDateString('en-GB')})</h2>
           {activities[date.toISOString().split('T')[0]] &&

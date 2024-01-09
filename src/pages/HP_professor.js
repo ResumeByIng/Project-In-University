@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button } from 'primereact/button';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-
 import HP_professorComponent from './HP_professorComponent';
 
 const HP_professor = () => {
@@ -11,8 +10,12 @@ const HP_professor = () => {
     const [products, setProducts] = useState([]);
     const [sequence, setSequence] = useState(1);
 
-    const resetSequence = () => {
-        setSequence(1); // ทำการรีเซ็ตค่าลำดับเป็น 1
+    const resetForm = () => {
+        console.log('Resetting form...');
+    };
+
+    const resetSequence = (newSequence) => {
+        setSequence(newSequence || 1);
     };
 
     const handleEdit = (product) => {
@@ -26,6 +29,18 @@ const HP_professor = () => {
     };
 
     const handleSave = (newProduct) => {
+         // หาลำดับที่มากที่สุดจากหัวข้อข่าวทั้งหมด
+         const maxCode = Math.max(...products.map((product) => parseInt(product.code, 10)), 0);
+        
+         // เพิ่ม 1 เข้าไปในลำดับใหม่
+         const newCode = (maxCode + 1).toString();
+ 
+         const formattedQuantity = new Date(newProduct.quantity).toLocaleDateString('en-GB');
+         const updatedProduct = {
+             ...newProduct,
+             code: newCode,
+             quantity: formattedQuantity,
+         };
         if (selectedProduct) {
             const updatedProducts = products.map((product) =>
                 product.code === selectedProduct.code ? { ...product, ...newProduct } : product
@@ -34,8 +49,9 @@ const HP_professor = () => {
         } else {
             setProducts([...products, newProduct]);
         }
-
         setOpenDialog(false);
+        resetForm();
+        resetSequence();
     };
 
     const handleDelete = () => {
@@ -43,7 +59,10 @@ const HP_professor = () => {
             const updatedProducts = products.filter((product) => product.code !== selectedProduct.code);
             setProducts(updatedProducts);
             setOpenDialog(false);
-            resetSequence(); // เรียกใช้ resetSequence เมื่อมีการลบข้อมูล
+             // หาลำดับที่มากที่สุดจากหัวข้อข่าวทั้งหมด
+             const maxCode = Math.max(...updatedProducts.map((product) => parseInt(product.code, 10)), 0);
+             // เรียกใช้ resetSequence และส่งลำดับที่มากที่สุด + 1
+             resetSequence(maxCode + 1);
             setSelectedProduct(null);
         }
     };

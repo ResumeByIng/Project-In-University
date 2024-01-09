@@ -26,6 +26,9 @@ input {
   font-size: 20px;
   font-family: 'Kanit', sans-serif;
 }
+label{
+  font-family: 'Kanit', sans-serif;
+}
 
 button {
   background-color: #000000; /* สีพื้นหลังของปุ่ม */
@@ -33,6 +36,13 @@ button {
   padding: 10px 20px; /* ปรับขนาดของปุ่ม */
   border: none;
   cursor: pointer;
+}
+.activity-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #4caf50; /* หรือเลือกสีที่คุณต้องการ */
+  border-radius: 50%;
+  margin: 0 auto;
 }
 .daily-activities-container {
     color: #E36414;
