@@ -1159,7 +1159,7 @@ function TQF7_2() {
               </tr>
               <tr>
               <td className='TD'>ประเด็นที่ 4.2.3 ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร</td>
-              <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.สรุปผลการประเมินตนเอง_ผลการดำเนินงาน_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร} onChange={(e) => handleChange(e, 'sผลการดำเนินงาน_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร')}></InputText></td>
+              <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.สรุปผลการประเมินตนเอง_ผลการดำเนินงาน_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร')}></InputText></td>
               <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.สรุปผลการประเมินตนเอง_คะแนนการประเมินตนเอง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_คะแนนการประเมินตนเอง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร')}></InputText></td>
               </tr>
               <tr>
