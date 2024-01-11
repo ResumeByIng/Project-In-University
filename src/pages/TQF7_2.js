@@ -1083,7 +1083,7 @@ function TQF7_2() {
               </tr>
             </tbody>
           </table>
-          <InputTextarea autoResize style={{width:'1000px',height:'100px',marginTop:'10px'}} value={dataTqf7_2.อัตราการคงอยู่ของอาจารย์ประจําหลักสูตรรายปี_รายละเอียด}/><br/><br/>
+          <InputTextarea autoResize style={{width:'1000px',height:'100px',marginTop:'10px'}} value={dataTqf7_2.อัตราการคงอยู่ของอาจารย์ประจําหลักสูตรรายปี_รายละเอียด} onChange={(e) => handleChange(e, 'อัตราการคงอยู่ของอาจารย์ประจําหลักสูตรรายปี_รายละเอียด')} /><br/><br/>
 
             <span>4.3.2 ความพึงพอใจของอาจารย์</span><br/><br/>
             
@@ -1100,10 +1100,10 @@ function TQF7_2() {
             </thead>
             <tbody>
               <tr>
-              <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
-              <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
-              <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
-              <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์} onChange={(e) => handleChange(e, 'การคงอยู่ของอาจารย์ประจำหลักสูตร_2560')}></InputText></td>
+              <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์} onChange={(e) => handleChange(e, 'เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์')}></InputText></td>
+              <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์')}></InputText></td>
+              <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์} onChange={(e) => handleChange(e, 'คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์')}></InputText></td>
+              <td className='TD'><InputText  style={{marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์} onChange={(e) => handleChange(e, 'การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_ความพึงพอใจของอาจารย์')}></InputText></td>
               </tr>
             </tbody>
           </table><br/><br/>
