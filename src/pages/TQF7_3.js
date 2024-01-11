@@ -361,6 +361,7 @@ function TQF7_3() {
   };
 
   return (
+    <form onSubmit={handleGenerateDocx}  >
     <div style={{ width: '100%',marginLeft: '10px'}}>
       <ScrollPanel style={{ width: '100%', height: '875px' }}>
       <Panel header="ข้อมูลนนักศึกษา">
@@ -1270,6 +1271,7 @@ function TQF7_3() {
       </Panel><br/><br/>
       </ScrollPanel>
     </div>
+    </form>
   )
 }
 
