@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'primereact/button';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import HP_professorComponent from './HP_professorComponent';
+import axios from 'axios'; // ต้องติดตั้ง axios ถ้ายังไม่ได้ทำ
+
 
 const HP_professor = () => {
     const [openDialog, setOpenDialog] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [products, setProducts] = useState([]);
     const [sequence, setSequence] = useState(1);
+
+    const fetchData = () => {
+        axios.get('https://project-in-back.vercel.app/api/get-news')
+            .then(response => {
+                setProducts(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching news:', error);
+            });
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
 
     const resetForm = () => {
         console.log('Resetting form...');
@@ -69,22 +86,22 @@ const HP_professor = () => {
 
     return (
         <div style={{ width: '100%', marginLeft: '10px' }}>
-            <DataTable value={products}>
-                <Column header="ลำดับ" field="code"></Column>
-                <Column header="หัวข้อข่าว" field="headlines"></Column>
-                <Column header="สร้างโดย" field="name"></Column>
-                <Column header="สร้างขึ้นเมื่อวันที่" field="quantity"></Column>
-                <Column header="ยอดวิว" field="visit"></Column>
-                <Column header="ตอบกลับ" field="reply"></Column>
-                <Column header="Actions" body={(rowData) => (
-                    <div>
-                        <Button style={{marginRight:'10px'}} onClick={() => handleEdit(rowData)}>แก้ไข</Button>
-                        <Button style={{marginLeft:'10px'}} onClick={() => {setSelectedProduct(rowData);
-                            handleDelete();
-                        }}>ลบ</Button>
-                    </div>
-                )}></Column>
-            </DataTable>
+                   <DataTable value={products}>
+            <Column header="ลำดับ" field="news_id"></Column>
+            <Column header="หัวข้อข่าว" field="title"></Column>
+            <Column header="เนื้อหา" field="content"></Column>
+            <Column header="สร้างโดย" field="author"></Column>
+            <Column header="สร้างขึ้นเมื่อวันที่" field="date_created"></Column>
+            <Column header="Actions" body={(rowData) => (
+                <div>
+                    <Button style={{ marginRight: '10px' }} onClick={() => handleEdit(rowData)}>แก้ไข</Button>
+                    <Button style={{ marginLeft: '10px' }} onClick={() => {
+                        setSelectedProduct(rowData);
+                        handleDelete();
+                    }}>ลบ</Button>
+                </div>
+            )}></Column>
+        </DataTable>
             <Button style={{ width: '135px',marginTop: '20px',marginLeft:'90%'}} onClick={handleAdd} >เพิ่มหัวข้อข่าว</Button>
 
             <HP_professorComponent
