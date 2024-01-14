@@ -25,11 +25,6 @@ const HP_professor = () => {
         fetchData();
     }, []);
 
-
-    const resetForm = () => {
-        console.log('Resetting form...');
-    };
-
     const handleEdit = (product) => {
         setSelectedProduct(product);
         setOpenDialog(true);
