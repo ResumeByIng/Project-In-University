@@ -6,9 +6,9 @@ import { Calendar } from 'primereact/calendar';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-const HP_professorComponent = ({ open, onClose, onSave, product}) => {
+const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => {
     console.log('open:', open);
-    const [code, setCode] = useState('');
+    const [, setCode] = useState('');
     const [headlines, setHeadlines] = useState('');
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState(new Date());
@@ -54,6 +54,7 @@ const HP_professorComponent = ({ open, onClose, onSave, product}) => {
         axios.post('https://project-in-back.vercel.app/api/create-news', newProduct)
           .then(response => {
             console.log(response.data);
+            fetchData();
           })
           .catch(error => {
             console.error('There was an error!', error);
