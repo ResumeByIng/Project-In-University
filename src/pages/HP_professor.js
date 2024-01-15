@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'primereact/button';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import HP_professorComponent from './HP_professorComponent';
+import axios from 'axios'; // ต้องติดตั้ง axios ถ้ายังไม่ได้ทำ
+
 
 const HP_professor = () => {
     const [openDialog, setOpenDialog] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [products, setProducts] = useState([]);
-    const [sequence, setSequence] = useState(1);
 
-    const resetForm = () => {
-        console.log('Resetting form...');
+    const fetchData = () => {
+        axios.get('https://project-in-back.vercel.app/api/get-news')
+            .then(response => {
+                setProducts(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching news:', error);
+            });
     };
 
-    const resetSequence = (newSequence) => {
-        setSequence(newSequence || 1);
-    };
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const handleEdit = (product) => {
         setSelectedProduct(product);
@@ -36,64 +43,57 @@ const HP_professor = () => {
          const newCode = (maxCode + 1).toString();
  
          const formattedQuantity = new Date(newProduct.quantity).toLocaleDateString('en-GB');
-         const updatedProduct = {
-             ...newProduct,
-             code: newCode,
-             quantity: formattedQuantity,
-         };
-        if (selectedProduct) {
-            const updatedProducts = products.map((product) =>
-                product.code === selectedProduct.code ? { ...product, ...newProduct } : product
-            );
-            setProducts(updatedProducts);
-        } else {
-            setProducts([...products, newProduct]);
-        }
-        setOpenDialog(false);
-        resetForm();
-        resetSequence();
+
+        //  const updatedProduct = {
+        //      ...newProduct,
+        //      code: newCode,
+        //      quantity: formattedQuantity,
+        //  };
+        // if (selectedProduct) {
+        //     const updatedProducts = products.map((product) =>
+        //         product.code === selectedProduct.code ? { ...product, ...newProduct } : product
+        //     );
+        //     setProducts(updatedProducts);
+        // } else {
+        //     setProducts([...products, newProduct]);
+        // }
+        // setOpenDialog(false);
+        // resetForm();
     };
 
-    const handleDelete = () => {
-        if (selectedProduct) {
-            const updatedProducts = products.filter((product) => product.code !== selectedProduct.code);
-            setProducts(updatedProducts);
-            setOpenDialog(false);
-             // หาลำดับที่มากที่สุดจากหัวข้อข่าวทั้งหมด
-             const maxCode = Math.max(...updatedProducts.map((product) => parseInt(product.code, 10)), 0);
-             // เรียกใช้ resetSequence และส่งลำดับที่มากที่สุด + 1
-             resetSequence(maxCode + 1);
-            setSelectedProduct(null);
-        }
-    };
-
+    const handleDelete = (selectedProduct) => {
+      
+        axios.delete(`https://project-in-back.vercel.app/api/delete-news/${selectedProduct.news_id}`)
+          .then(response => {
+            console.log('News deleted successfully:', response.data);
+            // Update the local state to reflect the deletion
+            setProducts(products.filter(news => news.news_id !== selectedProduct.news_id));
+            fetchData();
+          })
+          .catch(error => {
+            console.error('Error deleting news:', error);
+          });
+      };
     return (
         <div style={{ width: '100%', marginLeft: '10px' }}>
-            <DataTable value={products}>
-                <Column header="ลำดับ" field="code"></Column>
-                <Column header="หัวข้อข่าว" field="headlines"></Column>
-                <Column header="สร้างโดย" field="name"></Column>
-                <Column header="สร้างขึ้นเมื่อวันที่" field="quantity"></Column>
-                <Column header="ยอดวิว" field="visit"></Column>
-                <Column header="ตอบกลับ" field="reply"></Column>
-                <Column header="Actions" body={(rowData) => (
-                    <div>
-                        <Button style={{marginRight:'10px'}} onClick={() => handleEdit(rowData)}>แก้ไข</Button>
-                        <Button style={{marginLeft:'10px'}} onClick={() => {setSelectedProduct(rowData);
-                            handleDelete();
-                        }}>ลบ</Button>
-                    </div>
-                )}></Column>
-            </DataTable>
+                   <DataTable value={products}>
+            <Column header="ลำดับ" field="news_id"></Column>
+            <Column header="หัวข้อข่าว" field="title"></Column>
+            <Column header="เนื้อหา" field="content"></Column>
+            <Column header="สร้างโดย" field="author"></Column>
+            <Column header="สร้างขึ้นเมื่อวันที่" field="date_created"></Column>
+            <Column header="Actions" body={(rowData) => (
+                <div>
+                    <Button style={{ marginRight: '10px' }} onClick={() => handleEdit(rowData)}>แก้ไข</Button>
+                    <Button style={{ marginLeft: '10px' }} onClick={() => {
+                        setSelectedProduct(rowData);
+                        handleDelete(rowData);
+                    }}>ลบ</Button>
+                </div>
+            )}></Column>
+        </DataTable>
             <Button style={{ width: '135px',marginTop: '20px',marginLeft:'90%'}} onClick={handleAdd} >เพิ่มหัวข้อข่าว</Button>
-
-            <HP_professorComponent
-                open={openDialog}
-                onClose={() => setOpenDialog(false)}
-                onSave={handleSave}
-                product={selectedProduct}
-                resetSequence={resetSequence} // ส่งฟังก์ชัน resetSequence เข้าไป
-            />
+        <HP_professorComponent fetchData={fetchData} open={openDialog} onClose={() => setOpenDialog(false)} onSave={handleSave} product={selectedProduct} />
 
         </div>
     );
