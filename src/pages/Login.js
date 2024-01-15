@@ -7,11 +7,13 @@ import { FaExclamationCircle } from 'react-icons/fa';
 import { FaCheckCircle } from 'react-icons/fa';
 import './Login.css'; 
 import myImage1 from './ce.png';
+import RegisterDialog from './RegisterDialog';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [visible, setVisible] = useState(false);
+  const [registerDialogVisible, setRegisterDialogVisible] = useState(false);
   const navigate = useNavigate();
   const toast = useRef(null);
 
@@ -73,6 +75,21 @@ const Login = () => {
     });
   };
 
+  const openRegisterDialog = () => {
+    setRegisterDialogVisible(true);
+  };
+  const handleRegister = () => {
+    // เปิด Dailog Register
+    openRegisterDialog();
+  };
+  
+  const handleRegisterSuccess = () => {
+    // ทำตามต้องการหลังจาก Register สำเร็จ
+    // ...
+  };
+  
+  
+
   return (
     <div className="wrapper fadeInDown">
       <div id="formContent">
@@ -86,9 +103,15 @@ const Login = () => {
           <label className="fadeIn third">Password:</label>
           <input className="password fadeIn third" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </form>
-        <button className="fadeIn fourth center-button" type="button" onClick={handleLogin}>
+        <button className="fadeIn fourth center-button login-button" type="button" onClick={handleLogin}>
           Login
         </button>
+        <span className="register-text" onClick={openRegisterDialog}>Register</span>
+      <RegisterDialog
+        visible={registerDialogVisible}
+        onHide={() => setRegisterDialogVisible(false)}
+        onRegister={handleRegisterSuccess}
+      />
       </div>
       <Toast ref={toast} position="top-center" />
     </div>

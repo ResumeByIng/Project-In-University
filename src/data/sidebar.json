@@ -88,11 +88,6 @@
                 "roles": [2]
             },
             {
-                "title": "กิจกรรม",
-                "path": "/Daily_activities",
-                "roles": [2]
-            },
-            {
                 "title": "ตรวจคะแนนพิเศษ",
                 "path": "/tqf.7_3",
                 "roles": [2]
@@ -120,11 +115,6 @@
                 "roles": [1]
             },
             {
-                "title": "กิจกรรม",
-                "path": "/tqf.7_2",
-                "roles": [1]
-            },
-            {
                 "title": "คะแนนพิเศษ",
                 "path": "/extrapoints",
                 "roles": [1]
@@ -149,11 +139,6 @@
             {
                 "title": "ข้อมูล",
                 "path": "/tqf.7_1",
-                "roles": [3]
-            },
-            {
-                "title": "กิจกรรม",
-                "path": "/tqf.7_2",
                 "roles": [3]
             }
         ]
