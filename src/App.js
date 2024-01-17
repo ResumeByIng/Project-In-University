@@ -6,6 +6,7 @@ import TQF7_1 from "./pages/TQF7_1";
 import TQF7_2 from "./pages/TQF7_2";
 import TQF7_3 from "./pages/TQF7_3";
 import Extrapoints from "./pages/Extrapoints";
+import AddAssessment from "./pages/AddAssessment";
 import Assessment from "./pages/Assessment";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -14,6 +15,10 @@ import HP_Student from "./pages/HP_Student";
 import Data_Student from "./pages/Data_Student";
 import Data_professor from "./pages/Data_professor";
 import Daily_activities from "./pages/Daily_activities";
+import Meeting from "./pages/Meeting";
+import CheckExtrapoints from './pages/CheckExtrapoints';
+
+
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'));
@@ -48,6 +53,7 @@ function App() {
           <Route path="/tqf.7_3" element={parseInt(user) === 2 ? <TQF7_3 /> : <Navigate to="/home" />} />
           <Route path="/extrapoints" element={parseInt(user) === 1 ? <Extrapoints /> : <Navigate to="/home" />} />
           <Route path="/assessment" element={parseInt(user) === 1 ? <Assessment /> : <Navigate to="/home" />} />
+          <Route path="/AddAssessment" element={parseInt(user) === 2 ? <AddAssessment /> : <Navigate to="/home" />} />
           <Route
             path="/home"
             element={parseInt(user) === 1 || parseInt(user) === 2 || parseInt(user) === 3 ? <Home /> : <Navigate to="/home" />}
@@ -57,6 +63,8 @@ function App() {
           <Route path="/Data_Student" element={parseInt(user) === 1 ? <Data_Student /> : <Navigate to="/home" />} />
           <Route path="/Data_professor" element={parseInt(user) === 2 ? <Data_professor /> : <Navigate to="/home" />} />
           <Route path="/Daily_activities" element={parseInt(user) === 2 ? <Daily_activities /> : <Navigate to="/home" />} />
+          <Route path="/Meeting" element={parseInt(user) === 2 ? <Meeting /> : <Navigate to="/home" />} />
+          <Route path="/CheckExtrapoints" element={parseInt(user) === 2 ? <CheckExtrapoints /> : <Navigate to="/home" />} />
         </Routes>
       </div>
     </Router>

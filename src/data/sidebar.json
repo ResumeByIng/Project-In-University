@@ -88,13 +88,18 @@
                 "roles": [2]
             },
             {
-                "title": "ตรวจคะแนนพิเศษ",
-                "path": "/tqf.7_3",
+                "title": "การจัดการประชุม",
+                "path": "/Meeting",
                 "roles": [2]
             },
             {
-                "title": "ตรวจแบบประเมิน",
-                "path": "/tqf.7_3",
+                "title": "ตรวจคะแนนพิเศษ",
+                "path": "/CheckExtrapoints",
+                "roles": [2]
+            },
+            {
+                "title": "สร้าง / ตรวจ แบบประเมิน",
+                "path": "/AddAssessment",
                 "roles": [2]
             }
         ]

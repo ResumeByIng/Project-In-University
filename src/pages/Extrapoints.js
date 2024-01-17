@@ -42,7 +42,7 @@ function Extrapoints() {
 
   const imageUploadTemplate = (rowData) => {
     return (
-      <div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {rowData.picture ? (
           <img src={rowData.picture} alt="รูปภาพ" style={{ width: '100px' }} />
         ) : (
@@ -56,6 +56,11 @@ function Extrapoints() {
             maxFileSize={MAX_FILE_SIZE}
           />
         )}
+         <Checkbox
+        checked={selectedExtrapoints.includes(rowData)}
+        onChange={(e) => handleCheckboxToggle(e, rowData)}
+        style={{ marginLeft: '10px' }}
+      />
       </div>
     );
   };
@@ -70,15 +75,17 @@ function Extrapoints() {
       });
   }, []);
 
-  const handleCheckboxToggle = (e) => {
-    const selectedItems = e.value;
+  const handleCheckboxToggle = (e, rowData) => {
+    const selectedItems = [...selectedExtrapoints];
+    if (e.checked) {
+      selectedItems.push(rowData);
+    } else {
+      const index = selectedItems.findIndex(item => item === rowData);
+      if (index !== -1) {
+        selectedItems.splice(index, 1);
+      }
+    }
     setSelectedExtrapoints(selectedItems);
-  };
-  const handleButtonClick = (rowData) => {
-    // ทำงานที่ต้องการเมื่อปุ่มถูกคลิก
-    console.log('Button clicked for row data:', rowData);
-
-    // ส่งข้อมูลที่ต้องการไปยัง API หรือทำประการอื่น ๆ ตามที่ต้องการ
   };
 
   return (
@@ -97,12 +104,6 @@ function Extrapoints() {
             <Column field="list" header="ชื่อแบบประเมิน"></Column>
             <Column field="points" header="คะแนน"></Column>
             <Column field="picture" header="รูปภาพ" body={imageUploadTemplate}></Column>
-            <Column>
-              <Button onClick={() => handleButtonClick(selectedExtrapoints[0])}>Button</Button>
-            </Column>
-            <Column>
-              <Checkbox checked={selectedExtrapoints.length > 0} onChange={(e) => handleCheckboxToggle({ value: Extrapoints, checked: e.checked })} />
-            </Column>
         </DataTable>
           <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'flex-end' }}>
             <Button type="submit" label="ส่งแบบประเมิน" className="w-full md:w-14rem" />
