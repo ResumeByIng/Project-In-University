@@ -11,12 +11,6 @@
                 "roles": [1, 2, 3]
             },
             {
-                "title": "About",
-                "icon": "bi-info-circle-fill",
-                "path": "/about",
-                "roles": [1, 2, 3]
-            },
-            {
                 "title": "Contact",
                 "icon": "bi-phone-fill",
                 "roles": [1, 2, 3],
@@ -24,24 +18,28 @@
                     {
                         "title": "Facebook",
                         "icon": "bi-facebook",
+                        "path": "https://www.facebook.com/ComputerEngineeringSSRU",
                         "roles": [1, 2, 3]
                     },
                     {
                         "title": "Twitter",
                         "icon": "bi-twitter",
+                        "path": "https://twitter.com/SsruCe",
                         "roles": [1, 2, 3]
                     },
                     {
                         "title": "Instagram",
                         "icon": "bi-instagram",
+                        "path": "https://www.instagram.com/ce_ssru",
+                        "roles": [1, 2, 3]
+                    },
+                    {
+                        "title": "Youtube",
+                        "icon": "bi-youtube",
+                        "path": "https://www.youtube.com/@cessru672",
                         "roles": [1, 2, 3]
                     }
                 ]
-            },
-            {
-                "title": "FAQ",
-                "icon": "bi-question-circle-fill",
-                "roles": [1, 2, 3]
             }
         ]
     },
