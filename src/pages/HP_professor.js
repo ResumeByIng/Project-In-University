@@ -76,7 +76,7 @@ const HP_professor = () => {
       };
     return (
         <div style={{ width: '100%', marginLeft: '10px' }}>
-                   <DataTable value={products}>
+        <DataTable value={products}>
             <Column header="ลำดับ" field="news_id"></Column>
             <Column header="หัวข้อข่าว" field="title"></Column>
             <Column header="เนื้อหา" field="content"></Column>
