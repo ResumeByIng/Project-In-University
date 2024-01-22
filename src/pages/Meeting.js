@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import MeetingComponent from './MeetingComponent';
 import { Toast } from 'primereact/toast';
+import axios from 'axios';
 
 const Meeting = () => {
   const [meetings, setMeetings] = useState([]);
@@ -13,6 +14,21 @@ const Meeting = () => {
   });
 
   const toast = useRef(null);
+
+  useEffect(() => {
+    // Function to fetch meetings from the server
+    const fetchMeetings = async () => {
+      try {
+        const response = await axios.get('https://project-in-back.vercel.app/api/meetings');
+        setMeetings(response.data);
+      } catch (error) {
+        console.error('Error fetching meetings:', error);
+        // Handle error, e.g., show an error toast
+      }
+    };
+     // Call the fetchMeetings function
+     fetchMeetings();
+    }, []); // Empty dependency array means this effect runs once after the initial render
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -79,9 +95,28 @@ const Meeting = () => {
       position: '',
       agenda: '',
     });
-
+     // ส่งข้อมูลไปยัง API ที่คุณกำหนด
+  axios.post('https://project-in-back.vercel.app/api/meetings', newMeeting)
+  .then(response => {
+    // กระทำตามต้องการเมื่อส่งข้อมูลสำเร็จ
+    console.log('Meeting added successfully:', response.data);
+    setMeetings([...meetings, newMeeting]);
+    setFormData({
+      title: '',
+      date: '',
+      room: '',
+      position: '',
+      agenda: '',
+    });
     toast.current.show({ severity: 'success', summary: 'Meeting added successfully', life: 3000 });
-  };
+  })
+  .catch(error => {
+    // กระทำตามต้องการเมื่อเกิดข้อผิดพลาดในการส่งข้อมูล
+    console.error('Error adding meeting:', error);
+    console.log('data:', formData);
+    toast.current.show({ severity: 'error', summary: 'เกิดข้อผิดพลาดในการเพิ่มการประชุม', life: 3000 });
+  });
+};
 
   return (
     <div style={{ width: '100%', marginLeft: '10px', marginTop: '20px' }}>
