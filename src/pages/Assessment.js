@@ -85,7 +85,7 @@ function Assessment() {
               <Dialog  header="ประเมินการเรียนการสอน มหาวิทยาลัยราชภัฎสวนสุนันทา ปีการศึกษา : 2566 ภาคการศึกษา 1 " visible={visible} style={{ width: '50vw' }} onHide={() => setVisible(false)}> 
             <div style={{ width: '100%'}}>
           <DataTable value={Assessment} showGridlines tableStyle={{ minWidth: '50rem' , textAlign: 'center'}}>
-                  <Column field="clause" header="ข้อ"></Column>
+                  <Column field="clause" header="หัวข้อที่"></Column>
                   <Column field="list" header="รายการประเมิน"></Column>
                   <Column field="very good" header="ดีมาก" body={(rowData) => actionTemplate1(rowData, 'very good')}></Column>
                   <Column field="good" header="ดี" body={(rowData) => actionTemplate1(rowData, 'good')}></Column>

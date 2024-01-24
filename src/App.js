@@ -6,7 +6,7 @@ import TQF7_1 from "./pages/TQF7_1";
 import TQF7_2 from "./pages/TQF7_2";
 import TQF7_3 from "./pages/TQF7_3";
 import Extrapoints from "./pages/Extrapoints";
-import AddAssessment from "./pages/AddAssessment";
+import AddAssessment from './pages/AddAssessment'; 
 import Assessment from "./pages/Assessment";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
