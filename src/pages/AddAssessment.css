@@ -1,0 +1,24 @@
+.custom-dialog {
+    width: 60% !important;
+  }
+  
+  .custom-dialog .p-dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .custom-inputtext {
+    width: 60%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .custom-button {
+    width: 50%;
+    align-self: center;
+    margin-top: 10px;
+  }
+  
