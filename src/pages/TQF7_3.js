@@ -3,6 +3,7 @@ import { ScrollPanel } from 'primereact/scrollpanel';
 import { Panel } from 'primereact/panel'
 import { InputTextarea } from 'primereact/inputtextarea'
 import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
 import axios from 'axios';
 function TQF7_3() {
 
@@ -363,8 +364,8 @@ function TQF7_3() {
   return (
     <form onSubmit={handleGenerateDocx}  >
     <div style={{ width: '100%',marginLeft: '10px'}}>
-      <ScrollPanel style={{ width: '100%', height: '875px' }}>
-      <Panel header="ข้อมูลนนักศึกษา">
+      <ScrollPanel style={{ width: '100%', height: '950px' }}>
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ข้อมูลนนักศึกษา">
         {/***********************************************/}
         <div>
           <span>ตารางข้อมูลนนักศึกษา</span>
@@ -386,92 +387,92 @@ function TQF7_3() {
             <tbody>
               <tr>
                 <td className='TD'>2559</td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_1')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_2')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_3')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_4')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_5')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_6')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_1')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_2')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_3')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_4')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_5')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_1_6')}></InputText></td>
               </tr>
               <tr>
                 <td className='TD'>2560</td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_1')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_2')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_3')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_4')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_5')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_6')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_1')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_2')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_3')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_4')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_5')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_2_6')}></InputText></td>
               </tr>
               <tr>
                 <td className='TD'>2561</td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_1')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_2')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_3')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_4')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_5')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_6')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_1')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_2')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_3')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_4')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_5')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_3_6')}></InputText></td>
               </tr>
               <tr>
                 <td className='TD'>2562</td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_1')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_2')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_3')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_4')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_5')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_6')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_1')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_2')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_3')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_4')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_5')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_4_6')}></InputText></td>
               </tr>
               <tr>
                 <td className='TD'>2563</td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_1')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_2')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_3')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_4')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_5')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_6')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_1')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_2')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_3')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_4')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_5')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_5_6')}></InputText></td>
               </tr>
               <tr>
                 <td className='TD'>2564</td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_1')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_2')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_3')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_4')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_5')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_6')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_1')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_2')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_3')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_4')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_5')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',marginTop:'10px',marginBottom:'10px',textAlign:'center',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_ข้อมูลนักศึกษา_6_6')}></InputText></td>
               </tr>
             </tbody>
           </table><br/><br/>
           <span>ปัจจัยที่มีผลกระทบต่อจำนวนนักศึกษา</span><br/><br/>
-        <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ปัจจัยที่มีผลกระทบต่อจำนวนนักศึกษา_นักศึกษาและบัณฑิต} onChange={(e) => handleChange(e, 'ปัจจัยที่มีผลกระทบต่อจำนวนนักศึกษา_นักศึกษาและบัณฑิต')} /><br/><br/>
+        <InputTextarea autoResize style={{ width: '100%' ,height: "200px",fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ปัจจัยที่มีผลกระทบต่อจำนวนนักศึกษา_นักศึกษาและบัณฑิต} onChange={(e) => handleChange(e, 'ปัจจัยที่มีผลกระทบต่อจำนวนนักศึกษา_นักศึกษาและบัณฑิต')} /><br/><br/>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel header="3.1.1 การรับนักศึกษา">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.1.1 การรับนักศึกษา">
         {/***********************************************/}
         <div>
             <span>การรับนักศึกษา</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การรับนักศึกษา_การรับนักศึกษา} onChange={(e) => handleChange(e, 'การรับนักศึกษา_การรับนักศึกษา')} /><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%',height: "120px",fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การรับนักศึกษา_การรับนักศึกษา} onChange={(e) => handleChange(e, 'การรับนักศึกษา_การรับนักศึกษา')} /><br/><br/>
             <span>ระบบกลไก</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ระบบกลไก_การรับนักศึกษา} onChange={(e) => handleChange(e, 'ระบบกลไก_การรับนักศึกษา')} /><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%',height: "450px",fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_3.ระบบกลไก_การรับนักศึกษา} onChange={(e) => handleChange(e, 'ระบบกลไก_การรับนักศึกษา')} /><br/><br/>
             <span>ผลการดำเนินงาน</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ผลการดำเนินงาน_การรับนักศึกษา} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การรับนักศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%',height: "700px",fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผลการดำเนินงาน_การรับนักศึกษา} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การรับนักศึกษา')}/><br/><br/>
             <span>การประเมินกระบวนการ</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การประเมินกระบวนการ_การรับนักศึกษา} onChange={(e) => handleChange(e, 'การประเมินกระบวนการ_การรับนักศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,height: "100px",fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การประเมินกระบวนการ_การรับนักศึกษา} onChange={(e) => handleChange(e, 'การประเมินกระบวนการ_การรับนักศึกษา')}/><br/><br/>
             <span>การปรับปรุงกระบวนการ</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การปรับปรุงกระบวนการ_การรับนักศึกษา} onChange={(e) => handleChange(e, 'การปรับปรุงกระบวนการ_การรับนักศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,height: "200px",fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การปรับปรุงกระบวนการ_การรับนักศึกษา} onChange={(e) => handleChange(e, 'การปรับปรุงกระบวนการ_การรับนักศึกษา')}/><br/><br/>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel header="3.1.2 การเตรียมความพร้อมก่อนเข้าศึกษา">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.1.2 การเตรียมความพร้อมก่อนเข้าศึกษา">
         {/***********************************************/}
         <div>
             <span>ระบบกลไก</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ระบบกลไก_การเตรียมความพร้อมก่อนเข้าศึกษา}  onChange={(e) => handleChange(e, 'ระบบกลไก_การเตรียมความพร้อมก่อนเข้าศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,height: "150px",fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ระบบกลไก_การเตรียมความพร้อมก่อนเข้าศึกษา}  onChange={(e) => handleChange(e, 'ระบบกลไก_การเตรียมความพร้อมก่อนเข้าศึกษา')}/><br/><br/>
             <span>ผลการดำเนินงาน</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา')}/><br/><br/>
             <span>การประเมินกระบวนการ</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การประเมินกระบวนการ_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'การประเมินกระบวนการ_การเตรียมความพร้อมก่อนเข้าศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การประเมินกระบวนการ_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'การประเมินกระบวนการ_การเตรียมความพร้อมก่อนเข้าศึกษา')}/><br/><br/>
             <span>การปรับปรุงกระบวนการ</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การปรับปรุงกระบวนการ_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'การปรับปรุงกระบวนการ_การเตรียมความพร้อมก่อนเข้าศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,height: "220px",fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การปรับปรุงกระบวนการ_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'การปรับปรุงกระบวนการ_การเตรียมความพร้อมก่อนเข้าศึกษา')}/><br/><br/>
             <span>การประเมินตนเองจากผลการดำเนินงาน</span>
             <table className='TA'>
             <thead>
@@ -484,10 +485,10 @@ function TQF7_3() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา')}></InputText></td>
+                <td className='TD'><InputText  style={{width: '100%' ,marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา')}></InputText></td>
+                <td className='TD'><InputText  style={{width: '100%' ,marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา')}></InputText></td>
+                <td className='TD'><InputText  style={{width: '100%' ,marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา')}></InputText></td>
+                <td className='TD'><InputText  style={{width: '100%' ,marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา} onChange={(e) => handleChange(e, 'การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การเตรียมความพร้อมก่อนเข้าศึกษา')}></InputText></td>
               </tr>
             </tbody>
           </table><br/><br/>
@@ -501,47 +502,47 @@ function TQF7_3() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.รหัสเอกสาร_รายการหลักฐานอ้างอิง_การเตรียมความพร้อมก่อนเข้าศึกษา_1} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการหลักฐานอ้างอิง_การเตรียมความพร้อมก่อนเข้าศึกษา_1')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.รหัสเอกสาร_รายการเอกสารหลักฐาน_การเตรียมความพร้อมก่อนเข้าศึกษา_1} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการเอกสารหลักฐาน_การเตรียมความพร้อมก่อนเข้าศึกษา_1')}></InputText></td>
+                <td className='TD'><InputText  style={{width: '100%' ,marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.รหัสเอกสาร_รายการหลักฐานอ้างอิง_การเตรียมความพร้อมก่อนเข้าศึกษา_1} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการหลักฐานอ้างอิง_การเตรียมความพร้อมก่อนเข้าศึกษา_1')}></InputText></td>
+                <td className='TD'><InputText  style={{width: '100%' ,marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.รหัสเอกสาร_รายการเอกสารหลักฐาน_การเตรียมความพร้อมก่อนเข้าศึกษา_1} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการเอกสารหลักฐาน_การเตรียมความพร้อมก่อนเข้าศึกษา_1')}></InputText></td>
               </tr>
               <tr>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.รหัสเอกสาร_รายการหลักฐานอ้างอิง_การเตรียมความพร้อมก่อนเข้าศึกษา_2} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการหลักฐานอ้างอิง_การเตรียมความพร้อมก่อนเข้าศึกษา_2')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.รหัสเอกสาร_รายการเอกสารหลักฐาน_การเตรียมความพร้อมก่อนเข้าศึกษา_2} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการเอกสารหลักฐาน_การเตรียมความพร้อมก่อนเข้าศึกษา_2')}></InputText></td>
+                <td className='TD'><InputText  style={{width: '100%' ,marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.รหัสเอกสาร_รายการหลักฐานอ้างอิง_การเตรียมความพร้อมก่อนเข้าศึกษา_2} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการหลักฐานอ้างอิง_การเตรียมความพร้อมก่อนเข้าศึกษา_2')}></InputText></td>
+                <td className='TD'><InputText  style={{width: '100%' ,marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.รหัสเอกสาร_รายการเอกสารหลักฐาน_การเตรียมความพร้อมก่อนเข้าศึกษา_2} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการเอกสารหลักฐาน_การเตรียมความพร้อมก่อนเข้าศึกษา_2')}></InputText></td>
               </tr>
             </tbody>
           </table><br/><br/>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel header="3.2.1 การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.2.1 การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี">
         {/***********************************************/}
         <div>
             <span>การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี} onChange={(e) => handleChange(e, 'การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี} onChange={(e) => handleChange(e, 'การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี')}/><br/><br/>
             <span>ผลการดำเนินงาน</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ผลดำเนินการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี} onChange={(e) => handleChange(e, 'ผลดำเนินการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,height: "500px",fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผลดำเนินการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี} onChange={(e) => handleChange(e, 'ผลดำเนินการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี')}/><br/><br/>
             <span>การประเมินกระบวนการ</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การประเมินกระบวนการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี} onChange={(e) => handleChange(e, 'การประเมินกระบวนการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การประเมินกระบวนการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี} onChange={(e) => handleChange(e, 'การประเมินกระบวนการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี')}/><br/><br/>
             <span>การปรับปรุงกระบวนการ</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การปรับปรุงกระบวนการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี} onChange={(e) => handleChange(e, 'การปรับปรุงกระบวนการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การปรับปรุงกระบวนการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี} onChange={(e) => handleChange(e, 'การปรับปรุงกระบวนการ_การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี')}/><br/><br/>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel header="3.2.2 กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่ 21">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.2.2 กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่ 21">
         {/***********************************************/}
         <div>
             <span>ระบบกลไก</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ระบบกลไก_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21} onChange={(e) => handleChange(e, 'ระบบกลไก_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21')} /><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%',height: "200px" ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ระบบกลไก_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21} onChange={(e) => handleChange(e, 'ระบบกลไก_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21')} /><br/><br/>
             <span>ผลการดําเนินงาน</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ผลดำเนินการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21} onChange={(e) => handleChange(e, 'ผลดำเนินการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21')} /><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%',height: "150px" ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผลดำเนินการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21} onChange={(e) => handleChange(e, 'ผลดำเนินการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21')} /><br/><br/>
             <span>การประเมินกระบวนการ</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การประเมินกระบวนการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21} onChange={(e) => handleChange(e, 'การประเมินกระบวนการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21')} /><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%',height: "100px" ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การประเมินกระบวนการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21} onChange={(e) => handleChange(e, 'การประเมินกระบวนการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21')} /><br/><br/>
             <span>การปรับปรุงกระบวนการ</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การปรับปรุงกระบวนการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21} onChange={(e) => handleChange(e, 'การปรับปรุงกระบวนการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21')} /><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%',height: "220px" ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การปรับปรุงกระบวนการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21} onChange={(e) => handleChange(e, 'การปรับปรุงกระบวนการ_กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่21')} /><br/><br/>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel header="3.2.3 การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์ แก่บัณฑิตศึกษา">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.2.3 การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์ แก่บัณฑิตศึกษา">
         {/***********************************************/}
         <div>
             <span>การประเมินตนเองจากผลการดำเนินงาน</span>
@@ -556,10 +557,10 @@ function TQF7_3() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา} onChange={(e) => handleChange(e, 'เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา} onChange={(e) => handleChange(e, 'คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา} onChange={(e) => handleChange(e, 'การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา} onChange={(e) => handleChange(e, 'เป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา} onChange={(e) => handleChange(e, 'คะแนนการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา} onChange={(e) => handleChange(e, 'การบรรลุเป้าหมาย_การประเมินตนเองจากผลการดำเนินงาน_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา')}></InputText></td>
               </tr>
             </tbody>
           </table><br/><br/>
@@ -573,23 +574,23 @@ function TQF7_3() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_1} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_1')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_1} onChange={(e) => handleChange(e, 'รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_1')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_1} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_1')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_1} onChange={(e) => handleChange(e, 'รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_1')}></InputText></td>
               </tr>
               <tr>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_2} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_2')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_2} onChange={(e) => handleChange(e, 'รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_2')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_2} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_2')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_2} onChange={(e) => handleChange(e, 'รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_2')}></InputText></td>
               </tr>
               <tr>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_3} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_3')}></InputText></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_3} onChange={(e) => handleChange(e, 'รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_3')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_3} onChange={(e) => handleChange(e, 'รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_3')}></InputText></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_3} onChange={(e) => handleChange(e, 'รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_3')}></InputText></td>
               </tr>
             </tbody>
           </table><br/><br/>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel header="ผลที่เกิดกับนักศึกษา">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ผลที่เกิดกับนักศึกษา">
         {/***********************************************/}
         <div>
             <span>ข้อมูลนักศึกษา และจำนวนผู้สำเร็จการศึกษาตามแผนการศึกษาและจำนวนผู้สำเร็จการศึกษา</span><br/><br/>
@@ -613,69 +614,69 @@ function TQF7_3() {
               <tbody>
                 <tr>
                   <th>2559</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_1} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_6')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_1} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_1')}></InputText></th>
                 </tr>
                 <tr>
                   <th>2560</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_2} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_6')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_2} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_2')}></InputText></th>
                 </tr>
                 <tr>
                   <th>2561</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_3} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_6')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_3} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_3')}></InputText></th>
                 </tr>
                 <tr>
                   <th>2562</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_4} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_6')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_4} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_4')}></InputText></th>
                 </tr>
                 <tr>
                   <th>2563</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_5} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_6')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_5} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_5')}></InputText></th>
                 </tr>
                 <tr>
                   <th>2564</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_6} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_6')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_6')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_6} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_6} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_6')}></InputText></th>
                 </tr>
               </tbody>
             </table><br/><br/>
@@ -802,90 +803,90 @@ function TQF7_3() {
               <tbody>
                 <tr>
                   <th>2557</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_1} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_3} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_4} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_5} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_1} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_3} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_4} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_5} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_6')}></InputText></th>
                 </tr>
                 <tr>
                   <th>2558</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_2} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_3} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_4} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_5} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_2} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_3} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_4} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_5} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_6')}></InputText></th>
                 </tr>
                 <tr>
                   <th>2559</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_3} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_3} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_4} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_5} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_3} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_3} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_4} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_5} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_6')}></InputText></th>
                 </tr>
                 <tr>
                   <th>2560</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_4} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_3} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_4} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_5} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_4} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_3} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_4} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_5} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_6')}></InputText></th>
                 </tr>
                 <tr>
                   <th>2561</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนรับเข้า_5} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_1')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_2')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_3} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_3')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_4} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_4')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_5} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_5')}></InputText></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_6')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_5} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_1')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_2')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_3} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_3')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_4} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_4')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_5} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_5')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_6')}></InputText></th>
                 </tr>
               </tbody>
             </table>
 
             <span>ปัจจัยที่ส่งผลกระทบต่อจำนวนนักศึกษา</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ปัจจัย_1}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ปัจจัย_1}/><br/><br/>
             <span>การประเมินความพึงพอใจของนักศึกษา</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การประเมินความพึงพอใจของนักศึกษา}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การประเมินความพึงพอใจของนักศึกษา}/><br/><br/>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel header="การจัดการข้อร้องเรียนของนักศึกษา">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="การจัดการข้อร้องเรียนของนักศึกษา">
         {/***********************************************/}
         <div>
             <span>ระบบกลไก</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ระบบกลไก_การจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'ระบบกลไก_การจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ระบบกลไก_การจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'ระบบกลไก_การจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
             <span>ผลการดําเนินงาน</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ผลดำเนินการ_การจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'ผลดำเนินการ_การจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผลดำเนินการ_การจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'ผลดำเนินการ_การจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
             <span>การประเมินกระบวนการ</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การประเมินกระบวนการ_การจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'การประเมินกระบวนการ_การจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การประเมินกระบวนการ_การจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'การประเมินกระบวนการ_การจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
             <span>การปรับปรุงกระบวนการ</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การปรับปรุงกระบวนการ_การจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'การปรับปรุงกระบวนการ_การจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การปรับปรุงกระบวนการ_การจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'การปรับปรุงกระบวนการ_การจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
 
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel header="3.3.1 การคงอยู่">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.3.1 การคงอยู่">
             <span>การคงอยู่</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การคงอยู่_การคงอยู่} onChange={(e) => handleChange(e, 'การคงอยู่_การคงอยู่')}/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การคงอยู่_การคงอยู่} onChange={(e) => handleChange(e, 'การคงอยู่_การคงอยู่')}/>
       </Panel><br/><br/>
-      <Panel header="3.3.2 การสำเร็จการศึกษา">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.3.2 การสำเร็จการศึกษา">
             <span>การสำเร็จการศึกษา</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.การสำเร็จการศึกษา_การสำเร็จการศึกษา} onChange={(e) => handleChange(e, 'การสำเร็จการศึกษา_การสำเร็จการศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_3.การสำเร็จการศึกษา_การสำเร็จการศึกษา} onChange={(e) => handleChange(e, 'การสำเร็จการศึกษา_การสำเร็จการศึกษา')}/><br/><br/>
       </Panel><br/><br/>
-      <Panel header="3.3.3 ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.3.3 ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา">
             <span>ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '100%' }}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%',fontFamily: 'Kanit, sans-serif' }}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
             <span>การประเมินตนเองจากผลการดำเนินงาน</span><br/><br/>
             <table className='TA'>
             <thead>
@@ -898,10 +899,10 @@ function TQF7_3() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputTextarea autoResize style={{ width: '100%' }}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย')}/><br/><br/></td>
-                <td className='TD'><InputTextarea autoResize style={{ width: '100%' }}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน')}/></td>
-                <td className='TD'><InputTextarea autoResize style={{ width: '100%' }}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง')}/></td>
-                <td className='TD'><InputTextarea autoResize style={{ width: '100%' }}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย')}/></td>
+                <td className='TD'><InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย')}/><br/><br/></td>
+                <td className='TD'><InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน')}/></td>
+                <td className='TD'><InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง')}/></td>
+                <td className='TD'><InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย')}/></td>
               </tr>
             </tbody>
           </table><br/><br/>
@@ -916,18 +917,18 @@ function TQF7_3() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputTextarea autoResize style={{ width: '100%' }}value={dataTqf7_3.รายการหลักฐานอ้างอิง_รหัสเอกสาร} onChange={(e) => handleChange(e, 'รายการหลักฐานอ้างอิง_รหัสเอกสาร')}/></td>
-                <td className='TD'><InputTextarea autoResize style={{ width: '100%' }}value={dataTqf7_3.รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน} onChange={(e) => handleChange(e, 'รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน')}/></td>
+                <td className='TD'><InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}}value={dataTqf7_3.รายการหลักฐานอ้างอิง_รหัสเอกสาร} onChange={(e) => handleChange(e, 'รายการหลักฐานอ้างอิง_รหัสเอกสาร')}/></td>
+                <td className='TD'><InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}}value={dataTqf7_3.รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน} onChange={(e) => handleChange(e, 'รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน')}/></td>
               </tr>
             </tbody>
           </table><br/><br/>
       </Panel><br/><br/>
         
-      <Panel header="ตัวบ่งชี้ที่ 2.1 คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ตัวบ่งชี้ที่ 2.1 คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ">
         {/***********************************************/}
         <div>
             <span>ผลการดำเนินงาน</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
             <span>ข้อมูลประกอบการคำนวณคุณภาพของบัณฑิตหลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์</span><br/><br/>
             <table>
               <thead>
@@ -942,19 +943,19 @@ function TQF7_3() {
                 <tr>
                   <th colSpan="2">คุณภาพของบัณฑิตปริญญาตรี/โท/เอก ตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ </th>
                   <th>เฉลี่ย</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.คุณภาพของบัณฑิตปริญญาตรีโทเอกตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รวม} onChange={(e) => handleChange(e, 'คุณภาพของบัณฑิตปริญญาตรีโทเอกตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.คุณภาพของบัณฑิตปริญญาตรีโทเอกตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รวม} onChange={(e) => handleChange(e, 'คุณภาพของบัณฑิตปริญญาตรีโทเอกตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รวม')}/></th>
                 </tr>
                 <tr>
                   <th>1</th>
                   <th>จำนวนผู้สำเร็จการศึกษาทั้งหมด</th>
                   <th>คน</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.จำนวนผู้สำเร็จการศึกษาทั้งหมด_รวม} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาทั้งหมด_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.จำนวนผู้สำเร็จการศึกษาทั้งหมด_รวม} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาทั้งหมด_รวม')}/></th>
                 </tr>
                 <tr>
                   <th>2</th>
                   <th>จำนวนผู้สำเร็จการศึกษาที่ได้รับการประเมินคุณภาพตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ </th>
                   <th>คน</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.จำนวนผู้สำเร็จการศึกษาที่ได้รับการประเมินคุณภาพตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รวม} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาที่ได้รับการประเมินคุณภาพตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.จำนวนผู้สำเร็จการศึกษาที่ได้รับการประเมินคุณภาพตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รวม} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาที่ได้รับการประเมินคุณภาพตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รวม')}/></th>
                 </tr>
                 <tr>
                   <th>3</th>
@@ -966,49 +967,49 @@ function TQF7_3() {
                   <th></th>
                   <th>(1) ด้านคุณธรรมจริยธรรม</th>
                   <th>คะแนน</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านคุณธรรมจริยธรรม_รวม} onChange={(e) => handleChange(e, 'ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านคุณธรรมจริยธรรม_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านคุณธรรมจริยธรรม_รวม} onChange={(e) => handleChange(e, 'ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านคุณธรรมจริยธรรม_รวม')}/></th>
                 </tr>
                 <tr>
                   <th></th>
                   <th>(2) ด้านความรู้</th>
                   <th>คะแนน</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านความรู้_รวม} onChange={(e) => handleChange(e, 'ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านความรู้_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านความรู้_รวม} onChange={(e) => handleChange(e, 'ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านความรู้_รวม')}/></th>
                 </tr>
                 <tr>
                   <th></th>
                   <th>(3) ด้านทักษะทางปัญญา</th>
                   <th>คะแนน</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะทางปัญญา_รวม} onChange={(e) => handleChange(e, 'ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะทางปัญญา_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะทางปัญญา_รวม} onChange={(e) => handleChange(e, 'ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะทางปัญญา_รวม')}/></th>
                 </tr>
                 <tr>
                   <th></th>
                   <th>(4) ด้านทักษะความสัมพันธ์ระหว่างบุคคล</th>
                   <th>คะแนน</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะความสัมพันธ์ระหว่างบุคคล_รวม} onChange={(e) => handleChange(e, 'ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะความสัมพันธ์ระหว่างบุคคล_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะความสัมพันธ์ระหว่างบุคคล_รวม} onChange={(e) => handleChange(e, 'ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะความสัมพันธ์ระหว่างบุคคล_รวม')}/></th>
                 </tr>
                 <tr>
                   <th></th>
                   <th>(5) ด้านทักษะการวิเคราะห์เชิงตัวเลข การสื่อสารและการใช้</th>
                   <th>คะแนน</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะการวิเคราะห์เชิงตัวเลขการสื่อสารและการใช้_รวม} onChange={(e) => handleChange(e, 'ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะการวิเคราะห์เชิงตัวเลขการสื่อสารและการใช้_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะการวิเคราะห์เชิงตัวเลขการสื่อสารและการใช้_รวม} onChange={(e) => handleChange(e, 'ผลการประเมินจากความพึงพอใจของผู้ใช้บัณฑิต_ด้านทักษะการวิเคราะห์เชิงตัวเลขการสื่อสารและการใช้_รวม')}/></th>
                 </tr>
                 <tr>
                   <th>4</th>
                   <th>อัตลักษณ์ของบัณฑิต</th>
                   <th>คน</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.อัตลักษณ์ของบัณฑิต_รวม} onChange={(e) => handleChange(e, 'อัตลักษณ์ของบัณฑิต_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.อัตลักษณ์ของบัณฑิต_รวม} onChange={(e) => handleChange(e, 'อัตลักษณ์ของบัณฑิต_รวม')}/></th>
                 </tr>
                 <tr>
                   <th>5</th>
                   <th>ระดับความพึงพอใจในคุณลักษณะของบัณฑิตและผลการปฏิบัติงานของบัณฑิต</th>
                   <th>คน</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.ระดับความพึงพอใจในคุณลักษณะของบัณฑิตและผลการปฏิบัติงานของบัณฑิต_รวม} onChange={(e) => handleChange(e, 'ระดับความพึงพอใจในคุณลักษณะของบัณฑิตและผลการปฏิบัติงานของบัณฑิต_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ระดับความพึงพอใจในคุณลักษณะของบัณฑิตและผลการปฏิบัติงานของบัณฑิต_รวม} onChange={(e) => handleChange(e, 'ระดับความพึงพอใจในคุณลักษณะของบัณฑิตและผลการปฏิบัติงานของบัณฑิต_รวม')}/></th>
                 </tr>
                 <tr>
                   <th>6</th>
                   <th>ผู้ตอบแบบประเมินความพึงพอใจของผู้ใช้บัณฑิตที่มีต่อผู้สำเร็จการศึกษา</th>
                   <th>ร้อยละ</th>
-                  <th><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.ผู้ตอบแบบประเมินความพึงพอใจของผู้ใช้บัณฑิตที่มีต่อผู้สำเร็จการศึกษา_รวม} onChange={(e) => handleChange(e, 'ผู้ตอบแบบประเมินความพึงพอใจของผู้ใช้บัณฑิตที่มีต่อผู้สำเร็จการศึกษา_รวม')}/></th>
+                  <th><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.ผู้ตอบแบบประเมินความพึงพอใจของผู้ใช้บัณฑิตที่มีต่อผู้สำเร็จการศึกษา_รวม} onChange={(e) => handleChange(e, 'ผู้ตอบแบบประเมินความพึงพอใจของผู้ใช้บัณฑิตที่มีต่อผู้สำเร็จการศึกษา_รวม')}/></th>
                 </tr>
               </tbody>
             </table><br/><br/>
@@ -1025,10 +1026,10 @@ function TQF7_3() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย')}/></td>
-                <td className='TD'><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน')}/></td>
-                <td className='TD'><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง')}/></td>
-                <td className='TD'><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย')}/></td>
+                <td className='TD'><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย')}/></td>
+                <td className='TD'><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน')}/></td>
+                <td className='TD'><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง')}/></td>
+                <td className='TD'><InputText autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย')}/></td>
               </tr>
             </tbody>
           </table><br/><br/>
@@ -1043,19 +1044,19 @@ function TQF7_3() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputText autoResize style={{ width: '100%' }} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รายการหลักฐานอ้างอิง_รหัสเอกสาร} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รายการหลักฐานอ้างอิง_รหัสเอกสาร')}/></td>
-                <td className='TD'><InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน')}/></td>
+                <td className='TD'><InputText autoResize style={{ width: '100%',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รายการหลักฐานอ้างอิง_รหัสเอกสาร} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รายการหลักฐานอ้างอิง_รหัสเอกสาร')}/></td>
+                <td className='TD'><InputTextarea autoResize style={{ marginLeft:'10px',width: '1000px',height:'100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน} onChange={(e) => handleChange(e, 'คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน')}/></td>
               </tr>
             </tbody>
           </table><br/><br/>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel header="ตัวบ่งชี้ที่ 2.2 ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน 1 ปี">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ตัวบ่งชี้ที่ 2.2 ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน 1 ปี">
         {/***********************************************/}
         <div>
             <span>ผลการดำเนินงาน</span>
-            <InputTextarea autoResize style={{ width: '100%' }} value={dataTqf7_3.ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_ผลดำเนินงาน} onChange={(e) => handleChange(e, 'ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_ผลดำเนินงาน')}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '100%',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_3.ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_ผลดำเนินงาน} onChange={(e) => handleChange(e, 'ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_ผลดำเนินงาน')}/><br/><br/>
 
             <span>ข้อมูลประกอบการคำนวณภาวะการมีงานทำหรือประกอบอาชีพอิสระของบัณฑิตที่สำเร็จการศึกษา</span>
             <table>
@@ -1071,80 +1072,80 @@ function TQF7_3() {
                 <tr>
                   <th colSpan="2">บัณฑิตปริญญาตรีที่ได้งานทำหรือประกอบอาชีพอิสระภายใน 1 ปี</th>
                   <th>ร้อยละ</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.บัณฑิตปริญญาตรีที่ได้งานทำหรือประกอบอาชีพอิสระภายใน1ปี_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'บัณฑิตปริญญาตรีที่ได้งานทำหรือประกอบอาชีพอิสระภายใน1ปี_ผลการดำเนินงาน')}></InputText></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.บัณฑิตปริญญาตรีที่ได้งานทำหรือประกอบอาชีพอิสระภายใน1ปี_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'บัณฑิตปริญญาตรีที่ได้งานทำหรือประกอบอาชีพอิสระภายใน1ปี_ผลการดำเนินงาน')}></InputText></th>
                 </tr>
                 <tr>
                   <th>1</th>
                   <th>จำนวนบัณฑิตระดับปริญญาตรีทั้งหมด</th>
                   <th>คน</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีทั้งหมด_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีทั้งหมด_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีทั้งหมด_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีทั้งหมด_ผลการดำเนินงาน')}/></th>
                 </tr>
                 <tr>
                   <th>2</th>
                   <th>จำนวนบัณฑิตระดับปริญญาตรีที่ตอบแบบสำรวจเรื่องการมีงานทำ</th>
                   <th>คน</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่ตอบแบบสำรวจเรื่องการมีงานทำ_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่ตอบแบบสำรวจเรื่องการมีงานทำ_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่ตอบแบบสำรวจเรื่องการมีงานทำ_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่ตอบแบบสำรวจเรื่องการมีงานทำ_ผลการดำเนินงาน')}/></th>
                 </tr>
                 <tr>
                   <th>3</th>
                   <th>จำนวนบัณฑิตระดับปริญญาตรีที่ได้งานทำหลังสำเร็จการศึกษา (ไม่นับรวมผู้ที่ประกอบอาชีพอิสระ)</th>
                   <th>คน</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่ได้งานทำหลังสำเร็จการศึกษาไม่นับรวมผู้ที่ประกอบอาชีพอิสระ_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่ได้งานทำหลังสำเร็จการศึกษาไม่นับรวมผู้ที่ประกอบอาชีพอิสระ_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่ได้งานทำหลังสำเร็จการศึกษาไม่นับรวมผู้ที่ประกอบอาชีพอิสระ_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่ได้งานทำหลังสำเร็จการศึกษาไม่นับรวมผู้ที่ประกอบอาชีพอิสระ_ผลการดำเนินงาน')}/></th>
                 </tr>
                 <tr>
                   <th>4</th>
                   <th>จำนวนบัณฑิตระดับปริญญาตรีที่ประกอบอาชีพอิสระ</th>
                   <th>คน</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่ประกอบอาชีพอิสระ_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่ประกอบอาชีพอิสระ_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่ประกอบอาชีพอิสระ_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่ประกอบอาชีพอิสระ_ผลการดำเนินงาน')}/></th>
                 </tr>
                 <tr>
                   <th>5</th>
                   <th>จำนวนผู้สำเร็จการศึกษาระดับปริญญาตรีที่มีงานทำก่อนเข้าศึกษา</th>
                   <th>คน</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาระดับปริญญาตรีที่มีงานทำก่อนเข้าศึกษา_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาระดับปริญญาตรีที่มีงานทำก่อนเข้าศึกษา_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาระดับปริญญาตรีที่มีงานทำก่อนเข้าศึกษา_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาระดับปริญญาตรีที่มีงานทำก่อนเข้าศึกษา_ผลการดำเนินงาน')}/></th>
                 </tr>
                 <tr>
                   <th>6</th>
                   <th>จำนวนบัณฑิตระดับปริญญาตรีที่มีกิจการของตนเองที่มีรายได้ประจำอยู่แล้ว</th>
                   <th>คน</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่มีกิจการของตนเองที่มีรายได้ประจำอยู่แล้ว_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่มีกิจการของตนเองที่มีรายได้ประจำอยู่แล้ว_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่มีกิจการของตนเองที่มีรายได้ประจำอยู่แล้ว_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่มีกิจการของตนเองที่มีรายได้ประจำอยู่แล้ว_ผลการดำเนินงาน')}/></th>
                 </tr>
                 <tr>
                   <th>7</th>
                   <th>จำนวนบัณฑิตระดับปริญญาตรีที่ศึกษาต่อระดับบัณฑิตศึกษา</th>
                   <th>คน</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่ศึกษาต่อระดับบัณฑิตศึกษา_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่ศึกษาต่อระดับบัณฑิตศึกษา_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่ศึกษาต่อระดับบัณฑิตศึกษา_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่ศึกษาต่อระดับบัณฑิตศึกษา_ผลการดำเนินงาน')}/></th>
                 </tr>
                 <tr>
                   <th>8</th>
                   <th>จำนวนบัณฑิตระดับปริญญาตรีที่อุปสมบท</th>
                   <th>คน</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่อุปสมบท_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่อุปสมบท_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่อุปสมบท_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่อุปสมบท_ผลการดำเนินงาน')}/></th>
                 </tr>
                 <tr>
                   <th>9</th>
                   <th>จำนวนบัณฑิตระดับปริญญาตรีที่เกณฑ์ทหาร</th>
                   <th>คน</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่เกณฑ์ทหาร_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่เกณฑ์ทหาร_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนบัณฑิตระดับปริญญาตรีที่เกณฑ์ทหาร_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'จำนวนบัณฑิตระดับปริญญาตรีที่เกณฑ์ทหาร_ผลการดำเนินงาน')}/></th>
                 </tr>
                 <tr>
                   <th>10</th>
                   <th>ระดับความพึงพอใจในคุณลักษณะของบัณฑิตและผลการปฏิบัติงานของบัณฑิต</th>
                   <th>ค่าเฉลี่ย</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.เงินเดือนหรือรายได้ต่อเดือนของผู้สำเร็จการศึกษาระดับปริญญาตรีที่ได้งานทำหรือประกอบอาชีพอิสระ_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'เงินเดือนหรือรายได้ต่อเดือนของผู้สำเร็จการศึกษาระดับปริญญาตรีที่ได้งานทำหรือประกอบอาชีพอิสระ_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.เงินเดือนหรือรายได้ต่อเดือนของผู้สำเร็จการศึกษาระดับปริญญาตรีที่ได้งานทำหรือประกอบอาชีพอิสระ_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'เงินเดือนหรือรายได้ต่อเดือนของผู้สำเร็จการศึกษาระดับปริญญาตรีที่ได้งานทำหรือประกอบอาชีพอิสระ_ผลการดำเนินงาน')}/></th>
                 </tr>
                 <tr>
                   <th>11</th>
                   <th>ร้อยละของผู้ตอบแบบสำรวจเรื่องการมีงานทำ (อย่างน้อยร้อยละ 70)</th>
                   <th>ร้อยละ</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.ร้อยละของผู้ตอบแบบสำรวจเรื่องการมีงานทำอย่างน้อยร้อยละ70_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'ร้อยละของผู้ตอบแบบสำรวจเรื่องการมีงานทำอย่างน้อยร้อยละ70_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.ร้อยละของผู้ตอบแบบสำรวจเรื่องการมีงานทำอย่างน้อยร้อยละ70_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'ร้อยละของผู้ตอบแบบสำรวจเรื่องการมีงานทำอย่างน้อยร้อยละ70_ผลการดำเนินงาน')}/></th>
                 </tr>
               </tbody>
             </table>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel header="สรุปผลการประเมินตนเององค์ประกอบที่ 2 บัณฑิต และองค์ประกอบที่ 3 นักศึกษา">
+      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="สรุปผลการประเมินตนเององค์ประกอบที่ 2 บัณฑิต และองค์ประกอบที่ 3 นักศึกษา">
         {/***********************************************/}
         <div>
             <span>องค์ประกอบที่ 2 บัณฑิต</span><br/><br/>
@@ -1161,17 +1162,17 @@ function TQF7_3() {
               <tbody>
                 <tr>
                   <th>ตัวบ่งชี้ที่  2.1  คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_ผลการดำเนินงาน')}/></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_คะแนนการประเมินตนเอง')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ_คะแนนการประเมินตนเอง')}/></th>
                 </tr>
                 <tr>
                   <th>ตัวบ่งชี้ที่  2.2  ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน 1 ปี</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_ผลการดำเนินงาน')}/></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_คะแนนการประเมินตนเอง')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน1ปี_คะแนนการประเมินตนเอง')}/></th>
                 </tr>
                 <tr>
                   <th>คะแนนเฉลี่ยผลการดำเนินงานองค์ประกอบที่ 2</th>
-                  <th colSpan="2"><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คะแนนเฉลี่ยผลการดำเนินงานองค์ประกอบที่2} onChange={(e) => handleChange(e, 'บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คะแนนเฉลี่ยผลการดำเนินงานองค์ประกอบที่2')}/></th>
+                  <th colSpan="2"><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คะแนนเฉลี่ยผลการดำเนินงานองค์ประกอบที่2} onChange={(e) => handleChange(e, 'บัณฑิต_ผลการประเมินตนเองตามองค์ประกอบ_คะแนนเฉลี่ยผลการดำเนินงานองค์ประกอบที่2')}/></th>
                 </tr>
               </tbody>
             </table><br/><br/>
@@ -1190,22 +1191,22 @@ function TQF7_3() {
               <tbody>
                 <tr>
                   <th>ตัวบ่งชี้ที่  3.1  การรับนักศึกษา</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การรับนักศึกษา_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การรับนักศึกษา_ผลการดำเนินงาน')}/></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การรับนักศึกษา_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การรับนักศึกษา_คะแนนการประเมินตนเอง')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การรับนักศึกษา_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การรับนักศึกษา_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การรับนักศึกษา_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การรับนักศึกษา_คะแนนการประเมินตนเอง')}/></th>
                 </tr>
                 <tr>
                   <th>ตัวบ่งชี้ที่  3.2  การส่งเสริมและพัฒนานักศึกษา</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การส่งเสริมและพัฒนานักศึกษา_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การส่งเสริมและพัฒนานักศึกษา_ผลการดำเนินงาน')}/></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การส่งเสริมและพัฒนานักศึกษา_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การส่งเสริมและพัฒนานักศึกษา_คะแนนการประเมินตนเอง')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การส่งเสริมและพัฒนานักศึกษา_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การส่งเสริมและพัฒนานักศึกษา_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การส่งเสริมและพัฒนานักศึกษา_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_การส่งเสริมและพัฒนานักศึกษา_คะแนนการประเมินตนเอง')}/></th>
                 </tr>
                 <tr>
                   <th>ตัวบ่งชี้ที่  3.3  ผลที่เกิดกับนักศึกษา</th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_ผลที่เกิดกับนักศึกษา_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_ผลที่เกิดกับนักศึกษา_ผลการดำเนินงาน')}/></th>
-                  <th><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_ผลที่เกิดกับนักศึกษา_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_ผลที่เกิดกับนักศึกษา_คะแนนการประเมินตนเอง')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_ผลที่เกิดกับนักศึกษา_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_ผลที่เกิดกับนักศึกษา_ผลการดำเนินงาน')}/></th>
+                  <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_ผลที่เกิดกับนักศึกษา_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_ผลที่เกิดกับนักศึกษา_คะแนนการประเมินตนเอง')}/></th>
                 </tr>
                 <tr>
                   <th>คะแนนเฉลี่ยผลการดำเนินงานองค์ประกอบที่ 3</th>
-                  <th colSpan="2"><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_คะแนนเฉลี่ยผลการดำเนินงานองค์ประกอบที่3} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_คะแนนเฉลี่ยผลการดำเนินงานองค์ประกอบที่3')}/></th>
+                  <th colSpan="2"><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_คะแนนเฉลี่ยผลการดำเนินงานองค์ประกอบที่3} onChange={(e) => handleChange(e, 'นักศึกษา_ผลการประเมินตนเองตามองค์ประกอบ_คะแนนเฉลี่ยผลการดำเนินงานองค์ประกอบที่3')}/></th>
                 </tr>
               </tbody>
             </table><br/><br/>
@@ -1222,10 +1223,10 @@ function TQF7_3() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย')}/></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน')}/></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง')}/></td>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย')}/></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_เป้าหมาย')}/></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_ผลการดำเนินงาน')}/></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_คะแนนการประเมินตนเอง')}/></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_การประเมินตนเองจากผลการดำเนินงาน_การบรรลุเป้าหมาย')}/></td>
               </tr>
             </tbody>
           </table><br/><br/>
@@ -1240,12 +1241,12 @@ function TQF7_3() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputText  style={{marginLeft:'10px'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รหัสเอกสาร} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รหัสเอกสาร')}/></td>
-                <td className='TD'><InputTextarea autoResize style={{marginLeft:'10px'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน')}/></td>
+                <td className='TD'><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รหัสเอกสาร} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รหัสเอกสาร')}/></td>
+                <td className='TD'><InputTextarea style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน')}/></td>
               </tr>
             </tbody>
           </table><br/><br/>
-
+          <Button type="submit" style={{ marginLeft: '40%',fontFamily: 'Kanit, sans-serif' }} label="ยืนยัน"/>
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
