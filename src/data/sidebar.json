@@ -147,6 +147,18 @@
         ]
     },
     {
+        "title": "Administrator",
+        "icon": "",
+        "roles": [1,2,3],
+        "childrens": [
+            {
+                "title": "สร้างรหัส อาจารย์",
+                "path": "/registerProfessor",
+                "roles": [2,4]
+            }
+        ]
+    },
+    {
         "title": "ออกจากระบบ",
         "icon": "bi-watch",
         "path": "/login"
