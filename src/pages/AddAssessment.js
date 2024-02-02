@@ -82,7 +82,7 @@ const AddAssessment = () => {
         resetDialog(); // รีเซ็ตข้อมูล
       }}
     >
-      <div style={{ width: '100%' }}>
+      <div style={{ width: '100%' ,justifyContent: 'center'}}>
         <InputText
           value={academicYear}
           onChange={(e) => setAcademicYear(e.target.value)}
@@ -136,6 +136,7 @@ const AddAssessment = () => {
       value={tableData}
       showGridlines
       tableStyle={{ minWidth: '100rem', textAlign: 'center'}}
+      style={{fontFamily: 'Kanit, sans-serif'}}
     >
       <Column field="academicYear" header="ปีการศึกษา"></Column>
       <Column field="courseCode" header="รหัสวิชา"></Column>
@@ -144,7 +145,7 @@ const AddAssessment = () => {
       {/* เพิ่ม Column ตามต้องการ */}
     </DataTable>
       <div style={{marginTop:'10px'}} >
-        <Button label="สร้างแบบประเมิน" onClick={() => setVisible(true)} />
+        <Button style={{fontFamily: 'Kanit, sans-serif'}} label="สร้างแบบประเมิน" onClick={() => setVisible(true)} />
       </div>
     </div>
   </div>

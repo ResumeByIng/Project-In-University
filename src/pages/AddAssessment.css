@@ -1,5 +1,6 @@
 .custom-dialog {
-    width: 60% !important;
+    width: 50% !important;
+    font-family: Kanit, sans-serif;
   }
   
   .custom-dialog .p-dialog-content {
@@ -9,16 +10,20 @@
   }
   
   .custom-inputtext {
-    width: 60%;
+    width: 100%;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Kanit, sans-serif;
   }
   
   .custom-button {
-    width: 50%;
+    width: 20%;
+    align-items: center;
     align-self: center;
     margin-top: 10px;
+    margin-left: 180px;
+    font-family: Kanit, sans-serif;
   }
   

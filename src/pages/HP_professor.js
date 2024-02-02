@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'primereact/button';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Dialog } from 'primereact/dialog';
 import HP_professorComponent from './HP_professorComponent';
 import axios from 'axios'; // ต้องติดตั้ง axios ถ้ายังไม่ได้ทำ
 
@@ -36,65 +37,85 @@ const HP_professor = () => {
     };
 
     const handleSave = (newProduct) => {
-         // หาลำดับที่มากที่สุดจากหัวข้อข่าวทั้งหมด
-         const maxCode = Math.max(...products.map((product) => parseInt(product.code, 10)), 0);
+        const maxCode = Math.max(...products.map((product) => parseInt(product.code, 10)), 0);
+        const newCode = (maxCode + 1).toString();
         
-         // เพิ่ม 1 เข้าไปในลำดับใหม่
-         const newCode = (maxCode + 1).toString();
- 
-         const formattedQuantity = new Date(newProduct.quantity).toLocaleDateString('en-GB');
+         // ฟอร์แมตวันที่ใหม่
+    const formattedDate = new Date(newProduct.date_created).toLocaleDateString('en-GB');
 
-        //  const updatedProduct = {
-        //      ...newProduct,
-        //      code: newCode,
-        //      quantity: formattedQuantity,
-        //  };
-        // if (selectedProduct) {
-        //     const updatedProducts = products.map((product) =>
-        //         product.code === selectedProduct.code ? { ...product, ...newProduct } : product
-        //     );
-        //     setProducts(updatedProducts);
-        // } else {
-        //     setProducts([...products, newProduct]);
-        // }
-        // setOpenDialog(false);
-        // resetForm();
+    const updatedProduct = {
+        ...newProduct,
+        code: newCode,
+        date_created: formattedDate, // ใช้วันที่ที่ฟอร์แมตแล้ว
     };
 
-    const handleDelete = (selectedProduct) => {
-      
-        axios.delete(`https://project-in-back.vercel.app/api/delete-news/${selectedProduct.news_id}`)
-          .then(response => {
-            console.log('News deleted successfully:', response.data);
-            // Update the local state to reflect the deletion
-            setProducts(products.filter(news => news.news_id !== selectedProduct.news_id));
-            fetchData();
-          })
-          .catch(error => {
-            console.error('Error deleting news:', error);
-          });
-      };
+    if (selectedProduct) {
+        const updatedProducts = products.map((product) =>
+            product.code === selectedProduct.code ? { ...product, ...updatedProduct } : product
+        );
+        setProducts(updatedProducts);
+    } else {
+        setProducts([...products, updatedProduct]);
+    }
+
+    setOpenDialog(false);
+};
+const [deleteConfirmation, setDeleteConfirmation] = useState({
+    showDialog: false,
+    selectedProduct: null,
+  });
+  const handleDelete = (selectedProduct) => {
+    setDeleteConfirmation({
+      showDialog: true,
+      selectedProduct: selectedProduct,
+    });
+  };
+  
+  const handleConfirmDelete = (selectedProduct) => {
+    axios.delete(`https://project-in-back.vercel.app/api/delete-news/${selectedProduct.news_id}`)
+      .then(response => {
+        console.log('News deleted successfully:', response.data);
+        setProducts(products.filter(news => news.news_id !== selectedProduct.news_id));
+        fetchData();
+        setDeleteConfirmation({ showDialog: false, selectedProduct: null });
+      })
+      .catch(error => {
+        console.error('Error deleting news:', error);
+        setDeleteConfirmation({ showDialog: false, selectedProduct: null });
+      });
+  };
     return (
-        <div style={{ width: '100%', marginLeft: '10px' }}>
-        <DataTable value={products}>
-            <Column header="ลำดับ" field="news_id"></Column>
+        <div style={{ width: '100%', marginLeft: '10px'}}>
+        <DataTable value={products} style={{fontFamily: 'Kanit, sans-serif'}}>
             <Column header="หัวข้อข่าว" field="title"></Column>
             <Column header="เนื้อหา" field="content"></Column>
             <Column header="สร้างโดย" field="author"></Column>
             <Column header="สร้างขึ้นเมื่อวันที่" field="date_created"></Column>
             <Column header="Actions" body={(rowData) => (
-                <div>
-                    <Button style={{ marginRight: '10px' }} onClick={() => handleEdit(rowData)}>แก้ไข</Button>
-                    <Button style={{ marginLeft: '10px' }} onClick={() => {
-                        setSelectedProduct(rowData);
-                        handleDelete(rowData);
-                    }}>ลบ</Button>
+                <div  style={{ width: '100%'}} >
+                    <Button style={{ width: '75px', textAlign: 'center',fontFamily: 'Kanit, sans-serif',marginBottom:'10px',backgroundColor:'#F7DC6F', border: '0px'}} onClick={() => handleEdit(rowData)}>แก้ไข</Button>
+                    <Button style={{ width: '75px', textAlign: 'center',fontFamily: 'Kanit, sans-serif',marginBottom:'10px',marginLeft:'10px',backgroundColor:'#FF0000', border: '0px'}} 
+                    onClick={() => setDeleteConfirmation({ showDialog: true, selectedProduct: rowData })}>ลบ</Button>
                 </div>
             )}></Column>
         </DataTable>
-            <Button style={{ width: '135px',marginTop: '20px',marginLeft:'90%'}} onClick={handleAdd} >เพิ่มหัวข้อข่าว</Button>
+            <Button style={{ width: '135px',marginTop: '20px',marginLeft:'90%', textAlign: 'center',fontFamily: 'Kanit, sans-serif',backgroundColor:'#78FF00', border: '0px'}} onClick={handleAdd} >เพิ่มหัวข้อข่าว</Button>
         <HP_professorComponent fetchData={fetchData} open={openDialog} onClose={() => setOpenDialog(false)} onSave={handleSave} product={selectedProduct} />
-
+        <Dialog visible={deleteConfirmation.showDialog} onHide={() => setDeleteConfirmation({ showDialog: false, selectedProduct: null })} 
+            style={{ width: '550px', display: 'flex', flexDirection: 'column', alignItems: 'center',fontFamily: 'Kanit, sans-serif' }} 
+            header={<div style={{ width: '438px',display: 'flex', justifyContent: 'center', color: 'red',marginLeft:'30px' }}>
+                ยืนยันการลบ
+            </div>} footer={<div style={{ width: '500px',display: 'flex', justifyContent: 'center' }}>
+            <Button style={{fontFamily: 'Kanit, sans-serif', border: '0px',backgroundColor:'red' }} label="ยกเลิก" onClick={() => setDeleteConfirmation({ showDialog: false, selectedProduct: null })} />
+            <Button style={{fontFamily: 'Kanit, sans-serif', border: '0px',backgroundColor:'green' }} label="ยืนยัน" onClick={() => handleConfirmDelete(deleteConfirmation.selectedProduct)} autoFocus />
+            </div>} modal={true} maximizable={false} resizable={false} draggable={false}>
+            <div style={{ width: '500px',textAlign: 'center', marginBottom: '20px', marginTop: '20px' }}>
+                <i className="pi pi-exclamation-triangle" style={{ fontSize: '3rem', color: 'red' }}></i>
+            </div>
+            <div style={{ textAlign: 'center', marginBottom: '20px',fontFamily: 'Kanit, sans-serif' }}>
+                คุณแน่ใจที่ต้องการลบหัวข้อข่าวนี้?
+            </div>
+        </Dialog>
         </div>
     );
 };

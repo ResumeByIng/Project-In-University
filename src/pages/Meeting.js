@@ -150,7 +150,7 @@ const Meeting = () => {
       </div>
 
       {/* Toast */}
-      <Toast ref={toast} />
+      <Toast ref={toast} style={{fontFamily: 'Kanit, sans-serif'}} />
     </div>
   );
 };

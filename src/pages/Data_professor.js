@@ -172,38 +172,39 @@ function Data_professor() {
       {userData ? (
         <div className='data_professor'>
           <div className="column">
-            <strong><div>ชื่อ - นามสกุล:</div></strong>
-            <div>{userData.first_name} {userData.last_name}</div>
+            <strong><h1>ชื่อ - นามสกุล:</h1></strong>
+            <h1>{userData.first_name} {userData.last_name}</h1>
           </div>
           <br/>
           <div className="column">
-            <strong><div>คณะ:</div></strong>
-            <div>{userData.faculty}</div>
+            <strong><h1>คณะ:</h1></strong>
+            <h1>{userData.faculty}</h1>
           </div>
           <br/>
           <div className="column">
-            <strong><div>สาขา :</div></strong>
-            <div>{userData.branch}</div>
+            <strong><h1>สาขา :</h1></strong>
+            <h1>{userData.branch}</h1>
           </div>
           <br/>
           <div className="column">
-            <strong><div>ตำแหน่งย่อ:</div></strong>
-            <div>{userData.position}</div>
+            <strong><h1>ตำแหน่งย่อ:</h1></strong>
+            <h1>{userData.position}</h1>
           </div>
           <br/>
           <div className="column">
-            <strong><div>คุณวุฒิ :</div></strong>
-            <div>{userData.qualification}</div>
+            <strong><h1>คุณวุฒิ :</h1></strong>
+            <h1>{userData.qualification}</h1>
           </div>
           <br/>
           <div className="column">
-            <strong><div>เพศ :</div></strong>
-            <div>{userData.gender === 'Male' ? 'ชาย' : 'หญิง'}</div>
+            <strong><h1>เพศ :</h1></strong>
+            <h1>{userData.gender === 'Male' ? 'ชาย' : 'หญิง'}</h1>
           </div>
         </div>
       ) : (
         <p>No results found</p>
       )}
+      <br/><br/>
       <button onClick={() => handleEditClick(userData)}>แก้ไขข้อมูลส่วนตัว</button>
     </div>
   );

@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
+import { Toast } from 'primereact/toast';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => {
     console.log('open:', open);
-    const [, setCode] = useState('');
     const [headlines, setHeadlines] = useState('');
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState(new Date());
@@ -18,20 +18,30 @@ const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => 
         if (product) {
             setHeadlines(product.headlines || '');
             setContent(product.content || '');
-            setName(`${product.professor_first_name || ''} ${product.professor_last_name || ''}`.trim() || ''); // ใช้ชื่อและนามสกุล และ trim() เพื่อลบช่องว่างหน้าและหลัง
+            setName(`${product.professor_first_name || ''} ${product.professor_last_name || ''}`.trim() || '');
             setQuantity(product.quantity || new Date());
         } else {
-            // รีเซ็ตค่าทั้งหมดเมื่อไม่มี product ในกรณีเพิ่มหัวข้อข่าว
             const userData = JSON.parse(localStorage.getItem('userData')) || {};
             setHeadlines('');
-            setContent(''); // แก้ไขที่นี่เป็น setContent แทน setHeadlines
-            setName(`${userData.professor_first_name || ''} ${userData.professor_last_name || ''}`.trim() || ''); // ใช้ชื่อและนามสกุล และ trim() เพื่อลบช่องว่างหน้าและหลัง
+            setContent('');
+            setName(`${userData.professor_first_name || ''} ${userData.professor_last_name || ''}`.trim() || '');
             setQuantity(new Date());
         }
     }, [product, open]);
 
+    const toast = useRef(null);
+    const validateForm = () => {
+        let isValid = true;
+    
+        if (!headlines || !content || !name || !quantity) {
+            toast.current.show({ severity: 'error', summary: 'กรุณากรอกข้อมูลให้ครบถ้วน', detail: 'โปรดตรวจสอบข้อมูลที่กรอก', life: 3000});            
+            isValid = false;
+        }
+    
+        return isValid;
+    };
+
     const resetForm = () => {
-        setCode('');
         setHeadlines('');
         setContent(''); 
         setName('');
@@ -39,17 +49,20 @@ const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => 
     };
 
     const handleSave = () => {
-        const moment = require('moment');
-        const formattedQuantity = moment(quantity).format('YYYY-MM-DD');
-        // const formattedQuantity = new Date(quantity).toISOString().split('T')[0];
-        console.log('Quantity:', quantity);
-        console.log('Formatted Quantity:', formattedQuantity);
-        const newProduct = {
-            title: headlines,
-            content,
-            date_created: formattedQuantity,
-            author: name
-          };
+        if (!validateForm()) {
+            return;
+        }
+         // ฟอร์แมตวันที่ในรูปแบบ "วัน เดือน ปี"
+    const formattedQuantity = quantity.toLocaleDateString('en-GB');
+    console.log('quantity:', quantity);
+    console.log('formattedQuantity:', formattedQuantity);
+    
+    const newProduct = {
+        title: headlines,
+        content,
+        date_created: formattedQuantity,
+        author: name
+    };
     
         axios.post('https://project-in-back.vercel.app/api/create-news', newProduct)
           .then(response => {
@@ -64,18 +77,6 @@ const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => 
         onClose();
         resetForm();
       };
-
-        // fetch('https://project-in-back.vercel.app/api/create-news', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify(newProduct),
-        // })
-        // .then(response => response.json())
-        // .then(data => console.log(data))
-        // .catch(error => console.error('Error:', error));
-        
     return (
         <Dialog visible={open} onHide={onClose} header="เพิ่ม/แก้ไข หัวข้อข่าว" modal style={{ width: '50%',textAlign:'center',fontFamily: 'Kanit, sans-serif' }}>
             <div className="p-grid p-fluid"style={{fontFamily: 'Kanit, sans-serif' }}>
@@ -95,6 +96,7 @@ const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => 
                     <Button label="บันทึก" icon="pi pi-check" onClick={handleSave} style={{ width: '25%',textAlign:'center' ,marginTop:'20px',alignItems:'center',fontFamily: 'Kanit, sans-serif'}} />
                     <Button label="ยกเลิก" icon="pi pi-times" onClick={onClose} className="p-button-secondary" style={{ width: '25%',textAlign:'center' ,marginTop:'20px',marginLeft:'10px',alignItems:'center',fontFamily: 'Kanit, sans-serif'}} />
                 </div>
+                <Toast style={{fontFamily: 'Kanit, sans-serif'}} ref={toast} />
             </div>
         </Dialog>
     );

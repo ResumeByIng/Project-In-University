@@ -15,7 +15,7 @@ function CheckExtrapoints() {
 
   return (
     <div style={{ width: '100%', marginLeft: '10px' }}>
-      <DataTable value={extrapointsData}>
+      <DataTable value={extrapointsData} style={{fontFamily: 'Kanit, sans-serif'}}>
         <Column field="list" header="ชื่อแบบประเมิน" />
         <Column field="points" header="คะแนน" />
         <Column field="picture" header="รูปภาพ" body={imageBodyTemplate} />
