@@ -26,8 +26,7 @@ useEffect(() => {
 
   return (
     <div style={{ width: '100%', marginLeft: '10px' }}>
-      <DataTable value={products}>
-            <Column header="ลำดับ" field="news_id"></Column>
+      <DataTable value={products} style={{fontFamily: 'Kanit, sans-serif'}}>
             <Column header="หัวข้อข่าว" field="title"></Column>
             <Column header="เนื้อหา" field="content"></Column>
             <Column header="สร้างโดย" field="author"></Column>

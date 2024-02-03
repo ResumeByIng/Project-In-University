@@ -42,7 +42,7 @@ function Assessment() {
     };
     //////////////////////////////////////////////////////////////////////////////   ปุ่ม ประเมิน    ///////////////////////////////////////////////////////////////////////////// 
     const actionTemplate = () => (
-      <Button style={{ width: '100px'}} label="ประเมิน" onClick={() => setVisible(true)} />
+      <Button style={{ width: '100px',backgroundColor:'green',border:'0px',fontFamily: 'Kanit, sans-serif'}} label="ประเมิน" onClick={() => setVisible(true)} />
     );
   
     /////////////////////////////////////////////////////////////////////////////   กล่องติ๊กถูก     //////////////////////////////////////////////////////////////////////////////
@@ -75,16 +75,16 @@ function Assessment() {
     return (
       <div style={{ width: '100%',marginLeft: '10px' }}>  
             <div className="card">
-              <DataTable value={products} paginator rows={10} tableStyle={{ minWidth: '40rem', textAlign: 'center'}}>
+              <DataTable style={{fontFamily: 'Kanit, sans-serif'}}value={products} paginator rows={10} tableStyle={{ minWidth: '40rem', textAlign: 'center'}}>
                   <Column field="code" header="ปีการศึกษา" ></Column>
                   <Column field="headlines" header="ภาคการศึกษา"></Column>
                   <Column field="name" header="รหัสวิชา"></Column>
                   <Column field="visit" header="อาจารย์"></Column>
                   <Column field="reply" header="ดำเนินงาน" body={actionTemplate}></Column>
               </DataTable>
-              <Dialog  header="ประเมินการเรียนการสอน มหาวิทยาลัยราชภัฎสวนสุนันทา ปีการศึกษา : 2566 ภาคการศึกษา 1 " visible={visible} style={{ width: '50vw' }} onHide={() => setVisible(false)}> 
+              <Dialog  header="ประเมินการเรียนการสอน มหาวิทยาลัยราชภัฎสวนสุนันทา ปีการศึกษา : 2566 ภาคการศึกษา 1 " visible={visible} style={{ width: '50vw',fontFamily: 'Kanit, sans-serif'}} onHide={() => setVisible(false)}> 
             <div style={{ width: '100%'}}>
-          <DataTable value={Assessment} showGridlines tableStyle={{ minWidth: '50rem' , textAlign: 'center'}}>
+          <DataTable style={{fontFamily: 'Kanit, sans-serif'}} value={Assessment} showGridlines tableStyle={{ minWidth: '50rem' , textAlign: 'center'}}>
                   <Column field="clause" header="หัวข้อที่"></Column>
                   <Column field="list" header="รายการประเมิน"></Column>
                   <Column field="very good" header="ดีมาก" body={(rowData) => actionTemplate1(rowData, 'very good')}></Column>
@@ -97,7 +97,7 @@ function Assessment() {
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
                      <Toast ref={toast} />
               <div className="flex flex-wrap gap-2">
-                  <Button style={{ width: '100px'}} label="บันทึก" className="p-button-success" onClick={()=>{
+                  <Button style={{ width: '100px',fontFamily: 'Kanit, sans-serif'}} label="บันทึก" className="p-button-success" onClick={()=>{
                handleClose();
                ShowToastSuccess();
               }} />

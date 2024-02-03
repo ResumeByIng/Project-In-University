@@ -62,6 +62,11 @@ h5 {
     font-size: 16px;
     font-family: 'Kanit', sans-serif;
 }
+h1 {
+    color: #000000;
+    font-size: 30px;
+    font-family: 'Kanit', sans-serif;
+}
 label {
     margin-left: 20px;
     margin-bottom: 5px; 

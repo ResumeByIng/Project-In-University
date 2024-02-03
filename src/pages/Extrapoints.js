@@ -54,6 +54,7 @@ function Extrapoints() {
             uploadHandler={(e) => uploadImage(e, rowData)}
             accept="image/jpeg, image/png"
             maxFileSize={MAX_FILE_SIZE}
+            style={{fontFamily: 'Kanit, sans-serif'}}
           />
         )}
          <Checkbox
@@ -99,6 +100,7 @@ function Extrapoints() {
           onSelectionChange={handleCheckboxToggle}
           dataKey="id"
           tableStyle={{ minWidth: '50rem' }}
+          style={{fontFamily: 'Kanit, sans-serif'}}
         >
             <Column field="clause" header="ข้อ"></Column>
             <Column field="list" header="ชื่อแบบประเมิน"></Column>
@@ -106,7 +108,7 @@ function Extrapoints() {
             <Column field="picture" header="รูปภาพ" body={imageUploadTemplate}></Column>
         </DataTable>
           <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'flex-end' }}>
-            <Button type="submit" label="ส่งแบบประเมิน" className="w-full md:w-14rem" />
+            <Button type="submit" label="ส่งแบบประเมิน" style={{fontFamily: 'Kanit, sans-serif'}} className="w-full md:w-14rem" />
           </div>
         </div>
       </ScrollPanel>

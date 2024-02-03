@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Dialog } from 'primereact/dialog';
-import { DataView } from 'primereact/dataview';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import { InputText } from 'primereact/inputtext';
 import axios from 'axios';
 
 function Data_professor() {
+  const [userData, setUserData] = useState(null);
   const [professorData, setProfessorData] = useState([]);
   const [isDialogVisible, setDialogVisible] = useState(false);
   const [editableProfessor, setEditableProfessor] = useState(null);
@@ -11,20 +14,19 @@ function Data_professor() {
 
   // ดึงข้อมูล userData จาก localStorage
   const storedUserData = localStorage.getItem('userData');
-  
-  // สร้าง state เพื่อเก็บข้อมูล userData
-  const [userData, setUserData] = useState(storedUserData ? JSON.parse(storedUserData) : null);
+
+  useEffect(() => {
+    setUserData(storedUserData ? JSON.parse(storedUserData) : null);
+  }, [storedUserData]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // ตรวจสอบว่ามี userData ที่ถูกดึงมาจาก localStorage หรือไม่
         if (!userData) {
           console.error('User data not found in localStorage');
           return;
         }
 
-        // ดึงข้อมูลผ่าน path user_id
         const response = await axios.get(`https://project-in-back.vercel.app/api/data/user/${userData.user_id}`);
         const userDataFromApi = response.data[0];
 
@@ -47,7 +49,7 @@ function Data_professor() {
     };
 
     fetchData();
-  }, [userData]); // ให้ useEffect ทำงานเมื่อ userData มีการเปลี่ยนแปลง
+  }, [userData]);
 
   const handleEditClick = (userData) => {
     setEditableProfessor(userData);
@@ -74,31 +76,25 @@ function Data_professor() {
 
   const handleSaveClick = async () => {
     try {
-      // ดึง user_id จาก editedData
       const { user_id, ...updatedData } = editedData;
 
-      // อัปเดตข้อมูลใน state ท้องถิ่น
       setProfessorData((prevData) => {
         return prevData.map((prof) =>
           prof.user_id === user_id ? { ...prof, ...updatedData } : prof
         );
       });
 
-      // อัปเดตข้อมูลในฐานข้อมูล
       await axios.put(`https://project-in-back.vercel.app/api/update-professor/${user_id}`, updatedData);
 
-      // ปิดหน้าต่าง Dialog
       setDialogVisible(false);
     } catch (error) {
       console.error('Error updating user data:', error);
-      // จัดการข้อผิดพลาด (แสดงข้อความ, ย้อนกลับการเปลี่ยนแปลง, เป็นต้น)
     }
   };
 
   function EditDialog({ visible, onHide, editedData, onInputChange, onSaveClick }) {
     return (
       <Dialog visible={visible} onHide={onHide} style={{ width: '50%' }}>
-        {/* ฟอร์มแก้ไขข้อมูล */}
         <div>
           <label>ชื่อ:</label>
           <input
@@ -162,7 +158,7 @@ function Data_professor() {
             onChange={onInputChange}
           />
         </div>
-        <button onClick={onSaveClick} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '40%', marginTop: '50px', backgroundColor: 'green' }} >บันทึก</button>
+        <button onClick={onSaveClick} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '40%', marginTop: '50px', backgroundColor: 'green' }}>บันทึก</button>
       </Dialog>
     );
   }
@@ -205,7 +201,6 @@ function Data_professor() {
         <p>No results found</p>
       )}
       <br/><br/>
-      <button onClick={() => handleEditClick(userData)}>แก้ไขข้อมูลส่วนตัว</button>
     </div>
   );
 
@@ -213,7 +208,14 @@ function Data_professor() {
     <div style={{ width: '100%', marginLeft: '50px', marginTop: '50px' }}>
       <div className='grid'>
         <div className='col'>
-          <DataView value={professorData} itemTemplate={itemTemplate} layout="list" />
+          <DataTable style={{ fontFamily: 'Kanit, sans-serif' }} value={professorData}>
+            <Column header="ชื่อ - นามสกุล" body={(rowData) => `${rowData.first_name} ${rowData.last_name}`} />
+            <Column header="คณะ" field="faculty" />
+            <Column header="สาขา" field="branch" />
+            <Column header="ตำแหน่งย่อ" field="position" />
+            <Column header="คุณวุฒิ" field="qualification" />
+            <Column header="เพศ" body={(rowData) => (rowData.gender === 'Male' ? 'ชาย' : 'หญิง')} />
+          </DataTable>
         </div>
         <EditDialog
           visible={isDialogVisible}
@@ -223,6 +225,9 @@ function Data_professor() {
           onSaveClick={handleSaveClick}
         />
       </div>
+      <button style={{ width: '200px', marginTop: '10px' }} onClick={() => handleEditClick(userData)}>
+        แก้ไขข้อมูลส่วนตัว
+      </button>
     </div>
   );
 }

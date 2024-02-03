@@ -15,6 +15,7 @@ import HP_Student from "./pages/HP_Student";
 import Data_Student from "./pages/Data_Student";
 import Data_professor from "./pages/Data_professor";
 import Daily_activities from "./pages/Daily_activities";
+import Complaint from "./pages/Complaint"
 import Meeting from "./pages/Meeting";
 import CheckExtrapoints from './pages/CheckExtrapoints';
 import Registerbyadmin from './pages/Registerbyadminna' ;
@@ -55,19 +56,15 @@ function App() {
           <Route path="/extrapoints" element={parseInt(user) === 1 ? <Extrapoints /> : <Navigate to="/home" />} />
           <Route path="/assessment" element={parseInt(user) === 1 ? <Assessment /> : <Navigate to="/home" />} />
           <Route path="/AddAssessment" element={parseInt(user) === 2 ? <AddAssessment /> : <Navigate to="/home" />} />
-          <Route
-            path="/home"
-            element={parseInt(user) === 1 || parseInt(user) === 2 || parseInt(user) === 3 ? <Home /> : <Navigate to="/home" />}/>
-          
+          <Route path="/home"element={parseInt(user) === 1 || parseInt(user) === 2 || parseInt(user) === 3 ? <Home /> : <Navigate to="/home" />}/>
           <Route path="/HP_professor" element={parseInt(user) === 2 ? <HP_professor /> : <Navigate to="/home" />} />
-
           <Route path="/registerProfessor" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Registerbyadmin /> : <Navigate to="/registerProfessor" />} />
-
           <Route path="/HP_Student" element={parseInt(user) === 1 ? <HP_Student /> : <Navigate to="/home" />} />
           <Route path="/Data_Student" element={parseInt(user) === 1 ? <Data_Student /> : <Navigate to="/home" />} />
           <Route path="/Data_professor" element={parseInt(user) === 2 ? <Data_professor /> : <Navigate to="/home" />} />
           <Route path="/Daily_activities" element={parseInt(user) === 2 ? <Daily_activities /> : <Navigate to="/home" />} />
           <Route path="/Meeting" element={parseInt(user) === 2 ? <Meeting /> : <Navigate to="/home" />} />
+          <Route path="/Complaint" element={parseInt(user) === 1 ? <Complaint /> : <Navigate to="/home" />} />
           <Route path="/CheckExtrapoints" element={parseInt(user) === 2 ? <CheckExtrapoints /> : <Navigate to="/home" />} />
         </Routes>
       </div>

@@ -126,6 +126,11 @@
                 "title": "แบบประเมิน",
                 "path": "/assessment",
                 "roles": [1]
+            },
+            {
+                "title": "ช่องทางการร้องเรียน",
+                "path": "/Complaint",
+                "roles": [1]
             }
         ]
     },
