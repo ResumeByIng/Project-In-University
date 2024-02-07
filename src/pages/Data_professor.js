@@ -205,7 +205,7 @@ function Data_professor() {
   );
 
   return (
-    <div style={{ width: '100%', marginLeft: '50px', marginTop: '50px' }}>
+    <div style={{ width: '100%',height:'100%', marginLeft: '20px', marginTop: '50px' }}>
       <div className='grid'>
         <div className='col'>
           <DataTable style={{ fontFamily: 'Kanit, sans-serif' }} value={professorData}>

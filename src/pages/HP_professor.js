@@ -93,8 +93,7 @@ const [deleteConfirmation, setDeleteConfirmation] = useState({
             <Column header="สร้างขึ้นเมื่อวันที่" field="date_created"></Column>
             <Column header="Actions" body={(rowData) => (
                 <div  style={{ width: '100%'}} >
-                    <Button style={{ width: '75px', textAlign: 'center',fontFamily: 'Kanit, sans-serif',marginBottom:'10px',backgroundColor:'#F7DC6F', border: '0px'}} onClick={() => handleEdit(rowData)}>แก้ไข</Button>
-                    <Button style={{ width: '75px', textAlign: 'center',fontFamily: 'Kanit, sans-serif',marginBottom:'10px',marginLeft:'10px',backgroundColor:'#FF0000', border: '0px'}} 
+                    <Button style={{ width: '60px', textAlign: 'center',fontFamily: 'Kanit, sans-serif',marginBottom:'10px',marginLeft:'10px',backgroundColor:'#FF0000', border: '0px'}} 
                     onClick={() => setDeleteConfirmation({ showDialog: true, selectedProduct: rowData })}>ลบ</Button>
                 </div>
             )}></Column>

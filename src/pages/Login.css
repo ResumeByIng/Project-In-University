@@ -5,9 +5,8 @@
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: flex-end;
-  margin-right: 5px;
+  margin-left: 80%;
 }
 .register-text:hover {
     text-decoration: underline;

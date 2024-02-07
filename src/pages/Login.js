@@ -176,7 +176,7 @@ const handleLogin = async () => {
           <h5>ล็อคอิน</h5>
         </div>
         {showOTPForm ? (
-          <form onSubmit={handleVerifyOTP} className="form-container">
+          <form onSubmit={handleVerifyOTP} style={{ alignItems:'center'}} className="form-container">
             <div className="form-group">
               <FaLock className="fadeIn fifth" />
               <input
@@ -195,7 +195,7 @@ const handleLogin = async () => {
               รับรหัส OTP ใหม่ในอีก: {countdown} วินาที
               {isCountdownComplete && (
                 <Link
-                  style={{ marginLeft: '10px' }}
+                  style={{ marginLeft: '10px'}}
                   onClick={resetOTP}
                   className="fadeIn seventh"
                 >
@@ -210,12 +210,12 @@ const handleLogin = async () => {
             <input className="fadeIn second" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             <label className="fadeIn third">Password:</label>
             <input className="password fadeIn third" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <button className="fadeIn fourth center-button login-button" type="button" onClick={handleLogin}>
+              Login
+            </button>
+            <span className="register-text" onClick={openRegisterDialog}>Register</span>
           </form>
         )}
-        <button className="fadeIn fourth center-button login-button" type="button" onClick={handleLogin}>
-          Login
-        </button>
-        <span className="register-text" onClick={openRegisterDialog}>Register</span>
         <RegisterDialog
           visible={registerDialogVisible}
           onHide={() => setRegisterDialogVisible(false)}

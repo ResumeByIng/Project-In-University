@@ -41,12 +41,8 @@ const Complaint = () => {
         <label style={{ display: 'block', marginBottom: '5px', color: '#555' }}>เนื้อหาที่จะร้องเรียน</label>
         <InputTextarea style={{ width: '800px',height:'200px', padding: '8px', boxSizing: 'border-box',fontFamily: 'Kanit, sans-serif' }} value={complaintText} onChange={(e) => setComplaintText(e.target.value)} />
       </div>
-      <div style={{ marginBottom: '50px' }}>
-        <label style={{ display: 'block', marginBottom: '5px', color: '#555' }}>สาขา</label>
-        <Dropdown style={{ ...branches[0].style, fontFamily: 'Kanit, sans-serif' }} value={branch} options={branches} onChange={(e) => setBranch(e.value)} placeholder="เลือกสาขา" optionLabel="label" />
-      </div>
       <div style={{ textAlign: 'center' }}>
-        <Button label="ส่งแบบฟอร์มการร้องเรียน" style={{ backgroundColor:'green',border:'0px',fontFamily: 'Kanit, sans-serif' }} onClick={handleSubmit} />
+        <Button label="ส่งแบบฟอร์มการร้องเรียน" style={{ marginTop:'10px',backgroundColor:'green',border:'0px',fontFamily: 'Kanit, sans-serif' }} onClick={handleSubmit} />
       </div>
     </div>
   );

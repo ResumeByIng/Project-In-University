@@ -2,42 +2,42 @@
     {
         "title": "Home",
         "icon": "bi-gear-fill",
-        "roles": [1, 2, 3],
+        "roles": [1, 2, 3, 4],
         "childrens": [
             {
                 "title": "Home",
                 "icon": "bi-house-fill",
                 "path": "/home",
-                "roles": [1, 2, 3]
+                "roles": [1, 2, 3, 4]
             },
             {
                 "title": "Contact",
                 "icon": "bi-phone-fill",
-                "roles": [1, 2, 3],
+                "roles": [1, 2, 3, 4],
                 "childrens": [
                     {
                         "title": "Facebook",
                         "icon": "bi-facebook",
                         "path": "https://www.facebook.com/ComputerEngineeringSSRU",
-                        "roles": [1, 2, 3]
+                        "roles": [1, 2, 3, 4]
                     },
                     {
                         "title": "Twitter",
                         "icon": "bi-twitter",
                         "path": "https://twitter.com/SsruCe",
-                        "roles": [1, 2, 3]
+                        "roles": [1, 2, 3, 4]
                     },
                     {
                         "title": "Instagram",
                         "icon": "bi-instagram",
                         "path": "https://www.instagram.com/ce_ssru",
-                        "roles": [1, 2, 3]
+                        "roles": [1, 2, 3, 4]
                     },
                     {
                         "title": "Youtube",
                         "icon": "bi-youtube",
                         "path": "https://www.youtube.com/@cessru672",
-                        "roles": [1, 2, 3]
+                        "roles": [1, 2, 3, 4]
                     }
                 ]
             }
@@ -46,59 +46,64 @@
     {
         "title": "TQF.7",
         "icon": "bi-info-circle-fill",
-        "roles": [2],
+        "roles": [2,4],
         "childrens": [
             {
                 "title": "TQF.7 - คำนำ",
                 "path": "/tqf.7_0",
-                "roles": [2]
+                "roles": [2,4]
             },
             {
                 "title": "TQF.7 - หมวดที่ 1",
                 "path": "/tqf.7_1",
-                "roles": [2]
+                "roles": [2,4]
             },
             {
                 "title": "TQF.7 - หมวดที่ 2",
                 "path": "/tqf.7_2",
-                "roles": [2]
+                "roles": [2,4]
             },
             {
                 "title": "TQF.7 - หมวดที่ 3",
                 "path": "/tqf.7_3",
-                "roles": [2]
+                "roles": [2,4]
             }
         ]
     },
     {
         "title": "อาจารย์",
         "icon": "bi-info-circle-fill",
-        "roles": [2],
+        "roles": [2,4],
         "childrens": [
             {
                 "title": "หน้าแรก",
                 "path": "/HP_professor",
-                "roles": [2]
+                "roles": [2,4]
             },
             {
-                "title": "ข้อมูล",
+                "title": "ข้อมูลส่วนตัว",
                 "path": "/Data_professor",
-                "roles": [2]
+                "roles": [2,4]
             },
             {
                 "title": "การจัดการประชุม",
                 "path": "/Meeting",
-                "roles": [2]
+                "roles": [2,4]
             },
             {
                 "title": "ตรวจคะแนนพิเศษ",
                 "path": "/CheckExtrapoints",
-                "roles": [2]
+                "roles": [2,4]
             },
             {
                 "title": "สร้างแบบประเมิน",
                 "path": "/AddAssessment",
-                "roles": [2]
+                "roles": [2,4]
+            },
+            {
+                "title": "ตรวจสอบการร้องเรียนสาขา",
+                "path": "/",
+                "roles": [2,4]
             }
         ]
     },
@@ -113,7 +118,7 @@
                 "roles": [1]
             },
             {
-                "title": "ข้อมูล",
+                "title": "ข้อมูลส่วนตัว",
                 "path": "/Data_Student",
                 "roles": [1]
             },
@@ -145,7 +150,7 @@
                 "roles": [3]
             },
             {
-                "title": "ข้อมูล",
+                "title": "ข้อมูลส่วนตัว",
                 "path": "/tqf.7_1",
                 "roles": [3]
             }
@@ -154,12 +159,17 @@
     {
         "title": "Administrator",
         "icon": "",
-        "roles": [2,4],
+        "roles": [4],
         "childrens": [
+            {
+                "title": "ข้อมูลส่วนตัว",
+                "path": "/",
+                "roles": [4]
+            },
             {
                 "title": "สร้างรหัส อาจารย์",
                 "path": "/registerProfessor",
-                "roles": [2,4]
+                "roles": [4]
             }
         ]
     },

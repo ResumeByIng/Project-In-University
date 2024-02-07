@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import MeetingComponent from './MeetingComponent';
 import { Toast } from 'primereact/toast';
 import axios from 'axios';
+import { ScrollPanel } from 'primereact/scrollpanel';
+
 
 const Meeting = () => {
   const [meetings, setMeetings] = useState([]);
@@ -120,6 +122,7 @@ const Meeting = () => {
 
   return (
     <div style={{ width: '100%', marginLeft: '10px', marginTop: '20px' }}>
+            <ScrollPanel style={{ width: '100%', height: '950px' }}>
       {/* แบบฟอร์มเพิ่มข้อมูล */}
       <div className="AddMeeting">
         <label>Title: </label>
@@ -151,6 +154,7 @@ const Meeting = () => {
 
       {/* Toast */}
       <Toast ref={toast} style={{fontFamily: 'Kanit, sans-serif'}} />
+      </ScrollPanel>
     </div>
   );
 };

@@ -21,13 +21,13 @@ function Registerbyadmin() {
   };
 
   return (
-    <div className="container">
-      <h1>Register</h1>
+    <div className= "my-custom" style={{ width: '50%',height:'20px',marginLeft: '20px'}}>
+      <h1>สมัครสมาชิกสำหรับอาจารย์</h1>
       <label>Email:</label>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input style={{ width: '200px',height:'20px',marginLeft: '10px'}} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       <label>Password:</label>
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleRegister}>Register</button>
+      <input style={{ width: '200px',height:'20px',marginLeft: '10px'}} type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <button style={{ width: '100px',marginLeft: '20px',marginTop:'20px'}} onClick={handleRegister}>Register</button>
     </div>
   );
 }

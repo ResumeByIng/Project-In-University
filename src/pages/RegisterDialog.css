@@ -4,15 +4,22 @@
 .button-container {
     margin-top: 20px;
     display: flex;
-    justify-content: center;
-    text-align: center;
+    justify-content: left;
+    text-align: left;
   }
   .my-custom{
     width: 100%; 
     padding: 10px; 
     font-size: 16px;
+    color: black;
+    margin-bottom: 20px;
+    margin-top: 20px;
   }
-  .my-custom-select {
+  .my-custom h1 {
+    margin-left: 100px;
+    margin-bottom: 20px;
+
+  } .my-custom-select {
     width: 20%;
     margin: 20px auto 0;
     margin-left: 10%;
