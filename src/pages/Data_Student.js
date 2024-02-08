@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Button } from 'primereact/button';
+import { Dialog } from 'primereact/dialog';
+import axios from 'axios';
 
 function Data_Student() {
   const [studentData, setStudentData] = useState([]);
+  const [displayConfirmation, setDisplayConfirmation] = useState(false);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [confirmationText, setConfirmationText] = useState('');
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('userData'));
@@ -24,6 +30,41 @@ function Data_Student() {
     return rowData.index % 2 === 0 ? 'p-datatable-even' : 'p-datatable-odd';
   };
 
+  const handleConfirmation = () => {
+    // ตรวจสอบว่า studentData มีข้อมูลหรือไม่
+    if (studentData.length === 0) {
+      console.error('No student data found.');
+      return;
+    }
+  
+    // ตรวจสอบว่า studentData[0] มีค่าเป็น null หรือไม่
+    if (!studentData[0]) {
+      console.error('No student data found.');
+      return;
+    }
+  
+    // ตรวจสอบว่า studentData[0].user_id มีค่าเป็น null หรือไม่
+    if (!studentData[0].user_id) {
+      console.error('studentData[0].user_id is null.');
+      return;
+    }
+  
+    // ส่งคำขอเปลี่ยน role ไปยังเซิร์ฟเวอร์
+    axios.post(`https://project-in-back.vercel.app/api/confirm-graduate/${studentData[0].user_id}`, {
+      // ส่งข้อมูลผ่าน body ของคำขอ POST
+      // หากใช้ axios.post จะส่งข้อมูลผ่าน body และไม่ต้องใช้ params ใน URL
+      role: 3 // กำหนด role เป็นบัณฑิต
+    }).then(response => {
+      console.log('Role updated successfully:', response.data);
+      // ปิด Modal หลังจากเปลี่ยน role เรียบร้อย
+      setDisplayConfirmation(false);
+      // รีเฟรชข้อมูลหลังจากเปลี่ยน role เรียบร้อย
+      window.location.reload();
+    }).catch(error => {
+      console.error('Error updating role:', error);
+    });
+  };
+
   return (
     <div style={{ width: '83%', marginLeft: '20px', marginTop: '50px' }}>
       <h1 style={{ color: '#333' }}>ข้อมูลส่วนตัว</h1>
@@ -35,6 +76,9 @@ function Data_Student() {
         value={studentData}
         header="ข้อมูลส่วนตัวนักศึกษา"
         rowClassName={rowClassName}
+        selectionMode="single"
+        selection={selectedStudent}
+        onSelectionChange={(e) => setSelectedStudent(e.value)}
       >
         {columns.map((col, index) => (
           <Column
@@ -48,6 +92,27 @@ function Data_Student() {
           />
         ))}
       </DataTable>
+      <div style={{ marginTop: '20px' }}>
+        <Button
+          label="ยืนยันจบการศึกษา"
+          className="p-button-danger"
+          onClick={() => setDisplayConfirmation(true)}
+        />
+      </div>
+      <Dialog
+        visible={displayConfirmation}
+        onHide={() => setDisplayConfirmation(false)}
+        header="ยืนยันการจบการศึกษา"
+        modal
+        footer={
+          <div>
+            <Button label="ใช่" onClick={handleConfirmation} disabled={confirmationText !== 'ยืนยัน'} />
+            <Button label="ยกเลิก" onClick={() => setDisplayConfirmation(false)} className="p-button-secondary" />
+          </div>
+        }
+      >
+        <input type="text" value={confirmationText} onChange={(e) => setConfirmationText(e.target.value)} placeholder="ยืนยัน" />
+      </Dialog>
     </div>
   );
 }

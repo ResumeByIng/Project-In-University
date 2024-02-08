@@ -102,7 +102,7 @@
             },
             {
                 "title": "ตรวจสอบการร้องเรียนสาขา",
-                "path": "/",
+                "path": "/CheckComplaint",
                 "roles": [2,4]
             }
         ]
@@ -146,12 +146,12 @@
         "childrens": [
             {
                 "title": "หน้าแรก",
-                "path": "/",
+                "path": "/HP_Graduate",
                 "roles": [3]
             },
             {
                 "title": "ข้อมูลส่วนตัว",
-                "path": "/tqf.7_1",
+                "path": "/Data_Graduate",
                 "roles": [3]
             }
         ]
@@ -161,11 +161,6 @@
         "icon": "",
         "roles": [4],
         "childrens": [
-            {
-                "title": "ข้อมูลส่วนตัว",
-                "path": "/",
-                "roles": [4]
-            },
             {
                 "title": "สร้างรหัส อาจารย์",
                 "path": "/registerProfessor",

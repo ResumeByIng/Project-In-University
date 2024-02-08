@@ -1,32 +1,26 @@
 import React, { useState } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
-import { Dropdown } from 'primereact/dropdown';
 import { Button } from 'primereact/button';
+import axios from 'axios';
 
 const Complaint = () => {
-  const [complaintType, setComplaintType] = useState(null);
+  const [complaintType, setComplaintType] = useState('');
   const [complaintText, setComplaintText] = useState('');
-  const [branch, setBranch] = useState(null);
-
-  const complaintTypes = [
-    { label: 'หัวข้อที่จะร้องเรียน', value: 'complaint1' },
-    // เพิ่มหัวข้ออื่น ๆ ตามต้องการ
-  ];
-
-  const branches = [
-    { label: 'สาขาวิศวกรรมคอมพิวเตอร์', value: 'computer_engineering', style: { fontFamily: 'Kanit, sans-serif' } },
-    { label: 'สาขาวิศวกรรมหุ่นยนต์', value: 'robot_engineering', style: { fontFamily: 'Kanit, sans-serif' } },
-    // เพิ่มสาขาอื่น ๆ ตามต้องการ
-  ];
   
-
   const handleSubmit = () => {
     // ทำการส่งข้อมูลการร้องเรียนไปยังเซิร์ฟเวอร์หรือทำการจัดเก็บข้อมูลตามที่ต้องการ
-    console.log('Submit Complaint:', {
+    axios.post('https://project-in-back.vercel.app/api/complaints', {
       complaintType,
       complaintText,
-      branch,
+    })
+    .then(response => {
+      console.log('Complaint submitted successfully!', response);
+      // ทำอย่างอื่นตามต้องการ เช่น แสดงข้อความว่าร้องเรียนสำเร็จ หรือ รีเซ็ตฟอร์ม เป็นต้น
+    })
+    .catch(error => {
+      console.error('Error submitting complaint:', error);
+      // ทำอย่างอื่นตามต้องการ เช่น แสดงข้อความแจ้งเตือนว่ามีข้อผิดพลาดเกิดขึ้น เป็นต้น
     });
   };
 

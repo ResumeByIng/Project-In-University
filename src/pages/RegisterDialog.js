@@ -14,12 +14,11 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
   const [branch, setBranch] = useState('');
   const [gender, setGender] = useState('');
   const [classYear, setClassYear] = useState('');
-  const [error, setError] = useState('');
 
 
   const handleRegister = async () => {
 if (!registerEmail || !registerPassword || !firstName || !lastName || !studentId || !faculty || !branch || !classYear || !gender) {
-  setError('กรุณากรอกข้อมูลให้ครบทุกช่อง');
+  alert('กรุณากรอกข้อมูลให้ครบทุกช่อง');
   return;
 }
 
@@ -39,23 +38,18 @@ try {
   const data = response.data;
 
   if (response.status === 200 && !data.error) {
-    // Handle success
-    setError('');
     resetForm();
     onHide();
   } else {
-    setError(data.error || 'เกิดข้อผิดพลาดในการลงทะเบียน');
+    alert(data.error || 'เกิดข้อผิดพลาดในการลงทะเบียน');
   }
 } catch (error) {
-  setError('เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์');
+  alert('เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์');
 }
   
   
   
     // ทำสิ่งที่ต้องการเมื่อข้อมูลถูกต้อง
-  
-    // Reset ข้อผิดพลาด (ถ้ามี)
-    setError('');
   
     // Reset ค่าใน Form
     resetForm();
@@ -73,7 +67,6 @@ try {
     setBranch('');
     setClassYear('');
     setGender('');
-    setError('');
   };
 
 

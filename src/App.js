@@ -19,7 +19,8 @@ import Complaint from "./pages/Complaint"
 import Meeting from "./pages/Meeting";
 import CheckExtrapoints from './pages/CheckExtrapoints';
 import Registerbyadmin from './pages/Registerbyadminna' ;
-
+import CheckComplaint from "./pages/CheckComplaint";
+import DataGraduate from "./pages/Data_Graduate";
 
 
 function App() {
@@ -65,7 +66,11 @@ function App() {
           <Route path="/Daily_activities" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Daily_activities /> : <Navigate to="/home" />} />
           <Route path="/Meeting" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Meeting /> : <Navigate to="/home" />} />
           <Route path="/Complaint" element={parseInt(user) === 1 ? <Complaint /> : <Navigate to="/home" />} />
+          <Route path="/CheckComplaint" element={parseInt(user) === 1 | parseInt(user) === 4 ? <CheckComplaint /> : <Navigate to="/home" />} />
           <Route path="/CheckExtrapoints" element={parseInt(user) === 2 || parseInt(user) === 4 ? <CheckExtrapoints /> : <Navigate to="/home" />} />
+          <Route path="/CheckExtrapoints" element={parseInt(user) === 2 || parseInt(user) === 4 ? <CheckExtrapoints /> : <Navigate to="/home" />} />
+          <Route path="/HP_Graduate" element={parseInt(user) === 3 ? <HP_Student /> : <Navigate to="/home" />} />
+          <Route path="/Data_Graduate" element={parseInt(user) === 3 ? <DataGraduate /> : <Navigate to="/home" />} />
         </Routes>
       </div>
     </Router>
