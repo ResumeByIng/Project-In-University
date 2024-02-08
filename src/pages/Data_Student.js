@@ -96,6 +96,7 @@ function Data_Student() {
         <Button
           label="ยืนยันจบการศึกษา"
           className="p-button-danger"
+          style={{ background:'green',border:'0px',fontFamily: 'Kanit, sans-serif' }}
           onClick={() => setDisplayConfirmation(true)}
         />
       </div>
@@ -103,15 +104,16 @@ function Data_Student() {
         visible={displayConfirmation}
         onHide={() => setDisplayConfirmation(false)}
         header="ยืนยันการจบการศึกษา"
+        style={{ fontFamily: 'Kanit, sans-serif' }}
         modal
         footer={
-          <div>
-            <Button label="ใช่" onClick={handleConfirmation} disabled={confirmationText !== 'ยืนยัน'} />
-            <Button label="ยกเลิก" onClick={() => setDisplayConfirmation(false)} className="p-button-secondary" />
+          <div style={{ marginLeft:'10px',alignItems:'center',fontFamily: 'Kanit, sans-serif' }}>
+            <Button label="ใช่" style={{ width:'100px',alignItems:'center',fontFamily: 'Kanit, sans-serif' }} onClick={handleConfirmation} disabled={confirmationText !== 'ยืนยัน'} />
+            <Button label="ยกเลิก" style={{ width:'100px',alignItems:'center',marginLeft:'20px', fontFamily: 'Kanit, sans-serif' }} onClick={() => setDisplayConfirmation(false)} className="p-button-secondary" />
           </div>
         }
       >
-        <input type="text" value={confirmationText} onChange={(e) => setConfirmationText(e.target.value)} placeholder="ยืนยัน" />
+        <input type="text" style={{ width:'100px',alignItems:'center',fontFamily: 'Kanit, sans-serif' }} value={confirmationText} onChange={(e) => setConfirmationText(e.target.value)} placeholder="ยืนยัน" />
       </Dialog>
     </div>
   );

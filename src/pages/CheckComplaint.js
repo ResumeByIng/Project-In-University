@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
 
 function CheckComplaint() {
   const [complaints, setComplaints] = useState([]);
@@ -15,24 +17,12 @@ function CheckComplaint() {
   }, []);
 
   return (
-    <div>
+    <div style={{ width: '100%', marginLeft: '10px', marginTop: '10px', color: 'GrayText',fontFamily: 'Kanit, sans-serif' }}>
       <h2>รายการข้อร้องเรียน</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>หัวข้อร้องเรียน</th>
-            <th>เนื้อหา</th>
-          </tr>
-        </thead>
-        <tbody>
-          {complaints.map(complaint => (
-            <tr key={complaint.id}>
-              <td>{complaint.complaintType}</td>
-              <td>{complaint.complaintText}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <DataTable style={{ alignItems:'center',fontFamily: 'Kanit, sans-serif' }} value={complaints}>
+        <Column field="complaintType" header="หัวข้อที่ร้องเรียน"style={{width: '150px'}}/>
+        <Column field="complaintText" header="เนื้อหา"/>
+      </DataTable>
     </div>
   );
 }

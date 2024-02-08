@@ -25,7 +25,7 @@ const Complaint = () => {
   };
 
   return (
-    <div style={{ width: '100%', marginLeft: '20px', marginTop: '20px', fontFamily: 'Arial, sans-serif' }}>
+    <div style={{ width: '100%', marginLeft: '20px', marginTop: '20px', fontFamily: 'Kanit, sans-serif'}}>
       <h1 style={{ textAlign: 'center', color: '#333' }}>ร้องเรียนสาขา</h1>
       <div style={{ marginBottom: '10px' }}>
         <label style={{ display: 'block', marginBottom: '5px', color: '#555' }}>หัวข้อที่จะร้องเรียน</label>
@@ -35,7 +35,7 @@ const Complaint = () => {
         <label style={{ display: 'block', marginBottom: '5px', color: '#555' }}>เนื้อหาที่จะร้องเรียน</label>
         <InputTextarea style={{ width: '800px',height:'200px', padding: '8px', boxSizing: 'border-box',fontFamily: 'Kanit, sans-serif' }} value={complaintText} onChange={(e) => setComplaintText(e.target.value)} />
       </div>
-      <div style={{ textAlign: 'center' }}>
+      <div>
         <Button label="ส่งแบบฟอร์มการร้องเรียน" style={{ marginTop:'10px',backgroundColor:'green',border:'0px',fontFamily: 'Kanit, sans-serif' }} onClick={handleSubmit} />
       </div>
     </div>
