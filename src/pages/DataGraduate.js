@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 
-function DataGraduate() {
+function Data_Graduate() {
   const [graduateData, setGraduateData] = useState([]);
   const [work, setWork] = useState([]);
   const [selectedGraduate, setSelectedGraduate] = useState(null);
@@ -81,4 +81,4 @@ function DataGraduate() {
   );
 }
 
-export default DataGraduate;
+export default Data_Graduate;
