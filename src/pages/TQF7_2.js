@@ -333,7 +333,7 @@ function TQF7_2() {
     try {
       // เรียก API เพื่อดึงข้อมูลเทมเพลต DOCX
       const response = await axios.get('https://project-in-back.vercel.app/api/gettqf7', {
-        params: { id: '2' },
+        params: { id: '11' },
         responseType: 'arraybuffer',
       });
       const userFormData = dataTqf7_2;  // ใช้ dataTqf7_0 ที่ได้จาก state แทน doc.getData()

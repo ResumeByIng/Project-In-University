@@ -6,6 +6,7 @@ import { Calendar } from 'primereact/calendar';
 import { Toast } from 'primereact/toast';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { InputTextarea } from 'primereact/inputtextarea';
 
 const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => {
     console.log('open:', open);
@@ -33,7 +34,7 @@ const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => 
     const validateForm = () => {
         let isValid = true;
     
-        if (!headlines || !content || !name || !quantity) {
+        if (!headlines || !content || !name ) {
             toast.current.show({ severity: 'error', summary: 'กรุณากรอกข้อมูลให้ครบถ้วน', detail: 'โปรดตรวจสอบข้อมูลที่กรอก', life: 3000});            
             isValid = false;
         }
@@ -45,22 +46,16 @@ const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => 
         setHeadlines('');
         setContent(''); 
         setName('');
-        setQuantity(new Date());
     };
 
     const handleSave = () => {
         if (!validateForm()) {
             return;
         }
-         // ฟอร์แมตวันที่ในรูปแบบ "วัน เดือน ปี"
-    const formattedQuantity = quantity.toLocaleDateString('en-GB');
-    console.log('quantity:', quantity);
-    console.log('formattedQuantity:', formattedQuantity);
     
     const newProduct = {
         title: headlines,
         content,
-        date_created: formattedQuantity,
         author: name
     };
     
@@ -82,9 +77,9 @@ const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => 
             <div className="p-grid p-fluid"style={{fontFamily: 'Kanit, sans-serif' }}>
                 <div className="p-col-12">
                     <InputText type="text" value={headlines} onChange={(e) => setHeadlines(e.target.value)} placeholder="หัวข้อข่าว" style={{ width: '50%', marginLeft: '25%', textAlign: 'center', marginTop: '10px', alignItems: 'center',fontFamily: 'Kanit, sans-serif'}}/>
-                </div>
+                </div><br/>
                 <div className="p-col-12">
-                    <InputText type="text" value={content} onChange={(e) => setContent(e.target.value)}placeholder="เนื้อหาข่าว"  style={{ width: '50%', marginLeft: '25%', textAlign: 'center', marginTop: '10px', alignItems: 'center',fontFamily: 'Kanit, sans-serif'}}/>
+                    <InputTextarea type="text" value={content} onChange={(e) => setContent(e.target.value)} placeholder="เนื้อหาข่าว" style={{ width: '50%', marginLeft: '25%', textAlign: 'center', marginTop: '10px', fontFamily: 'Kanit, sans-serif', alignItems: 'center', margin: '0 auto'}} />
                 </div>
                 <div className="p-col-12">
                     <InputText readOnly type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="ชื่อ" style={{ width: '50%', marginLeft: '25%', textAlign: 'center', marginTop: '10px', alignItems: 'center',fontFamily: 'Kanit, sans-serif'}}/>

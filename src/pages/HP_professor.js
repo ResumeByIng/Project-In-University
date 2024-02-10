@@ -12,10 +12,19 @@ const HP_professor = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [products, setProducts] = useState([]);
 
+    // ในฟังก์ชั่น fetchData() หรือใด ๆ ที่ทำการอ่านข้อมูลเวลา
     const fetchData = () => {
         axios.get('https://project-in-back.vercel.app/api/get-news')
             .then(response => {
-                setProducts(response.data);
+                // แปลงวันที่ในข้อมูลเป็นรูปแบบที่ต้องการ
+                const formattedProducts = response.data.map(product => {
+                    return {
+                        ...product,
+                        // แปลงวันที่ในรูปแบบ ISO 8601 เป็นรูปแบบที่ต้องการ "YYYY-MM-DD"
+                        date_created: new Date(product.date_created).toISOString().substring(0, 10)
+                    };
+                });
+                setProducts(formattedProducts);
             })
             .catch(error => {
                 console.error('Error fetching news:', error);
@@ -40,22 +49,14 @@ const HP_professor = () => {
         const maxCode = Math.max(...products.map((product) => parseInt(product.code, 10)), 0);
         const newCode = (maxCode + 1).toString();
         
-         // ฟอร์แมตวันที่ใหม่
-    const formattedDate = new Date(newProduct.date_created).toLocaleDateString('en-GB');
-
-    const updatedProduct = {
-        ...newProduct,
-        code: newCode,
-        date_created: formattedDate, // ใช้วันที่ที่ฟอร์แมตแล้ว
-    };
 
     if (selectedProduct) {
         const updatedProducts = products.map((product) =>
-            product.code === selectedProduct.code ? { ...product, ...updatedProduct } : product
+            product.code === selectedProduct.code ? { ...product} : product
         );
         setProducts(updatedProducts);
     } else {
-        setProducts([...products, updatedProduct]);
+        setProducts([...products]);
     }
 
     setOpenDialog(false);

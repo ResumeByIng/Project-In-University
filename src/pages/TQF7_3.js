@@ -325,7 +325,7 @@ function TQF7_3() {
     try {
       // เรียก API เพื่อดึงข้อมูลเทมเพลต DOCX
       const response = await axios.get('https://project-in-back.vercel.app/api/gettqf7', {
-        params: { id: '3' },
+        params: { id: '12' },
         responseType: 'arraybuffer',
       });
       const userFormData = dataTqf7_3;  // ใช้ dataTqf7_0 ที่ได้จาก state แทน doc.getData()
@@ -343,7 +343,7 @@ function TQF7_3() {
       const url = URL.createObjectURL(content);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `มคอ.7 หมวดที่ 2.docx`;
+      link.download = `มคอ.7 หมวดที่ 3.docx`;
       link.click();
     } catch (error) {
       console.error('Error generating document:', error);
