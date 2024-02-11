@@ -1,41 +1,81 @@
 import React, { useState, useEffect } from 'react';
 import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
+import { Dialog } from 'primereact/dialog';
+import { Button } from 'primereact/button';
 
 function Data_Graduate() {
   const [graduateData, setGraduateData] = useState([]);
   const [work, setWork] = useState([]);
   const [selectedGraduate, setSelectedGraduate] = useState(null);
+  const [dialogVisible, setDialogVisible] = useState(false);
+  const [editedData, setEditedData] = useState({});
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem('userData'));
     if (userData) {
       setGraduateData([userData]);
+      fetchData(userData.user_id);
     }
-
-    const fetchData = async () => {
-        try {
-          const response = await fetch(`https://project-in-back.vercel.app/data_graduate/all?user_id=${userData.user_id}`);
-          if (!response.ok) {
-            throw new Error('Failed to fetch data');
-          }
-          const data = await response.json();
-          setWork([data]); // เก็บข้อมูลการทำงานใน state ใหม่ชื่อ work
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-
-    if (userData) {
-      fetchData();
-    }
-
   }, []);
+
+  const fetchData = async (userId) => {
+    try {
+      const response = await fetch(`https://project-in-back.vercel.app/data_graduate/all?user_id=${userId}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      setWork([data]);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   const rowClassName = (rowData) => {
     return rowData.index % 2 === 0 ? 'p-datatable-even' : 'p-datatable-odd';
   };
 
+  const handleEdit = (rowData) => {
+    setEditedData(rowData);
+    setDialogVisible(true);
+  };
+
+  const handleSave = async () => {
+    try {
+      const userData = JSON.parse(localStorage.getItem('userData'));
+      if (!userData || !userData.user_id) {
+        throw new Error('User data or user_id not found in localStorage');
+      }
+  
+      const { user_id } = userData;
+      const { user_id: updatedUserId, ...updatedData } = editedData;
+  
+      // เพิ่ม user_id เข้าไปในอ็อบเจ็กต์ updatedData
+      updatedData.user_id = user_id;
+  
+      console.log('Data to be updated:', updatedData);
+  
+      const response = await fetch(`https://project-in-back.vercel.app/data_graduate/update`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData), // ส่ง updatedData ที่มี user_id ไปยังเซิร์ฟเวอร์
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to update data');
+      }
+  
+      fetchData(user_id);
+  
+      setDialogVisible(false);
+    } catch (error) {
+      console.error('Error updating data:', error);
+    }
+  };
+  
   return (
     <div style={{ width: '83%', marginLeft: '20px', marginTop: '50px' }}>
       <h1 style={{ color: '#333' }}>ข้อมูลส่วนตัว</h1>
@@ -65,7 +105,7 @@ function Data_Graduate() {
           marginTop: '10px',
           fontFamily: 'Kanit, sans-serif',
         }}
-        value={work} // ใช้ข้อมูลที่เก็บไว้ใน state work แทน
+        value={work}
         header="ข้อมูลส่วนตัวของสถานที่ทำงาน"
         rowClassName={rowClassName}
         selectionMode="single"
@@ -75,9 +115,30 @@ function Data_Graduate() {
         <Column field="work_place" header="สถานที่ทำงาน" />
         <Column field="salary" header="เงินเดือน" />
         <Column field="work_about" header="ทำงานเกี่ยวกับ" />
-      </DataTable>
+        <Column field="end_year" header="ปีที่จบการศึกษา" />
+      </DataTable><br/><br/>
+      <button onClick={() => handleEdit(work)}>แก้ไข</button>
+      <Dialog visible={dialogVisible} onHide={() => setDialogVisible(false)}>
+        <h1>Edit Data</h1>
+        <div>
+          <label htmlFor="work_place">สถานที่ทำงาน:</label>
+          <input type="text" id="work_place" value={editedData.work_place || ''} onChange={(e) => setEditedData({ ...editedData, work_place: e.target.value })} />
+        </div>
+        <div>
+          <label htmlFor="salary">เงินเดือน:</label>
+          <input type="text" id="salary" value={editedData.salary || ''} onChange={(e) => setEditedData({ ...editedData, salary: e.target.value })} />
+        </div>
+        <div>
+          <label htmlFor="work_about">ทำงานเกี่ยวกับ:</label>
+          <input type="text" id="work_about" value={editedData.work_about || ''} onChange={(e) => setEditedData({ ...editedData, work_about: e.target.value })} />
+        </div>
+        <div>
+          <label htmlFor="end_year">ปีที่จบการศึกษา:</label>
+          <input type="text" id="end_year" value={editedData.end_year || ''} onChange={(e) => setEditedData({ ...editedData, end_year: e.target.value })} />
+        </div>
+        <Button label="Save" onClick={handleSave} />
+      </Dialog>
     </div>
-    
   );
 }
 
