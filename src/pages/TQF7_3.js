@@ -11,7 +11,13 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 function TQF7_3() {
 
-  
+  const [percentage1, setPercentage1] = useState(0);
+  const [percentage2, setPercentage2] = useState(0);
+  const [percentage3, setPercentage3] = useState(0);
+  const [percentage4, setPercentage4] = useState(0);
+  const [percentage5, setPercentage5] = useState(0);
+  const [percentage6, setPercentage6] = useState(0);
+
   const [dataTqf7_3, setDateTqf7_3] = useState({
 
     หัวใหญ่ : "ปีการศึกษาที่รับเข้า(ตั้งแต่ปีการศึกษาที่เริ่มใช้หลักสูตร)",
@@ -323,6 +329,13 @@ function TQF7_3() {
 
     สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รหัสเอกสาร : "B.ENG 2.2-1-02",
     สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน : "รายงานสรุปภาวะการมีงานทำ ประจำปีการศึกษา 2564",
+
+    percentage1 : percentage1,
+    percentage2 : percentage2,
+    percentage3 : percentage3,
+    percentage4 : percentage4,
+    percentage5 : percentage5,
+    percentage6 : percentage6,
 
   });
 
@@ -980,48 +993,56 @@ function TQF7_3() {
     reader.readAsArrayBuffer(file);
   };
   
-  const [percentage1, setPercentage1] = useState(0);
   useEffect(() => {
     const numerator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_1 - dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_1;
     const denominator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_1;
     const calculatedPercentage = (numerator / denominator) * 100;
     setPercentage1(calculatedPercentage.toFixed(3)); // ปัดเศษทศนิยมเป็น 3 ตำแหน่ง
   }, [dataTqf7_3]);
-  const [percentage2, setPercentage2] = useState(0);
   useEffect(() => {
     const numerator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_2 - dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_2;
     const denominator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_2;
     const calculatedPercentage = (numerator / denominator) * 100;
     setPercentage2(calculatedPercentage.toFixed(3)); // ปัดเศษทศนิยมเป็น 3 ตำแหน่ง
   }, [dataTqf7_3]);
-  const [percentage3, setPercentage3] = useState(0);
   useEffect(() => {
     const numerator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_3 - dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_3;
     const denominator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_3;
     const calculatedPercentage = (numerator / denominator) * 100;
     setPercentage3(calculatedPercentage.toFixed(3)); // ปัดเศษทศนิยมเป็น 3 ตำแหน่ง
   }, [dataTqf7_3]);
-  const [percentage4, setPercentage4] = useState(0);
   useEffect(() => {
     const numerator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_4 - dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_4;
     const denominator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_4;
     const calculatedPercentage = (numerator / denominator) * 100;
     setPercentage4(calculatedPercentage.toFixed(3)); // ปัดเศษทศนิยมเป็น 3 ตำแหน่ง
   }, [dataTqf7_3]);
-  const [percentage5, setPercentage5] = useState(0);
   useEffect(() => {
     const numerator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_5 - dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_5;
     const denominator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_5;
     const calculatedPercentage = (numerator / denominator) * 100;
     setPercentage5(calculatedPercentage.toFixed(3)); // ปัดเศษทศนิยมเป็น 3 ตำแหน่ง
   }, [dataTqf7_3]);
-  const [percentage6, setPercentage6] = useState(0);
+  
   useEffect(() => {
     const numerator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_6 - dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_6;
     const denominator = dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_6;
     const calculatedPercentage = (numerator / denominator) * 100;
     setPercentage6(calculatedPercentage.toFixed(3)); // ปัดเศษทศนิยมเป็น 3 ตำแหน่ง
   }, [dataTqf7_3]);
+
+
+  useEffect(() => {
+    setDateTqf7_3(prevState => ({
+      ...prevState,
+      percentage1: percentage1,
+      percentage2: percentage2,
+      percentage3: percentage3,
+      percentage4: percentage4,
+      percentage5: percentage5,
+      percentage6: percentage6
+    }));
+  }, [percentage1, percentage2, percentage3, percentage4, percentage5, percentage6]);
 
 
   const PizZip = require('pizzip');
@@ -1031,7 +1052,7 @@ function TQF7_3() {
     try {
       // เรียก API เพื่อดึงข้อมูลเทมเพลต DOCX
       const response = await axios.get('https://project-in-back.vercel.app/api/gettqf7', {
-        params: { id: '12' },
+        params: { id: '4' },
         responseType: 'arraybuffer',
       });
       const userFormData = dataTqf7_3;  // ใช้ dataTqf7_0 ที่ได้จาก state แทน doc.getData()
