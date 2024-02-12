@@ -108,6 +108,31 @@ function TQF7_3() {
     รหัสเอกสาร_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_3 : "B.ENG 3.2-2-02",
     รายการเอกสารหลักฐาน_รายการหลักฐานอ้างอิง_การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์แก่บัณฑิตศึกษา_3 : "ผลการประเมินโครงการ",
 
+
+    ปีการศึกษาที่รับเข้า : "ปีการศึกษาที่รับเข้า",
+    จำนวนรับเข้า : "จำนวนรับเข้า(1)",
+    จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา : "จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา (3)",
+    หัว1_1 : "2559",
+    หัว1_2 : "2560",
+    หัว1_3 : "2561",
+    หัว1_4 : "2562",
+    หัว1_5 : "2563",
+    หัว1_6 : "2564",
+
+    หัว1_1_1 : "2559",
+    หัว1_2_1 : "2560",
+    หัว1_3_1 : "2561",
+    หัว1_4_1 : "2562",
+    หัว1_5_1 : "2563",
+    หัว1_6_1 : "2564",
+    
+    จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา1: "2559",
+    จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา2: "2560",
+    จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา3: "2561",
+    จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา4: "2562",
+    จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา5: "2563",
+    จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา6: "2564",
+
     จำนวนรับเข้า_เริ่มต้น_1 : "64",
     จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_1 : "62",
     จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_2 : "40",
@@ -162,11 +187,26 @@ function TQF7_3() {
     จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_6 : "37",
     จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_6 : "3",
 
+    ปีการศึกษา : "ปีการศึกษา",
+    จำนวนรับเข้า1 : "จำนวนรับเข้า(1)",
+    ปีการศึกษา_1	: "2559",
+    ปีการศึกษา_2	: "2560",
+    ปีการศึกษา_3	: "2561",
+    ปีการศึกษา_4	: "2562",
+    ปีการศึกษา_5	: "2563",
+    ปีการศึกษา_6  : "2564",
+
     จำนวนรับเข้า_1 : "60",
     จำนวนรับเข้า_2 : "64",
     จำนวนรับเข้า_3 : "62",
     จำนวนรับเข้า_4 : "40",
     จำนวนรับเข้า_5 : "40",
+
+    ปีการศึกษา_1_1 : "2557",
+    ปีการศึกษา_1_2 : "2558",
+    ปีการศึกษา_1_3 : "2559",
+    ปีการศึกษา_1_4 : "2560",
+    ปีการศึกษา_1_5 : "2561",
 
     จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_1 : "-",
     จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_2 : "19 (31.66)",
@@ -361,6 +401,7 @@ function TQF7_3() {
       const cellH9Value = sheet['H9'] ? sheet['H9'].v : '';
       setDateTqf7_3(prevData => ({
         ...prevData,
+
         หัวใหญ่: cellB2Value,
 
         หัว1:cellB4Value,
@@ -495,6 +536,448 @@ function TQF7_3() {
     };
     const blob = file.slice(0, file.size);
     reader.readAsText(blob);
+  };
+
+  const handleChangeExcel2 = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const buffer = e.target.result;
+      const workbook = XLSX.read(new Uint8Array(buffer), { type: 'array' });
+      const sheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+
+      const cellB2Value2 = sheet['B2'] ? sheet['B2'].v : '';
+      const cellC2Value2 = sheet['C2'] ? sheet['C2'].v : '';
+
+      const cellD3Value2 = sheet['D3'] ? sheet['D3'].v : '';
+      const cellE3Value2 = sheet['E3'] ? sheet['E3'].v : '';
+      const cellF3Value2 = sheet['F3'] ? sheet['F3'].v : '';
+      const cellG3Value2 = sheet['G3'] ? sheet['G3'].v : '';
+      const cellH3Value2 = sheet['H3'] ? sheet['H3'].v : '';
+      const cellI3Value2 = sheet['I3'] ? sheet['I3'].v : '';
+      const cellJ2Value2 = sheet['J2'] ? sheet['J2'].v : '';
+      
+      const cellB4Value2 = sheet['B4'] ? sheet['B4'].v : '';
+      const cellC4Value2 = sheet['C4'] ? sheet['C4'].v : '';
+      const cellD4Value2 = sheet['D4'] ? sheet['D4'].v : '';
+      const cellE4Value2 = sheet['E4'] ? sheet['E4'].v : '';
+      const cellF4Value2 = sheet['F4'] ? sheet['F4'].v : '';
+      const cellG4Value2 = sheet['G4'] ? sheet['G4'].v : '';
+      const cellH4Value2 = sheet['H4'] ? sheet['H4'].v : '';
+      const cellI4Value2 = sheet['I4'] ? sheet['I4'].v : '';
+      const cellJ4Value2 = sheet['J4'] ? sheet['J4'].v : '';
+
+      const cellB5Value2 = sheet['B5'] ? sheet['B5'].v : '';
+      const cellC5Value2 = sheet['C5'] ? sheet['C5'].v : '';
+      const cellD5Value2 = sheet['D5'] ? sheet['D5'].v : '';
+      const cellE5Value2 = sheet['E5'] ? sheet['E5'].v : '';
+      const cellF5Value2 = sheet['F5'] ? sheet['F5'].v : '';
+      const cellG5Value2 = sheet['G5'] ? sheet['G5'].v : '';
+      const cellH5Value2 = sheet['H5'] ? sheet['H5'].v : '';
+      const cellI5Value2 = sheet['I5'] ? sheet['I5'].v : '';
+      const cellJ5Value2 = sheet['J5'] ? sheet['J5'].v : '';
+
+      const cellB6Value2 = sheet['B6'] ? sheet['B6'].v : '';
+      const cellC6Value2 = sheet['C6'] ? sheet['C6'].v : '';
+      const cellD6Value2 = sheet['D6'] ? sheet['D6'].v : '';
+      const cellE6Value2 = sheet['E6'] ? sheet['E6'].v : '';
+      const cellF6Value2 = sheet['F6'] ? sheet['F6'].v : '';
+      const cellG6Value2 = sheet['G6'] ? sheet['G6'].v : '';
+      const cellH6Value2 = sheet['H6'] ? sheet['H6'].v : '';
+      const cellI6Value2 = sheet['I6'] ? sheet['I6'].v : '';
+      const cellJ6Value2 = sheet['J6'] ? sheet['J6'].v : '';
+
+      const cellB7Value2 = sheet['B7'] ? sheet['B7'].v : '';
+      const cellC7Value2 = sheet['C7'] ? sheet['C7'].v : '';
+      const cellD7Value2 = sheet['D7'] ? sheet['D7'].v : '';
+      const cellE7Value2 = sheet['E7'] ? sheet['E7'].v : '';
+      const cellF7Value2 = sheet['F7'] ? sheet['F7'].v : '';
+      const cellG7Value2 = sheet['G7'] ? sheet['G7'].v : '';
+      const cellH7Value2 = sheet['H7'] ? sheet['H7'].v : '';
+      const cellI7Value2 = sheet['I7'] ? sheet['I7'].v : '';
+      const cellJ7Value2 = sheet['J7'] ? sheet['J7'].v : '';
+
+      const cellB8Value2 = sheet['B8'] ? sheet['B8'].v : '';
+      const cellC8Value2 = sheet['C8'] ? sheet['C8'].v : '';
+      const cellD8Value2 = sheet['D8'] ? sheet['D8'].v : '';
+      const cellE8Value2 = sheet['E8'] ? sheet['E8'].v : '';
+      const cellF8Value2 = sheet['F8'] ? sheet['F8'].v : '';
+      const cellG8Value2 = sheet['G8'] ? sheet['G8'].v : '';
+      const cellH8Value2 = sheet['H8'] ? sheet['H8'].v : '';
+      const cellI8Value2 = sheet['I8'] ? sheet['I8'].v : '';
+      const cellJ8Value2 = sheet['J8'] ? sheet['J8'].v : '';
+
+      const cellB9Value2 = sheet['B9'] ? sheet['B9'].v : '';
+      const cellC9Value2 = sheet['C9'] ? sheet['C9'].v : '';
+      const cellD9Value2 = sheet['D9'] ? sheet['D9'].v : '';
+      const cellE9Value2 = sheet['E9'] ? sheet['E9'].v : '';
+      const cellF9Value2 = sheet['F9'] ? sheet['F9'].v : '';
+      const cellG9Value2 = sheet['G9'] ? sheet['G9'].v : '';
+      const cellH9Value2 = sheet['H9'] ? sheet['H9'].v : '';
+      const cellI9Value2 = sheet['I9'] ? sheet['I9'].v : '';
+      const cellJ9Value2 = sheet['J9'] ? sheet['J9'].v : '';
+
+      setDateTqf7_3(prevData => ({
+        ...prevData,
+
+        ปีการศึกษาที่รับเข้า : cellB2Value2,
+        จำนวนรับเข้า : cellC2Value2,
+        หัว1_1 : cellD3Value2,
+        หัว1_2 : cellE3Value2,
+        หัว1_3 : cellF3Value2,
+        หัว1_4 : cellG3Value2,
+        หัว1_5 : cellH3Value2,
+        หัว1_6 : cellI3Value2,
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา : cellJ2Value2,
+
+        หัว1_1_1 : cellB4Value2,
+        หัว1_2_1 : cellB5Value2,
+        หัว1_3_1 : cellB6Value2,
+        หัว1_4_1 : cellB7Value2,
+        หัว1_5_1 : cellB8Value2,
+        หัว1_6_1 : cellB9Value2,
+
+        จำนวนรับเข้า_เริ่มต้น_1 : cellC4Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_1 : cellD4Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_2 : cellE4Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_3 : cellF4Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_4 : cellG4Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_5 : cellH4Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_6 : cellI4Value2,
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_1 : cellJ4Value2,
+
+        จำนวนรับเข้า_เริ่มต้น_2 : cellC5Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_1 : cellD5Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_2 : cellE5Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_3 : cellF5Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_4 : cellG5Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_5 : cellH5Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_6 : cellI5Value2,
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_2 : cellJ5Value2,
+
+        จำนวนรับเข้า_เริ่มต้น_3 : cellC6Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_1 : cellD6Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_2 : cellE6Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_3 : cellF6Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_4 : cellG6Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_5 : cellH6Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_6 : cellI6Value2,
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_3 : cellJ6Value2,
+
+        จำนวนรับเข้า_เริ่มต้น_4 : cellC7Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_1 : cellD7Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_2 : cellE7Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_3 : cellF7Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_4 : cellG7Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_5 : cellH7Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_6 : cellI7Value2,
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_4 : cellJ7Value2,
+
+        จำนวนรับเข้า_เริ่มต้น_5 : cellC8Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_1 : cellD8Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_2 : cellE8Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_3 : cellF8Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_4 : cellG8Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_5 : cellH8Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_6 : cellI8Value2,
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_5 : cellJ8Value2,
+
+        จำนวนรับเข้า_เริ่มต้น_6 : cellC9Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_1 : cellD9Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_2 : cellE9Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_3 : cellF9Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_4 : cellG9Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_5 : cellH9Value2,
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_6 : cellI9Value2,
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_6 : cellJ9Value2,
+      }));
+    };
+    reader.readAsArrayBuffer(file);
+  };
+
+  const handleChangeCSV2 = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const text = e.target.result;
+      const csvData = text.split('\n');
+      const cellValues2 = csvData.map(row => row.split(',').map(cell => cell.trim()));
+      const [row1, row2, row3, row4, row5, row6, row7] = cellValues2;
+  
+      setDateTqf7_3(prevData => ({
+        ...prevData,
+        ปีการศึกษาที่รับเข้า : row1[0],
+        จำนวนรับเข้า : row1[1],
+        หัว1_1 : row1[2],
+        หัว1_2 : row1[3],
+        หัว1_3 : row1[4],
+        หัว1_4 : row1[5],
+        หัว1_5 : row1[6],
+        หัว1_6 : row1[7],
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา : row1[8],
+        
+        หัว1_1_1 : row2[0],
+        ำนวนรับเข้า_เริ่มต้น_1 : row2[1],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_1 : row2[2],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_2 : row2[3],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_3 : row2[4],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_4 : row2[5],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_5 : row2[6],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_6 : row2[7],
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_1 : row2[8],
+
+        หัว1_2_1 : row2[0],
+        จำนวนรับเข้า_เริ่มต้น_2 : row3[1],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_1 : row3[2],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_2 : row3[3],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_3 : row3[4],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_4 : row3[5],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_5 : row3[6],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_6 : row3[7],
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_2 : row3[8],
+
+        หัว1_3_1 : row4[0],
+        จำนวนรับเข้า_เริ่มต้น_3 : row4[1],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_1 : row4[2],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_2 : row4[3],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_3 : row4[4],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_4 : row4[5],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_5 : row4[6],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_6 : row4[7],
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_3 : row4[8],
+
+        หัว1_4_1 : row5[0],
+        จำนวนรับเข้า_เริ่มต้น_4 : row5[1],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_1 : row5[2],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_2 : row5[3],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_3 : row5[4],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_4 : row5[5],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_5 : row5[6],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_6 : row5[7],
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_4 : row5[8],
+
+        หัว1_5_1 : row6[0],
+        จำนวนรับเข้า_เริ่มต้น_5 : row6[1],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_1 : row6[2],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_2 : row6[3],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_3 : row6[4],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_4 : row6[5],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_5 : row6[6],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_6 : row6[7],
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_5 : row6[8],
+
+        หัว1_6_1 : row7[0],
+        จำนวนรับเข้า_เริ่มต้น_6 : row7[1],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_1 : row7[2],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_2 : row7[3],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_3 : row7[4],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_4 : row7[5],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_5 : row7[6],
+        จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_6 : row7[7],
+        จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_6 : row7[8],
+      }));
+    };
+    const blob = file.slice(0, file.size);
+    reader.readAsText(blob);
+  };
+
+  const handleChangeCSV3 = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const text = e.target.result;
+      const csvData = text.split('\n');
+      const cellValues = csvData.map(row => row.split(',').map(cell => cell.trim()));
+      const [row1, row2, row3, row4, row5, row6, row7,row8] = cellValues;
+  
+      setDateTqf7_3(prevData => ({
+        ...prevData,
+        ปีการศึกษา:row1[0],
+        จำนวนรับเข้า1:row1[1],
+        ปีการศึกษา_1:row1[2],
+        การศึกษา_2:row1[3],
+        การศึกษา_3:row1[4],
+        การศึกษา_4:row1[5],
+        การศึกษา_5:row1[6],
+        การศึกษา_6:row1[7],
+
+        ปีการศึกษา_1_1 : row2[0],
+        จำนวนรับเข้า_1 : row2[1],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_1 : row2[2],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_2 : row2[3],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_3 : row2[4],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_4 : row2[5],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_5 : row2[6],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_6 : row2[7],
+
+        ปีการศึกษา_1_2 : row3[0],
+        จำนวนรับเข้า_2 : row3[1],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_1 : row3[2],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_2 : row3[3],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_3 : row3[4],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_4 : row3[5],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_5 : row3[6],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_6 : row3[7],
+
+        ปีการศึกษา_1_3 : row4[0],
+        จำนวนรับเข้า_3 : row4[1],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_1 : row4[2],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_2 : row4[3],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_3 : row4[4],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_4 : row4[5],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_5 : row4[6],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_6 : row4[7],
+
+        ปีการศึกษา_1_4 : row5[0],
+        จำนวนรับเข้า_4 : row5[1],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_1 : row5[2],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_2 : row5[3],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_3 : row5[4],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_4 : row5[5],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_5 : row5[6],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_6 : row5[7],
+
+        ปีการศึกษา_1_5 : row6[0],
+        จำนวนรับเข้า_5 : row6[1],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_1 : row6[2],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_2 : row6[3],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_3 : row6[4],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_4 : row6[5],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_5 : row6[6],
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_6 : row6[7],
+
+      }));
+    };
+    const blob = file.slice(0, file.size);
+    reader.readAsText(blob);
+  };
+
+  const handleChangeExcel3 = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const buffer = e.target.result;
+      const workbook = XLSX.read(new Uint8Array(buffer), { type: 'array' });
+      const sheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+
+      const cellB2Value3 = sheet['B2'] ? sheet['B2'].v : '';
+      const cellC2Value3 = sheet['C2'] ? sheet['C2'].v : '';
+
+      const cellD3Value3 = sheet['D3'] ? sheet['D3'].v : '';
+      const cellE3Value3 = sheet['E3'] ? sheet['E3'].v : '';
+      const cellF3Value3 = sheet['F3'] ? sheet['F3'].v : '';
+      const cellG3Value3 = sheet['G3'] ? sheet['G3'].v : '';
+      const cellH3Value3 = sheet['H3'] ? sheet['H3'].v : '';
+      const cellI3Value3 = sheet['I3'] ? sheet['I3'].v : '';
+
+      const cellB4Value3 = sheet['B4'] ? sheet['B4'].v : '';
+      const cellC4Value3 = sheet['C4'] ? sheet['C4'].v : '';
+      const cellD4Value3 = sheet['D4'] ? sheet['D4'].v : '';
+      const cellE4Value3 = sheet['E4'] ? sheet['E4'].v : '';
+      const cellF4Value3 = sheet['F4'] ? sheet['F4'].v : '';
+      const cellG4Value3 = sheet['G4'] ? sheet['G4'].v : '';
+      const cellH4Value3 = sheet['H4'] ? sheet['H4'].v : '';
+      const cellI4Value3 = sheet['I4'] ? sheet['I4'].v : '';
+
+      const cellB5Value3 = sheet['B5'] ? sheet['B5'].v : '';
+      const cellC5Value3 = sheet['C5'] ? sheet['C5'].v : '';
+      const cellD5Value3 = sheet['D5'] ? sheet['D5'].v : '';
+      const cellE5Value3 = sheet['E5'] ? sheet['E5'].v : '';
+      const cellF5Value3 = sheet['F5'] ? sheet['F5'].v : '';
+      const cellG5Value3 = sheet['G5'] ? sheet['G5'].v : '';
+      const cellH5Value3 = sheet['H5'] ? sheet['H5'].v : '';
+      const cellI5Value3 = sheet['I5'] ? sheet['I5'].v : '';
+
+      const cellB6Value3 = sheet['B6'] ? sheet['B6'].v : '';
+      const cellC6Value3 = sheet['C6'] ? sheet['C6'].v : '';
+      const cellD6Value3 = sheet['D6'] ? sheet['D6'].v : '';
+      const cellE6Value3 = sheet['E6'] ? sheet['E6'].v : '';
+      const cellF6Value3 = sheet['F6'] ? sheet['F6'].v : '';
+      const cellG6Value3 = sheet['G6'] ? sheet['G6'].v : '';
+      const cellH6Value3 = sheet['H6'] ? sheet['H6'].v : '';
+      const cellI6Value3 = sheet['I6'] ? sheet['I6'].v : '';
+
+      const cellB7Value3 = sheet['B7'] ? sheet['B7'].v : '';
+      const cellC7Value3 = sheet['C7'] ? sheet['C7'].v : '';
+      const cellD7Value3 = sheet['D7'] ? sheet['D7'].v : '';
+      const cellE7Value3 = sheet['E7'] ? sheet['E7'].v : '';
+      const cellF7Value3 = sheet['F7'] ? sheet['F7'].v : '';
+      const cellG7Value3 = sheet['G7'] ? sheet['G7'].v : '';
+      const cellH7Value3 = sheet['H7'] ? sheet['H7'].v : '';
+      const cellI7Value3 = sheet['I7'] ? sheet['I7'].v : '';
+
+      const cellB8Value3 = sheet['B8'] ? sheet['B8'].v : '';
+      const cellC8Value3 = sheet['C8'] ? sheet['C8'].v : '';
+      const cellD8Value3 = sheet['D8'] ? sheet['D8'].v : '';
+      const cellE8Value3 = sheet['E8'] ? sheet['E8'].v : '';
+      const cellF8Value3 = sheet['F8'] ? sheet['F8'].v : '';
+      const cellG8Value3 = sheet['G8'] ? sheet['G8'].v : '';
+      const cellH8Value3 = sheet['H8'] ? sheet['H8'].v : '';
+      const cellI8Value3 = sheet['I8'] ? sheet['I8'].v : '';
+
+
+
+      setDateTqf7_3(prevData => ({
+        ...prevData,
+        ปีการศึกษา : cellB2Value3,
+        จำนวนรับเข้า1 : cellC2Value3,
+        
+        ปีการศึกษา_1 : cellD3Value3,
+        ปีการศึกษา_2 : cellE3Value3,
+        ปีการศึกษา_3 : cellF3Value3,
+        ปีการศึกษา_4 : cellG3Value3,
+        ปีการศึกษา_5 : cellH3Value3,
+        ปีการศึกษา_6 : cellI3Value3,
+
+        ปีการศึกษา_1_1 : cellB4Value3,
+        จำนวนรับเข้า_1 : cellC4Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_1 : cellD4Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_2 : cellE4Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_3 : cellF4Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_4 : cellG4Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_5 : cellH4Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_6 : cellI4Value3,
+
+        ปีการศึกษา_1_2 : cellB5Value3,
+        จำนวนรับเข้า_2 : cellC5Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_1 : cellD5Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_2 : cellE5Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_3 : cellF5Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_4 : cellG5Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_5 : cellH5Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_6 : cellI5Value3,
+
+        ปีการศึกษา_1_3 : cellB6Value3,
+        จำนวนรับเข้า_3 : cellC6Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_1 : cellD6Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_2 : cellE6Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_3 : cellF6Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_4 : cellG6Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_5 : cellH6Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_6 : cellI6Value3,
+
+        ปีการศึกษา_1_4 : cellB7Value3,
+        จำนวนรับเข้า_4 : cellC7Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_1 : cellD7Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_2 : cellE7Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_3 : cellF7Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_4 : cellG7Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_5 : cellH7Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_6 : cellI7Value3,
+
+        ปีการศึกษา_1_5 : cellB8Value3,
+        จำนวนรับเข้า_5 : cellC8Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_1 : cellD8Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_2 : cellE8Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_3 : cellF8Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_4 : cellG8Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_5 : cellH8Value3,
+        จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_6 : cellI8Value3,
+      }));
+    };
+    reader.readAsArrayBuffer(file);
   };
   
   const [percentage1, setPercentage1] = useState(0);
@@ -841,26 +1324,49 @@ function TQF7_3() {
         {/***********************************************/}
         <div>
             <span>ข้อมูลนักศึกษา และจำนวนผู้สำเร็จการศึกษาตามแผนการศึกษาและจำนวนผู้สำเร็จการศึกษา</span><br/><br/>
+            <input
+        style={{ display: 'none' }}
+        id="csv-upload2"
+        type="file"
+        onChange={handleChangeCSV2}
+      />
+      <label htmlFor="csv-upload2">
+        <IconButton component="span">
+          <CloudUploadIcon />   Upload CSV2
+        </IconButton>
+      </label>
+      <br/><br/>
+      <input
+        style={{ display: 'none' }}
+        id="excel-upload2"
+        type="file"
+        onChange={handleChangeExcel2}
+      />
+      <label htmlFor="excel-upload2">
+        <IconButton component="span">
+          <CloudUploadIcon />   Upload XLSX2
+        </IconButton>
+      </label>
             <table>
               <thead>
                 <tr>
-                  <th rowSpan="2">ปีการศึกษาที่รับเข้า</th>
-                  <th rowSpan="2">จำนวนรับเข้า(1)</th>
+                  <th rowSpan="2"><span>{dataTqf7_3.ปีการศึกษาที่รับเข้า}</span></th>
+                  <th rowSpan="2"><span>{dataTqf7_3.จำนวนรับเข้า}</span></th>
                   <th colSpan="6">จำนวนนักศึกษาคงอยู่ ในแต่ละปีการศึกษา (2)</th>
-                  <th rowSpan="2">จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา (3)</th>
+                  <th rowSpan="2"><span>{dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา}</span></th>
                 </tr>
                 <tr>
-                  <th>2559</th>
-                  <th>2560</th>
-                  <th>2561</th>
-                  <th>2562</th>
-                  <th>2563</th>
-                  <th>2564</th>
+                  <th><span>{dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา1}</span></th>
+                  <th><span>{dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา2}</span></th>
+                  <th><span>{dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา3}</span></th>
+                  <th><span>{dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา4}</span></th>
+                  <th><span>{dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา5}</span></th>
+                  <th><span>{dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา6}</span></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th>2559</th>
+                  <th><span>{dataTqf7_3.หัว1_1_1}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_1} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_1_2')}></InputText></th>
@@ -871,7 +1377,7 @@ function TQF7_3() {
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_1')}></InputText></th>
                 </tr>
                 <tr>
-                  <th>2560</th>
+                <th><span>{dataTqf7_3.หัว1_2_1}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_2} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_2')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_2_2')}></InputText></th>
@@ -882,7 +1388,7 @@ function TQF7_3() {
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_2')}></InputText></th>
                 </tr>
                 <tr>
-                  <th>2561</th>
+                <th><span>{dataTqf7_3.หัว1_3_1}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_3} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_3')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_3_2')}></InputText></th>
@@ -893,7 +1399,7 @@ function TQF7_3() {
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_3} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_3')}></InputText></th>
                 </tr>
                 <tr>
-                  <th>2562</th>
+                <th><span>{dataTqf7_3.หัว1_4_1}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_4} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_4')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_4_2')}></InputText></th>
@@ -904,7 +1410,7 @@ function TQF7_3() {
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_4} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_4')}></InputText></th>
                 </tr>
                 <tr>
-                  <th>2563</th>
+                <th><span>{dataTqf7_3.หัว1_5_1}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_5} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_5')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_5_2')}></InputText></th>
@@ -915,7 +1421,7 @@ function TQF7_3() {
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_5} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาที่ลาออกและคัดชื่อออกสะสมจนถึงสิ้นปีการศึกษา_5')}></InputText></th>
                 </tr>
                 <tr>
-                  <th>2564</th>
+                <th><span>{dataTqf7_3.หัว1_6_1}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_เริ่มต้น_6} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_เริ่มต้น_6')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_1} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_2} onChange={(e) => handleChange(e, 'จำนวนนักศึกษาคงอยู่ในแต่ละปีการศึกษา_6_2')}></InputText></th>
@@ -1030,26 +1536,49 @@ function TQF7_3() {
                 </tr>
               </tbody>
             </table><br/><br/>
+            <input
+        style={{ display: 'none' }}
+        id="csv-upload3"
+        type="file"
+        onChange={handleChangeCSV3}
+      />
+      <label htmlFor="csv-upload3">
+        <IconButton component="span">
+          <CloudUploadIcon />   Upload CSV3
+        </IconButton>
+      </label>
+      <br/><br/>
+      <input
+        style={{ display: 'none' }}
+        id="excel-upload3"
+        type="file"
+        onChange={handleChangeExcel3}
+      />
+      <label htmlFor="excel-upload3">
+        <IconButton component="span">
+          <CloudUploadIcon />   Upload XLSX3
+        </IconButton>
+      </label>
 
             <table>
               <thead>
                 <tr>
-                  <th rowSpan="2">ปีการศึกษา</th>
-                  <th rowSpan="2">จำนวนรับเข้า(1)</th>
+                  <th rowSpan="2"><span>{dataTqf7_3.ปีการศึกษา}</span></th>
+                  <th rowSpan="2"><span>{dataTqf7_3.จำนวนรับเข้า1}</span></th>
                   <th colSpan="6">จำนวนผู้สำเร็จการศึกษาตามหลักสูตร (2)</th>
                 </tr>
                 <tr>
-                  <th>2559</th>
-                  <th>2560</th>
-                  <th>2561</th>
-                  <th>2562</th>
-                  <th>2563</th>
-                  <th>2564</th>
+                  <th><span>{dataTqf7_3.ปีการศึกษา_1}</span></th>
+                  <th><span>{dataTqf7_3.ปีการศึกษา_2}</span></th>
+                  <th><span>{dataTqf7_3.ปีการศึกษา_3}</span></th>
+                  <th><span>{dataTqf7_3.ปีการศึกษา_4}</span></th>
+                  <th><span>{dataTqf7_3.ปีการศึกษา_5}</span></th>
+                  <th><span>{dataTqf7_3.ปีการศึกษา_6}</span></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th>2557</th>
+                  <th><span>{dataTqf7_3.ปีการศึกษา_1_1}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_1} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_2')}></InputText></th>
@@ -1059,7 +1588,7 @@ function TQF7_3() {
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_1_6')}></InputText></th>
                 </tr>
                 <tr>
-                  <th>2558</th>
+                <th><span>{dataTqf7_3.ปีการศึกษา_1_2}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_2} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_2')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_2')}></InputText></th>
@@ -1069,7 +1598,7 @@ function TQF7_3() {
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_2_6')}></InputText></th>
                 </tr>
                 <tr>
-                  <th>2559</th>
+                <th><span>{dataTqf7_3.ปีการศึกษา_1_3}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_3} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_3')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_2')}></InputText></th>
@@ -1079,7 +1608,7 @@ function TQF7_3() {
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_3_6')}></InputText></th>
                 </tr>
                 <tr>
-                  <th>2560</th>
+                <th><span>{dataTqf7_3.ปีการศึกษา_1_4}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_4} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_4')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_2')}></InputText></th>
@@ -1089,7 +1618,7 @@ function TQF7_3() {
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_6} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_4_6')}></InputText></th>
                 </tr>
                 <tr>
-                  <th>2561</th>
+                <th><span>{dataTqf7_3.ปีการศึกษา_1_5}</span></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนรับเข้า_5} onChange={(e) => handleChange(e, 'จำนวนรับเข้า_5')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_1} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_1')}></InputText></th>
                   <th><InputText  style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_2} onChange={(e) => handleChange(e, 'จำนวนผู้สำเร็จการศึกษาตามหลักสูตร_5_2')}></InputText></th>

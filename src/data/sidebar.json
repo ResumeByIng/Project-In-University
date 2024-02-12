@@ -104,6 +104,11 @@
                 "title": "ตรวจสอบการร้องเรียนสาขา",
                 "path": "/CheckComplaint",
                 "roles": [2,4]
+            },
+            {
+                "title": "ข้อมูลนักศึกษาและบัณฑิต",
+                "path": "/Data_AllUser",
+                "roles": [2,4]
             }
         ]
     },
