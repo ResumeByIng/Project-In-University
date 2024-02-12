@@ -173,7 +173,7 @@ const handleLogin = async () => {
   return (
     <div className="wrapper fadeInDown">
       <div id="formContent">
-        <div className="fadeIn first">
+        <div className="">
           <img src={myImage1} alt="รูปภาพ" className="image" />
           <h5>ล็อคอิน</h5>
         </div>
