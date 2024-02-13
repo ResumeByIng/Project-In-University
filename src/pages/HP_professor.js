@@ -94,12 +94,12 @@ const [deleteConfirmation, setDeleteConfirmation] = useState({
             <Column header="สร้างขึ้นเมื่อวันที่" field="date_created"></Column>
             <Column header="Actions" body={(rowData) => (
                 <div  style={{ width: '100%'}} >
-                    <Button style={{ width: '60px', textAlign: 'center',fontFamily: 'Kanit, sans-serif',marginBottom:'10px',marginLeft:'10px',backgroundColor:'#FF0000', border: '0px'}} 
+                    <Button style={{ width: '60px', textAlign: 'center',fontFamily: 'Kanit, sans-serif',marginBottom:'10px',marginLeft:'10px',backgroundColor:'#D51E1E', border: '0px'}} 
                     onClick={() => setDeleteConfirmation({ showDialog: true, selectedProduct: rowData })}>ลบ</Button>
                 </div>
             )}></Column>
         </DataTable>
-            <Button style={{ width: '135px',marginTop: '20px',marginLeft:'90%', textAlign: 'center',fontFamily: 'Kanit, sans-serif',backgroundColor:'#78FF00', border: '0px'}} onClick={handleAdd} >เพิ่มหัวข้อข่าว</Button>
+            <Button style={{ width: '135px',marginTop: '20px',marginLeft:'90%', textAlign: 'center',fontFamily: 'Kanit, sans-serif',backgroundColor:'#469303', border: '0px'}} onClick={handleAdd} >เพิ่มหัวข้อข่าว</Button>
         <HP_professorComponent fetchData={fetchData} open={openDialog} onClose={() => setOpenDialog(false)} onSave={handleSave} product={selectedProduct} />
         <Dialog visible={deleteConfirmation.showDialog} onHide={() => setDeleteConfirmation({ showDialog: false, selectedProduct: null })} 
             style={{ width: '550px', display: 'flex', flexDirection: 'column', alignItems: 'center',fontFamily: 'Kanit, sans-serif' }} 
