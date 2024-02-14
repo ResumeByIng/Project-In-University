@@ -58,7 +58,6 @@ const handleLogin = async () => {
         generateOTP(email);
         setShowOTPForm(true);
         startCountdown();
-        navigate("/home");
         break;
       default:
         // Show error Toast when login fails
@@ -224,7 +223,7 @@ const handleLogin = async () => {
           onRegister={handleRegisterSuccess}
         />
       </div>
-      <Toast ref={toast} position="top-center" />
+        <Toast ref={toast} position="top-center" />
     </div>
   );
 };
