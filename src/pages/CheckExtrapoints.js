@@ -3,7 +3,14 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
 function CheckExtrapoints() {
-  const [extrapointsData, setExtrapointsData] = useState([]);
+  const [extrapointsData, setExtrapointsData] = useState([{
+    list: "ประชาสัมพันธ์สาขาผ่าน Facebook/Twitter/Community จำนวน 10 ครั้ง/เดือน",
+    points: "2",
+    fullName: "ภูษิณ อาถาธาร",
+    studentId: "62122519001"
+  }]);
+
+
 
   useEffect(() => {
     // Fetch data from Extrapoints or use existing state from Extrapoints component
@@ -28,7 +35,7 @@ function CheckExtrapoints() {
 
 // Function to render image in DataTable
 const imageBodyTemplate = (rowData) => {
-  return <img src={rowData.picture} alt="รูปภาพ" style={{ width: '50px' }} />;
+  return <img src={'uploads/Doc1 copy.pdf'} alt="รูปภาพ" style={{ width: '50px' }} />;
 };
 
 export default CheckExtrapoints;
