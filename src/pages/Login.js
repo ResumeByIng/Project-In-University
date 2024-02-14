@@ -55,10 +55,9 @@ const handleLogin = async () => {
 
         showSuccessMessage();
 
-        // generateOTP(email);
-        // setShowOTPForm(true);
-        // startCountdown();
-        navigate("/home");
+        generateOTP(email);
+        setShowOTPForm(true);
+        startCountdown();
         break;
       default:
         // Show error Toast when login fails
