@@ -66,7 +66,7 @@ function Data_Student() {
   };
 
   return (
-    <div style={{ width: '83%', marginLeft: '20px', marginTop: '50px' }}>
+    <div style={{ width: '100%', marginLeft: '20px', marginTop: '50px' }}>
       <h1 style={{ color: '#333' }}>ข้อมูลส่วนตัว</h1>
       <DataTable
         style={{
