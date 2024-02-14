@@ -85,51 +85,60 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
       onHide={onHide}
       modal
     >
-      <div style={{ width: '100%' }}>
-        <div className="p-field my-custom">
-        <div className="p-field">
-            <label>Email:</label>
-            <input type="text" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
-          </div>
-          <div className="p-field">
-            <label>Password:</label>
-            <input type="text" value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
-          </div>
-          <div className="p-field">
-            <label>ชื่อ :</label>
-            <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-          </div>
-          <div className="p-field">
-            <label>นามสกุล :</label>
-            <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-          </div>
-          <div className="p-field">
-            <label>รหัสนักศึกษา :</label>
-            <input type="text" value={studentId} onChange={(e) => setStudentId(e.target.value)} />
-          </div>
-          <div className="p-field">
-            <label>คณะ :</label>
-            <input type="text" value={faculty} onChange={(e) => setFaculty(e.target.value)} />
-          </div>
-          <div className="p-field">
-            <label>สาขา :</label>
-            <input type="text" value={branch} onChange={(e) => setBranch(e.target.value)} />
-          </div>
-          <div className="p-field">
-            <label>รุ่นปีการศึกษา :</label>
-            <input type="text" value={classYear} onChange={(e) => setClassYear(e.target.value)} /><br /><br />
-            <label>เพศ :</label>
-            <select style={{ width: '425px', height: '30px', textAlign: 'center', marginBottom: '20px', marginLeft: '160px' }} className="my-custom-select" value={gender} onChange={(e) => setGender(e.target.value)}>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </div>
+      <div className="register-form">
+        <div className="input-container">
+          <label htmlFor="register-email">Email:</label>
+          <input id="register-email" type="text" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
+        </div>
+        <div className="input-container">
+          <label htmlFor="register-password">Password:</label>
+          <input id="register-password" type="password" value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
+        </div>
+        <div className="input-container">
+          <label htmlFor="first-name">ชื่อ :</label>
+          <input id="first-name" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+        </div>
+        <div className="input-container">
+          <label htmlFor="last-name">นามสกุล :</label>
+          <input id="last-name" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+        </div>
+        <div className="input-container">
+          <label htmlFor="student-id">รหัสนักศึกษา :</label>
+          <input id="student-id" type="text" value={studentId} onChange={(e) => setStudentId(e.target.value)} />
+        </div>
+        <div className="input-container">
+          <label htmlFor="faculty">คณะ :</label>
+          <select id="faculty" value={faculty} onChange={(e) => setFaculty(e.target.value)}>
+            <option value="">-- เลือกคณะ --</option>
+            <option value="เทคโนโลยีอุตสาหกรรม">เทคโนโลยีอุตสาหกรรม</option>
+            {/* เพิ่มคณะอื่นๆ ตามต้องการ */}
+          </select>
+        </div>
+        <div className="input-container">
+          <label htmlFor="branch">สาขา :</label>
+          <select id="branch" value={branch} onChange={(e) => setBranch(e.target.value)}>
+            <option value="">-- เลือกคณะ --</option>
+            <option value="เทคโนโลยีอุตสาหกรรม">เทคโนโลยีอุตสาหกรรม</option>
+            {/* เพิ่มสาขาอื่นๆ ตามต้องการ */}
+          </select>
+        </div>
+        <div className="input-container">
+          <label htmlFor="class-year">รุ่นปีการศึกษา :</label>
+          <input id="class-year" type="text" value={classYear} onChange={(e) => setClassYear(e.target.value)} /><br /><br />
+          <label htmlFor="gender">เพศ :</label>
+          <select id="gender" className="gender-select" value={gender} onChange={(e) => setGender(e.target.value)}>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <br/><br/>
+          <span>* กรุณากรอกข้อมูลให้ครบทุกช่อง</span>
         </div>
       </div>
   
-      <div className="p-mt-2 button-container">
-        <Button style={{ width: '100px', height: '50px', marginBottom: '20px', marginLeft: '400px', backgroundColor: '#469303', border: '0px' }} className='button' label="ยืนยัน" onClick={handleRegister} />
+      <div className="button-container">
+        <Button className="confirm-button" label="ยืนยัน" onClick={handleRegister} />
       </div>
+  
       <Dialog
         header="สมัครสมาชิกสำเร็จ"
         visible={successDialogVisible}
@@ -137,10 +146,11 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
         onHide={onHideSuccessDialog}
         modal
       >
-        <div style={{ width: '100%', textAlign: 'center', fontSize: '18px', padding: '20px' }}>
+        <div className="success-message">
           สมัครสมาชิกสำเร็จ
         </div>
       </Dialog>
+  
       <Dialog
         header="ไม่สามารถสมัครสมาชิกได้"
         visible={registerErrorDialogVisible}
@@ -148,12 +158,12 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
         onHide={onHideRegisterErrorDialog}
         modal
       >
-        <div style={{ width: '100%', textAlign: 'center', fontSize: '18px', padding: '20px' }}>
+        <div className="error-message">
           ไม่สามารถสมัครสมาชิกได้เนื่องจากบัญชีในระบบเต็มจำนวนแล้ว
         </div>
       </Dialog>
     </Dialog>
   );
-};
+}  
 
 export default RegisterDialog;
