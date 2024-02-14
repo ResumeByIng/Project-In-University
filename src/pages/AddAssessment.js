@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
@@ -9,17 +9,23 @@ import axios from 'axios';
 import './AddAssessment.css';
 
 const AddAssessment = () => {
+  
   const [academicYear, setAcademicYear] = useState('');
   const [courseCode, setCourseCode] = useState('');
   const [lecturer, setLecturer] = useState('');
   const [visible, setVisible] = useState(false);
+  const [visible2, setVisible2] = useState(false);
   const [header, setHeader] = useState('');
+  const [selectedStudentData, setSelectedStudentData] = useState(null);
   const [assessmentList, setAssessmentList] = useState(Array.from({ length: 5 }, (_, index) => ({
     clause: `ข้อ ${index + 1}`,
     list: ''
   })));
   const [tableData, setTableData] = useState([]);
+  const [assessmentData, setAssessmentData] = useState([]);
+  const [assessmentVoteData, setAssessmentVoteData] = useState([]);
   const toast = useRef(null);
+  
 
   const resetDialog = () => {
     setHeader('');
@@ -31,6 +37,32 @@ const AddAssessment = () => {
       list: ''
     })));
   };
+
+  useEffect(() => {
+    // ฟังก์ชันสำหรับเรียกข้อมูลจากเซิร์ฟเวอร์
+    const fetchData = async () => {
+      try {
+        const response1 = await axios.get('http://localhost:3001/api/get-assessment-data');
+        setAssessmentData(response1.data);
+        console.log(response1.data);
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    // เรียกใช้ฟังก์ชัน fetchData เมื่อคอมโพเนนต์ถูกโหลด
+    fetchData();
+  }, []); // ใช้งาน useEffect แบบ one-time effect เพื่อให้โหลดข้อมูลเฉพาะครั้งแรก
+  
+
+  const formatDate = (rowData) => {
+    // ตัดเอาเฉพาะส่วนที่เป็นวันที่เต็มโดยไม่รวมเวลาและ timezone
+    const dateParts = rowData.createdAt.split('T');
+    return dateParts[0];
+  };
+
+
 
   const handleSave = async () => {
     try {
@@ -73,6 +105,35 @@ const AddAssessment = () => {
     } else {
       toast.current.show({ severity: 'warn', summary: 'คุณมีรายการประเมินมากสุดแล้ว', life: 3000 });
     }
+  };
+  const renderActionButtons = (rowData) => {
+    return (
+      <div>
+        <Button style={{ fontFamily: 'Kanit, sans-serif' }} label="ดูนักศึกษาที่ทำประเมิน" onClick={() => handleViewStudents(rowData)}/>
+      </div>
+    );
+  };
+
+  
+  const handleViewStudents = (rowData) => {
+    console.log(rowData); // เพิ่มบรรทัดนี้
+    setSelectedStudentData(rowData);
+    setVisible2(true);
+  };
+  
+  const renderRowExpansion = (rowData) => {
+    return (
+      <DataTable
+        value={[rowData]}
+        showGridlines
+        tableStyle={{ minWidth: '20rem', textAlign: 'center' }}
+        style={{ fontFamily: 'Kanit, sans-serif' }}
+      >
+        {Object.keys(rowData).filter(key => key.startsWith("vote_value_")).map((key, index) => (
+          <Column key={index} field={key} header={`ข้อ ${index + 1}`}></Column>
+        ))}
+      </DataTable>
+    );
   };
 
   return (
@@ -137,20 +198,63 @@ const AddAssessment = () => {
           <Button label="บันทึกแบบประเมิน" onClick={handleSave} className='custom-button' />
         </div>
       </Dialog>
+
+      <Dialog
+  header={`ข้อมูลนักศึกษาที่ทำประเมิน`}
+  visible={visible2}
+  className="custom-dialog"
+  style={{ width: '100%' }} // เพิ่ม style ที่กำหนดความกว้างของ Dialog
+  onHide={() => {
+    setVisible2(false); // ปิด Dialog
+  }}
+>
+  {selectedStudentData && (
+    <DataTable
+      value={[selectedStudentData]}
+      showGridlines
+      tableStyle={{ minWidth: '20rem', textAlign: 'center' }}
+      style={{ fontFamily: 'Kanit, sans-serif' }}
+    >
+      <Column field="student_id" header="รหัสนักศึกษา"></Column>
+      {Object.keys(selectedStudentData).filter(key => key.startsWith("list_")).map((key, index) => (
+        <Column key={index} field={key} header={`ประเมิน ${index + 1}`}></Column>
+      ))}
+    </DataTable>
+  )}
+
+{selectedStudentData && (
+    <DataTable
+      value={[selectedStudentData]}
+      showGridlines
+      tableStyle={{ minWidth: '20rem', textAlign: 'center' }}
+      style={{ fontFamily: 'Kanit, sans-serif' }}
+    >
+    
+      <Column header={`ผลการประเมิน`} body={renderRowExpansion}></Column>
+    </DataTable>
+  )}
+
+</Dialog>
+
+
+
+
+
+
       <Toast ref={toast} />
       <div style={{ marginLeft: '10px', marginTop: '10px' }}>
-        <DataTable
-          value={tableData}
-          showGridlines
-          tableStyle={{ minWidth: '100rem', textAlign: 'center' }}
-          style={{ fontFamily: 'Kanit, sans-serif' }}
-        >
-          <Column field="academicYear" header="ปีการศึกษา"></Column>
-          <Column field="courseCode" header="รหัสวิชา"></Column>
-          <Column field="lecturer" header="อาจารย์"></Column>
-          <Column field="createdDate" header="สร้างขึ้นเมื่อ"></Column>
-          {/* เพิ่ม Column ตามต้องการ */}
-        </DataTable>
+      <DataTable
+  value={assessmentData}
+  showGridlines
+  tableStyle={{ minWidth: '100rem', textAlign: 'center' }}
+  style={{ fontFamily: 'Kanit, sans-serif' }}
+>
+  <Column field="class_year" header="ปีการศึกษา"></Column>
+  <Column field="course_code" header="รหัสวิชา"></Column>
+  <Column field="name_professor" header="อาจารย์"></Column>
+  <Column field="createdAt" header="สร้างขึ้นเมื่อ" body={formatDate}></Column>
+  <Column header="Action" body={renderActionButtons}></Column>
+</DataTable>
         <div style={{ marginTop: '10px' }} >
           <Button style={{ fontFamily: 'Kanit, sans-serif' }} label="สร้างแบบประเมิน" onClick={() => setVisible(true)} />
         </div>

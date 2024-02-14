@@ -26,4 +26,18 @@
     margin-left: 180px;
     font-family: Kanit, sans-serif;
   }
+
+  .custom-dialog {
+    width: 100%;
+  }
+  
+  .custom-datatable {
+    text-align: center;
+  }
+  
+  .custom-datatable th,
+  .custom-datatable td {
+    padding: 10px;
+  }
+  
   
