@@ -55,9 +55,9 @@ const handleLogin = async () => {
 
         showSuccessMessage();
 
-        // generateOTP(email);
-        // setShowOTPForm(true);
-        // startCountdown();
+        generateOTP(email);
+        setShowOTPForm(true);
+        startCountdown();
         navigate("/home");
         break;
       default:
