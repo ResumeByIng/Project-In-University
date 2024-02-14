@@ -13,6 +13,7 @@ import { Checkbox } from "primereact/checkbox";
 import extra from "./extra";
 import axios from "axios";
 import { InputSwitch } from "primereact/inputswitch";
+import UploadFile from "./upload";
 function Extrapoints() {
   const [Extrapoints, setExtrapoints] = useState([]);
   const [selectedExtrapoints, setSelectedExtrapoints] = useState([]);
@@ -21,14 +22,18 @@ function Extrapoints() {
   const [reloadTable, setReloadTable] = useState(false);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [rowClick, setRowClick] = useState(true);
+  const [file, setFile] = useState(null);
   const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB in bytes
+
+  
+  
 
   const isImageFileValid = (file) => {
     const allowedTypes = ["image/jpeg", "image/png"];
     return allowedTypes.includes(file.type) && file.size <= MAX_FILE_SIZE;
   };
 
-  const uploadImage = (event, rowData) => {
+  const uploadImage = async (event, rowData) => {
     const file = event.files[0];
 
     if (!file || !isImageFileValid(file)) {
@@ -37,7 +42,7 @@ function Extrapoints() {
       );
       return;
     }
-
+  
     const reader = new FileReader();
 
     reader.onload = (e) => {
@@ -46,6 +51,58 @@ function Extrapoints() {
     };
 
     reader.readAsDataURL(file);
+
+  };
+
+  const pdfUploadTemplate = (rowData) => {
+    return (
+      <div>
+        <FileUpload
+          mode="basic"
+          chooseLabel="อัปโหลดไฟล์ PDF"
+          className="p-button-rounded p-button-outlined p-button-secondary"
+          customUpload={true}
+          uploadHandler={(e) => uploadPDF(e, rowData)}
+          accept="application/pdf"
+          maxFileSize={MAX_FILE_SIZE}
+          style={{ fontFamily: "Kanit, sans-serif" }}
+        />
+      </div>
+    );
+  };
+
+
+  // const handleFileChange = (e) => {
+  //   setFile(e.target.files[0]);
+  // };
+
+  const userData = JSON.parse(localStorage.getItem('userData'));
+
+  const handleSubmit = (rowData) => {
+
+    // สร้าง FormData เพื่อเก็บข้อมูลและไฟล์ที่จะส่งไปที่เซิร์ฟเวอร์
+    const formData = new FormData();
+    formData.append("pdfFile", file); // เพิ่มไฟล์ PDF ลงใน FormData
+
+    formData.append("first_name", userData.student_first_name); // เพิ่มชื่อจาก userData
+    formData.append("last_name", userData.student_last_name); // เพิ่มนามสกุลจาก userData
+    formData.append("clause", rowData.clause); // เพิ่มข้อมูล clause จากตาราง
+    formData.append("list", rowData.list); // เพิ่มข้อมูล list จากตาราง
+    formData.append("points", rowData.points); // เพิ่มข้อมูล points จากตาราง
+    formData.append("id_student", userData.student_id_student); // เพิ่ม id_student จาก userData
+
+    axios.post("https://project-in-back.vercel.app/upload/", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+    .then((response) => {
+      console.log("File uploaded successfully!", response.data);
+      // เพิ่มโค้ดเพื่อทำสิ่งที่คุณต้องการหลังจากการอัปโหลดไฟล์เสร็จสิ้น
+    })
+    .catch((error) => {
+      console.error("Error uploading file:", error);
+    });
   };
 
   const imageUploadTemplate = (rowData) => {
@@ -114,6 +171,33 @@ function Extrapoints() {
     }
     setSelectedExtrapoints(selectedItems);
   };
+  
+
+  const uploadPDF = (event, rowData) => {
+    const file = event.files[0];
+
+
+    if (!file || file.type !== "application/pdf" || file.size > MAX_FILE_SIZE) {
+      console.error(
+        "Invalid file. Please upload a valid PDF file not exceeding 10 MB."
+      );
+      return;
+    }
+
+    // const reader = new FileReader();
+    // reader.readAsDataURL(file);
+    // reader.onload = () => {
+    //   const fileContent = reader.result;
+    //   console.log('reader',reader);
+    //   console.log('fileContent', fileContent);
+    // };
+    setFile(file);
+    handleSubmit(rowData);
+    // reader.onerror = (error) => console.error(error);
+
+    // ใส่โค้ดที่ต้องการให้ทำงานเมื่อมีการอัปโหลดไฟล์ PDF ที่ถูกต้อง
+    console.log("Uploading PDF for row:", rowData);
+  };
 
   return (
     <div style={{ width: "100%", marginLeft: "10px" }}>
@@ -135,9 +219,9 @@ function Extrapoints() {
             <Column key={"clause"} field="clause" header="ลำดับ"></Column>
             <Column key={"list"} field="list" header="หัวข้อ"></Column>
             <Column key={"points"} field="points" header="คะแนน"></Column>
-            <Column key={"add_document"} header="เพิ่มเอกสาร"></Column>
+            <Column key={"add_document"} header="เพิ่มเอกสาร" body={pdfUploadTemplate} />
           </DataTable>
-          <div
+          {/* <div
             style={{
               marginTop: "10px",
               display: "flex",
@@ -145,12 +229,13 @@ function Extrapoints() {
             }}
           >
             <Button
-              type="submit"
-              label="ส่งแบบประเมิน"
-              style={{ fontFamily: "Kanit, sans-serif" }}
-              className="w-full md:w-14rem"
-            />
-          </div>
+          type="submit"
+          label="ส่งแบบประเมิน"
+          style={{ fontFamily: "Kanit, sans-serif" }}
+          className="w-full md:w-14rem"
+          onClick={handleSubmit}
+        />
+          </div> */}
         </div>
       </ScrollPanel>
     </div>
