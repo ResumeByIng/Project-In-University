@@ -3,35 +3,48 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import axios from 'axios';
 
-const HP_Student = ({ data }) => {
+const HP_Student = () => {
   const [products, setProducts] = useState([]);
-  const fetchData = () => {
-    // Fetch ข้อมูลข่าวทั้งหมดจาก API endpoint
-    axios.get('https://project-in-back.vercel.app/api/get-news')
-        .then(response => {
-            // หากการดึงข้อมูลสำเร็จ
-            setProducts(response.data);
-        })
-        .catch(error => {
-            // หากเกิดข้อผิดพลาดในการดึงข้อมูล
-            console.error('Error fetching news:', error);
-        });
-};
 
-useEffect(() => {
-    // เมื่อ component ถูก mount, ให้ดึงข้อมูลข่าวทั้งหมด
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://project-in-back.vercel.app/api/get-news');
+        const formattedData = response.data.map(newsItem => ({
+          ...newsItem,
+          date_created: formatDate(newsItem.date_created) // แปลงรูปแบบวันที่
+        }));
+        setProducts(formattedData);
+      } catch (error) {
+        console.error('Error fetching news:', error);
+      }
+    };
+
     fetchData();
-}, []); // ในกรณีนี้, useEffect จะทำงานเมื่อ component ถูก mount เท่านั้น
+  }, []);
 
+  // ฟังก์ชันสำหรับแปลงรูปแบบวันที่
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    // เพิ่ม leading zero ในกรณีที่มีเลขเดี่ยว (1-9)
+    month = month < 10 ? '0' + month : month;
+    day = day < 10 ? '0' + day : day;
+
+    return `${year}-${month}-${day}`;
+  };
 
   return (
     <div style={{ width: '100%', marginLeft: '10px' }}>
-      <DataTable value={products} style={{fontFamily: 'Kanit, sans-serif'}}>
-            <Column header="หัวข้อข่าว" field="title"></Column>
-            <Column header="เนื้อหา" field="content"></Column>
-            <Column header="สร้างโดย" field="author"></Column>
-            <Column header="สร้างขึ้นเมื่อวันที่" field="date_created"></Column>
-        </DataTable>
+      <DataTable value={products} style={{ fontFamily: 'Kanit, sans-serif' }}>
+        <Column header="หัวข้อข่าว" field="title" />
+        <Column header="เนื้อหา" field="content" />
+        <Column header="สร้างโดย" field="author" />
+        <Column header="สร้างขึ้นเมื่อวันที่" field="date_created" />
+      </DataTable>
     </div>
   );
 };

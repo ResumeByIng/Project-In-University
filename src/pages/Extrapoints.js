@@ -92,7 +92,7 @@ function Extrapoints() {
       });
     // ดึงข้อมูลจาก MySQL
     axios
-      .get("http://localhost:3001/api/get-extrapoints")
+      .get("https://project-in-back.vercel.app/api/get-extrapoints")
       .then((response) => {
         setData2(response.data);
         setReloadTable(false);

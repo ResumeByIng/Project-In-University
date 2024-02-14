@@ -801,7 +801,7 @@ const sendDataToServer = (assessmentData) => {
   
     console.log('ข้อมูลที่จะส่งไปยังเซิร์ฟเวอร์:', dataToSend); // เพิ่มบันทึก log นี้
   
-    axios.post('http://localhost:3001/submit-assessment', dataToSend)
+    axios.post('https://project-in-back.vercel.app/submit-assessment', dataToSend)
       .then(response => {
         console.log('ส่งข้อมูลสำเร็จ');
         console.log('รับข้อมูลตอบกลับจากเซิร์ฟเวอร์:', response.data);

@@ -42,7 +42,7 @@ const AddAssessment = () => {
     // ฟังก์ชันสำหรับเรียกข้อมูลจากเซิร์ฟเวอร์
     const fetchData = async () => {
       try {
-        const response1 = await axios.get('http://localhost:3001/api/get-assessment-data');
+        const response1 = await axios.get('https://project-in-back.vercel.app/api/get-assessment-data');
         setAssessmentData(response1.data);
         console.log(response1.data);
 

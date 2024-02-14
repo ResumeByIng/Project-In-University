@@ -15,6 +15,22 @@ const Meeting = () => {
     agenda: '',
   });
 
+  // ฟังก์ชันสำหรับแปลงรูปแบบวันที่
+const formatDate = (dateString) => {
+  // สร้างวัตถุ Date จากสตริงวันที่
+  const date = new Date(dateString);
+  
+  // แยกวันที่, เดือน และปีออกจากกัน
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // เพิ่ม 1 เนื่องจากเดือนเริ่มที่ 0
+  const year = date.getFullYear();
+  
+  // สร้างสตริงใหม่ที่มีรูปแบบ 'YYYY-MM-DD'
+  const formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+  
+  return formattedDate;
+};
+
   const toast = useRef(null);
 
   useEffect(() => {
@@ -35,29 +51,29 @@ const Meeting = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === 'date') {
-      const parts = value.split('/');
-      const formattedDate = parts.length === 3 ? `${parts[1]}/${parts[0]}/${parts[2]}` : value;
+  if (name === 'date') {
+    // แปลงรูปแบบวันที่
+    const formattedDate = formatDate(value);
 
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: formattedDate,
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: formattedDate,
+    }));
+  } else {
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  }
 
     // ตรวจสอบและลบ class 'p-invalid' ของ input ทุกตัวทุกครั้งที่มีการเปลี่ยนแปลงใน input
-    const inputElements = document.querySelectorAll('.AddMeeting input');
-    inputElements.forEach((input) => {
-      if (input.value.trim() !== '') {
-        input.classList.remove('p-invalid');
-      }
-    });
-  };
+  const inputElements = document.querySelectorAll('.AddMeeting input');
+  inputElements.forEach((input) => {
+    if (input.value.trim() !== '') {
+      input.classList.remove('p-invalid');
+    }
+  });
+};
 
   const isFormDataValid = () => {
     let isValid = true;
@@ -70,6 +86,12 @@ const Meeting = () => {
         isValid = false;
       }
     });
+    const formatDate = (dateString) => {
+      // ตัดเอาเฉพาะส่วนที่เป็นวันที่เต็มโดยไม่รวมเวลาและ timezone
+      const dateParts = dateString.split('T');
+      return dateParts[0];
+    };
+    
 
     return isValid;
   };
@@ -129,7 +151,7 @@ const Meeting = () => {
         <input type="text" name="title" value={formData.title} onChange={handleInputChange} placeholder="หัวข้อการประชุม" />
 
         <label>Date: </label>
-        <input type="date" name="date" value={formData.date} onChange={handleInputChange} placeholder="วัน/เดือน/ปี" />
+        <input type="date" name="date" value={formatDate(formData.date)} onChange={handleInputChange} placeholder="วัน/เดือน/ปี" />
 
         <label>Room: </label>
         <input type="text" name="room" value={formData.room} onChange={handleInputChange} placeholder="ห้องที่จัดการประชุม" />
@@ -142,7 +164,7 @@ const Meeting = () => {
 
         <button onClick={handleAddMeeting}>Add Meeting</button>
       </div>
-
+    
       {/* แสดง Datatable */}
       <div className="AddMeeting">
         {meetings.length > 0 ? (
