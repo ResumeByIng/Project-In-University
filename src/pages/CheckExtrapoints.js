@@ -25,7 +25,6 @@ function CheckExtrapoints() {
       <DataTable value={extrapointsData} style={{fontFamily: 'Kanit, sans-serif'}}>
         <Column field="list" header="ชื่อแบบประเมิน" />
         <Column field="points" header="คะแนน" />
-        <Column field="picture" header="รูปภาพ" body={imageBodyTemplate} />
         <Column field="fullName" header="ชื่อ - นามสกุล" />
         <Column field="studentId" header="รหัสนักศึกษา" />
       </DataTable>
@@ -35,7 +34,7 @@ function CheckExtrapoints() {
 
 // Function to render image in DataTable
 const imageBodyTemplate = (rowData) => {
-  return <img src={'uploads/Doc1 copy.pdf'} alt="รูปภาพ" style={{ width: '50px' }} />;
+  return <img src={'https://uploads/Doc1 copy.pdf'} alt="รูปภาพ" style={{ width: '50px' }} />;
 };
 
 export default CheckExtrapoints;
