@@ -223,6 +223,7 @@ const handleLogin = async () => {
           onRegister={handleRegisterSuccess}
         />
       </div>
+        <Toast ref={toast} position="top-center" />
     </div>
   );
 };
