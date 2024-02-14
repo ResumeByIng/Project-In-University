@@ -3,6 +3,7 @@ import { Column } from 'primereact/column';
 import { DataTable } from 'primereact/datatable';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
+import { ScrollPanel } from 'primereact/scrollpanel';
 import { Paginator } from 'primereact/paginator';
 
 function Data_AllUser() {
@@ -75,13 +76,14 @@ function Data_AllUser() {
     });
 
     return (
-        <div>
+        <div style={{ width: '100%', marginLeft: '20px', marginTop: '20px' }}>
+                  <ScrollPanel style={{ width: '100%', height: '100%' }}>
             <h1>ข้อมูล นักศึกษาทั้งหมด</h1>
             <div className="p-input-icon-left">
                 <i className="pi pi-search" />
-                <InputText type="search" value={searchStudentText} onChange={onSearchStudent} placeholder="ค้นหาข้อมูลนักศึกษา" />
+                <InputText style={{ fontFamily: 'Kanit, sans-serif',width:'200px',marginTop:'10px' }} type="search" value={searchStudentText} onChange={onSearchStudent} placeholder="ค้นหาข้อมูลนักศึกษา" />
             </div>
-            <DataTable value={filteredStudentData.slice(firstStudent, firstStudent + rows)} className="p-datatable-striped">
+            <DataTable value={filteredStudentData.slice(firstStudent, firstStudent + rows)} style={{ fontFamily: 'Kanit, sans-serif' }} className="p-datatable-striped">
                 <Column field="first_name" header="First Name" />
                 <Column field="last_name" header="Last Name" />
                 <Column field="id_student" header="Student ID" />
@@ -95,9 +97,9 @@ function Data_AllUser() {
             <h1>ข้อมูล บัณฑิตทั้งหมด</h1>
             <div className="p-input-icon-left">
                 <i className="pi pi-search" />
-                <InputText type="search" value={searchGraduateText} onChange={onSearchGraduate} placeholder="ค้นหาข้อมูลบัณฑิต" />
+                <InputText style={{ fontFamily: 'Kanit, sans-serif',width:'200px',marginTop:'10px'  }} type="search" value={searchGraduateText} onChange={onSearchGraduate} placeholder="ค้นหาข้อมูลบัณฑิต" />
             </div>
-            <DataTable value={filteredGraduateData.slice(firstGraduate, firstGraduate + rows)} className="p-datatable-striped">
+            <DataTable value={filteredGraduateData.slice(firstGraduate, firstGraduate + rows)} style={{ fontFamily: 'Kanit, sans-serif' }} className="p-datatable-striped">
                 <Column field="first_name" header="First Name" />
                 <Column field="last_name" header="Last Name" />
                 <Column field="id_graduate" header="Graduate ID" />
@@ -110,6 +112,7 @@ function Data_AllUser() {
                 <Column field="work_about" header="Work About" />
             </DataTable>
             <Paginator first={firstGraduate} rows={rows} totalRecords={filteredGraduateData.length} onPageChange={paginateGraduate} />
+            </ScrollPanel>
         </div>
     );
 }
