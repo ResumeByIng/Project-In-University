@@ -280,7 +280,6 @@ function Extrapoints() {
         />
           </div> */}
         </div>
-      </ScrollPanel>
 
         <Dialog visible={dialogVisible} onHide={hideDialog}>
           <DataTable value={data2} tableStyle={{ minWidth: "50rem" }}>
@@ -290,7 +289,7 @@ function Extrapoints() {
             <Column field="professor_check" header="อาจารย์ที่ประเมิน"></Column>
           </DataTable>
         </Dialog>
-      
+        </ScrollPanel>
     </div>
   );
 }
