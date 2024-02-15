@@ -136,6 +136,25 @@ const AddAssessment = () => {
     );
   };
 
+  const renderVoteValue = (value) => {
+    switch (value) {
+      case 0:
+        return '';
+      case 1:
+        return 'ปรับปรุง';
+      case 2:
+        return 'พอใช้';
+      case 3:
+        return 'ปานกลาง';
+      case 4:
+        return 'ดี';
+      case 5:
+        return 'ดีมาก';
+      default:
+        return '';
+    }
+  };
+
   return (
     <div>
       <Dialog
@@ -208,39 +227,34 @@ const AddAssessment = () => {
     setVisible2(false); // ปิด Dialog
   }}
 >
-  {selectedStudentData && (
+{selectedStudentData && (
+  <>
     <DataTable
       value={[selectedStudentData]}
       showGridlines
       tableStyle={{ minWidth: '20rem', textAlign: 'center' }}
       style={{ fontFamily: 'Kanit, sans-serif' }}
     >
-      <Column field="student_id" header="รหัสนักศึกษา"></Column>
       {Object.keys(selectedStudentData).filter(key => key.startsWith("list_")).map((key, index) => (
         <Column key={index} field={key} header={`ประเมิน ${index + 1}`}></Column>
       ))}
     </DataTable>
-  )}
 
-{selectedStudentData && (
     <DataTable
       value={[selectedStudentData]}
       showGridlines
       tableStyle={{ minWidth: '20rem', textAlign: 'center' }}
       style={{ fontFamily: 'Kanit, sans-serif' }}
     >
-    
-      <Column header={`ผลการประเมิน`} body={renderRowExpansion}></Column>
+      {Object.keys(selectedStudentData).filter(key => key.startsWith("vote_value_")).map((key, index) => (
+        <Column key={index} field={key} header={`ประเมินที่ ${index + 1}`} body={(rowData) => renderVoteValue(rowData[key])}></Column>
+      ))}
     </DataTable>
-  )}
+  </>
+)}
+
 
 </Dialog>
-
-
-
-
-
-
       <Toast ref={toast} />
       <div style={{ marginLeft: '10px', marginTop: '10px' }}>
       <DataTable
@@ -249,11 +263,12 @@ const AddAssessment = () => {
   tableStyle={{ minWidth: '100rem', textAlign: 'center' }}
   style={{ fontFamily: 'Kanit, sans-serif' }}
 >
+  <Column field="student_id" header="รหัสนักศึกษา"></Column>
   <Column field="class_year" header="ปีการศึกษา"></Column>
   <Column field="course_code" header="รหัสวิชา"></Column>
   <Column field="name_professor" header="อาจารย์"></Column>
   <Column field="createdAt" header="สร้างขึ้นเมื่อ" body={formatDate}></Column>
-  <Column header="Action" body={renderActionButtons}></Column>
+  <Column header="ผลการประเมิน" body={renderActionButtons}></Column>
 </DataTable>
         <div style={{ marginTop: '10px' }} >
           <Button style={{ fontFamily: 'Kanit, sans-serif' }} label="สร้างแบบประเมิน" onClick={() => setVisible(true)} />
