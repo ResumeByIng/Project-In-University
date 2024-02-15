@@ -14,6 +14,8 @@ import extra from "./extra";
 import axios from "axios";
 import { InputSwitch } from "primereact/inputswitch";
 import UploadFile from "./upload";
+import { Dialog } from 'primereact/dialog';
+
 function Extrapoints() {
   const [Extrapoints, setExtrapoints] = useState([]);
   const [selectedExtrapoints, setSelectedExtrapoints] = useState([]);
@@ -23,8 +25,18 @@ function Extrapoints() {
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [rowClick, setRowClick] = useState(true);
   const [file, setFile] = useState(null);
+  const [dialogVisible, setDialogVisible] = useState(false);
+
+  const showDialog = () => {
+    setDialogVisible(true);
+  };
+  
+  const hideDialog = () => {
+    setDialogVisible(false);
+  };
   
   const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB in bytes
+  
 
   
   
@@ -144,11 +156,6 @@ function Extrapoints() {
             style={{ fontFamily: "Kanit, sans-serif" }}
           />
         )}
-        <Checkbox
-          checked={selectedExtrapoints.includes(rowData)}
-          onChange={(e) => handleCheckboxToggle(e, rowData)}
-          style={{ marginLeft: "10px" }}
-        />
       </div>
     );
   };
@@ -166,15 +173,16 @@ function Extrapoints() {
       });
     // ดึงข้อมูลจาก MySQL
     axios
-      .get("https://project-in-back.vercel.app/api/get-extrapoints")
-      .then((response) => {
-        setData2(response.data);
-        setReloadTable(false);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+    .get(`https://project-in-back.vercel.app/api/get-extrapoints?id_student=${userData.student_id_student}`)
+    .then((response) => {
+      setData2(response.data);
+      setReloadTable(false);
+      console.log(response.data);
+      console.log(userData.student_id_student);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
   }, [reloadTable]);
 
   const handleCheckboxToggle = (e, rowData) => {
@@ -215,10 +223,25 @@ function Extrapoints() {
     // ใส่โค้ดที่ต้องการให้ทำงานเมื่อมีการอัปโหลดไฟล์ PDF ที่ถูกต้อง
     console.log("Uploading PDF for row:", rowData);
   };
+  const statusTemplate = (rowData) => {
+    switch (rowData.Check_id) {
+        case 0:
+            return <span>รอตรวจสอบ</span>;
+        case 1:
+            return <span>ผ่าน</span>;
+        case 2:
+            return <span>ไม่ผ่าน</span>;
+        default:
+            return null;
+    }
+};
+
+
 
   return (
     <div style={{ width: "100%", marginLeft: "10px" }}>
       <ScrollPanel style={{ width: "100%", height: "950px" }}>
+      <span style={{ fontSize: '2rem', fontFamily: 'Arial, sans-serif', color: 'black' }}>คะแนนพิเศษ</span>
         <p>Content of Extrapoints</p>
         <div className="card">
           <DataTable
@@ -238,6 +261,9 @@ function Extrapoints() {
             <Column key={"points"} field="points" header="คะแนน"></Column>
             <Column key={"add_document"} header="เพิ่มเอกสาร" body={imageUploadTemplate} />
           </DataTable>
+          <span style={{ fontSize: '2rem', fontFamily: 'Arial, sans-serif', color: 'red' }}>***ใส่ รูป.JPEG เท่านั้น!!!! ***</span><br/>
+          <span style={{ fontSize: '2rem', fontFamily: 'Arial, sans-serif', color: 'red' }}>***ใส่รูปภาพ อัปโหลดไฟล์ แล้วกดส่งอีกรอบ***</span><br/><br/>
+          <Button label="เช็คแบบประเมิน" className="p-button-success" onClick={showDialog} />
           {/* <div
             style={{
               marginTop: "10px",
@@ -254,20 +280,16 @@ function Extrapoints() {
         />
           </div> */}
         </div>
-        {/* <DataTable
-            value={data2}
-            tableStyle={{ minWidth: "50rem" }}
-          >
-            <Column key={'checkbox'}
-              selectionMode="multiple"
-              headerStyle={{ width: "3rem" }}
-            ></Column>
-            <Column key={"clause"} field="clause" header="ลำดับ"></Column>
+      </ScrollPanel>
+
+        <Dialog visible={dialogVisible} onHide={hideDialog}>
+          <DataTable value={data2} tableStyle={{ minWidth: "50rem" }}>
             <Column key={"list"} field="list" header="หัวข้อ"></Column>
             <Column key={"points"} field="points" header="คะแนน"></Column>
-            <Column key={"add_document"} header="เพิ่มเอกสาร" body={pdfUploadTemplate} />
-          </DataTable> */}
-      </ScrollPanel>
+            <Column key={"Check_id"} field="Check_id" header="สถานะ" body={statusTemplate}></Column>
+            <Column field="professor_check" header="อาจารย์ที่ประเมิน"></Column>
+          </DataTable>
+        </Dialog>
       
     </div>
   );
