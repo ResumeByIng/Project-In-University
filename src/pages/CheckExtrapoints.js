@@ -34,18 +34,25 @@ const imageTemplate = (rowData) => {
     // สร้าง Blob object จาก Buffer data
     const blob = new Blob([new Uint8Array(extrapoint_pdf.data)], { type: 'application/octet-stream' });
 
-    // สร้าง URL ของภาพจาก Blob object
-    const imageUrl = URL.createObjectURL(blob);
+    // สร้าง FileReader object เพื่ออ่านข้อมูลจาก Blob
+    const reader = new FileReader();
 
-    // แสดงภาพใน UI
-    console.log("รูป:", imageUrl);
+    // เมื่ออ่านข้อมูลเสร็จสิ้น
+    reader.onload = () => {
+      // แปลงข้อมูลเป็น Base64 string
+      const base64String = reader.result;
 
-    // ส่ง imageUrl ไปยัง UI หรือทำการใช้ในการแสดงรูปภาพใน HTML
-    // ตัวอย่างเช่น ส่งไปยัง state หรือ props ของ Component
-    return imageUrl;
+      // สร้าง URL ของภาพจาก Base64 string
+      const imageUrl = `data:image/jpeg;base64,${base64String}`;
+
+      // แสดงภาพใน UI
+      console.log("รูป:", imageUrl);
+    };
+
+    // อ่านข้อมูลจาก Blob object ด้วย FileReader
+    reader.readAsDataURL(blob);
   } else {
     console.log("ไม่มีรูป");
-    return null; // หรือให้ส่งค่าว่างกลับไปหา Component เพื่อให้มันไม่แสดงรูป
   }
 };
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
