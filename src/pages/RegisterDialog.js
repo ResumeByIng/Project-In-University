@@ -139,7 +139,7 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
             border: '0.5px solid #000',
           }}>
             <option value="">---เลือกคณะ---</option><br/>
-            <option value="คณะวิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม">คณะวิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม</option>
+            <option value="วิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม">วิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม</option>
             {/* เพิ่มคณะอื่นๆ ตามต้องการ */}
           </select>
         </div>
@@ -158,7 +158,7 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
             border: '0.5px solid #000',
           }}>
             <option value="">---เลือกสาขา---</option><br/>
-            <option value="สาขาวิศวกรรมคอมพิวเตอร์">สาขาวิศวกรรมคอมพิวเตอร์</option>
+            <option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>
             {/* เพิ่มสาขาอื่นๆ ตามต้องการ */}
           </select>
         </div>

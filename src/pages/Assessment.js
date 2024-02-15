@@ -498,7 +498,7 @@ return updatedList;
 const renderAssessmentTable = () => {
   return (
       <div style={{ fontFamily: 'Kanit, sans-serif' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid black' }}>
+          <table style={{ textAlign:'center',width: '100%', borderCollapse: 'collapse', border: '1px solid black' }}>
               <thead>
                   <tr>
                       <th style={{ border: '1px solid black', padding: '8px' }}>ข้อ</th>

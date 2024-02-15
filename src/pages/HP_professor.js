@@ -90,9 +90,9 @@ const [deleteConfirmation, setDeleteConfirmation] = useState({
         <DataTable value={products} style={{fontFamily: 'Kanit, sans-serif'}}>
             <Column header="หัวข้อข่าว" field="title"></Column>
             <Column header="เนื้อหา" field="content"></Column>
-            <Column header="สร้างโดย" field="author"></Column>
-            <Column header="สร้างขึ้นเมื่อวันที่" field="date_created"></Column>
-            <Column header="Actions" body={(rowData) => (
+            <Column style={{ width: '200px'}} header="สร้างโดย" field="author"></Column>
+            <Column style={{ width: '150px'}}header="สร้างขึ้นเมื่อวันที่" field="date_created"></Column>
+            <Column style={{ width: '120px'}}header="Actions" body={(rowData) => (
                 <div  style={{ width: '100%'}} >
                     <Button style={{ width: '60px', textAlign: 'center',fontFamily: 'Kanit, sans-serif',marginBottom:'10px',marginLeft:'10px',backgroundColor:'#D51E1E', border: '0px'}} 
                     onClick={() => setDeleteConfirmation({ showDialog: true, selectedProduct: rowData })}>ลบ</Button>
