@@ -34,43 +34,38 @@ function Extrapoints() {
     return allowedTypes.includes(file.type) && file.size <= MAX_FILE_SIZE;
   };
 
-  const uploadImage = async (event, rowData) => {
+  const uploadImage = (event, rowData) => {
     const file = event.files[0];
-
     if (!file || !isImageFileValid(file)) {
       console.error(
         "Invalid file. Please upload a valid image file (jpg or png) not exceeding 10 MB."
       );
       return;
     }
-  
     const reader = new FileReader();
-
-    reader.onload = (e) => {
-      console.log("Uploading image for row:", rowData);
-      console.log("Image data:", e.target.result);
+    reader.onload = () => {
+      const fileContent = reader.result;
+      handleSubmit(rowData, fileContent);
     };
-
     reader.readAsDataURL(file);
-
   };
 
-  const pdfUploadTemplate = (rowData) => {
-    return (
-      <div>
-        <FileUpload
-          mode="basic"
-          chooseLabel="อัปโหลดไฟล์ PDF"
-          className="p-button-rounded p-button-outlined p-button-secondary"
-          customUpload={true}
-          uploadHandler={(e) => uploadPDF(e, rowData)}
-          accept="application/pdf"
-          maxFileSize={MAX_FILE_SIZE}
-          style={{ fontFamily: "Kanit, sans-serif" }}
-        />
-      </div>
-    );
-  };
+  // const pdfUploadTemplate = (rowData) => {
+  //   return (
+  //     <div>
+  //       <FileUpload
+  //         mode="basic"
+  //         chooseLabel="อัปโหลดไฟล์ PDF"
+  //         className="p-button-rounded p-button-outlined p-button-secondary"
+  //         customUpload={true}
+  //         uploadHandler={(e) => uploadPDF(e, rowData)}
+  //         accept="application/pdf"
+  //         maxFileSize={MAX_FILE_SIZE}
+  //         style={{ fontFamily: "Kanit, sans-serif" }}
+  //       />
+  //     </div>
+  //   );
+  // };
 
 
   // const handleFileChange = (e) => {
@@ -79,11 +74,36 @@ function Extrapoints() {
 
   const userData = JSON.parse(localStorage.getItem('userData'));
 
-  const handleSubmit = (rowData) => {
+
+  // const handleSubmit = (rowData, fileContent) => {
+  //   const formData = new FormData();
+  //   formData.append("imageFile", fileContent); // เพิ่มไฟล์รูปภาพลงใน FormData
+  
+  //   // เพิ่มโค้ดส่วนที่ต้องการให้ส่งไปยังเซิร์ฟเวอร์ ตามความเหมาะสม
+  
+  //   axios.post("http://localhost:3001/upload/", formData, {
+  //     headers: {
+  //       "Content-Type": "multipart/form-data",
+  //     },
+  //   })
+  //   .then((response) => {
+  //     console.log("Image uploaded successfully!", response.data);
+  //     // เพิ่มโค้ดเพื่อทำสิ่งที่คุณต้องการหลังจากการอัปโหลดรูปภาพเสร็จสิ้น
+  //   })
+  //   .catch((error) => {
+  //     console.error("Error uploading image:", error);
+  //   });
+  // };
+  const handleSubmit = (rowData, fileContent) => {
+
+    console.log('imageFile', fileContent);
 
     // สร้าง FormData เพื่อเก็บข้อมูลและไฟล์ที่จะส่งไปที่เซิร์ฟเวอร์
     const formData = new FormData();
-    formData.append("pdfFile", file); // เพิ่มไฟล์ PDF ลงใน FormData
+    formData.append("imageFile", fileContent);
+    
+    // manage file
+    // formData.append("pdfFile", fileContent); // เพิ่มไฟล์ PDF ลงใน FormData
 
     formData.append("first_name", userData.student_first_name); // เพิ่มชื่อจาก userData
     formData.append("last_name", userData.student_last_name); // เพิ่มนามสกุลจาก userData
@@ -92,6 +112,7 @@ function Extrapoints() {
     formData.append("points", rowData.points); // เพิ่มข้อมูล points จากตาราง
     formData.append("id_student", userData.student_id_student); // เพิ่ม id_student จาก userData
 
+    // axios.post("https://project-in-back.vercel.app/upload/", formData, {
     axios.post("https://project-in-back.vercel.app/upload/", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -108,19 +129,13 @@ function Extrapoints() {
 
   const imageUploadTemplate = (rowData) => {
     return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {rowData.picture ? (
           <img src={rowData.picture} alt="รูปภาพ" style={{ width: "100px" }} />
         ) : (
           <FileUpload
             mode="basic"
-            chooseLabel="เลือกรูปภาพ"
+            chooseLabel="อัปโหลดไฟล์ภาพ"
             className="p-button-rounded p-button-outlined p-button-secondary"
             customUpload={true}
             uploadHandler={(e) => uploadImage(e, rowData)}
@@ -137,6 +152,7 @@ function Extrapoints() {
       </div>
     );
   };
+
   const formattedData = data2.map((item) => {
     return {};
   });
@@ -154,6 +170,7 @@ function Extrapoints() {
       .then((response) => {
         setData2(response.data);
         setReloadTable(false);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -185,15 +202,14 @@ function Extrapoints() {
       return;
     }
 
-    // const reader = new FileReader();
-    // reader.readAsDataURL(file);
-    // reader.onload = () => {
-    //   const fileContent = reader.result;
-    //   console.log('reader',reader);
-    //   console.log('fileContent', fileContent);
-    // };
-    setFile(file);
-    handleSubmit(rowData);
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const fileContent = reader.result;
+      // setFile(fileContent);
+      handleSubmit(rowData, fileContent);
+    };
+    
     // reader.onerror = (error) => console.error(error);
 
     // ใส่โค้ดที่ต้องการให้ทำงานเมื่อมีการอัปโหลดไฟล์ PDF ที่ถูกต้อง
@@ -213,14 +229,14 @@ function Extrapoints() {
             dataKey="clause"
             tableStyle={{ minWidth: "50rem" }}
           >
-            <Column key={'checkbox'}
+            {/* <Column key={'checkbox'}
               selectionMode="multiple"
               headerStyle={{ width: "3rem" }}
-            ></Column>
+            ></Column> */}
             <Column key={"clause"} field="clause" header="ลำดับ"></Column>
             <Column key={"list"} field="list" header="หัวข้อ"></Column>
             <Column key={"points"} field="points" header="คะแนน"></Column>
-            <Column key={"add_document"} header="เพิ่มเอกสาร" body={pdfUploadTemplate} />
+            <Column key={"add_document"} header="เพิ่มเอกสาร" body={imageUploadTemplate} />
           </DataTable>
           {/* <div
             style={{
@@ -238,7 +254,21 @@ function Extrapoints() {
         />
           </div> */}
         </div>
+        {/* <DataTable
+            value={data2}
+            tableStyle={{ minWidth: "50rem" }}
+          >
+            <Column key={'checkbox'}
+              selectionMode="multiple"
+              headerStyle={{ width: "3rem" }}
+            ></Column>
+            <Column key={"clause"} field="clause" header="ลำดับ"></Column>
+            <Column key={"list"} field="list" header="หัวข้อ"></Column>
+            <Column key={"points"} field="points" header="คะแนน"></Column>
+            <Column key={"add_document"} header="เพิ่มเอกสาร" body={pdfUploadTemplate} />
+          </DataTable> */}
       </ScrollPanel>
+      
     </div>
   );
 }
