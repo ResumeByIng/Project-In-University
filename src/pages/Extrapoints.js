@@ -23,6 +23,7 @@ function Extrapoints() {
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [rowClick, setRowClick] = useState(true);
   const [file, setFile] = useState(null);
+  
   const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB in bytes
 
   
