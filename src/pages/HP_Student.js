@@ -34,7 +34,7 @@ const HP_Student = () => {
     month = month < 10 ? '0' + month : month;
     day = day < 10 ? '0' + day : day;
 
-    return `${year}-${month}-${day}`;
+    return `${day}-${month}-${year}`;
   };
 
   return (
@@ -42,8 +42,8 @@ const HP_Student = () => {
       <DataTable value={products} style={{ fontFamily: 'Kanit, sans-serif' }}>
         <Column header="หัวข้อข่าว" field="title" />
         <Column header="เนื้อหา" field="content" />
-        <Column header="สร้างโดย" field="author" />
-        <Column header="สร้างขึ้นเมื่อวันที่" field="date_created" />
+        <Column style={{ width: '200px'}} header="สร้างโดย" field="author" />
+        <Column style={{ width: '150px'}} header="สร้างขึ้นเมื่อวันที่" field="date_created" />
       </DataTable>
     </div>
   );

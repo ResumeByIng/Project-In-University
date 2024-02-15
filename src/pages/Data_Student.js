@@ -110,6 +110,7 @@ function Data_Student() {
           <div style={{ marginLeft:'10px',alignItems:'center',fontFamily: 'Kanit, sans-serif' }}>
             <Button label="ใช่" style={{ width:'100px',alignItems:'center',fontFamily: 'Kanit, sans-serif' }} onClick={handleConfirmation} disabled={confirmationText !== 'ยืนยัน'} />
             <Button label="ยกเลิก" style={{ width:'100px',alignItems:'center',marginLeft:'20px', fontFamily: 'Kanit, sans-serif' }} onClick={() => setDisplayConfirmation(false)} className="p-button-secondary" />
+            <br/><br/><span style={{fontFamily: 'Kanit, sans-serif',color:'#D63434'}} >**ถ้าจบการศึกษาให้พิมพ์คำว่า "ยืนยัน"</span>
           </div>
         }
       >
