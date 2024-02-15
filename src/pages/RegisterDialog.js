@@ -28,21 +28,20 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
   };
 
   const handleRegister = async () => {
-    if (!registerEmail || !registerPassword || !firstName || !lastName || !studentId || !faculty || !branch || !classYear ) {
+    if (!registerEmail || !registerPassword || !firstName || !lastName || !studentId || !faculty || !branch || !classYear || !gender) {
       alert('กรุณากรอกข้อมูลให้ครบทุกช่อง');
       return;
     }
-
-    try {
-      const response = await axios.get('https://project-in-back.vercel.app/api/students');
-      const students = response.data;
-      const studentCount = students.filter(student => student.role === 1).length;
-      if (studentCount >= 400) {
-        setRegisterErrorDialogVisible(true);
+    
+      // ตรวจสอบว่าอีเมลมี domain เป็น "@ssru.ac.th" หรือไม่
+      const ssruEmailRegex = /^[a-zA-Z0-9._%+-]+@ssru.ac.th$/;
+      if (!ssruEmailRegex.test(registerEmail)) {
+        alert('กรุณาใช้อีเมลที่มี domain เป็น "@ssru.ac.th" เท่านั้น');
         return;
       }
-
-      const registerResponse = await axios.post('https://project-in-back.vercel.app/api/register', {
+    
+    try {
+      const response = await axios.post('https://project-in-back.vercel.app/api/register', {
         email: registerEmail,
         password: registerPassword,
         firstName,
@@ -53,16 +52,24 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
         classYear,
         gender,
       });
-
-      if (registerResponse.status === 200 && !registerResponse.data.error) {
+    
+      const data = response.data;
+    
+      if (response.status === 200 && !data.error) {
         resetForm();
-        setSuccessDialogVisible(true);
+        onHide();
       } else {
-        alert(registerResponse.data.error || 'เกิดข้อผิดพลาดในการลงทะเบียน');
+        alert(data.error || 'เกิดข้อผิดพลาดในการลงทะเบียน');
       }
     } catch (error) {
       alert('เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์');
     }
+        // ทำสิ่งที่ต้องการเมื่อข้อมูลถูกต้อง
+        // Reset ค่าใน Form
+        resetForm();
+    
+        // ปิด Dailog
+        onHide();
   };
 
   const resetForm = () => {
@@ -79,64 +86,110 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
 
   return (
     <Dialog
-      header="Register"
+      header="สมัครสมาชิกสำหรับนักศึกษา"
       visible={visible}
-      style={{ width: '50%' }}
+      style={{ fontFamily: 'Kanit, sans-serif',width: '40%' }}
       onHide={onHide}
       modal
     >
       <div className="register-form">
         <div className="input-container">
-          <label htmlFor="register-email">Email:</label>
-          <input id="register-email" type="text" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
+          <label htmlFor="register-email" >Email:</label><br/>
+          <input id="register-email" style={{marginTop:'0px',marginLeft:'130px',width:'500px'}} type="text" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
         </div>
         <div className="input-container">
-          <label htmlFor="register-password">Password:</label>
-          <input id="register-password" type="password" value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
+          <label htmlFor="register-password">Password:</label><br/>
+          <input id="register-password" type="password" value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)}
+            style={{
+              width: '500px',
+              height: '30px',
+              marginLeft: '130px',
+              marginTop: '0px',
+              textAlign: 'center',
+              fontSize: '20px',
+              fontFamily: 'Kanit, sans-serif',
+              border: '0.5px solid #000',
+            }}
+          />
         </div>
         <div className="input-container">
-          <label htmlFor="first-name">ชื่อ :</label>
-          <input id="first-name" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+          <label htmlFor="first-name">ชื่อ :</label><br/>
+          <input id="first-name" type="text" style={{marginTop:'0px',marginLeft:'130px',width:'500px'}} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
         </div>
         <div className="input-container">
-          <label htmlFor="last-name">นามสกุล :</label>
-          <input id="last-name" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+          <label htmlFor="last-name">นามสกุล :</label><br/>
+          <input id="last-name" type="text" style={{marginTop:'0px',marginLeft:'130px',width:'500px'}} value={lastName} onChange={(e) => setLastName(e.target.value)} />
         </div>
         <div className="input-container">
-          <label htmlFor="student-id">รหัสนักศึกษา :</label>
-          <input id="student-id" type="text" value={studentId} onChange={(e) => setStudentId(e.target.value)} />
+          <label htmlFor="student-id">รหัสนักศึกษา :</label><br/>
+          <input id="student-id" type="text" style={{marginTop:'0px',marginLeft:'130px',width:'500px'}} value={studentId} onChange={(e) => setStudentId(e.target.value)} />
         </div>
         <div className="input-container">
-          <label htmlFor="faculty">คณะ :</label>
-          <select id="faculty" value={faculty} onChange={(e) => setFaculty(e.target.value)}>
-            <option value="">-- เลือกคณะ --</option>
-            <option value="เทคโนโลยีอุตสาหกรรม">เทคโนโลยีอุตสาหกรรม</option>
+          <label htmlFor="faculty">คณะ :</label><br/>
+          <select id="faculty" value={faculty} onChange={(e) => setFaculty(e.target.value)}
+          style={{
+            width: '500px',
+            height: '30px',
+            marginLeft: '130px',
+            marginTop: '0px',
+            marginBottom: '10px',
+            textAlign: 'center',
+            fontSize: '20px',
+            fontFamily: 'Kanit, sans-serif',
+            border: '0.5px solid #000',
+          }}>
+            <option value="">---เลือกคณะ---</option><br/>
+            <option value="คณะวิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม">คณะวิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม</option>
             {/* เพิ่มคณะอื่นๆ ตามต้องการ */}
           </select>
         </div>
         <div className="input-container">
-          <label htmlFor="branch">สาขา :</label>
-          <select id="branch" value={branch} onChange={(e) => setBranch(e.target.value)}>
-            <option value="">-- เลือกคณะ --</option>
-            <option value="เทคโนโลยีอุตสาหกรรม">เทคโนโลยีอุตสาหกรรม</option>
+          <label htmlFor="branch">สาขา :</label><br/>
+          <select id="branch" value={branch} onChange={(e) => setBranch(e.target.value)}
+          style={{
+            width: '500px',
+            height: '30px',
+            marginLeft: '130px',
+            marginTop: '0px',
+            marginBottom: '10px',
+            textAlign: 'center',
+            fontSize: '20px',
+            fontFamily: 'Kanit, sans-serif',
+            border: '0.5px solid #000',
+          }}>
+            <option value="">---เลือกสาขา---</option><br/>
+            <option value="สาขาวิศวกรรมคอมพิวเตอร์">สาขาวิศวกรรมคอมพิวเตอร์</option>
             {/* เพิ่มสาขาอื่นๆ ตามต้องการ */}
           </select>
         </div>
         <div className="input-container">
-          <label htmlFor="class-year">รุ่นปีการศึกษา :</label>
-          <input id="class-year" type="text" value={classYear} onChange={(e) => setClassYear(e.target.value)} /><br /><br />
-          <label htmlFor="gender">เพศ :</label>
-          <select id="gender" className="gender-select" value={gender} onChange={(e) => setGender(e.target.value)}>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+          <label htmlFor="class-year">รุ่นปีการศึกษา :</label><br/>
+          <input id="class-year" type="text" style={{marginTop:'0px',marginLeft:'130px',marginBottom:'0px',width:'500px'}} value={classYear} onChange={(e) => setClassYear(e.target.value)} />
+        <div/>
+        <div className="input-container">  
+          <label htmlFor="gender">เพศ :</label><br/>
+          <select id="gender" className="gender-select" value={gender} onChange={(e) => setGender(e.target.value)} 
+          style={{
+            width: '500px',
+            height: '30px',
+            marginLeft: '130px',
+            marginTop: '0px',
+            marginBottom: '10px',
+            textAlign: 'center',
+            fontSize: '20px',
+            fontFamily: 'Kanit, sans-serif',
+            border: '0.5px solid #000',
+          }}>
+            <option value="ชาย">Male</option>
+            <option value="หญิง">Female</option>
           </select>
           <br/><br/>
-          <span>* กรุณากรอกข้อมูลให้ครบทุกช่อง</span>
+          <span style={{fontFamily: 'Kanit, sans-serif',color:'#D63434'}} >* กรุณากรอกข้อมูลให้ครบทุกช่องและใช้ Email @ssru.ac.th เท่านั้น</span>
         </div>
       </div>
-  
+      </div>
       <div className="button-container">
-        <Button className="confirm-button" label="ยืนยัน" onClick={handleRegister} />
+        <Button className="confirm-button" style={{fontFamily: 'Kanit, sans-serif',marginLeft:'45%',backgroundColor:'#77EB73',border:'0px'}} label="ยืนยัน" onClick={handleRegister} />
       </div>
   
       <Dialog

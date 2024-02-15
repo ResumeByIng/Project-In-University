@@ -20,58 +20,77 @@ const Login = () => {
   const [countdown, setCountdown] = useState(60);
   const [isCountdownComplete, setIsCountdownComplete] = useState(false);
   const navigate = useNavigate();
-  const toast = useRef(null);
+  const toastRef = useRef(null);
   const MySwal = withReactContent(Swal);
-  const generateOTP = async (email) => {
+
+  const handleLogin = async () => {
     try {
-      await axios.post('https://project-in-back.vercel.app/generate-otp', { email });
-      console.log(`OTP generated successfully for email: ${email}`);
+      const response = await axios.post('https://project-in-back.vercel.app/login', {
+        email: email,
+        password: password
+      });
+
+      const userData = response.data[0];
+      const user = response.data[0].role;
+
+      localStorage.setItem('userData', JSON.stringify(userData));
+      localStorage.setItem('user', JSON.stringify(user));
+
+      console.log('user : ', user);
+      console.log('userData : ', userData);
+
+      switch (user) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+
+          showSuccessMessage();
+
+          // generateOTP(email);
+          // setShowOTPForm(true);
+          // startCountdown();
+          navigate("/home");
+          break;
+        default:
+          // Show error Toast when login fails
+          showErrorMessage();
+          console.error('Invalid role:', user);
+      }
     } catch (error) {
-      console.error(`Error generating OTP for email ${email}:`, error);
+      console.error('Login failed', error);
+      // Show error Toast when login fails
+      showErrorMessage();
     }
   };
 
-const handleLogin = async () => {
-  try {
-    const response = await axios.post('https://project-in-back.vercel.app/login', {
-      email: email,
-      password: password
-    });
-
-    const userData = response.data[0];
-    const user = response.data[0].role;
-
-    localStorage.setItem('userData', JSON.stringify(userData));
-    localStorage.setItem('user', JSON.stringify(user));
-
-    console.log('user : ', user);
-    console.log('userData : ', userData);
-
-    switch (user) {
-      case 1:
-      case 2:
-      case 3:
-      case 4:
-
-        showSuccessMessage();
-
-        // generateOTP(email);
-        // setShowOTPForm(true);
-        // startCountdown();
-        navigate("/home");
-        break;
-      default:
-        // Show error Toast when login fails
-        showErrorMessage();
-        console.error('Invalid role:', user);
+  const showErrorMessage = (detail) => {
+    const toast = toastRef.current;
+    if (toast) {
+      toast.show({
+        severity: 'error',
+        summary: 'เกิดข้อผิดพลาด',
+        detail: detail || 'ท่านใส่ Email หรือ Password ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง',
+        life: 3000,
+        position: 'top-center',
+        className: 'custom-toast-error',
+      });
     }
-  } catch (error) {
-    console.error('Login failed', error);
-    // Show error Toast when login fails
-    showErrorMessage();
-  }
-};
+  };
 
+  const showSuccessMessage = (detail) => {
+    const toast = toastRef.current;
+    if (toast) {
+      toast.show({
+        severity: 'success',
+        summary: 'ล็อคอินสำเร็จ',
+        detail: detail || 'ยินดีต้อนรับ! คุณได้ทำการล็อคอินสำเร็จ',
+        life: 3000,
+        position: 'top-center',
+        className: 'custom-toast-success',
+      });
+    }
+  };
   const startCountdown = () => {
     const countdownInterval = setInterval(() => {
       setCountdown((prevCountdown) => {
@@ -84,7 +103,7 @@ const handleLogin = async () => {
       });
     }, 1000);
   };
-
+  
   const handleVerifyOTP = async (event) => {
     event.preventDefault();
     try {
@@ -119,29 +138,7 @@ const handleLogin = async () => {
       });
     }
   };
-
-  const showErrorMessage = (detail) => {
-    toast.current.show({
-      severity: 'error',
-      summary: 'เกิดข้อผิดพลาด',
-      detail: detail || 'ท่านใส่ Email หรือ Password ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง',
-      life: 3000,
-      position: 'top-center',
-      className: 'custom-toast-error',
-    });
-  };
-
-  const showSuccessMessage = (detail) => {
-    toast.current.show({
-      severity: 'success',
-      summary: 'ล็อคอินสำเร็จ',
-      detail: detail || 'ยินดีต้อนรับ! คุณได้ทำการล็อคอินสำเร็จ',
-      life: 3000,
-      position: 'top-center',
-      className: 'custom-toast-success',
-    });
-  };
-
+  
   const openRegisterDialog = () => {
     setRegisterDialogVisible(true);
   };
