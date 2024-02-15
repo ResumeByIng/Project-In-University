@@ -180,6 +180,7 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
             fontFamily: 'Kanit, sans-serif',
             border: '0.5px solid #000',
           }}>
+            <option value="">---เลือกเพศ---</option>
             <option value="ชาย">Male</option>
             <option value="หญิง">Female</option>
           </select>
