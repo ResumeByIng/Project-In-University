@@ -138,7 +138,7 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
             fontFamily: 'Kanit, sans-serif',
             border: '0.5px solid #000',
           }}>
-            <option value="">---เลือกคณะ---</option><br/>
+            <option value="">---เลือกคณะ---</option>
             <option value="วิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม">วิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม</option>
             {/* เพิ่มคณะอื่นๆ ตามต้องการ */}
           </select>
@@ -157,7 +157,7 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
             fontFamily: 'Kanit, sans-serif',
             border: '0.5px solid #000',
           }}>
-            <option value="">---เลือกสาขา---</option><br/>
+            <option value="">---เลือกสาขา---</option>
             <option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>
             {/* เพิ่มสาขาอื่นๆ ตามต้องการ */}
           </select>
@@ -181,8 +181,8 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
             border: '0.5px solid #000',
           }}>
             <option value="">---เลือกเพศ---</option>
-            <option value="ชาย">Male</option>
-            <option value="หญิง">Female</option>
+            <option label='ชาย' value="male">Male</option>
+            <option label='หญิง'  value="female">Female</option>
           </select>
           <br/><br/>
           <span style={{fontFamily: 'Kanit, sans-serif',color:'#D63434'}} >* กรุณากรอกข้อมูลให้ครบทุกช่องและใช้ Email @ssru.ac.th เท่านั้น</span>
