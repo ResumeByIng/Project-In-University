@@ -11,7 +11,7 @@ import axios from 'axios';
 
     const getExtraPointsData = async () => {
       try {
-        const result = await axios.get('http://localhost:3001/api/get-check-extrapoints');
+        const result = await axios.get('https://project-in-back.vercel.app/api/get-check-extrapoints');
         setExtrapointsData(result.data);
       } catch (error) {
         console.error('Error fetching data:', error);
