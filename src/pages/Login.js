@@ -46,11 +46,9 @@ const Login = () => {
         case 4:
 
           showSuccessMessage();
-
-          // generateOTP(email);
-          // setShowOTPForm(true);
-          // startCountdown();
-          navigate("/home");
+          generateOTP(email);
+          setShowOTPForm(true);
+          startCountdown();
           break;
         default:
           // Show error Toast when login fails
@@ -63,6 +61,16 @@ const Login = () => {
       showErrorMessage();
     }
   };
+
+  const generateOTP = async (email) => {
+    try {
+      await axios.post('https://project-in-back.vercel.app/generate-otp', { email });
+      console.log(`OTP generated successfully for email: ${email}`);
+    } catch (error) {
+      console.error(`Error generating OTP for email ${email}:`, error);
+    }
+  };
+
 
   const showErrorMessage = (detail) => {
     const toast = toastRef.current;
