@@ -48,18 +48,18 @@ import { InputText } from 'primereact/inputtext';
     }, []);
   
 
-  const imageTemplate = (rowData) => {
-    const extrapoint_pdf = rowData.extrapoint_pdf;
-
-    if (extrapoint_pdf && extrapoint_pdf.type === 'Buffer' && extrapoint_pdf.data) {
-      const blob = new Blob([new Uint8Array(extrapoint_pdf.data)], { type: 'application/octet-stream' });
-      const imageUrl = URL.createObjectURL(blob);
-
-      return <img src={imageUrl} alt="รูปภาพ" style={{ width: '600px', height: '400px' }} />;
-    } else {
-      return <p>No image available</p>;
-    }
-  };
+    const imageTemplate = (rowData) => {
+      const extrapoint_pdf = rowData.extrapoint_pdf;
+  
+      if (extrapoint_pdf && extrapoint_pdf.type === 'Buffer' && extrapoint_pdf.data) {
+        const blob = new Blob([new Uint8Array(extrapoint_pdf.data)], { type: 'application/octet-stream' });
+        const imageUrl = URL.createObjectURL(blob);
+  
+        return <img src={imageUrl} alt="รูปภาพ" style={{ width: '600px', height: '400px' }} />;
+      } else {
+        return <p>No image available</p>;
+      }
+    };
 
   const renderActionButtons = (rowData) => {
   
@@ -87,8 +87,8 @@ import { InputText } from 'primereact/inputtext';
   
     return (
       <div>
-        <button onClick={handlePass}>ผ่าน</button>
-        <button onClick={handleReject}>ไม่ผ่าน</button>
+        <button style={{ width:'100px' , backgroundColor:'green'}} onClick={handlePass}>ผ่าน</button>
+        <button style={{ width:'100px' , marginTop:'40px' , backgroundColor:'red'}} onClick={handleReject}>ไม่ผ่าน</button>
       </div>
     );
   };
