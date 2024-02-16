@@ -61,6 +61,20 @@ import { InputText } from 'primereact/inputtext';
       }
     };
 
+
+  const getExtraPointsData = async () => {
+    try {
+      const result = await axios.get('https://project-in-back.vercel.app/api/get-check-extrapoints');
+      setExtrapointsData(result.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
+    getExtraPointsData();
+  }, []);
+
   const renderActionButtons = (rowData) => {
   
     const handlePass = async () => {
@@ -68,7 +82,7 @@ import { InputText } from 'primereact/inputtext';
         await axios.put(`https://project-in-back.vercel.app/extrapoints/${rowData.extrapoint_id}`, { Check_id: 1, professor_check: professorCheck });
         console.log('Passed');
         // เมื่อผ่านสำเร็จ ต้องเรียกใช้ฟังก์ชัน getExtraPointsData() เพื่อรีเฟรชข้อมูลในตาราง
-
+        getExtraPointsData();
       } catch (error) {
         console.error('Error updating Check_id:', error);
       }
@@ -79,7 +93,7 @@ import { InputText } from 'primereact/inputtext';
         await axios.put(`https://project-in-back.vercel.app/extrapoints/${rowData.extrapoint_id}`, { Check_id: 2, professor_check: professorCheck });
         console.log('Rejected');
         // เมื่อไม่ผ่านสำเร็จ ต้องเรียกใช้ฟังก์ชัน getExtraPointsData() เพื่อรีเฟรชข้อมูลในตาราง
-
+        getExtraPointsData();
       } catch (error) {
         console.error('Error updating Check_id:', error);
       }

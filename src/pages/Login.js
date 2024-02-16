@@ -45,11 +45,11 @@ const Login = () => {
         case 3:
         case 4:
 
-          // showSuccessMessage();
-          // generateOTP(email);
-          // setShowOTPForm(true);
-          // startCountdown();
-          navigate("/home");
+          showSuccessMessage();
+          generateOTP(email);
+          setShowOTPForm(true);
+          startCountdown();
+
           break;
         default:
           // Show error Toast when login fails
