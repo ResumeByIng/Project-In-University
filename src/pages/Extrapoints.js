@@ -9,22 +9,16 @@ import { Button } from "primereact/button";
 import { ExtrapointsService } from "../data/ExtrapointsService";
 import { FileUpload } from "primereact/fileupload";
 import { ScrollPanel } from "primereact/scrollpanel";
-import { Checkbox } from "primereact/checkbox";
-import extra from "./extra";
 import axios from "axios";
-import { InputSwitch } from "primereact/inputswitch";
-import UploadFile from "./upload";
 import { Dialog } from 'primereact/dialog';
 
 function Extrapoints() {
   const [Extrapoints, setExtrapoints] = useState([]);
   const [selectedExtrapoints, setSelectedExtrapoints] = useState([]);
-  const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
   const [reloadTable, setReloadTable] = useState(false);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [rowClick, setRowClick] = useState(true);
-  const [file, setFile] = useState(null);
   const [dialogVisible, setDialogVisible] = useState(false);
 
   const showDialog = () => {
@@ -237,7 +231,7 @@ function Extrapoints() {
 
   return (
     <div style={{ width: "100%", marginLeft: "10px" }}>
-      <ScrollPanel style={{ width: "100%", height: "950px" }}>
+      <ScrollPanel style={{ width: "100%", height: "100%" }}>
       <span style={{ fontSize: '2rem', fontFamily: 'Arial, sans-serif', color: 'black' }}>คะแนนพิเศษ</span>
         <p>Content of Extrapoints</p>
         <div className="card">
@@ -249,35 +243,16 @@ function Extrapoints() {
             dataKey="clause"
             tableStyle={{ minWidth: "50rem" }}
           >
-            {/* <Column key={'checkbox'}
-              selectionMode="multiple"
-              headerStyle={{ width: "3rem" }}
-            ></Column> */}
+
             <Column key={"clause"} field="clause" header="ลำดับ"></Column>
             <Column key={"list"} field="list" header="หัวข้อ"></Column>
             <Column key={"points"} field="points" header="คะแนน"></Column>
             <Column key={"add_document"} header="เพิ่มเอกสาร" body={imageUploadTemplate} />
-          </DataTable>
-          <span style={{ fontSize: '2rem', fontFamily: 'Arial, sans-serif', color: 'red' }}>***ใส่ รูป.JPEG เท่านั้น!!!! ***</span><br/>
+          </DataTable><br/><br/>
           <span style={{ fontSize: '2rem', fontFamily: 'Arial, sans-serif', color: 'red' }}>***ใส่รูปภาพ อัปโหลดไฟล์ แล้วกดส่งอีกรอบ***</span><br/><br/>
           <Button label="เช็คแบบประเมิน" className="p-button-success" onClick={showDialog} />
-          {/* <div
-            style={{
-              marginTop: "10px",
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
-            <Button
-          type="submit"
-          label="ส่งแบบประเมิน"
-          style={{ fontFamily: "Kanit, sans-serif" }}
-          className="w-full md:w-14rem"
-          onClick={handleSubmit}
-        />
-          </div> */}
-        </div>
 
+        </div>
         <Dialog visible={dialogVisible} onHide={hideDialog}>
           <DataTable value={data2} tableStyle={{ minWidth: "50rem" }}>
             <Column key={"list"} field="list" header="หัวข้อ"></Column>
@@ -285,6 +260,7 @@ function Extrapoints() {
             <Column key={"Check_id"} field="Check_id" header="สถานะ" body={statusTemplate}></Column>
             <Column field="professor_check" header="อาจารย์ที่ประเมิน"></Column>
           </DataTable>
+          
         </Dialog>
         </ScrollPanel>
     </div>

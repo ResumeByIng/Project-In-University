@@ -841,7 +841,7 @@ sendDataToServer(assessmentData);
     return (
         <div style={{ width: '100%', marginLeft: '10px' }}>  
             <div className="card">
-                <DataTable style={{ fontFamily: 'Kanit, sans-serif' }} value={products} paginator rows={10} tableStyle={{ minWidth: '40rem', textAlign: 'center' }}>
+                <DataTable style={{ fontFamily: 'Kanit, sans-serif' }} value={products} paginator rows={10} emptyMessage="ยังไม่มีข้อมูลในการประเมิน" tableStyle={{ minWidth: '40rem', textAlign: 'center' }}>
                     <Column field="class_year" header="ปีการศึกษา" />
                     <Column field="header" header="ภาคการศึกษา" />
                     <Column field="course_code" header="รหัสวิชา" />
