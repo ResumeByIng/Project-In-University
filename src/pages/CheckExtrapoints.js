@@ -44,8 +44,8 @@ import { InputText } from 'primereact/inputtext';
     useEffect(() => {
       getSumPointsData();
       getCheckExtrapointsData();
-      console.log('checkData',checkData);
-      console.log('extrapointsData',extrapointsData);
+
+
     }, []);
   
 
@@ -62,26 +62,26 @@ import { InputText } from 'primereact/inputtext';
   const renderActionButtons = (rowData) => {
   
     const handlePass = async () => {
-      try {
-        await axios.put(`https://project-in-back.vercel.app/extrapoints/${rowData.extrapoint_id}`, { Check_id: 1, professor_check: professorCheck });
-        console.log('Passed');
-        // เมื่อผ่านสำเร็จ ต้องเรียกใช้ฟังก์ชัน getExtraPointsData() เพื่อรีเฟรชข้อมูลในตาราง
-
-      } catch (error) {
-        console.error('Error updating Check_id:', error);
-      }
-    };
+  try {
+    await axios.put(`https://project-in-back.vercel.app/extrapoints/${rowData.extrapoint_id}`, { Check_id: 1, professor_check: professorCheck });
+    console.log('Passed');
+    // เรียกใช้ getCheckExtrapointsData เพื่อรีเฟรชข้อมูลทันทีหลังจากกด "ผ่าน"
+    getCheckExtrapointsData();
+  } catch (error) {
+    console.error('Error updating Check_id:', error);
+  }
+};
   
-    const handleReject = async () => {
-      try {
-        await axios.put(`https://project-in-back.vercel.app/extrapoints/${rowData.extrapoint_id}`, { Check_id: 2, professor_check: professorCheck });
-        console.log('Rejected');
-        // เมื่อไม่ผ่านสำเร็จ ต้องเรียกใช้ฟังก์ชัน getExtraPointsData() เพื่อรีเฟรชข้อมูลในตาราง
-
-      } catch (error) {
-        console.error('Error updating Check_id:', error);
-      }
-    };
+const handleReject = async () => {
+  try {
+    await axios.put(`https://project-in-back.vercel.app/extrapoints/${rowData.extrapoint_id}`, { Check_id: 2, professor_check: professorCheck });
+    console.log('Rejected');
+    // เรียกใช้ getCheckExtrapointsData เพื่อรีเฟรชข้อมูลทันทีหลังจากกด "ไม่ผ่าน"
+    getCheckExtrapointsData();
+  } catch (error) {
+    console.error('Error updating Check_id:', error);
+  }
+};
   
     return (
       <div>

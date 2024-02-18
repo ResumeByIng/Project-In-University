@@ -44,29 +44,60 @@
         ]
     },
     {
-        "title": "TQF.7",
+        "title": "จัดการเอกสาร",
         "icon": "bi-info-circle-fill",
         "roles": [2,4],
         "childrens": [
             {
-                "title": "TQF.7 - คำนำ",
-                "path": "/tqf.7_0",
-                "roles": [2,4]
+                "title": "TQF.7",
+                "icon": "bi-info-circle-fill",
+                "roles": [2,4],
+                "childrens": [
+                    {
+                        "title": "TQF.7 - คำนำ",
+                        "path": "/tqf.7_0",
+                        "roles": [2,4]
+                    },
+                    {
+                        "title": "TQF.7 - หมวดที่ 1",
+                        "path": "/tqf.7_1",
+                        "roles": [2,4]
+                    },
+                    {
+                        "title": "TQF.7 - หมวดที่ 2",
+                        "path": "/tqf.7_2",
+                        "roles": [2,4]
+                    },
+                    {
+                        "title": "TQF.7 - หมวดที่ 3",
+                        "path": "/tqf.7_3",
+                        "roles": [2,4]
+                    }
+                ]
             },
             {
-                "title": "TQF.7 - หมวดที่ 1",
-                "path": "/tqf.7_1",
-                "roles": [2,4]
-            },
-            {
-                "title": "TQF.7 - หมวดที่ 2",
-                "path": "/tqf.7_2",
-                "roles": [2,4]
-            },
-            {
-                "title": "TQF.7 - หมวดที่ 3",
-                "path": "/tqf.7_3",
-                "roles": [2,4]
+                "title": "เอกสาร",
+                "icon": "bi-info-circle-fill",
+                "roles": [2,4],
+                "childrens": [
+                    {
+                        "title": "ฟอร์มแบบรายงานการประชุม",
+                        "path": "/Meeting_report_training_seminar_study_visit_report_form",
+                        "roles": [2,4]
+                    },{
+                        "title": "ฟอร์มระเบียบวาระการประชุม",
+                        "path": "/Agenda",
+                        "roles": [2,4]
+                    },{
+                        "title": "ฟอร์มวิจัย",
+                        "path": "/Research",
+                        "roles": [2,4]
+                    },{
+                        "title": "ฟอร์มรายชื่อโครงการ",
+                        "path": "/ProjectList",
+                        "roles": [2,4]
+                    }
+                ]
             }
         ]
     },

@@ -93,7 +93,7 @@ function Extrapoints() {
   
   //   // เพิ่มโค้ดส่วนที่ต้องการให้ส่งไปยังเซิร์ฟเวอร์ ตามความเหมาะสม
   
-  //   axios.post("http://localhost:3001/upload/", formData, {
+  //   axios.post("https://project-in-back.vercel.app/upload/", formData, {
   //     headers: {
   //       "Content-Type": "multipart/form-data",
   //     },
@@ -107,13 +107,11 @@ function Extrapoints() {
   //   });
   // };
   const handleSubmit = (rowData, fileContent) => {
-
     console.log('imageFile', fileContent);
-
     // สร้าง FormData เพื่อเก็บข้อมูลและไฟล์ที่จะส่งไปที่เซิร์ฟเวอร์
     const formData = new FormData();
     formData.append("image", fileContent);
-    
+  
     // manage file
     // formData.append("pdfFile", fileContent); // เพิ่มไฟล์ PDF ลงใน FormData
 

@@ -22,7 +22,10 @@ import Registerbyadmin from './pages/Registerbyadminna' ;
 import CheckComplaint from "./pages/CheckComplaint";
 import Data_Graduate from './pages/DataGraduate';
 import Data_AllUser from "./pages/DataAllUser";
-
+import Meeting_report_training_seminar_study_visit_report_form from "./pages/Meeting_report_training_seminar_study_visit_report_form";
+import Agenda from "./pages/Agenda";
+import Research from "./pages/Research";
+import ProjectList from "./pages/ProjectList";
 
 
 function App() {
@@ -74,6 +77,10 @@ function App() {
           <Route path="/HP_Graduate" element={parseInt(user) === 3 ? <HP_Student /> : <Navigate to="/home" />} />
           <Route path="/Data_Graduate" element={parseInt(user) === 3 ? <Data_Graduate /> : <Navigate to="/home" />} />
           <Route path="/Data_Alluser" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Data_AllUser /> : <Navigate to="/home" />} />
+          <Route path="/Meeting_report_training_seminar_study_visit_report_form" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Meeting_report_training_seminar_study_visit_report_form /> : <Navigate to="/home" />} />
+          <Route path="/Agenda" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Agenda /> : <Navigate to="/home" />} />
+          <Route path="/Research" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Research /> : <Navigate to="/home" />} />
+          <Route path="/ProjectList" element={parseInt(user) === 2 || parseInt(user) === 4 ? <ProjectList /> : <Navigate to="/home" />} />
         </Routes>
       </div>
     </Router>
