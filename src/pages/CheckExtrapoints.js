@@ -34,6 +34,7 @@ import { InputText } from 'primereact/inputtext';
     const getCheckExtrapointsData = async () => {
       try {
         const result = await axios.get('https://project-in-back.vercel.app/api/get-check-extrapoints');
+        console.log("result",result)
         setCheckData(result.data);
       } catch (error) {
         console.error('Error fetching check extrapoints:', error);
@@ -49,13 +50,10 @@ import { InputText } from 'primereact/inputtext';
   
 
     const imageTemplate = (rowData) => {
-      const extrapoint_pdf = rowData.extrapoint_pdf;
+      const extrapoint_image = rowData.extrapoint_image;
   
-      if (extrapoint_pdf && extrapoint_pdf.type === 'Buffer' && extrapoint_pdf.data) {
-        const blob = new Blob([new Uint8Array(extrapoint_pdf.data)], { type: 'application/octet-stream' });
-        const imageUrl = URL.createObjectURL(blob);
-  
-        return <img src={imageUrl} alt="รูปภาพ" style={{ width: '600px', height: '400px' }} />;
+      if (extrapoint_image) {
+        return <img src={extrapoint_image} alt="รูปภาพ" style={{ width: '150px', height: '150px' }} />;
       } else {
         return <p>No image available</p>;
       }

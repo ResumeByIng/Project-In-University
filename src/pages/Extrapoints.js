@@ -57,7 +57,7 @@ function Extrapoints() {
     const reader = new FileReader();
     reader.onload = () => {
       const fileContent = reader.result;
-      handleSubmit(rowData, fileContent);
+      handleSubmit(rowData, file);
     };
     reader.readAsDataURL(file);
   };
@@ -112,7 +112,7 @@ function Extrapoints() {
 
     // สร้าง FormData เพื่อเก็บข้อมูลและไฟล์ที่จะส่งไปที่เซิร์ฟเวอร์
     const formData = new FormData();
-    formData.append("imageFile", fileContent);
+    formData.append("image", fileContent);
     
     // manage file
     // formData.append("pdfFile", fileContent); // เพิ่มไฟล์ PDF ลงใน FormData
@@ -132,7 +132,6 @@ function Extrapoints() {
     })
     .then((response) => {
       console.log("File uploaded successfully!", response.data);
-      // เพิ่มโค้ดเพื่อทำสิ่งที่คุณต้องการหลังจากการอัปโหลดไฟล์เสร็จสิ้น
     })
     .catch((error) => {
       console.error("Error uploading file:", error);
@@ -151,7 +150,7 @@ function Extrapoints() {
             className="p-button-rounded p-button-outlined p-button-secondary"
             customUpload={true}
             uploadHandler={(e) => uploadImage(e, rowData)}
-            accept="image/jpeg, image/png"
+            accept="image/jpeg, image/png, .jpg, .JPG"
             maxFileSize={MAX_FILE_SIZE}
             style={{ fontFamily: "Kanit, sans-serif" }}
           />
