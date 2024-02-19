@@ -5,6 +5,7 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { ScrollPanel } from 'primereact/scrollpanel';
 import { Paginator } from 'primereact/paginator';
+import { Dialog } from 'primereact/dialog';
 
 function Data_AllUser() {
     const [allUserData, setAllUserData] = useState({ studentData: [], graduateData: [] });
@@ -13,11 +14,20 @@ function Data_AllUser() {
     const [firstStudent, setFirstStudent] = useState(0);
     const [firstGraduate, setFirstGraduate] = useState(0);
     const [rows, setRows] = useState(5);
+    const [selectedUserData, setSelectedUserData] = useState(null);
+    const [visibleEditDialog, setVisibleEditDialog] = useState(false);
 
+    const onEditClick = (data) => {
+        setSelectedUserData(data);
+        setVisibleEditDialog(true);
+    };
+
+    const onHideEditDialog = () => {
+        setVisibleEditDialog(false);
+    };  
     useEffect(() => {
         const fetchData = async () => {
           try {
-            // Fetch all user data
             const response = await fetch('https://project-in-back.vercel.app/api/all-user-data');
             if (!response.ok) {
               throw new Error('Failed to fetch all user data');
@@ -30,7 +40,7 @@ function Data_AllUser() {
         };
     
         fetchData();
-      }, []);
+      }, [selectedUserData]);
 
     const paginateStudent = (event) => {
         setFirstStudent(event.first);
@@ -75,6 +85,26 @@ function Data_AllUser() {
         );
     });
 
+    const handleSave = async (fetchData) => {
+        try {
+            const response = await fetch('https://project-in-back.vercel.app/api/update-user-data', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(selectedUserData)
+            });
+            if (!response.ok) {
+                throw new Error('Failed to update user data');
+            }
+            console.log('User data updated successfully');
+            onHideEditDialog();
+            fetchData(); // โหลดข้อมูลใหม่หลังจากที่ข้อมูลถูกอัปเดตเรียบร้อยแล้ว
+        } catch (error) {
+            console.error('Error updating user data:', error);
+        }
+    };
+
     return (
         <div style={{ width: '100%', marginLeft: '20px', marginTop: '20px' }}>
                   <ScrollPanel style={{ width: '100%', height: '100%' }}>
@@ -91,6 +121,7 @@ function Data_AllUser() {
                 <Column field="branch" header="Branch" />
                 <Column field="class_year" header="Class Year" />
                 <Column field="gender" header="Gender" />
+                <Column body={(rowData) => <Button icon="pi pi-pencil" onClick={() => onEditClick(rowData)} />} />
             </DataTable>
             <Paginator first={firstStudent} rows={rows} totalRecords={filteredStudentData.length} onPageChange={paginateStudent} />
 
@@ -110,8 +141,28 @@ function Data_AllUser() {
                 <Column field="work_place" header="Work Place" />
                 <Column field="salary" header="Salary" />
                 <Column field="work_about" header="Work About" />
-            </DataTable>
+                <Column body={(rowData) => <Button icon="pi pi-pencil" onClick={() => onEditClick(rowData)} />} />
+</DataTable>
             <Paginator first={firstGraduate} rows={rows} totalRecords={filteredGraduateData.length} onPageChange={paginateGraduate} />
+
+
+            <Dialog visible={visibleEditDialog} onHide={onHideEditDialog}>
+                <h2>Edit User Data</h2>
+                {selectedUserData && (
+                    <div>                        
+                         <InputText disabled value={selectedUserData.user_id} onChange={(e) => setSelectedUserData({...selectedUserData, user_id: e.target.value})} />
+                        <InputText value={selectedUserData.first_name} onChange={(e) => setSelectedUserData({...selectedUserData, first_name: e.target.value})} />
+                        <InputText value={selectedUserData.last_name} onChange={(e) => setSelectedUserData({...selectedUserData, lastname: e.target.value})} />
+                        <InputText value={selectedUserData.id_student} onChange={(e) => setSelectedUserData({...selectedUserData, id_student: e.target.value})} />
+                        <InputText value={selectedUserData.faculty} onChange={(e) => setSelectedUserData({...selectedUserData, faculty: e.target.value})} />
+                        <InputText value={selectedUserData.branch} onChange={(e) => setSelectedUserData({...selectedUserData, branch: e.target.value})} />
+                        <InputText value={selectedUserData.class_year} onChange={(e) => setSelectedUserData({...selectedUserData, class_year: e.target.value})} />
+                        <InputText value={selectedUserData.gender} onChange={(e) => setSelectedUserData({...selectedUserData, gender: e.target.value})} />
+                    </div>
+                )}
+                <Button label="Save" onClick={handleSave} />
+                <Button label="Cancel" onClick={onHideEditDialog} />
+            </Dialog>
             </ScrollPanel>
         </div>
     );
