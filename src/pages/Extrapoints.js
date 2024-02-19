@@ -151,69 +151,71 @@ function Extrapoints() {
     );
   };
 
-  const formattedData = data2.map((item) => {
-    return {};
-  });
+  // const formattedData = data2.map((item) => {
+  //   return {};
+  // });
+
   useEffect(() => {
     ExtrapointsService.getExtrapoints()
-      .then((data) => {
-        setExtrapoints(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-    // ดึงข้อมูลจาก MySQL
-    axios
-    .get(`https://project-in-back.vercel.app/api/get-extrapoints?id_student=${userData.student_id_student}`)
-    .then((response) => {
-      setData2(response.data);
-      setReloadTable(false);
-      console.log(response.data);
-      console.log(userData.student_id_student);
+    .then((data) => {
+      setExtrapoints(data);
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
-  }, [reloadTable]);
-
-  const handleCheckboxToggle = (e, rowData) => {
-    const selectedItems = [...selectedExtrapoints];
-    if (e.checked) {
-      selectedItems.push(rowData);
-    } else {
-      const index = selectedItems.findIndex((item) => item === rowData);
-      if (index !== -1) {
-        selectedItems.splice(index, 1);
-      }
+    if (dialogVisible) {
+      // เมื่อเปิด dialog
+      axios.get(`https://project-in-back.vercel.app/api/get-extrapoints?id_student=${userData.student_id_student}`)
+        .then((response) => {
+          setData2(response.data);
+          setReloadTable(false);
+          console.log(response.data);
+          console.log(userData.student_id_student);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
     }
-    setSelectedExtrapoints(selectedItems);
-  };
+  }, [dialogVisible],[reloadTable]);
+
+  // const handleCheckboxToggle = (e, rowData) => {
+  //   const selectedItems = [...selectedExtrapoints];
+  //   if (e.checked) {
+  //     selectedItems.push(rowData);
+  //   } else {
+  //     const index = selectedItems.findIndex((item) => item === rowData);
+  //     if (index !== -1) {
+  //       selectedItems.splice(index, 1);
+  //     }
+  //   }
+  //   setSelectedExtrapoints(selectedItems);
+  // };
   
 
-  const uploadPDF = (event, rowData) => {
-    const file = event.files[0];
+  // const uploadPDF = (event, rowData) => {
+  //   const file = event.files[0];
 
 
-    if (!file || file.type !== "application/pdf" || file.size > MAX_FILE_SIZE) {
-      console.error(
-        "Invalid file. Please upload a valid PDF file not exceeding 10 MB."
-      );
-      return;
-    }
+  //   if (!file || file.type !== "application/pdf" || file.size > MAX_FILE_SIZE) {
+  //     console.error(
+  //       "Invalid file. Please upload a valid PDF file not exceeding 10 MB."
+  //     );
+  //     return;
+  //   }
 
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      const fileContent = reader.result;
-      // setFile(fileContent);
-      handleSubmit(rowData, fileContent);
-    };
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onload = () => {
+  //     const fileContent = reader.result;
+  //     // setFile(fileContent);
+  //     handleSubmit(rowData, fileContent);
+  //   };
     
-    // reader.onerror = (error) => console.error(error);
+  //   // reader.onerror = (error) => console.error(error);
 
-    // ใส่โค้ดที่ต้องการให้ทำงานเมื่อมีการอัปโหลดไฟล์ PDF ที่ถูกต้อง
-    console.log("Uploading PDF for row:", rowData);
-  };
+  //   // ใส่โค้ดที่ต้องการให้ทำงานเมื่อมีการอัปโหลดไฟล์ PDF ที่ถูกต้อง
+  //   console.log("Uploading PDF for row:", rowData);
+  // };
   const statusTemplate = (rowData) => {
     switch (rowData.Check_id) {
         case 0:
@@ -253,7 +255,8 @@ function Extrapoints() {
           <Button label="เช็คแบบประเมิน" className="p-button-success" onClick={showDialog} />
 
         </div>
-        <Dialog visible={dialogVisible} onHide={hideDialog}>
+        <Dialog visible={dialogVisible} onHide={hideDialog}><br/><br/>
+        <span style={{ fontSize: '2rem', fontFamily: 'Arial, sans-serif'}}>สถานะแบบประเมิน</span><br/><br/>
           <DataTable value={data2} tableStyle={{ minWidth: "50rem" }}>
             <Column key={"list"} field="list" header="หัวข้อ"></Column>
             <Column key={"points"} field="points" header="คะแนน"></Column>

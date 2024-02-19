@@ -17,10 +17,12 @@ import { InputText } from 'primereact/inputtext';
 
     const showDialog = () => {
       setDialogVisible(true);
+      getSumPointsData();
     };
     
     const hideDialog = () => {
       setDialogVisible(false);
+      getSumPointsData();
     };
     const getSumPointsData = async () => {
       try {
@@ -53,7 +55,7 @@ import { InputText } from 'primereact/inputtext';
       const extrapoint_image = rowData.extrapoint_image;
   
       if (extrapoint_image) {
-        return <img src={extrapoint_image} alt="รูปภาพ" style={{ width: '150px', height: '150px' }} />;
+        return <img src={extrapoint_image} alt="รูปภาพ" style={{ width: '400px', height: '250px' }} />;
       } else {
         return <p>No image available</p>;
       }
@@ -94,8 +96,8 @@ const handleReject = async () => {
   return (
     <div style={{ width: '100%', marginLeft: '10px' }}>
       <ScrollPanel style={{ width: "100%", height: "950px" }}>
-        <DataTable value={checkData} style={{ fontFamily: 'Kanit, sans-serif' }}>
-          <Column field="list" header="ชื่อแบบประเมิน" />
+        <DataTable emptyMessage="ยังไม่มีนักศึกษาส่งคะแนนพิเศษมา" value={checkData} style={{ fontFamily: 'Kanit, sans-serif' }}>
+          <Column field="list" header="ชื่อแบบประเมินคะแนนพิเศษ" />
           <Column field="points" header="คะแนน" />
           <Column field="first_name" header="ชื่อ" />
           <Column field="last_name" header="นามสกุล" />
@@ -105,7 +107,7 @@ const handleReject = async () => {
 
         </DataTable>
         <br/><br/>
-        <Button label="รวมคะแนน นักศึกษาที่ผ่านคะแนนพิเศษ" className="p-button-success" onClick={showDialog}/>
+        <Button label="รวมคะแนน นักศึกษาที่ผ่านคะแนนพิเศษ" emptyMessage="ยังไม่มีนักศึกษา ผ่านการตรวจสอบแบบประเมิน" className="p-button-success" onClick={showDialog}/>
         <Dialog visible={dialogVisible} onHide={hideDialog}>
           <DataTable value={extrapointsData} globalFilter={globalFilter} style={{ fontFamily: 'Kanit, sans-serif' }}>
             <Column field="full_name" header="ชื่อ" />
