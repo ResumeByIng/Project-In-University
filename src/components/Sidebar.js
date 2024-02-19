@@ -19,7 +19,7 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="sidebar" style={{ width: '15%', height: '100%' }}>
+    <div className="sidebar" style={{ width: '16%', height: '100%' }}>
       {items.map((item, index) => (
         <SidebarItem key={index} item={item} userRole={userRole} />
       ))}

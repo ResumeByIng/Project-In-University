@@ -233,10 +233,11 @@ const AddAssessment = () => {
       value={[selectedStudentData]}
       showGridlines
       tableStyle={{ minWidth: '20rem', textAlign: 'center' }}
-      style={{ fontFamily: 'Kanit, sans-serif' }}
+      style={{ fontFamily: 'Kanit, sans-serif',width:'100%' }}
     >
       {Object.keys(selectedStudentData).filter(key => key.startsWith("list_")).map((key, index) => (
-        <Column key={index} field={key} header={`ประเมิน ${index + 1}`}></Column>
+        <Column style={{ fontFamily: 'Kanit, sans-serif',width:'500px' }}
+        key={index} field={key} header={`ประเมิน ${index + 1}`}></Column>
       ))}
     </DataTable>
 
@@ -244,7 +245,7 @@ const AddAssessment = () => {
       value={[selectedStudentData]}
       showGridlines
       tableStyle={{ minWidth: '20rem', textAlign: 'center' }}
-      style={{ fontFamily: 'Kanit, sans-serif' }}
+      style={{ fontFamily: 'Kanit, sans-serif',width:'100%' }}
     >
       {Object.keys(selectedStudentData).filter(key => key.startsWith("vote_value_")).map((key, index) => (
         <Column key={index} field={key} header={`ประเมินที่ ${index + 1}`} body={(rowData) => renderVoteValue(rowData[key])}></Column>

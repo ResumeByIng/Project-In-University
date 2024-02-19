@@ -120,7 +120,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
   return (
     <form onSubmit={handleGenerateDocx}>
       <div style={{ width: "1600px", marginLeft: "10px" }}>
-        <ScrollPanel style={{ width: "100%", height: "600px" }}>
+        <ScrollPanel style={{ width: "100%", height: "1000px" }}>
           {/*///////////////////////////////////////////////////////////////*/}
           <Panel
             style={{ fontFamily: "Kanit, sans-serif" }}
@@ -133,18 +133,21 @@ function Meeting_report_training_seminar_study_visit_report_form() {
                   placeholder=""
                   value={mrtssvrf.ชื่อนามสกุล}
                   onChange={(e) => handleChange(e, "ชื่อนามสกุล")}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
                 <br />
                 <span style={{ color: "black" }}>ตำแหน่ง</span>
                 <InputText
                   value={mrtssvrf.ตำแหน่ง}
                   onChange={(e) => handleChange(e, "ตำแหน่ง")}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
                 <br />
                 <span style={{ color: "black" }}>กลุ่มบุคลากร</span>
                 <InputText
                   value={mrtssvrf.ตำแหน่ง}
                   onChange={(e) => handleChange(e, "ตำแหน่ง")}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
             </div>
@@ -157,11 +160,11 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาหลักสูตร}
                   onChange={(e) => handleChange(e, "เนื้อหาหลักสูตร")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
             </div>
@@ -174,11 +177,11 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาวิทยากร}
                   onChange={(e) => handleChange(e, "เนื้อหาวิทยากร")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
             </div>
@@ -191,11 +194,11 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาสถาบันหรือหน่วยงาน}
                   onChange={(e) => handleChange(e, "เนื้อหาสถาบันหรือหน่วยงาน")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
             </div>
@@ -208,11 +211,11 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาระยะเวลา}
                   onChange={(e) => handleChange(e, "เนื้อหาระยะเวลา")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
             </div>
@@ -225,11 +228,11 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหางบประมาณ}
                   onChange={(e) => handleChange(e, "เนื้อหางบประมาณ")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
             </div>
@@ -242,11 +245,11 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาวัตถุประสงค์}
                   onChange={(e) => handleChange(e, "เนื้อหาวัตถุประสงค์")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'700px',height:'200px' }}
                 />
               </div>
             </div>
@@ -259,13 +262,13 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาสรุปสาระของการประชุม}
                   onChange={(e) =>
                     handleChange(e, "เนื้อหาสรุปสาระของการประชุม")
                   }
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
             </div>
@@ -278,11 +281,11 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาปัญหาอุปสรรค}
                   onChange={(e) => handleChange(e, "เนื้อหาปัญหาอุปสรรค")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
             </div>
@@ -293,22 +296,22 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             header="๑๐.ประโยชน์ที่ได้รับจาการประชุม/ฝึกอบรม/สัมมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
-              <div style={{ marginBottom: "10px", width: "100px" }}>
+              <div style={{ marginBottom: "10px", width: "500px" }}>
                 <span> เนื้อหาประโยชน์ที่ได้รับต่อตนเอง </span>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาประโยชน์ที่ได้รับต่อตนเอง}
                   onChange={(e) => handleChange(e, "เนื้อหาประโยชน์ที่ได้รับต่อตนเอง")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px' }}
                 />
                 <span> เนื้อหาประโยชน์ที่ได้รับต่อมหาวิทยาลัย </span>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาประโยชน์ที่ได้รับต่อมหาวิทยาลัย}
                   onChange={(e) => handleChange(e, "เนื้อหาประโยชน์ที่ได้รับต่อมหาวิทยาลัย")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px' }}
                 />
               </div>
             </div>
@@ -321,13 +324,13 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาเอกสารหรืออื่นๆที่เกี่ยวข้อง}
                   onChange={(e) =>
                     handleChange(e, "เนื้อหาเอกสารหรืออื่นๆที่เกี่ยวข้อง")
                   }
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
             </div>
@@ -340,11 +343,11 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหา}
                   onChange={(e) => handleChange(e, "เนื้อหาวิทยากร")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
             </div>
@@ -357,20 +360,20 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <InputTextarea
-                  autoResize
                   value={mrtssvrf.เนื้อหาวิทยากร}
                   onChange={(e) => handleChange(e, "เนื้อหาวิทยากร")}
                   rows={5}
                   cols={100}
+                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
+              <button style={{ width: "100px",marginLeft:'1300px',backgroundColor:'green' }} type="button" onClick={handleGenerateDocx}>
+                ยืนยัน            
+            </button>
             </div>
           </Panel>
         </ScrollPanel>
       </div>
-      <button type="button" onClick={handleGenerateDocx}>
-        Console Log
-      </button>
     </form>
   );
 }

@@ -20,6 +20,14 @@
   
   .backgroundbackground{
     background-image: radial-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .8)), url('../../public/background.jpg');
+    flex-grow: 1;
+    padding: 5em;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
   
   .container{

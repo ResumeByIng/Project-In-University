@@ -78,34 +78,34 @@ function Research() {
     return (
         <form onSubmit={handleGenerateDocx}>
           <div style={{ width: "1600px", marginLeft: "10px" }}>
-            <ScrollPanel style={{ width: "100%", height: "600px" }}>
+            <ScrollPanel style={{ width: "100%", height: "1000px" }}>
               {/*///////////////////////////////////////////////////////////////*/}
               <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}
                 header="FORM 1"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "100px" }}>
-                    <span style={{ color: "black" }}>ชื่อ-นามสกุล เลขประจำตัวประชาชน</span>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
+                    <span style={{ color: "black" }}>ชื่อ-นามสกุล</span>
                     <InputTextarea
-                    autoResize
                       placeholder=""
                       value={agenda.ชื่ออาจารย์1}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์1")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
                     <InputTextarea
-                    autoResize
                       value={agenda.ตำแหน่งทางวิชาการ1}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ1")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                     <br />
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
                     <InputTextarea
-                    autoResize
                       value={agenda.ผลงานทางวิชาการ1}
                       onChange={(e) => handleChange(e, "ผลงานทางวิชาการ1")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px',height:'200px' }}
                     />
                   </div>
                 </div>
@@ -116,27 +116,27 @@ function Research() {
                 header="FORM 2"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "100px" }}>
-                    <span style={{ color: "black" }}>ชื่อ-นามสกุล เลขประจำตัวประชาชน</span>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
+                    <span style={{ color: "black" }}>ชื่อ-นามสกุล</span>
                     <InputTextarea
-                    autoResize
                       placeholder=""
                       value={agenda.ชื่ออาจารย์2}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์2")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                     <br />
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
                     <InputTextarea
-                    autoResize
                       value={agenda.ตำแหน่งทางวิชาการ2}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ2")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                     <br />
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
                     <InputTextarea
-                    autoResize
                       value={agenda.ผลงานทางวิชาการ2}
                       onChange={(e) => handleChange(e, "ผลงานทางวิชาการ2")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px',height:'200px'}}
                     />
                   </div>
                 </div>
@@ -147,27 +147,27 @@ function Research() {
                 header="FORM 1"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "100px" }}>
-                    <span style={{ color: "black" }}>ชื่อ-นามสกุล เลขประจำตัวประชาชน</span>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
+                    <span style={{ color: "black" }}>ชื่อ-นามสกุล</span>
                     <InputTextarea
-                    autoResize
                       placeholder=""
                       value={agenda.ชื่ออาจารย์3}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์3")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                     <br />
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
                     <InputTextarea
-                    autoResize
                       value={agenda.ตำแหน่งทางวิชาการ3}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ3")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                     <br />
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
                     <InputTextarea
-                    autoResize
                       value={agenda.ผลงานทางวิชาการ3}
                       onChange={(e) => handleChange(e, "ผลงานทางวิชาการ3")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                   </div>
                 </div>
@@ -178,27 +178,27 @@ function Research() {
                 header="FORM 1"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "100px" }}>
-                    <span style={{ color: "black" }}>ชื่อ-นามสกุล เลขประจำตัวประชาชน</span>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
+                    <span style={{ color: "black" }}>ชื่อ-นามสกุล</span>
                     <InputTextarea
-                    autoResize
                       placeholder=""
                       value={agenda.ชื่ออาจารย์4}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์4")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                     <br />
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
                     <InputTextarea
-                    autoResize
                       value={agenda.ตำแหน่งทางวิชาการ4}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ4")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                     <br />
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
                     <InputTextarea
-                    autoResize
                       value={agenda.ผลงานทางวิชาการ4}
                       onChange={(e) => handleChange(e, "ผลงานทางวิชาการ4")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                   </div>
                 </div>
@@ -209,37 +209,37 @@ function Research() {
                 header="FORM 1"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "100px" }}>
-                    <span style={{ color: "black" }}>ชื่อ-นามสกุล เลขประจำตัวประชาชน</span>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
+                    <span style={{ color: "black" }}>ชื่อ-นามสกุล</span>
                     <InputTextarea
-                    autoResize
                       placeholder=""
                       value={agenda.ชื่ออาจารย์5}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์5")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                     <br />
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
                     <InputTextarea
-                    autoResize
                       value={agenda.ตำแหน่งทางวิชาการ5}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ5")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                     <br />
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
                     <InputTextarea
-                    autoResize
                       value={agenda.ผลงานทางวิชาการ5}
                       onChange={(e) => handleChange(e, "ผลงานทางวิชาการ5")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
                   </div>
+                  <button style={{ width: "100px",marginLeft:'1300px',backgroundColor:'green' }} type="button" onClick={handleGenerateDocx}>
+                      ยืนยัน            
+                  </button>
                 </div>
               </Panel><br/>
     {/*///////////////////////////////////////////////////////////////*/}
             </ScrollPanel>
           </div>
-          <button type="button" onClick={handleGenerateDocx}>
-            Console Log
-          </button>
         </form>
       );
     }

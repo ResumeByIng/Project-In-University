@@ -131,8 +131,8 @@ function Agenda() {
 
     return (
         <form onSubmit={handleGenerateDocx}>
-          <div style={{ width: "1600px", marginLeft: "10px" }}>
-            <ScrollPanel style={{ width: "100%", height: "600px" }}>
+          <div style={{ width: "1600px",height:'1000px', marginLeft: "10px",fontFamily: "Kanit, sans-serif" }}>
+            <ScrollPanel style={{ width: "100%", height: "100%" }}>
               {/*///////////////////////////////////////////////////////////////*/}
               <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}
@@ -145,18 +145,21 @@ function Agenda() {
                       placeholder=""
                       value={agenda.เรื่อง}
                       onChange={(e) => handleChange(e, "เรื่อง")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>วันที่</span>
                     <InputText
                       value={agenda.วันที่}
                       onChange={(e) => handleChange(e, "วันที่")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>สถานที่</span>
                     <InputText
                       value={agenda.สถานที่}
                       onChange={(e) => handleChange(e, "สถานที่")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -170,19 +173,19 @@ function Agenda() {
                   <div style={{ marginBottom: "10px", width: "100px" }}>
                     <span style={{ color: "black" }}>รายชื่อผู้เข้าร่วมการประชุม</span>
                     <InputTextarea
-                      autoResize
                       value={agenda.ผู้เข้าร่วมการประชุม}
                       onChange={(e) => handleChange(e, "ผู้เข้าร่วมการประชุม")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'700px',height:'460px' }}
                     />
                     <span style={{ color: "black" }}>รายชื่อผู้ไม่เข้าร่วมการประชุม</span>
                     <InputTextarea
-                      autoResize
                       value={agenda.ผู้ไม่เข้าร่วมการประชุม}
                       onChange={(e) => handleChange(e, "ผู้ไม่เข้าร่วมการประชุม")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
 
                   </div>
@@ -200,15 +203,16 @@ function Agenda() {
                       placeholder=""
                       value={agenda.ระเบียบวาระที่1}
                       onChange={(e) => handleChange(e, "ระเบียบวาระที่1")}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>รายระเอียดระเบียบวาระที่ 1</span>
                     <InputTextarea
-                      autoResize
                       value={agenda.ระเบียบวาระที่_1_1}
                       onChange={(e) => handleChange(e, "ระเบียบวาระที่_1_1")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',height:'400px' }}
                     />
                   </div>
                 </div>
@@ -226,14 +230,15 @@ function Agenda() {
                       onChange={(e) => handleChange(e, "ระเบียบวาระที่2")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <span style={{ color: "black" }}>รายระเอียดระเบียบวาระที่ 2</span>
                     <InputTextarea
-                      autoResize
                       value={agenda.ระเบียบวาระที่_2_1}
                       onChange={(e) => handleChange(e, "ระเบียบวาระที่_2_1")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',height:'200px' }}
                     />
                   </div>
                 </div>
@@ -251,14 +256,15 @@ function Agenda() {
                       onChange={(e) => handleChange(e, "ระเบียบวาระที่3")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <span style={{ color: "black" }}>รายระเอียดระเบียบวาระที่ 3</span>
                     <InputTextarea
-                      autoResize
                       value={agenda.ระเบียบวาระที่_3_1}
                       onChange={(e) => handleChange(e, "ระเบียบวาระที่_3_1")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',height:'200px' }}
                     />
                   </div>
                 </div>
@@ -276,14 +282,15 @@ function Agenda() {
                       onChange={(e) => handleChange(e, "ระเบียบวาระที่4")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <span style={{ color: "black" }}>รายระเอียดระเบียบวาระที่ 4</span>
                     <InputTextarea
-                      autoResize
                       value={agenda.ระเบียบวาระที่_4_1}
                       onChange={(e) => handleChange(e, "ระเบียบวาระที่_4_1")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -301,24 +308,26 @@ function Agenda() {
                       onChange={(e) => handleChange(e, "ระเบียบวาระที่5")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <span style={{ color: "black" }}>รายระเอียดระเบียบวาระที่ 5</span>
                     <InputTextarea
-                      autoResize
                       value={agenda.ระเบียบวาระที่_5_1}
                       onChange={(e) => handleChange(e, "ระเบียบวาระที่_5_1")}
                       rows={5}
                       cols={100}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
+                  <button style={{marginLeft:'1400px',backgroundColor:'green'}} type="button" onClick={handleGenerateDocx}>
+                      ยืนยัน
+                </button>
                 </div>
               </Panel><br/>
+            
     {/*///////////////////////////////////////////////////////////////*/}
             </ScrollPanel>
           </div>
-          <button type="button" onClick={handleGenerateDocx}>
-            Console Log
-          </button>
         </form>
       );
     }
