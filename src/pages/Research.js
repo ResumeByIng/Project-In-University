@@ -2,17 +2,41 @@ import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Panel } from 'primereact/panel';
 import { ScrollPanel } from 'primereact/scrollpanel';
-import React, { useState } from 'react'
+import React, { useEffect , useState } from 'react'
 import axios from 'axios';
+import { Dropdown } from "primereact/dropdown";
 
 function Research() {
-  
+  const [professors, setProfessors] = useState([]);
     const PizZip = require("pizzip");
     const Docxtemplater = require("docxtemplater");
 
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const response = await axios.get("http://localhost:8081/api/get-professor");
+          const formattedData = response.data.map((professor) => ({
+            value: `${professor.first_name} ${professor.last_name}`,
+            label: `${professor.first_name} ${professor.last_name}`,
+          }));
+          
+          setProfessors(formattedData);
+          console.log(formattedData);
+        } catch (error) {
+          console.error("Error fetching professors:", error);
+        }
+      }
+      fetchData();
+    }, []);
+
+    const positions = [
+      { label: "ผู้ช่วยศาสตราจารย์", value: "ผู้ช่วยศาสตราจารย์" },
+      // เพิ่มตำแหน่งอื่น ๆ ตามความเหมาะสม
+    ];
+
     const [agenda, setAgenda] = useState({
 
-    ชื่ออาจารย์1:'1. นายรวิ  อุตตมธนินทร์',
+    ชื่ออาจารย์1:'1. นายรวิ อุตตมธนินทร์',
 	ตำแหน่งทางวิชาการ1:'ผู้ช่วยศาสตราจารย์',
     ผลงานทางวิชาการ1:'Charernburanopas, P., Rusmee, K. and Uttamatanin R. (2023). Enhancing Forex Trading With Reinforcement Learnning : A Stablebaselines3 Approach. Proceedings of The 19th International and National conference in Applied Computer Technology and Information System. Bangkok : Southeast Bangkok University, pp 366-373, 31 March 2023',
 
@@ -39,7 +63,7 @@ function Research() {
         try {
           // เรียก API เพื่อดึงข้อมูลเทมเพลต DOCX
           const response = await axios.get("https://project-in-back.vercel.app/api/gettqf7", {
-            params: { id: "9" },
+            params: { id: "7" },
             responseType: "arraybuffer",
           });
           const userFormData = agenda;
@@ -57,7 +81,7 @@ function Research() {
           const url = URL.createObjectURL(content);
           const link = document.createElement("a");
           link.href = url;
-          link.download = `ฟอร์มวิจัย(3).docx`;
+          link.download = `ฟอร์มวิจัย.docx`;
           link.click();
         } catch (error) {
           console.error("Error generating document:", error);
@@ -78,7 +102,7 @@ function Research() {
     return (
         <form onSubmit={handleGenerateDocx}>
           <div style={{ width: "1600px", marginLeft: "10px" }}>
-            <ScrollPanel style={{ width: "100%", height: "1000px" }}>
+          <ScrollPanel style={{ width: "100%", height: "1000px" }}>
               {/*///////////////////////////////////////////////////////////////*/}
               <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}
@@ -87,25 +111,31 @@ function Research() {
                 <div className="field col-12 md:col-4">
                   <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อ-นามสกุล</span>
-                    <InputTextarea
-                      placeholder=""
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ชื่ออาจารย์1}
+                      options={professors}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์1")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px' }}
-                    />
-                    <br />
-                    <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
-                    <InputTextarea
-                      value={agenda.ตำแหน่งทางวิชาการ1}
-                      onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ1")}
+                      placeholder="เลือกชื่อ - สกุล"
                       style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
                     />
-                    <br />
+                    <br/><br/>
+                    <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
+                    <Dropdown
+                      optionLabel="label"
+                      value={agenda.ตำแหน่งทางวิชาการ1}
+                      options={positions}
+                      onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ1")}
+                      placeholder="เลือกตำแหน่งทางวิชาการ"
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px' }}
+                    />
+                    <br/><br/>
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
                     <InputTextarea
+                    autoResize
                       value={agenda.ผลงานทางวิชาการ1}
                       onChange={(e) => handleChange(e, "ผลงานทางวิชาการ1")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px',height:'200px' }}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',height:'200px',marginTop:'10px' }}
                     />
                   </div>
                 </div>
@@ -118,25 +148,31 @@ function Research() {
                 <div className="field col-12 md:col-4">
                   <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อ-นามสกุล</span>
-                    <InputTextarea
-                      placeholder=""
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ชื่ออาจารย์2}
+                      options={professors}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์2")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      placeholder="เลือกชื่อ - สกุล"
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
-                    <br />
+                    <br/><br/>
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
-                    <InputTextarea
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ตำแหน่งทางวิชาการ2}
+                      options={positions}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ2")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      placeholder="เลือกตำแหน่งทางวิชาการ"
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
-                    <br />
+                    <br/><br/>
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
                     <InputTextarea
+                    autoResize
                       value={agenda.ผลงานทางวิชาการ2}
                       onChange={(e) => handleChange(e, "ผลงานทางวิชาการ2")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px',height:'200px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',height:'200px' }}
                     />
                   </div>
                 </div>
@@ -144,30 +180,36 @@ function Research() {
     {/*///////////////////////////////////////////////////////////////*/}
     <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}
-                header="FORM 1"
+                header="FORM 3"
               >
                 <div className="field col-12 md:col-4">
                   <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อ-นามสกุล</span>
-                    <InputTextarea
-                      placeholder=""
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ชื่ออาจารย์3}
+                      options={professors}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์3")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      placeholder="เลือกชื่อ - สกุล"
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
-                    <br />
+                    <br/><br/>
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
-                    <InputTextarea
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ตำแหน่งทางวิชาการ3}
+                      options={positions}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ3")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      placeholder="เลือกตำแหน่งทางวิชาการ"
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
-                    <br />
+                    <br/><br/>
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
                     <InputTextarea
+                    autoResize
                       value={agenda.ผลงานทางวิชาการ3}
                       onChange={(e) => handleChange(e, "ผลงานทางวิชาการ3")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',height:'200px' }}
                     />
                   </div>
                 </div>
@@ -175,30 +217,36 @@ function Research() {
     {/*///////////////////////////////////////////////////////////////*/}
     <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}
-                header="FORM 1"
+                header="FORM 4"
               >
                 <div className="field col-12 md:col-4">
                   <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อ-นามสกุล</span>
-                    <InputTextarea
-                      placeholder=""
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ชื่ออาจารย์4}
+                      options={professors}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์4")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      placeholder="เลือกชื่อ - สกุล"
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
-                    <br />
+                    <br/><br/>
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
-                    <InputTextarea
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ตำแหน่งทางวิชาการ4}
+                      options={positions}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ4")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      placeholder="เลือกตำแหน่งทางวิชาการ"
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
-                    <br />
+                    <br/><br/>
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
                     <InputTextarea
+                    autoResize
                       value={agenda.ผลงานทางวิชาการ4}
                       onChange={(e) => handleChange(e, "ผลงานทางวิชาการ4")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' ,height:'200px'}}
                     />
                   </div>
                 </div>
@@ -206,34 +254,40 @@ function Research() {
     {/*///////////////////////////////////////////////////////////////*/}
     <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}
-                header="FORM 1"
+                header="FORM 5"
               >
                 <div className="field col-12 md:col-4">
                   <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อ-นามสกุล</span>
-                    <InputTextarea
-                      placeholder=""
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ชื่ออาจารย์5}
+                      options={professors}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์5")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      placeholder="เลือกชื่อ - สกุล"
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
-                    <br />
+                    <br/><br/>
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
-                    <InputTextarea
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ตำแหน่งทางวิชาการ5}
+                      options={positions}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ5")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      placeholder="เลือกตำแหน่งทางวิชาการ"
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
-                    <br />
+                    <br/><br/>
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
                     <InputTextarea
+                    autoResize
                       value={agenda.ผลงานทางวิชาการ5}
                       onChange={(e) => handleChange(e, "ผลงานทางวิชาการ5")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',height:'200px' }}
                     />
                   </div>
                   <button style={{ width: "100px",marginLeft:'1300px',backgroundColor:'green' }} type="button" onClick={handleGenerateDocx}>
-                      ยืนยัน            
+                    ยืนยัน            
                   </button>
                 </div>
               </Panel><br/>

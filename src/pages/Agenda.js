@@ -111,7 +111,7 @@ function Agenda() {
           const url = URL.createObjectURL(content);
           const link = document.createElement("a");
           link.href = url;
-          link.download = `ฟอร์มระเบียบวาระการประชุม(2).docx`;
+          link.download = `ฟอร์มระเบียบวาระการประชุม.docx`;
           link.click();
         } catch (error) {
           console.error("Error generating document:", error);

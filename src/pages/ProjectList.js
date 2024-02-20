@@ -1,17 +1,41 @@
 import { InputTextarea } from 'primereact/inputtextarea';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { ScrollPanel } from 'primereact/scrollpanel';
 import { Panel } from 'primereact/panel';
 import { InputText } from 'primereact/inputtext';
-function ProjectList() {
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { format } from 'date-fns';
+import thLocale from 'date-fns/locale/th';
 
+
+function ProjectList() {
+    const [professors, setProfessors] = useState([]);
     const PizZip = require("pizzip");
     const Docxtemplater = require("docxtemplater");
 
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const response = await axios.get("http://localhost:8081/api/get-professor");
+          const formattedData = response.data.map((professor) => ({
+            value: `${professor.first_name} ${professor.last_name}`,
+            label: `${professor.first_name} ${professor.last_name}`,
+          }));
+          
+          setProfessors(formattedData);
+          console.log(formattedData);
+        } catch (error) {
+          console.error("Error fetching professors:", error);
+        }
+      }
+      fetchData();
+    }, []);
+
     const [projectList, setProjectList] = useState({
     
-        วันเดือนปี: "14 กุมภาพันธ์ 2567",
+      วันเดือนปี: new Date(),
 
         ชื่อโครงการ1:"ระบบการจัดการห้องเรียนโดยใช้เทคโนโลยีผสมผสานกับAI",
         ชื่อผู้จัดทำโครงการ1:"ผศ.ดร. พรภวิษย์",
@@ -63,13 +87,14 @@ function ProjectList() {
         เวลาโครงการ10:"15.00 - 16.00 น.",
         หมายเหตุ10:"สอบจบ ปี 62",
       });
+      const thaiDateString = format(projectList.วันเดือนปี, "dd MMMM yyyy", { locale: thLocale });
 
     const handleGenerateDocx = async (e) => {
         e.preventDefault();
         try {
           // เรียก API เพื่อดึงข้อมูลเทมเพลต DOCX
           const response = await axios.get("https://project-in-back.vercel.app/api/gettqf7", {
-            params: { id: "10" },
+            params: { id: "8" },
             responseType: "arraybuffer",
           });
           const userFormData = projectList;
@@ -87,7 +112,7 @@ function ProjectList() {
           const url = URL.createObjectURL(content);
           const link = document.createElement("a");
           link.href = url;
-          link.download = `ฟอร์มระเบียบวาระการประชุม(2).docx`;
+          link.download = `ฟอร์มรายชื่อโครงการ.docx`;
           link.click();
         } catch (error) {
           console.error("Error generating document:", error);
@@ -95,70 +120,77 @@ function ProjectList() {
       };
       let doc;
 
-    const handleChange = (event, property) => {
+      const handleChange = (event, property) => {
         setProjectList((prevData) => ({
-          ...prevData,
-          [property]: event.target.value,
+            ...prevData,
+            [property]: event.target.value,
         }));
         if (doc) {
-          doc.setData(projectList);
+            doc.setData(projectList);
         }
-      };
+    };
+
+    const handleChangeDate = (date) => {
+        setProjectList((prevData) => ({
+            ...prevData,
+            วันเดือนปี: date,
+        }));
+        if (doc) {
+            doc.setData(projectList);
+        }
+    };
 
     return (
         <form onSubmit={handleGenerateDocx}>
           <div style={{ width: "1600px", marginLeft: "10px" }}>
             <ScrollPanel style={{ width: "100%", height: "1000px" }}>
-            <Panel
-                style={{ fontFamily: "Kanit, sans-serif" }}
-                header="หัวเรื่อง"
-              >
-                <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
+            <Panel style={{ fontFamily: "Kanit, sans-serif" }} header="หัวเรื่อง">
+                <div className="field col-12 md:col-4" style={{ marginBottom: "10px", width: "100%" }}>
                     <span style={{ color: "black" }}>วัน/เดือน/ปี</span>
-                    <InputText
-                      placeholder=""
-                      value={projectList.วันเดือนปี}
-                      onChange={(e) => handleChange(e, "วันเดือนปี")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
-                    />
-                  </div>
+                      <DatePicker
+                        selected={projectList.วันเดือนปี}
+                        onChange={handleChangeDate}
+                        dateFormat={thaiDateString}
+                        style={{ backgroundColor: 'white', color: 'black', border: '1px solid gray', borderRadius: '4px', padding: '5px' }}
+                      />
                 </div>
-              </Panel><br/>
+                    </Panel><br />
               {/*///////////////////////////////////////////////////////////////*/}
               <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}
                 header="โครงการที่ 1"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
-                    <span style={{ color: "black" }}>ชื่อโครงการที่ 1</span>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
+                    <span style={{ color: "black"}}>ชื่อโครงการที่ 1</span>
                     <InputTextarea
+                    autoResize
                       placeholder=""
                       value={projectList.ชื่อโครงการ1}
                       onChange={(e) => handleChange(e, "ชื่อโครงการ1")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
-                    <span style={{ color: "black" }}>ชื่อผู้จัดทำโครงการที่ 1</span>
+                    <span style={{ color: "black"}}>ชื่อผู้จัดทำโครงการที่ 1</span>
                     <InputTextarea
+                    autoResize
                       value={projectList.ชื่อผู้จัดทำโครงการ1}
                       onChange={(e) => handleChange(e, "ชื่อผู้จัดทำโครงการ1")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>เวลาโครงการที่ 1</span>
                     <InputText
                       value={projectList.เวลาโครงการ1}
                       onChange={(e) => handleChange(e, "เวลาโครงการ1")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>หมายเหตุโครงการที่ 1</span>
                     <InputText
                       value={projectList.หมายเหตุ1}
                       onChange={(e) => handleChange(e, "หมายเหตุ1")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -169,34 +201,36 @@ function ProjectList() {
                 header="โครงการที่ 2"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อโครงการที่ 2</span>
                     <InputTextarea
+                    autoResize
                       placeholder=""
                       value={projectList.ชื่อโครงการ2}
                       onChange={(e) => handleChange(e, "ชื่อโครงการ2")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>ชื่อผู้จัดทำโครงการที่ 2</span>
                     <InputTextarea
+                    autoResize
                       value={projectList.ชื่อผู้จัดทำโครงการ2}
                       onChange={(e) => handleChange(e, "ชื่อผู้จัดทำโครงการ2")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>เวลาโครงการที่ 2</span>
                     <InputText
                       value={projectList.เวลาโครงการ2}
                       onChange={(e) => handleChange(e, "เวลาโครงการ2")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>หมายเหตุโครงการที่ 2</span>
                     <InputText
                       value={projectList.หมายเหตุ2}
                       onChange={(e) => handleChange(e, "หมายเหตุ2")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -207,34 +241,36 @@ function ProjectList() {
                 header="โครงการที่ 3"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อโครงการที่ 3</span>
                     <InputTextarea
+                    autoResize
                       placeholder=""
                       value={projectList.ชื่อโครงการ3}
                       onChange={(e) => handleChange(e, "ชื่อโครงการ3")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>ชื่อผู้จัดทำโครงการที่ 3</span>
                     <InputTextarea
+                    autoResize
                       value={projectList.ชื่อผู้จัดทำโครงการ3}
                       onChange={(e) => handleChange(e, "ชื่อผู้จัดทำโครงการ3")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>เวลาโครงการที่ 3</span>
                     <InputText
                       value={projectList.เวลาโครงการ3}
                       onChange={(e) => handleChange(e, "เวลาโครงการ3")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>หมายเหตุโครงการที่ 3</span>
                     <InputText
                       value={projectList.หมายเหตุ3}
                       onChange={(e) => handleChange(e, "หมายเหตุ3")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -245,34 +281,36 @@ function ProjectList() {
                 header="โครงการที่ 4"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อโครงการที่ 4</span>
                     <InputTextarea
+                    autoResize
                       placeholder=""
                       value={projectList.ชื่อโครงการ4}
                       onChange={(e) => handleChange(e, "ชื่อโครงการ4")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>ชื่อผู้จัดทำโครงการที่ 4</span>
                     <InputTextarea
+                    autoResize
                       value={projectList.ชื่อผู้จัดทำโครงการ4}
                       onChange={(e) => handleChange(e, "ชื่อผู้จัดทำโครงการ4")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>เวลาโครงการที่ 4</span>
                     <InputText
                       value={projectList.เวลาโครงการ4}
                       onChange={(e) => handleChange(e, "เวลาโครงการ4")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>หมายเหตุโครงการที่ 4</span>
                     <InputText
                       value={projectList.หมายเหตุ4}
                       onChange={(e) => handleChange(e, "หมายเหตุ4")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -283,34 +321,36 @@ function ProjectList() {
                 header="โครงการที่ 5"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อโครงการที่ 5</span>
                     <InputTextarea
+                    autoResize
                       placeholder=""
                       value={projectList.ชื่อโครงการ5}
                       onChange={(e) => handleChange(e, "ชื่อโครงการ5")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>ชื่อผู้จัดทำโครงการที่ 5</span>
                     <InputTextarea
+                    autoResize
                       value={projectList.ชื่อผู้จัดทำโครงการ5}
                       onChange={(e) => handleChange(e, "ชื่อผู้จัดทำโครงการ5")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>เวลาโครงการที่ 5</span>
                     <InputText
                       value={projectList.เวลาโครงการ5}
                       onChange={(e) => handleChange(e, "เวลาโครงการ5")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>หมายเหตุโครงการที่ 5</span>
                     <InputText
                       value={projectList.หมายเหตุ5}
                       onChange={(e) => handleChange(e, "หมายเหตุ5")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -321,34 +361,36 @@ function ProjectList() {
                 header="โครงการที่ 6"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อโครงการที่ 6</span>
                     <InputTextarea
+                    autoResize
                       placeholder=""
                       value={projectList.ชื่อโครงการ6}
                       onChange={(e) => handleChange(e, "ชื่อโครงการ6")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>ชื่อผู้จัดทำโครงการที่ 6</span>
                     <InputTextarea
+                    autoResize
                       value={projectList.ชื่อผู้จัดทำโครงการ6}
                       onChange={(e) => handleChange(e, "ชื่อผู้จัดทำโครงการ6")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>เวลาโครงการที่ 6</span>
                     <InputText
                       value={projectList.เวลาโครงการ6}
                       onChange={(e) => handleChange(e, "เวลาโครงการ6")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>หมายเหตุโครงการที่ 6</span>
                     <InputText
                       value={projectList.หมายเหตุ6}
                       onChange={(e) => handleChange(e, "หมายเหตุ6")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -359,34 +401,36 @@ function ProjectList() {
                 header="โครงการที่ 7"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อโครงการที่ 7</span>
                     <InputTextarea
+                    autoResize
                       placeholder=""
                       value={projectList.ชื่อโครงการ7}
                       onChange={(e) => handleChange(e, "ชื่อโครงการ7")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>ชื่อผู้จัดทำโครงการที่ 7</span>
                     <InputTextarea
+                    autoResize
                       value={projectList.ชื่อผู้จัดทำโครงการ7}
                       onChange={(e) => handleChange(e, "ชื่อผู้จัดทำโครงการ7")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>เวลาโครงการที่ 7</span>
                     <InputText
                       value={projectList.เวลาโครงการ7}
                       onChange={(e) => handleChange(e, "เวลาโครงการ7")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>หมายเหตุโครงการที่ 7</span>
                     <InputText
                       value={projectList.หมายเหตุ7}
                       onChange={(e) => handleChange(e, "หมายเหตุ7")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -397,34 +441,36 @@ function ProjectList() {
                 header="โครงการที่ 8"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อโครงการที่ 8</span>
                     <InputTextarea
+                    autoResize
                       placeholder=""
                       value={projectList.ชื่อโครงการ8}
                       onChange={(e) => handleChange(e, "ชื่อโครงการ8")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>ชื่อผู้จัดทำโครงการที่ 8</span>
                     <InputTextarea
+                    autoResize
                       value={projectList.ชื่อผู้จัดทำโครงการ8}
                       onChange={(e) => handleChange(e, "ชื่อผู้จัดทำโครงการ8")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>เวลาโครงการที่ 8</span>
                     <InputText
                       value={projectList.เวลาโครงการ8}
                       onChange={(e) => handleChange(e, "เวลาโครงการ8")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>หมายเหตุโครงการที่ 8</span>
                     <InputText
                       value={projectList.หมายเหตุ8}
                       onChange={(e) => handleChange(e, "หมายเหตุ8")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -435,34 +481,36 @@ function ProjectList() {
                 header="โครงการที่ 9"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อโครงการที่ 9</span>
                     <InputTextarea
+                    autoResize
                       placeholder=""
                       value={projectList.ชื่อโครงการ9}
                       onChange={(e) => handleChange(e, "ชื่อโครงการ9")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>ชื่อผู้จัดทำโครงการที่ 9</span>
                     <InputTextarea
+                    autoResize
                       value={projectList.ชื่อผู้จัดทำโครงการ9}
                       onChange={(e) => handleChange(e, "ชื่อผู้จัดทำโครงการ9")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>เวลาโครงการที่ 9</span>
                     <InputText
                       value={projectList.เวลาโครงการ9}
                       onChange={(e) => handleChange(e, "เวลาโครงการ9")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>หมายเหตุโครงการที่ 9</span>
                     <InputText
                       value={projectList.หมายเหตุ9}
                       onChange={(e) => handleChange(e, "หมายเหตุ9")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                 </div>
@@ -473,39 +521,41 @@ function ProjectList() {
                 header="โครงการที่ 10"
               >
                 <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "200px" }}>
+                  <div style={{ marginBottom: "10px", width: "500px" }}>
                     <span style={{ color: "black" }}>ชื่อโครงการที่ 10</span>
                     <InputTextarea
+                    autoResize
                       placeholder=""
                       value={projectList.ชื่อโครงการ10}
                       onChange={(e) => handleChange(e, "ชื่อโครงการ10")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>ชื่อผู้จัดทำโครงการที่ 10</span>
                     <InputTextarea
+                    autoResize
                       value={projectList.ชื่อผู้จัดทำโครงการ10}
                       onChange={(e) => handleChange(e, "ชื่อผู้จัดทำโครงการ10")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>เวลาโครงการที่ 10</span>
                     <InputText
                       value={projectList.เวลาโครงการ10}
                       onChange={(e) => handleChange(e, "เวลาโครงการ10")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                     <br />
                     <span style={{ color: "black" }}>หมายเหตุโครงการที่ 10</span>
                     <InputText
                       value={projectList.หมายเหตุ10}
                       onChange={(e) => handleChange(e, "หมายเหตุ10")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px',marginTop:'10px'}}
+                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
                   <button style={{ width: "100px",marginLeft:'1300px',backgroundColor:'green' }} type="button" onClick={handleGenerateDocx}>
-                ยืนยัน            
-            </button>
+                    ยืนยัน            
+                  </button>
                 </div>
               </Panel><br/>
               {/*///////////////////////////////////////////////////////////////*/}

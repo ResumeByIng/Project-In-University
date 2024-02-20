@@ -403,3 +403,7 @@
           padding: 20px; /* ปรับระยะห่างของ wrapper เมื่อหน้าจอเล็กกว่า 768px */
       }
   }
+  .custom-dropdown-style {
+    font-family: Kanit, sans-serif;
+  }
+  

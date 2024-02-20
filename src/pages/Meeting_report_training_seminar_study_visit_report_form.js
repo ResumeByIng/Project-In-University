@@ -9,12 +9,31 @@ import { InputTextarea } from "primereact/inputtextarea";
 
 
 function Meeting_report_training_seminar_study_visit_report_form() {
+  const [professors, setProfessors] = useState([]);
   const PizZip = require("pizzip");
   const Docxtemplater = require("docxtemplater");
   const options = [
     { value: 'mrtssvrf', label: 'mrtssvrf' },
     { value: 'mrtssvrf1', label: 'mrtssvrf1' }
   ];
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get("http://localhost:8081/api/get-professor");
+        const formattedData = response.data.map((professor) => ({
+          value: `${professor.first_name} ${professor.last_name}`,
+          label: `${professor.first_name} ${professor.last_name}`,
+        }));
+        
+        setProfessors(formattedData);
+        console.log(formattedData);
+      } catch (error) {
+        console.error("Error fetching professors:", error);
+      }
+    }
+    fetchData();
+  }, []);
 
   const [mrtssvrf, setMrtssvrf] = useState({
     
@@ -129,25 +148,14 @@ function Meeting_report_training_seminar_study_visit_report_form() {
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <span style={{ color: "black" }}>ชื่อ - สกุล</span>
-                <InputText
-                  placeholder=""
+                <Dropdown
+                  optionLabel="label"
                   value={mrtssvrf.ชื่อนามสกุล}
+                  options={professors}
                   onChange={(e) => handleChange(e, "ชื่อนามสกุล")}
-                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
-                />
-                <br />
-                <span style={{ color: "black" }}>ตำแหน่ง</span>
-                <InputText
-                  value={mrtssvrf.ตำแหน่ง}
-                  onChange={(e) => handleChange(e, "ตำแหน่ง")}
-                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
-                />
-                <br />
-                <span style={{ color: "black" }}>กลุ่มบุคลากร</span>
-                <InputText
-                  value={mrtssvrf.ตำแหน่ง}
-                  onChange={(e) => handleChange(e, "ตำแหน่ง")}
-                  style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
+                  style={{ fontFamily: "Kanit, sans-serif", width: '200px', marginTop: '10px' }}
+                  placeholder="เลือกชื่อ - นามสกุล"
+                  placeholderStyle={{ fontFamily: "Kanit, sans-serif" }}
                 />
               </div>
             </div>
