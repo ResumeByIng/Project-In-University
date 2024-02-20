@@ -26,6 +26,7 @@ import Meeting_report_training_seminar_study_visit_report_form from "./pages/Mee
 import Agenda from "./pages/Agenda";
 import Research from "./pages/Research";
 import ProjectList from "./pages/ProjectList";
+import EditDataAllUser from "./pages/EditDataAllUser";
 
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
           <Route path="/Agenda" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Agenda /> : <Navigate to="/home" />} />
           <Route path="/Research" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Research /> : <Navigate to="/home" />} />
           <Route path="/ProjectList" element={parseInt(user) === 2 || parseInt(user) === 4 ? <ProjectList /> : <Navigate to="/home" />} />
+          <Route path="/EditDataAllUser" element={ parseInt(user) === 4 ? <EditDataAllUser /> : <Navigate to="/home" />} />
         </Routes>
       </div>
     </Router>

@@ -201,6 +201,10 @@
                 "title": "สร้างรหัส อาจารย์",
                 "path": "/registerProfessor",
                 "roles": [4]
+            },{
+                "title": "แก้ไขข้อมูล",
+                "path": "/EditDataAllUser",
+                "roles": [4]
             }
         ]
     },

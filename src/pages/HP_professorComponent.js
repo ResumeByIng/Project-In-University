@@ -73,7 +73,7 @@ const HP_professorComponent = ({ open, onClose, onSave, product, fetchData}) => 
         resetForm();
       };
     return (
-        <Dialog visible={open} onHide={onClose} header="เพิ่มหัวข้อข่าว" modal style={{ width: '50%',textAlign:'center',fontFamily: 'Kanit, sans-serif' }}>
+        <Dialog visible={open} onHide={onClose} header="เพิ่มหัวข้อข่าว" emptyMessage="ยังไม่มีเนื้อหาข่าว" modal style={{ width: '50%',textAlign:'center',fontFamily: 'Kanit, sans-serif' }}>
             <div className="p-grid p-fluid"style={{fontFamily: 'Kanit, sans-serif' }}>
                 <div className="p-col-12">
                     <InputText type="text" value={headlines} onChange={(e) => setHeadlines(e.target.value)} placeholder="หัวข้อข่าว" style={{ width: '50%', marginLeft: '25%', textAlign: 'center', marginTop: '10px', alignItems: 'center',fontFamily: 'Kanit, sans-serif'}}/>

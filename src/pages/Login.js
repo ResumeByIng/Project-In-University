@@ -19,8 +19,11 @@ const Login = () => {
   const [otp, setOTP] = useState('');
   const [countdown, setCountdown] = useState(60);
   const [isCountdownComplete, setIsCountdownComplete] = useState(false);
+
   const navigate = useNavigate();
+
   const toastRef = useRef(null);
+  
   const MySwal = withReactContent(Swal);
 
   const handleLogin = async () => {
@@ -45,11 +48,11 @@ const Login = () => {
         case 3:
         case 4:
 
-          showSuccessMessage();
-          generateOTP(email);
-          setShowOTPForm(true);
-          startCountdown();
-
+          // showSuccessMessage();
+          // generateOTP(email);
+          // setShowOTPForm(true);
+          // startCountdown();
+          navigate("/home");
           break;
         default:
           // Show error Toast when login fails
@@ -166,10 +169,13 @@ const Login = () => {
     event.preventDefault();
     try {
       await axios.delete(`https://project-in-back.vercel.app/delete-secret/${email}`);
+
       showSuccessMessage('ตรวจสอบรหัส OTP ใน email');
+      
       startCountdown();
-      // Additional logic after OTP reset
-      // ...
+
+      generateOTP();
+
     } catch (error) {
       showErrorMessage('เกิดข้อผิดพลาดในการรีเซ็ต OTP');
       console.error('Error resetting OTP:', error);
