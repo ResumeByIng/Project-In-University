@@ -28,7 +28,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8081/login', {
+      const response = await axios.post('https://project-in-back.vercel.app/login', {
         email: email,
         password: password
       });
@@ -68,7 +68,7 @@ const Login = () => {
 
   const generateOTP = async (email) => {
     try {
-      await axios.post('http://localhost:8081/generate-otp', { email });
+      await axios.post('https://project-in-back.vercel.app/generate-otp', { email });
       console.log(`OTP generated successfully for email: ${email}`);
     } catch (error) {
       console.error(`Error generating OTP for email ${email}:`, error);
@@ -119,7 +119,7 @@ const Login = () => {
   const handleVerifyOTP = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8081/verify', { otp, email });
+      const response = await axios.post('https://project-in-back.vercel.app/verify', { otp, email });
       console.log('Data sent to backend:', { otp, email }); // ตรวจสอบว่าข้อมูลถูกส่งไปยังเซิร์ฟเวอร์อย่างถูกต้องหรือไม่
   
       if (response.data.message === 'OTP ถูกต้อง') {
@@ -129,7 +129,7 @@ const Login = () => {
           icon: 'success',
           timer: 2000
         }).then(() => {
-          axios.delete(`http://localhost:8081/delete-secret/${email}`)
+          axios.delete(`https://project-in-back.vercel.app/delete-secret/${email}`)
             .then((deleteResponse) => {
               console.log('Deleted:', deleteResponse.data);
               const islogPass = "pass";
@@ -168,7 +168,7 @@ const Login = () => {
   const resetOTP = async (event) => {
     event.preventDefault();
     try {
-      await axios.delete(`http://localhost:8081/delete-secret/${email}`);
+      await axios.delete(`https://project-in-back.vercel.app/delete-secret/${email}`);
 
       showSuccessMessage('ตรวจสอบรหัส OTP ใน email');
       
