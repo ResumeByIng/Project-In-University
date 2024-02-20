@@ -1,17 +1,41 @@
 import { InputTextarea } from 'primereact/inputtextarea';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { ScrollPanel } from 'primereact/scrollpanel';
 import { Panel } from 'primereact/panel';
 import { InputText } from 'primereact/inputtext';
-function ProjectList() {
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { format } from 'date-fns';
+import thLocale from 'date-fns/locale/th';
 
+
+function ProjectList() {
+    const [professors, setProfessors] = useState([]);
     const PizZip = require("pizzip");
     const Docxtemplater = require("docxtemplater");
 
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const response = await axios.get("http://localhost:8081/api/get-professor");
+          const formattedData = response.data.map((professor) => ({
+            value: `${professor.first_name} ${professor.last_name}`,
+            label: `${professor.first_name} ${professor.last_name}`,
+          }));
+          
+          setProfessors(formattedData);
+          console.log(formattedData);
+        } catch (error) {
+          console.error("Error fetching professors:", error);
+        }
+      }
+      fetchData();
+    }, []);
+
     const [projectList, setProjectList] = useState({
     
-        วันเดือนปี: "14 กุมภาพันธ์ 2567",
+      วันเดือนปี: new Date(),
 
         ชื่อโครงการ1:"ระบบการจัดการห้องเรียนโดยใช้เทคโนโลยีผสมผสานกับAI",
         ชื่อผู้จัดทำโครงการ1:"ผศ.ดร. พรภวิษย์",
@@ -63,6 +87,7 @@ function ProjectList() {
         เวลาโครงการ10:"15.00 - 16.00 น.",
         หมายเหตุ10:"สอบจบ ปี 62",
       });
+      const thaiDateString = format(projectList.วันเดือนปี, "dd MMMM yyyy", { locale: thLocale });
 
     const handleGenerateDocx = async (e) => {
         e.preventDefault();
@@ -95,35 +120,45 @@ function ProjectList() {
       };
       let doc;
 
-    const handleChange = (event, property) => {
+      const handleChange = (event, property) => {
         setProjectList((prevData) => ({
-          ...prevData,
-          [property]: event.target.value,
+            ...prevData,
+            [property]: event.target.value,
         }));
         if (doc) {
-          doc.setData(projectList);
+            doc.setData(projectList);
         }
-      };
+    };
+
+    const handleChangeDate = (date) => {
+        setProjectList((prevData) => ({
+            ...prevData,
+            วันเดือนปี: date,
+        }));
+        if (doc) {
+            doc.setData(projectList);
+        }
+    };
 
     return (
         <form onSubmit={handleGenerateDocx}>
           <div style={{ width: "1600px", marginLeft: "10px" }}>
             <ScrollPanel style={{ width: "100%", height: "600px" }}>
             <Panel
-                style={{ fontFamily: "Kanit, sans-serif" }}
-                header="หัวเรื่อง"
-              >
-                <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "100px" }}>
-                    <span style={{ color: "black" }}>วัน/เดือน/ปี</span>
-                    <InputText
-                      placeholder=""
-                      value={projectList.วันเดือนปี}
-                      onChange={(e) => handleChange(e, "วันเดือนปี")}
-                    />
-                  </div>
-                </div>
-              </Panel><br/>
+                        style={{ fontFamily: "Kanit, sans-serif" }}
+                        header="หัวเรื่อง"
+                    >
+                        <div className="field col-12 md:col-4">
+                            <div style={{ marginBottom: "10px", width: "100px" }}>
+                              <span style={{ color: "black" }}>วัน/เดือน/ปี</span>
+                              <DatePicker
+                                  selected={projectList.วันเดือนปี}
+                                  onChange={handleChangeDate}
+                                  dateFormat={thaiDateString}
+                              />
+                            </div>
+                        </div>
+                    </Panel><br />
               {/*///////////////////////////////////////////////////////////////*/}
               <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}

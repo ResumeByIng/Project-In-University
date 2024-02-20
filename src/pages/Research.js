@@ -2,17 +2,41 @@ import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Panel } from 'primereact/panel';
 import { ScrollPanel } from 'primereact/scrollpanel';
-import React, { useState } from 'react'
+import React, { useEffect , useState } from 'react'
 import axios from 'axios';
+import { Dropdown } from "primereact/dropdown";
 
 function Research() {
-  
+  const [professors, setProfessors] = useState([]);
     const PizZip = require("pizzip");
     const Docxtemplater = require("docxtemplater");
 
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const response = await axios.get("http://localhost:8081/api/get-professor");
+          const formattedData = response.data.map((professor) => ({
+            value: `${professor.first_name} ${professor.last_name}`,
+            label: `${professor.first_name} ${professor.last_name}`,
+          }));
+          
+          setProfessors(formattedData);
+          console.log(formattedData);
+        } catch (error) {
+          console.error("Error fetching professors:", error);
+        }
+      }
+      fetchData();
+    }, []);
+
+    const positions = [
+      { label: "ผู้ช่วยศาสตราจารย์", value: "ผู้ช่วยศาสตราจารย์" },
+      // เพิ่มตำแหน่งอื่น ๆ ตามความเหมาะสม
+    ];
+
     const [agenda, setAgenda] = useState({
 
-    ชื่ออาจารย์1:'1. นายรวิ  อุตตมธนินทร์',
+    ชื่ออาจารย์1:'1. นายรวิ อุตตมธนินทร์',
 	ตำแหน่งทางวิชาการ1:'ผู้ช่วยศาสตราจารย์',
     ผลงานทางวิชาการ1:'Charernburanopas, P., Rusmee, K. and Uttamatanin R. (2023). Enhancing Forex Trading With Reinforcement Learnning : A Stablebaselines3 Approach. Proceedings of The 19th International and National conference in Applied Computer Technology and Information System. Bangkok : Southeast Bangkok University, pp 366-373, 31 March 2023',
 
@@ -84,21 +108,24 @@ function Research() {
                 style={{ fontFamily: "Kanit, sans-serif" }}
                 header="FORM 1"
               >
-                <div className="field col-12 md:col-4">
+                <div className="field col-12 md:col-4">ชื่ออาจารย์1
                   <div style={{ marginBottom: "10px", width: "100px" }}>
                     <span style={{ color: "black" }}>ชื่อ-นามสกุล เลขประจำตัวประชาชน</span>
-                    <InputTextarea
-                    autoResize
-                      placeholder=""
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ชื่ออาจารย์1}
+                      options={professors}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์1")}
+                      placeholder="เลือกชื่อ - สกุล"
                     />
                     <br />
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
-                    <InputTextarea
-                    autoResize
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ตำแหน่งทางวิชาการ1}
+                      options={positions}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ1")}
+                      placeholder="เลือกตำแหน่งทางวิชาการ"
                     />
                     <br />
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
@@ -118,18 +145,21 @@ function Research() {
                 <div className="field col-12 md:col-4">
                   <div style={{ marginBottom: "10px", width: "100px" }}>
                     <span style={{ color: "black" }}>ชื่อ-นามสกุล เลขประจำตัวประชาชน</span>
-                    <InputTextarea
-                    autoResize
-                      placeholder=""
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ชื่ออาจารย์2}
+                      options={professors}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์2")}
+                      placeholder="เลือกชื่อ - สกุล"
                     />
                     <br />
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
-                    <InputTextarea
-                    autoResize
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ตำแหน่งทางวิชาการ2}
+                      options={positions}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ2")}
+                      placeholder="เลือกตำแหน่งทางวิชาการ"
                     />
                     <br />
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
@@ -144,23 +174,26 @@ function Research() {
     {/*///////////////////////////////////////////////////////////////*/}
     <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}
-                header="FORM 1"
+                header="FORM 3"
               >
                 <div className="field col-12 md:col-4">
                   <div style={{ marginBottom: "10px", width: "100px" }}>
                     <span style={{ color: "black" }}>ชื่อ-นามสกุล เลขประจำตัวประชาชน</span>
-                    <InputTextarea
-                    autoResize
-                      placeholder=""
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ชื่ออาจารย์3}
+                      options={professors}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์3")}
+                      placeholder="เลือกชื่อ - สกุล"
                     />
                     <br />
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
-                    <InputTextarea
-                    autoResize
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ตำแหน่งทางวิชาการ3}
+                      options={positions}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ3")}
+                      placeholder="เลือกตำแหน่งทางวิชาการ"
                     />
                     <br />
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
@@ -180,18 +213,21 @@ function Research() {
                 <div className="field col-12 md:col-4">
                   <div style={{ marginBottom: "10px", width: "100px" }}>
                     <span style={{ color: "black" }}>ชื่อ-นามสกุล เลขประจำตัวประชาชน</span>
-                    <InputTextarea
-                    autoResize
-                      placeholder=""
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ชื่ออาจารย์4}
+                      options={professors}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์4")}
+                      placeholder="เลือกชื่อ - สกุล"
                     />
                     <br />
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
-                    <InputTextarea
-                    autoResize
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ตำแหน่งทางวิชาการ4}
+                      options={positions}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ4")}
+                      placeholder="เลือกตำแหน่งทางวิชาการ"
                     />
                     <br />
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
@@ -211,18 +247,21 @@ function Research() {
                 <div className="field col-12 md:col-4">
                   <div style={{ marginBottom: "10px", width: "100px" }}>
                     <span style={{ color: "black" }}>ชื่อ-นามสกุล เลขประจำตัวประชาชน</span>
-                    <InputTextarea
-                    autoResize
-                      placeholder=""
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ชื่ออาจารย์5}
+                      options={professors}
                       onChange={(e) => handleChange(e, "ชื่ออาจารย์5")}
+                      placeholder="เลือกชื่อ - สกุล"
                     />
                     <br />
                     <span style={{ color: "black" }}>ตำแหน่งทางวิชาการ</span>
-                    <InputTextarea
-                    autoResize
+                    <Dropdown
+                      optionLabel="label"
                       value={agenda.ตำแหน่งทางวิชาการ5}
+                      options={positions}
                       onChange={(e) => handleChange(e, "ตำแหน่งทางวิชาการ5")}
+                      placeholder="เลือกตำแหน่งทางวิชาการ"
                     />
                     <br />
                     <span style={{ color: "black" }}>ผลงานทางวิชาการ/การวิจัย/การแต่งตำรา</span>
