@@ -8,7 +8,7 @@ import { Paginator } from 'primereact/paginator';
 import { Dialog } from 'primereact/dialog';
 import { Dropdown } from 'primereact/dropdown';
 
-function Data_AllUser() {
+function EditDataAllUser() {
     const [allUserData, setAllUserData] = useState({ studentData: [], graduateData: [] });
     const [searchStudentText, setSearchStudentText] = useState('');
     const [searchGraduateText, setSearchGraduateText] = useState('');
@@ -122,6 +122,7 @@ function Data_AllUser() {
                 <Column field="branch" header="Branch" />
                 <Column field="class_year" header="Class Year" />
                 <Column field="gender" header="Gender" />
+                <Column body={(rowData) => <Button icon="pi pi-pencil" onClick={() => onEditClick(rowData)} />} />
             </DataTable>
             <Paginator first={firstStudent} rows={rows} totalRecords={filteredStudentData.length} onPageChange={paginateStudent} />
 
@@ -141,11 +142,44 @@ function Data_AllUser() {
                 <Column field="work_place" header="Work Place" />
                 <Column field="salary" header="Salary" />
                 <Column field="work_about" header="Work About" />
-            </DataTable>
+                <Column body={(rowData) => <Button icon="pi pi-pencil" onClick={() => onEditClick(rowData)} />} />
+</DataTable>
             <Paginator first={firstGraduate} rows={rows} totalRecords={filteredGraduateData.length} onPageChange={paginateGraduate} />
+
+
+            <Dialog visible={visibleEditDialog} onHide={onHideEditDialog}>
+                <h2>Edit User Data</h2>
+                {selectedUserData && (
+                    <div>                        
+                         <InputText disabled value={selectedUserData.user_id} onChange={(e) => setSelectedUserData({...selectedUserData, user_id: e.target.value})} />
+                        <InputText value={selectedUserData.first_name} onChange={(e) => setSelectedUserData({...selectedUserData, first_name: e.target.value})} />
+                        <InputText value={selectedUserData.last_name} onChange={(e) => setSelectedUserData({...selectedUserData, lastname: e.target.value})} />
+                        {selectedUserData.hasOwnProperty('id_student') && (
+                            <InputText  value={selectedUserData.id_student} onChange={(e) => setSelectedUserData({...selectedUserData, id_student: e.target.value})} />
+                        )}
+                        {selectedUserData.hasOwnProperty('id_graduate') && (
+                            <InputText  value={selectedUserData.id_graduate} onChange={(e) => setSelectedUserData({...selectedUserData, id_graduate: e.target.value})} />
+                        )}
+                        <InputText value={selectedUserData.faculty} onChange={(e) => setSelectedUserData({...selectedUserData, faculty: e.target.value})} />
+                        <InputText value={selectedUserData.branch} onChange={(e) => setSelectedUserData({...selectedUserData, branch: e.target.value})} />
+                        <InputText value={selectedUserData.class_year} onChange={(e) => setSelectedUserData({...selectedUserData, class_year: e.target.value})} />
+                        <Dropdown 
+    value={selectedUserData.gender} 
+    options={[
+        { label: 'Male', value: 'Male' },
+        { label: 'Female', value: 'Female' }
+    ]}
+    onChange={(e) => setSelectedUserData({...selectedUserData, gender: e.value})} 
+    placeholder="Select a gender"
+/>
+                    </div>
+                )}
+                <Button label="Save" onClick={handleSave} />
+                <Button label="Cancel" onClick={onHideEditDialog} />
+            </Dialog>
             </ScrollPanel>
         </div>
     );
 }
 
-export default Data_AllUser;
+export default EditDataAllUser;

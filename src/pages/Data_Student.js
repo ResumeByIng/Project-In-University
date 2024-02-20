@@ -33,6 +33,7 @@ function Data_Student() {
   const handleConfirmation = () => {
     // ตรวจสอบว่า studentData มีข้อมูลหรือไม่
     if (studentData.length === 0) {
+      
       console.error('No student data found.');
       return;
     }

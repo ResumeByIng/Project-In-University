@@ -258,6 +258,7 @@ const AddAssessment = () => {
       <Toast ref={toast} />
       <div style={{ marginLeft: '10px', marginTop: '10px' }}>
       <DataTable
+      emptyMessage='ยังไม่มีนักศึกษาส่งแบบประเมิน'
   value={assessmentData}
   showGridlines
   tableStyle={{ minWidth: '100rem', textAlign: 'center' }}

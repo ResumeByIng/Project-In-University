@@ -19,13 +19,16 @@ const Login = () => {
   const [otp, setOTP] = useState('');
   const [countdown, setCountdown] = useState(60);
   const [isCountdownComplete, setIsCountdownComplete] = useState(false);
+
   const navigate = useNavigate();
+
   const toastRef = useRef(null);
+  
   const MySwal = withReactContent(Swal);
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://project-in-back.vercel.app/login', {
+      const response = await axios.post('http://localhost:8081/login', {
         email: email,
         password: password
       });
@@ -45,11 +48,11 @@ const Login = () => {
         case 3:
         case 4:
 
-          showSuccessMessage();
-          generateOTP(email);
-          setShowOTPForm(true);
-          startCountdown();
-
+          // showSuccessMessage();
+          // generateOTP(email);
+          // setShowOTPForm(true);
+          // startCountdown();
+          navigate("/home");
           break;
         default:
           // Show error Toast when login fails
@@ -65,7 +68,7 @@ const Login = () => {
 
   const generateOTP = async (email) => {
     try {
-      await axios.post('https://project-in-back.vercel.app/generate-otp', { email });
+      await axios.post('http://localhost:8081/generate-otp', { email });
       console.log(`OTP generated successfully for email: ${email}`);
     } catch (error) {
       console.error(`Error generating OTP for email ${email}:`, error);
@@ -116,7 +119,7 @@ const Login = () => {
   const handleVerifyOTP = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('https://project-in-back.vercel.app/verify', { otp, email });
+      const response = await axios.post('http://localhost:8081/verify', { otp, email });
       console.log('Data sent to backend:', { otp, email }); // ตรวจสอบว่าข้อมูลถูกส่งไปยังเซิร์ฟเวอร์อย่างถูกต้องหรือไม่
   
       if (response.data.message === 'OTP ถูกต้อง') {
@@ -126,7 +129,7 @@ const Login = () => {
           icon: 'success',
           timer: 2000
         }).then(() => {
-          axios.delete(`https://project-in-back.vercel.app/delete-secret/${email}`)
+          axios.delete(`http://localhost:8081/delete-secret/${email}`)
             .then((deleteResponse) => {
               console.log('Deleted:', deleteResponse.data);
               const islogPass = "pass";
@@ -165,11 +168,14 @@ const Login = () => {
   const resetOTP = async (event) => {
     event.preventDefault();
     try {
-      await axios.delete(`https://project-in-back.vercel.app/delete-secret/${email}`);
+      await axios.delete(`http://localhost:8081/delete-secret/${email}`);
+
       showSuccessMessage('ตรวจสอบรหัส OTP ใน email');
+      
       startCountdown();
-      // Additional logic after OTP reset
-      // ...
+
+      generateOTP();
+
     } catch (error) {
       showErrorMessage('เกิดข้อผิดพลาดในการรีเซ็ต OTP');
       console.error('Error resetting OTP:', error);
