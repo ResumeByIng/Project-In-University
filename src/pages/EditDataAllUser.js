@@ -17,6 +17,21 @@ function EditDataAllUser() {
     const [rows, setRows] = useState(5);
     const [selectedUserData, setSelectedUserData] = useState(null);
     const [visibleEditDialog, setVisibleEditDialog] = useState(false);
+    const [selectedYear, setSelectedYear] = useState(""); // เก็บค่าปีที่เลือกจาก Dropdown
+    const [options, setOptions] = useState([]); // เก็บค่า options สำหรับ Dropdown
+
+
+    useEffect(() => {
+        // สร้าง options สำหรับ Dropdown โดยให้เริ่มต้นจาก พ.ศ. 2558 ถึง 2567
+        const currentYear = new Date().getFullYear() + 543; // แปลงเป็น พ.ศ.
+        const yearOptions = [];
+        for (let year = currentYear - 9; year <= currentYear + 1; year++) {
+            yearOptions.push({ label: `${year}`, value: `${year}` });
+        }
+        setOptions(yearOptions);
+    }, []); // useEffect นี้จะทำงานเมื่อ component ถูกโหลดครั้งแรกเท่านั้น
+
+
 
     const onEditClick = (data) => {
         setSelectedUserData(data);
@@ -147,36 +162,60 @@ function EditDataAllUser() {
             <Paginator first={firstGraduate} rows={rows} totalRecords={filteredGraduateData.length} onPageChange={paginateGraduate} />
 
 
-            <Dialog visible={visibleEditDialog} onHide={onHideEditDialog}>
-                <h2>Edit User Data</h2>
-                {selectedUserData && (
-                    <div>                        
-                         <InputText disabled value={selectedUserData.user_id} onChange={(e) => setSelectedUserData({...selectedUserData, user_id: e.target.value})} />
-                        <InputText value={selectedUserData.first_name} onChange={(e) => setSelectedUserData({...selectedUserData, first_name: e.target.value})} />
-                        <InputText value={selectedUserData.last_name} onChange={(e) => setSelectedUserData({...selectedUserData, lastname: e.target.value})} />
-                        {selectedUserData.hasOwnProperty('id_student') && (
-                            <InputText  value={selectedUserData.id_student} onChange={(e) => setSelectedUserData({...selectedUserData, id_student: e.target.value})} />
-                        )}
-                        {selectedUserData.hasOwnProperty('id_graduate') && (
-                            <InputText  value={selectedUserData.id_graduate} onChange={(e) => setSelectedUserData({...selectedUserData, id_graduate: e.target.value})} />
-                        )}
-                        <InputText value={selectedUserData.faculty} onChange={(e) => setSelectedUserData({...selectedUserData, faculty: e.target.value})} />
-                        <InputText value={selectedUserData.branch} onChange={(e) => setSelectedUserData({...selectedUserData, branch: e.target.value})} />
-                        <InputText value={selectedUserData.class_year} onChange={(e) => setSelectedUserData({...selectedUserData, class_year: e.target.value})} />
-                        <Dropdown 
-    value={selectedUserData.gender} 
-    options={[
-        { label: 'Male', value: 'Male' },
-        { label: 'Female', value: 'Female' }
-    ]}
-    onChange={(e) => setSelectedUserData({...selectedUserData, gender: e.value})} 
-    placeholder="Select a gender"
-/>
-                    </div>
-                )}
-                <Button label="Save" onClick={handleSave} />
-                <Button label="Cancel" onClick={onHideEditDialog} />
-            </Dialog>
+<Dialog visible={visibleEditDialog} style={{ fontFamily: 'Kanit, sans-serif',width:'500px',marginTop:'10px' }} onHide={onHideEditDialog}>
+    <h2>Edit User Data</h2> 
+    {selectedUserData && (
+        <div>                        
+            <InputText disabled value={selectedUserData.user_id} style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px' }} onChange={(e) => setSelectedUserData({...selectedUserData, user_id: e.target.value})} />
+            <InputText value={selectedUserData.first_name} style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px' }} onChange={(e) => setSelectedUserData({...selectedUserData, first_name: e.target.value})} />
+            <InputText value={selectedUserData.last_name} style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px' }} onChange={(e) => setSelectedUserData({...selectedUserData, lastname: e.target.value})} />
+            {selectedUserData.hasOwnProperty('id_student') && (
+                <InputText  value={selectedUserData.id_student} style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px' }} onChange={(e) => setSelectedUserData({...selectedUserData, id_student: e.target.value})} />
+            )}
+            {selectedUserData.hasOwnProperty('id_graduate') && (
+                <InputText  value={selectedUserData.id_graduate} style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px' }} onChange={(e) => setSelectedUserData({...selectedUserData, id_graduate: e.target.value})} />
+            )}
+            <Dropdown 
+                value={selectedUserData.faculty} 
+                options={[
+                    { label: 'วิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม', value: 'วิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม' }
+                ]}
+                onChange={(e) => setSelectedUserData({...selectedUserData, faculty: e.value})} 
+                placeholder="Select a faculty"
+                style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px',textAlign:'center' }}
+            />
+            <Dropdown 
+                value={selectedUserData.branch} 
+                options={[
+                    { label: 'วิศวกรรมคอมพิวเตอร์', value: 'วิศวกรรมคอมพิวเตอร์' }
+                ]}
+                onChange={(e) => setSelectedUserData({...selectedUserData, branch: e.value})} 
+                placeholder="Select a branch"
+                style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px',textAlign:'center' }}
+            />
+            <Dropdown
+                value={selectedYear}
+                options={options}
+                onChange={(e) => setSelectedYear(e.value)}
+                placeholder="Select a year"
+                style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px',textAlign:'center' }}
+            /> 
+            <Dropdown 
+                value={selectedUserData.gender} 
+                options={[
+                    { label: 'Male', value: 'Male' },
+                    { label: 'Female', value: 'Female' }
+                ]}
+                onChange={(e) => setSelectedUserData({...selectedUserData, gender: e.value})} 
+                placeholder="Select a gender"
+                style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px',textAlign:'center' }}
+            />
+        </div>
+    )}
+    <Button style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px' }} label="Save" onClick={handleSave} />
+    <Button style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px' }} label="Cancel" onClick={onHideEditDialog} />
+</Dialog>
+
             </ScrollPanel>
         </div>
     );
