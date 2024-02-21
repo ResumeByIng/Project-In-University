@@ -802,7 +802,7 @@ function TQF7_3() {
       const text = e.target.result;
       const csvData = text.split('\n');
       const cellValues = csvData.map(row => row.split(',').map(cell => cell.trim()));
-      const [row1, row2, row3, row4, row5, row6, row7,row8] = cellValues;
+      const [row1, row2, row3, row4, row5, row6] = cellValues;
   
       setDateTqf7_3(prevData => ({
         ...prevData,

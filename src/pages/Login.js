@@ -32,39 +32,27 @@ const Login = () => {
         email: email,
         password: password
       });
-
       const userData = response.data[0];
       const user = response.data[0].role;
-
       localStorage.setItem('userData', JSON.stringify(userData));
       localStorage.setItem('user', JSON.stringify(user));
-
-      console.log('user : ', user);
-      console.log('userData : ', userData);
-
       switch (user) {
         case 1:
         case 2:
         case 3:
         case 4:
-
-          // showSuccessMessage();
-          // generateOTP(email);
-          // setShowOTPForm(true);
-          // startCountdown();
           navigate("/home");
           break;
         default:
-          // Show error Toast when login fails
-          showErrorMessage();
-          console.error('Invalid role:', user);
+          
       }
     } catch (error) {
       console.error('Login failed', error);
-      // Show error Toast when login fails
+      // Show error Toast when login fails due to network error or server issue
       showErrorMessage();
     }
   };
+  
 
   const generateOTP = async (email) => {
     try {
@@ -236,6 +224,7 @@ const Login = () => {
           onRegister={handleRegisterSuccess}
         />
       </div>
+      <Toast ref={toastRef} />
     </div>
   );
 };

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import './RegisterDialog.css';
 import axios from 'axios';
+import { Dropdown } from 'primereact/dropdown';
 
 const RegisterDialog = ({ visible, onHide, onRegister }) => {
   const [registerEmail, setRegisterEmail] = useState('');
@@ -16,6 +17,18 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
   const [classYear, setClassYear] = useState('');
   const [successDialogVisible, setSuccessDialogVisible] = useState(false);
   const [registerErrorDialogVisible, setRegisterErrorDialogVisible] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState(''); // เพิ่ม state สำหรับยืนยันรหัสผ่าน
+  const [options, setOptions] = useState([]); // เพิ่ม state สำหรับเก็บ options ของ Dropdown
+
+  useEffect(() => {
+    // สร้าง options สำหรับ Dropdown โดยให้เริ่มต้นจาก พ.ศ. 2558 ถึง 2567
+    const currentYear = new Date().getFullYear() + 543; // แปลงเป็น พ.ศ.
+    const yearOptions = [];
+    for (let year = currentYear - 9; year <= currentYear + 1; year++) {
+      yearOptions.push({ label: `${year}`, value: `${year}` });
+    }
+    setOptions(yearOptions);
+  }, []); // useEffect นี้จะทำงานเมื่อ component ถูกโหลดครั้งแรกเท่านั้น
 
   const onHideRegisterErrorDialog = () => {
     setRegisterErrorDialogVisible(false);
@@ -26,10 +39,15 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
     setSuccessDialogVisible(false);
     onHide();
   };
-
+  
   const handleRegister = async () => {
-    if (!registerEmail || !registerPassword || !firstName || !lastName || !studentId || !faculty || !branch || !classYear || !gender) {
+    if (!registerEmail || !registerPassword || !firstName || !lastName || !studentId || !faculty || !branch || !classYear || !gender || !confirmPassword) {
       alert('กรุณากรอกข้อมูลให้ครบทุกช่อง');
+      return;
+    }
+
+    if (registerPassword !== confirmPassword) {
+      alert('รหัสผ่านและการยืนยันรหัสผ่านไม่ตรงกัน');
       return;
     }
     
@@ -69,6 +87,7 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
   const resetForm = () => {
     setRegisterEmail('');
     setRegisterPassword('');
+    setConfirmPassword('');
     setFirstName('');
     setLastName('');
     setStudentId('');
@@ -108,6 +127,20 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
             style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px',border: '1px solid #ccc',borderRadius:'0px',textAlign:'center',fontSize:'16px', display: 'inline-block' }} 
           />
         </div><br/>
+        
+        <div className="input-container">
+          <label htmlFor="confirm-password" style={{ display: 'inline-block', width: '200px' }}>Confirm Password</label>
+          <input 
+            id="confirm-password" 
+            type="password" 
+            value={confirmPassword} 
+            onChange={(e) => setConfirmPassword(e.target.value)} 
+            style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px',border: '1px solid #ccc',borderRadius:'0px',textAlign:'center',fontSize:'16px', display: 'inline-block' }} 
+          />
+        </div><br/>
+
+
+
         <div className="input-container">
           <label htmlFor="first-name" style={{ display: 'inline-block', width: '120px' }}>ชื่อ</label><br/>
           <input 
@@ -139,53 +172,61 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
             onChange={(e) => setStudentId(e.target.value.replace(/\D/g, ''))}
             style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px',border: '1px solid #ccc',fontSize:'16px', display: 'inline-block' }} 
           />
-        </div><br/>
+        </div>
+        <span style={{color:'grey',fontSize:'10px',marginLeft:'20px',marginTop:'0px'}}>ตัวอย่าง 62122519010</span>
+        <br/><br/>
         <div className="input-container">
           <label htmlFor="faculty" style={{ display: 'inline-block', width: '120px' }}>คณะ</label><br/>
-          <select 
-            id="faculty" 
-            value={faculty} 
-            onChange={(e) => setFaculty(e.target.value)} 
-            style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px',border: '1px solid #ccc',textAlign:'center', display: 'inline-block',fontSize:'16px',fontFamily: 'Kanit, sans-serif' }} 
-          >
-            <option value="">---เลือกคณะ---</option>
-            <option value="วิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม">วิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม</option>
-          </select>
+          <Dropdown
+            id="faculty"
+            value={faculty}
+            options={[
+              { label: 'วิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม', value: 'วิศวกรรมศาสตร์และเทคโนโลยีอุตสาหกรรม' }
+              // Add more options as needed
+            ]}
+            onChange={(e) => setFaculty(e.value)}
+            placeholder="เลือกคณะ"
+            style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px', border: '1px solid #ccc', fontSize: '16px', fontFamily: 'Kanit, sans-serif' }}
+          />
         </div><br/>
         <div className="input-container">
           <label htmlFor="branch" style={{ display: 'inline-block', width: '120px' }}>สาขา</label><br/>
-          <select 
-            id="branch" 
-            value={branch} 
-            onChange={(e) => setBranch(e.target.value)} 
-            style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px',border: '1px solid #ccc',textAlign:'center', display: 'inline-block',fontSize:'16px',fontFamily: 'Kanit, sans-serif' }} 
-          >
-            <option value="">---เลือกสาขา---</option>
-            <option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>
-          </select>
+          <Dropdown
+            id="branch"
+            value={branch}
+            options={[
+              { label: 'วิศวกรรมคอมพิวเตอร์', value: 'วิศวกรรมคอมพิวเตอร์' }
+              // Add more options as needed
+            ]}
+            onChange={(e) => setBranch(e.value)}
+            placeholder="เลือกสาขา"
+            style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px', border: '1px solid #ccc', fontSize: '16px', fontFamily: 'Kanit, sans-serif' }}
+          />
         </div><br/>
         <div className="input-container">
-          <label htmlFor="class-year" style={{ display: 'inline-block', width: '120px' }}>รุ่นปีการศึกษา</label><br/>
-          <input 
+          <label htmlFor="class-year" style={{ display: 'inline-block', width: '200px' }}>รุ่นปีการศึกษา</label>
+          <Dropdown 
             id="class-year" 
-            type="text" 
             value={classYear} 
-            onChange={(e) => setClassYear(e.target.value.replace(/\D/g, ''))}
-            style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px',border: '1px solid #ccc',fontSize:'16px', display: 'inline-block' }} 
+            options={options} 
+            onChange={(e) => setClassYear(e.value)} 
+            placeholder="เลือกรุ่นปีการศึกษา" 
+            style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px', fontSize:'16px', }} 
           />
         </div><br/>
         <div className="input-container">
           <label htmlFor="gender" style={{ display: 'inline-block', width: '120px' }}>เพศ</label><br/>
-          <select 
-            id="gender" 
-            value={gender} 
-            onChange={(e) => setGender(e.target.value)} 
-            style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px',border: '1px solid #ccc',textAlign:'center', display: 'inline-block' ,fontSize:'16px',fontFamily: 'Kanit, sans-serif'}} 
-          >
-            <option value="">---เลือกเพศ---</option>
-            <option value="male">ชาย</option>
-            <option value="female">หญิง</option>
-          </select>
+          <Dropdown
+            id="gender"
+            value={gender}
+            options={[
+              { label: 'ชาย', value: 'male' },
+              { label: 'หญิง', value: 'female' }
+            ]}
+            onChange={(e) => setGender(e.value)}
+            placeholder="เลือกเพศ"
+            style={{ width: 'calc(100% - 140px)', height: '30px', marginLeft: '20px', border: '1px solid #ccc',fontSize: '16px', fontFamily: 'Kanit, sans-serif' }}
+          />
         </div>
       </div><br/>
       <div className="button-container" style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', marginBottom: '20px' }}>
@@ -205,7 +246,8 @@ const RegisterDialog = ({ visible, onHide, onRegister }) => {
         modal
       >
         <div className="success-message" style={{ fontFamily: 'Kanit, sans-serif', width: '50%' }}>
-          สมัครสมาชิกสำเร็จ
+          สมัครสมาชิกสำเร็จ 
+          *ข้อมูลที่ผิดพลาดสามารถติดต่อ ADMIN
         </div>
       </Dialog>
 

@@ -196,10 +196,13 @@ function EditDataAllUser() {
             <Dropdown
                 value={selectedYear}
                 options={options}
-                onChange={(e) => setSelectedYear(e.value)}
-                placeholder="Select a year"
-                style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px',textAlign:'center' }}
-            /> 
+                onChange={(e) => {
+                    setSelectedYear(e.value);
+                    setSelectedUserData({...selectedUserData, class_year: e.value}); // เพิ่มบรรทัดนี้เพื่ออัปเดตค่าปีที่เลือกใน selectedUserData
+                }}
+                placeholder={selectedUserData ? selectedUserData.class_year : "Select a year"} // ให้แสดงปีที่มีอยู่ใน rowData หากมี ไม่งั้นแสดง "Select a year"
+                style={{ fontFamily: 'Kanit, sans-serif', width:'100%', marginTop:'10px', textAlign:'center' }}
+            />
             <Dropdown 
                 value={selectedUserData.gender} 
                 options={[
@@ -212,8 +215,8 @@ function EditDataAllUser() {
             />
         </div>
     )}
-    <Button style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px' }} label="Save" onClick={handleSave} />
-    <Button style={{ fontFamily: 'Kanit, sans-serif',width:'100%',marginTop:'10px' }} label="Cancel" onClick={onHideEditDialog} />
+            <Button className="p-button-danger" style={{ fontFamily: 'Kanit, sans-serif', width:'30%', marginTop:'10px', marginRight: '40%'  }} label="Cancel" onClick={onHideEditDialog} />
+            <Button className="p-button-success" style={{ fontFamily: 'Kanit, sans-serif', width:'30%', marginTop:'10px'}} label="Save" onClick={handleSave} />
 </Dialog>
 
             </ScrollPanel>

@@ -6,6 +6,7 @@ import { Dropdown } from "primereact/dropdown";
 import { Checkbox } from "primereact/checkbox";
 import { ScrollPanel } from "primereact/scrollpanel";
 import { InputTextarea } from "primereact/inputtextarea";
+import './Meeting_report_training_seminar_study_visit_report_form.css';
 
 
 function Meeting_report_training_seminar_study_visit_report_form() {
@@ -139,12 +140,32 @@ function Meeting_report_training_seminar_study_visit_report_form() {
   return (
     <form onSubmit={handleGenerateDocx}>
       <div style={{ width: "1600px", marginLeft: "10px" }}>
-        <ScrollPanel style={{ width: "100%", height: "1000px" }}>
+      <button 
+        style={{ 
+          width: "100px", 
+          backgroundColor: '#426ec7', 
+          borderRadius: '50px', 
+          border: 'none', 
+          padding: '10px', 
+          color: 'white',
+          fontWeight: 'bold',
+          fontFamily: 'Kanit, sans-serif', 
+          cursor: 'pointer', 
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+          transition: '0.3s', 
+          position: 'fixed', /* ทำให้ปุ่มลอยโดด */
+          top: '20px', /* กำหนดตำแหน่งด้านบนของหน้าจอ */
+          right: '20px', /* กำหนดตำแหน่งด้านขวาของหน้าจอ */
+          zIndex: '1000', /* กำหนดค่า z-index ให้มากกว่าค่า z-index ของ panel */
+        }} 
+        type="button" 
+        onClick={handleGenerateDocx}
+      >
+        โหลด Docx
+      </button>
+        <ScrollPanel style={{ width: "100%", height: "100vh", overflowY:'auto' }}>
           {/*///////////////////////////////////////////////////////////////*/}
-          <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
-            header="๑.ข้อมูลส่วนบุคคล"
-          >
+        <Panel className="custom-panel" header="๑.ข้อมูลส่วนบุคคล">
             <div className="field col-12 md:col-4">
               <div style={{ marginBottom: "10px", width: "100px" }}>
                 <span style={{ color: "black" }}>ชื่อ - สกุล</span>
@@ -155,14 +176,13 @@ function Meeting_report_training_seminar_study_visit_report_form() {
                   onChange={(e) => handleChange(e, "ชื่อนามสกุล")}
                   style={{ fontFamily: "Kanit, sans-serif", width: '200px', marginTop: '10px' }}
                   placeholder="เลือกชื่อ - นามสกุล"
-                  placeholderStyle={{ fontFamily: "Kanit, sans-serif" }}
                 />
               </div>
             </div>
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๒.หลักสูตรหรือเรื่องที่เข้าร่วมประชุม/ฝึกอบรม/สัมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -179,7 +199,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๓.วิทยากรในการประชุม/ฝึกอบรม/สัมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -196,7 +216,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๔.สถาบันหรือหน่วยงานที่จัดประชุม/ฝึกอบรม/สัมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -213,7 +233,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๕.ระยะเวลาที่เข้ารับการประชุม/ฝึกอบรม/สัมมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -230,7 +250,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๖.งบประมาณที่ใช้ในการประชุม/ฝึกอบรม/สัมมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -247,7 +267,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๗.วัตถุประสงค์ของการประชุม/ฝึกอบรม/สัมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -264,7 +284,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๘.สรุปเนื้อหาสาระของการประชุม/ฝึกอบรม/สัมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -283,7 +303,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๙.ปัญหาอุปสรรคในการประชุม/ฝึกอบรม/สัมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -300,7 +320,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๑๐.ประโยชน์ที่ได้รับจาการประชุม/ฝึกอบรม/สัมมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -326,7 +346,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๑๑.เอกสารหรืออื่นๆที่เกี่ยวข้องที่ได้รับจากการประชุม/ฝึกอบรม/สัมมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -345,7 +365,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="๑๒. สำเนาประกาศนียบัตร/วุฒิบัตรที่ได้รับจากการประชุม/ฝึกอบรม/สัมมนา/ศึกษาดูงาน"
           >
             <div className="field col-12 md:col-4">
@@ -362,7 +382,7 @@ function Meeting_report_training_seminar_study_visit_report_form() {
           </Panel><br/>
 {/*///////////////////////////////////////////////////////////////*/}
           <Panel
-            style={{ fontFamily: "Kanit, sans-serif" }}
+            className="custom-panel"
             header="ความคิดเห็นและข้อเสนอแนะ อื่นๆ"
           >
             <div className="field col-12 md:col-4">
@@ -375,11 +395,11 @@ function Meeting_report_training_seminar_study_visit_report_form() {
                   style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                 />
               </div>
-              <button style={{ width: "100px",marginLeft:'1300px',backgroundColor:'green' }} type="button" onClick={handleGenerateDocx}>
-                ยืนยัน            
-            </button>
+              
             </div>
-          </Panel>
+            
+          </Panel><br/><br/>
+
         </ScrollPanel>
       </div>
     </form>

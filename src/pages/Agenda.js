@@ -4,6 +4,9 @@ import { Panel } from 'primereact/panel';
 import { ScrollPanel } from 'primereact/scrollpanel';
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
+import './Agenda.css';
+import { Dropdown } from 'primereact/dropdown';
+
 
 function Agenda() {
 
@@ -13,7 +16,9 @@ function Agenda() {
     const [agenda, setAgenda] = useState({
     
         เรื่อง: "คณะกรรมการดำเนินงานด้านการจัดกิจกรรม",
-        วันที่: "วันพุธที่ 27 กันยายน 2566 เวลา 11.00 น.",
+        วันที่: "วันพุธที่ 27 กันยายน 2566",
+        เวลาชั่วโมง:"11",
+        เวลานาที:"00",
         สถานที่: "ประชุมออนไลน์",
 
         ผู้เข้าร่วมการประชุม: "นายพฤฒินันท์ เล่าสกุลสุข รหัส 66122519007 (ประธานรุ่น 66 / รองประธานสาขา)\nนางสาวมลตณรัตน์ วิวัฒน์เมทากร รหัส 66122519085 (รองประธานรุ่น 66)\nนายกิตติ ชัยตา รหัส 66122519032 (หัวหน้าห้อง sec 1 ปี 66)\nนางสาวธนภร วิรัชมงคลชัย รหัส 66122519084 (หัวหน้าห้อง sec 2 ปี 66 / เลขาสาขา)\nนายจตุรเทพ รัตนวรเศวต รหัส 66122519061 (รองหัวหน้าห้อง sec 2 ปี 66)\nนายณัฐวัฒน์ พงษ์สินสุภานน รหัส 65122519004 (ประธานรุ่น 65 / ประธานสาขา)\nนายอนิรุทธ์ ฝางนอก รหัส 65122519063 (รองประธานรุ่น 65)\nนางสาวชลธร ศิริวรรณพร รหัส 65122519035 (หัวหน้าห้อง sec 1 ปี 65 / เลขาสาขา)\nนางสาวพรธิดา ปั่นทรัพย์ รหัส 65122519062 (หัวหน้าห้อง sec 2 ปี 65)\nนายศักรินทร์ ผันสืบ รหัส 64122519001 (ประธานรุ่น 64)\nนายอามีน อาบู รหัส 64122519014 (รองประธานรุ่น 64)\nนายพลบดี คำดี รหัส 64122519019 (หัวหน้าห้อง 64)\nนางสาวภาริดา ศรีเรือง รหัส 64122519031 (รองหัวหน้าห้อง 64)\nนายเตชยศ ทองย้อย รหัส 63122519016 (ประธานรุ่น 63)\nนายนัฐพล ภู่เขียว รหัส 63122519018 (รองประธาน 63)\nนายวัชร์ชัยพัทธ์ เจริญผล รหัส 63122519040 (หัวหน้าห้อง 63)\nนางสาวธัญลักษณ์ ยงท้วม รหัส 63122519041 \nนางสาวชิดชนก สุนทรมัฏฐ์ รหัส 63122519031",
@@ -132,38 +137,117 @@ function Agenda() {
     return (
         <form onSubmit={handleGenerateDocx}>
           <div style={{ width: "1600px",height:'1000px', marginLeft: "10px",fontFamily: "Kanit, sans-serif" }}>
-            <ScrollPanel style={{ width: "100%", height: "100%" }}>
+          <button 
+            style={{ 
+              width: "100px", 
+              backgroundColor: '#426ec7', 
+              borderRadius: '50px', 
+              border: 'none', 
+              padding: '10px', 
+              color: 'white',
+              fontWeight: 'bold',
+              fontFamily: 'Kanit, sans-serif', 
+              cursor: 'pointer', 
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+              transition: '0.3s', 
+              position: 'fixed', /* ทำให้ปุ่มลอยโดด */
+              top: '20px', /* กำหนดตำแหน่งด้านบนของหน้าจอ */
+              right: '20px', /* กำหนดตำแหน่งด้านขวาของหน้าจอ */
+              zIndex: '1000', /* กำหนดค่า z-index ให้มากกว่าค่า z-index ของ panel */
+            }} 
+            type="button" 
+            onClick={handleGenerateDocx}
+          >
+            โหลด Docx
+          </button>
+              <ScrollPanel style={{ width: "100%", height: "100vh", overflowY:'auto' }}>
               {/*///////////////////////////////////////////////////////////////*/}
               <Panel
-                style={{ fontFamily: "Kanit, sans-serif" }}
-                header="หัวเรื่อง"
-              >
-                <div className="field col-12 md:col-4">
-                  <div style={{ marginBottom: "10px", width: "100px" }}>
-                    <span style={{ color: "black" }}>เรื่อง</span>
-                    <InputText
-                      placeholder=""
-                      value={agenda.เรื่อง}
-                      onChange={(e) => handleChange(e, "เรื่อง")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
-                    />
-                    <br />
-                    <span style={{ color: "black" }}>วันที่</span>
-                    <InputText
-                      value={agenda.วันที่}
-                      onChange={(e) => handleChange(e, "วันที่")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
-                    />
-                    <br />
-                    <span style={{ color: "black" }}>สถานที่</span>
-                    <InputText
-                      value={agenda.สถานที่}
-                      onChange={(e) => handleChange(e, "สถานที่")}
-                      style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
-                    />
-                  </div>
-                </div>
-              </Panel><br/>
+          style={{ fontFamily: "Kanit, sans-serif" }}
+          header="หัวเรื่อง"
+        >
+          <div className="field col-12 md:col-4">
+            <div style={{ marginBottom: "10px", width: "100px" }}>
+              <span style={{ color: "black" }}>เรื่อง</span>
+              <InputText
+                placeholder=""
+                value={agenda.เรื่อง}
+                onChange={(e) => handleChange(e, "เรื่อง")}
+                style={{ fontFamily: "Kanit, sans-serif", width: '500px' }}
+              />
+              <br />
+              <span style={{ color: "black" }}>วันที่</span>
+              <InputText
+                value={agenda.วันที่}
+                onChange={(e) => handleChange(e, "วันที่")}
+                style={{ fontFamily: "Kanit, sans-serif", width: '500px' }}
+              />
+              <br />
+              <span style={{ color: "black" }}>เวลา</span>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Dropdown
+                  optionLabel="label"
+                  optionValue="value"
+                  value={agenda.เวลาชั่วโมง}
+                  options={[
+                    { label: '00', value: '00' }, { label: '01', value: '01' }, { label: '02', value: '02' },
+                    { label: '03', value: '03' }, { label: '04', value: '04' }, { label: '05', value: '05' },
+                    { label: '06', value: '06' }, { label: '07', value: '07' }, { label: '08', value: '08' },
+                    { label: '09', value: '09' }, { label: '10', value: '10' }, { label: '11', value: '11' },
+                    { label: '12', value: '12' }, { label: '13', value: '13' }, { label: '14', value: '14' },
+                    { label: '15', value: '15' }, { label: '16', value: '16' }, { label: '17', value: '17' },
+                    { label: '18', value: '18' }, { label: '19', value: '19' }, { label: '20', value: '20' },
+                    { label: '21', value: '21' }, { label: '22', value: '22' }, { label: '23', value: '23' },
+                    { label: '24', value: '24' },
+                  ]}
+                  onChange={(e) => handleChange(e, "เวลาชั่วโมง")}
+                  style={{ width: '100px', fontFamily: "Kanit, sans-serif", marginRight: '10px' }}
+                  placeholder="ชั่วโมง"
+                />
+                <span style={{ color: "black", marginRight: '5px' }}>:</span>
+                <Dropdown
+                  optionLabel="label"
+                  optionValue="value"
+                  value={agenda.เวลานาที}
+                  options={[
+                    { label: '00', value: '00' }, { label: '01', value: '01' }, { label: '02', value: '02' },
+                    { label: '03', value: '03' }, { label: '04', value: '04' }, { label: '05', value: '05' },
+                    { label: '06', value: '06' }, { label: '07', value: '07' }, { label: '08', value: '08' },
+                    { label: '09', value: '09' }, { label: '10', value: '10' }, { label: '11', value: '11' },
+                    { label: '12', value: '12' }, { label: '13', value: '13' }, { label: '14', value: '14' },
+                    { label: '15', value: '15' }, { label: '16', value: '16' }, { label: '17', value: '17' },
+                    { label: '18', value: '18' }, { label: '19', value: '19' }, { label: '20', value: '20' },
+                    { label: '21', value: '21' }, { label: '22', value: '22' }, { label: '23', value: '23' },
+                    { label: '24', value: '24' },
+                    { label: '25', value: '25' }, { label: '26', value: '26' }, { label: '27', value: '27' },
+                    { label: '28', value: '28' }, { label: '29', value: '29' }, { label: '30', value: '30' },
+                    { label: '31', value: '31' }, { label: '32', value: '32' }, { label: '33', value: '33' },
+                    { label: '34', value: '34' }, { label: '35', value: '35' }, { label: '36', value: '36' },
+                    { label: '37', value: '37' }, { label: '38', value: '38' }, { label: '39', value: '39' },
+                    { label: '40', value: '40' }, { label: '41', value: '41' }, { label: '42', value: '42' },
+                    { label: '43', value: '43' }, { label: '44', value: '44' }, { label: '45', value: '45' },
+                    { label: '46', value: '46' }, { label: '47', value: '47' }, { label: '48', value: '48' },
+                    { label: '49', value: '49' }, { label: '50', value: '50' }, { label: '51', value: '51' },
+                    { label: '52', value: '52' }, { label: '53', value: '53' }, { label: '54', value: '54' },
+                    { label: '55', value: '55' }, { label: '56', value: '56' }, { label: '57', value: '57' },
+                    { label: '58', value: '58' }, { label: '59', value: '59' },
+                  ]}
+                  onChange={(e) => handleChange(e, "เวลานาที")}
+                  style={{ width: '100px', fontFamily: "Kanit, sans-serif" }}
+                  placeholder="นาที"
+                />
+                <span style={{ color: "black", marginLeft: '5px' }}>น.</span>
+              </div>
+              <br />
+              <span style={{ color: "black" }}>สถานที่</span>
+              <InputText
+                value={agenda.สถานที่}
+                onChange={(e) => handleChange(e, "สถานที่")}
+                style={{ fontFamily: "Kanit, sans-serif", width: '500px' }}
+              />
+            </div>
+          </div>
+        </Panel><br />
     {/*///////////////////////////////////////////////////////////////*/}
               <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}
@@ -319,9 +403,6 @@ function Agenda() {
                       style={{ fontFamily: "Kanit, sans-serif",width:'500px' }}
                     />
                   </div>
-                  <button style={{marginLeft:'1400px',backgroundColor:'green'}} type="button" onClick={handleGenerateDocx}>
-                      ยืนยัน
-                </button>
                 </div>
               </Panel><br/>
             
