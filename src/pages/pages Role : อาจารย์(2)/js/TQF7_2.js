@@ -6,6 +6,7 @@ import { InputText } from 'primereact/inputtext'
 import { ScrollPanel } from 'primereact/scrollpanel';
 import axios from 'axios';
 import { Button } from 'primereact/button';
+import '../css/TQF7_2.css';
 
 function TQF7_2() {
   const [dataTqf7_2, setDateTqf7_2] = useState({
@@ -371,51 +372,74 @@ function TQF7_2() {
 
   return (
     <form onSubmit={handleGenerateDocx}  >
-    <div style={{ width: '100%',marginLeft: '10px' }}>
+    <div style={{ width: '100%',marginLeft: '10px', marginRight:'10px'  }}>
+    <button 
+            style={{ 
+              width: "100px", 
+              backgroundColor: '#426ec7', 
+              borderRadius: '50px', 
+              border: 'none', 
+              padding: '10px', 
+              color: 'white',
+              fontWeight: 'bold',
+              fontFamily: 'Kanit, sans-serif', 
+              cursor: 'pointer', 
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+              transition: '0.3s', 
+              position: 'fixed', /* ทำให้ปุ่มลอยโดด */
+              top: '20px', /* กำหนดตำแหน่งด้านบนของหน้าจอ */
+              right: '20px', /* กำหนดตำแหน่งด้านขวาของหน้าจอ */
+              zIndex: '1000', /* กำหนดค่า z-index ให้มากกว่าค่า z-index ของ panel */
+            }} 
+            type="button" 
+            onClick={handleGenerateDocx}
+          >
+            โหลด Docx
+          </button>
       {/***********************************************/}
-      <ScrollPanel style={{ width: '100%', height: '950px' }}>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="4.1.1 การรับและแต่งตั้งอาจารย์ประจําหลักสูตร">
+      <ScrollPanel style={{ width: "100%", height: "100vh", overflowY:'auto' }}>
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="4.1.1 การรับและแต่งตั้งอาจารย์ประจําหลักสูตร">
         <div>
           <span>เรื่องย่อ</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1000px',height:'100px',fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_2.เรื่องย่อ_การรับและแต่งตั้งอาจารย์ประจําหลักสูตร}/><br/><br/>
+            <InputTextarea  style={{ width: '80vw',height:'10vh',fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_2.เรื่องย่อ_การรับและแต่งตั้งอาจารย์ประจําหลักสูตร}/><br/><br/>
             <span>ระบบกลไก</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1000px',height:'400px' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_2.ระบบกลไก_การรับและแต่งตั้งอาจารย์ประจําหลักสูตร}/><br/><br/>
+            <InputTextarea  style={{ width: '80vw',height:'30vh' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_2.ระบบกลไก_การรับและแต่งตั้งอาจารย์ประจําหลักสูตร}/><br/><br/>
             <span>ผลการดําเนินงาน</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1000px',height:'100px',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.ผลการดําเนินงาน_การรับและแต่งตั้งอาจารย์ประจําหลักสูตร}/><br/><br/>
+            <InputTextarea  style={{ width: '80vw',height:'10vh',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.ผลการดําเนินงาน_การรับและแต่งตั้งอาจารย์ประจําหลักสูตร}/><br/><br/>
             <span>การประเมินกระบวนการ</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1000px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_2.การประเมินกระบวนการ_การรับและแต่งตั้งอาจารย์ประจําหลักสูตร}/><br/><br/>
+            <InputTextarea  style={{ width: '80vw',height:'15vh' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_2.การประเมินกระบวนการ_การรับและแต่งตั้งอาจารย์ประจําหลักสูตร}/><br/><br/>
             <span>การปรับปรุงกระบวนการ</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1000px',height:'100px',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.การปรับปรุงกระบวนการ_การรับและแต่งตั้งอาจารย์ประจําหลักสูตร}/><br/><br/>
+            <InputTextarea  style={{ width: '80vw',height:'10vh',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.การปรับปรุงกระบวนการ_การรับและแต่งตั้งอาจารย์ประจําหลักสูตร}/><br/><br/>
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="4.1.2 การบริหารอาจารย์ประจำหลักสูตร">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="4.1.2 การบริหารอาจารย์ประจำหลักสูตร">
       <div>
             <span>ระบบกลไก</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1500px',height:'600px',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.ระบบกลไก_การบริหารอาจารย์ประจำหลักสูตร}/><br/><br/>
+            <InputTextarea style={{ width: '80vw',height:'30vh',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.ระบบกลไก_การบริหารอาจารย์ประจำหลักสูตร}/><br/><br/>
             <span>ผลการดําเนินงาน</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '100%',height:'1000px',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.ผลการดําเนินงาน_การบริหารอาจารย์ประจำหลักสูตร}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '80vw',height:'10vh',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.ผลการดําเนินงาน_การบริหารอาจารย์ประจำหลักสูตร}/><br/><br/>
             <span>การประเมินกระบวนการ</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1500px',height:'400px',fontFamily: 'Kanit, sans-serif'  }} value={dataTqf7_2.การประเมินกระบวนการ_การบริหารอาจารย์ประจำหลักสูตร}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '80vw',height:'15vh',fontFamily: 'Kanit, sans-serif'  }} value={dataTqf7_2.การประเมินกระบวนการ_การบริหารอาจารย์ประจำหลักสูตร}/><br/><br/>
             <span>การปรับปรุงกระบวนการ</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '50%' ,fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.การปรับปรุงกระบวนการ_การบริหารอาจารย์ประจำหลักสูตร}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '80vw', height:'10vh' ,fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.การปรับปรุงกระบวนการ_การบริหารอาจารย์ประจำหลักสูตร}/><br/><br/>
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="4.1.3 การส่งเสริมและพัฒนาอาจารย์ประจำหลักสูตร">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="4.1.3 การส่งเสริมและพัฒนาอาจารย์ประจำหลักสูตร">
       <div>
             <span>ระบบกลไก</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1500px',height:'350px' ,fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.ระบบกลไก_การส่งเสริมและพัฒนาอาจารย์ประจำหลักสูตร}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '80vw',height:'30vh' ,fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.ระบบกลไก_การส่งเสริมและพัฒนาอาจารย์ประจำหลักสูตร}/><br/><br/>
             <span>ผลการดําเนินงาน</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1500px',height:'400px' ,fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.ผลการดําเนินงาน_การส่งเสริมและพัฒนาอาจารย์ประจำหลักสูตร}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '80vw',height:'10vh' ,fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.ผลการดําเนินงาน_การส่งเสริมและพัฒนาอาจารย์ประจำหลักสูตร}/><br/><br/>
             <span>การประเมินกระบวนการ</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1500px',height:'200px' ,fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.การประเมินกระบวนการ_การส่งเสริมและพัฒนาอาจารย์ประจำหลักสูตร}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '80vw',height:'15vh' ,fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.การประเมินกระบวนการ_การส่งเสริมและพัฒนาอาจารย์ประจำหลักสูตร}/><br/><br/>
             <span>การปรับปรุงกระบวนการ</span><br/><br/>
-            <InputTextarea autoResize style={{ width: '1500px',height:'350px' ,fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.การปรับปรุงกระบวนการ_การส่งเสริมและพัฒนาอาจารย์ประจำหลักสูตร}/><br/><br/>
+            <InputTextarea autoResize style={{ width: '80vw',height:'10vh' ,fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_2.การปรับปรุงกระบวนการ_การส่งเสริมและพัฒนาอาจารย์ประจำหลักสูตร}/><br/><br/>
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="การประเมินตนเองจากผลการดำเนินงาน ">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="การประเมินตนเองจากผลการดำเนินงาน ">
       <div>
           <table className='TA'>
             <thead>
@@ -438,7 +462,7 @@ function TQF7_2() {
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="รายการหลักฐานอ้างอิง ">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="รายการหลักฐานอ้างอิง ">
       <div>
           <table className='TA'>
             <thead>
@@ -485,7 +509,7 @@ function TQF7_2() {
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="4.2.1 ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="4.2.1 ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก">
         <div>
         <table className='TA'>
             <thead>
@@ -531,7 +555,7 @@ function TQF7_2() {
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="4.2.2 ร้อยละของอาจารย์ประจําหลักสูตรที่ดํารงตําแหน่งทางวิชาการ ">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="4.2.2 ร้อยละของอาจารย์ประจําหลักสูตรที่ดํารงตําแหน่งทางวิชาการ ">
       <div>
         <table className='TA'>
             <thead>
@@ -577,7 +601,7 @@ function TQF7_2() {
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="4.2.3 ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="4.2.3 ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร">
         <div>
             <span>ผลการดำเนินการ</span><br/><br/>
           <table className='TA'>
@@ -807,8 +831,6 @@ function TQF7_2() {
               </tr>
             </tbody>
           </table><br/><br/>
-
-
             <span>รายการหลักฐานอ้างอิง</span><br/><br/>
             <table className='TA'>
             <thead>
@@ -821,46 +843,43 @@ function TQF7_2() {
             </thead>
             <tbody>
               <tr>
-                <td className='TD'><InputTextarea  style={{ width: '200px',height:'150px' ,fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'รหัสเอกสาร9')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '550px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '250px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '500px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อการประชุมวิชาการ1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '8vw', height:'12vh' ,fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'รหัสเอกสาร9')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '40vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อการประชุมวิชาการ1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ1')}></InputTextarea></td>
               </tr>
               <tr>
-                <td className='TD'><InputTextarea  style={{ width: '200px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_2} onChange={(e) => handleChange(e, 'รหัสเอกสาร10')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '550px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_2} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '250px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_2} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '500px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อการประชุมวิชาการ_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '8vw ',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_2} onChange={(e) => handleChange(e, 'รหัสเอกสาร10')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '40vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_2} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_2} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อการประชุมวิชาการ_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ2')}></InputTextarea></td>
               </tr>
               <tr>
-                <td className='TD'><InputTextarea  style={{ width: '200px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_3} onChange={(e) => handleChange(e, 'รหัสเอกสาร11')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '550px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_3} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์3')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '250px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_3} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม3')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '500px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อการประชุมวิชาการ_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ3')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '8vw ',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_3} onChange={(e) => handleChange(e, 'รหัสเอกสาร11')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '40vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_3} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์3')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_3} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม3')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อการประชุมวิชาการ_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ3')}></InputTextarea></td>
               </tr>
               <tr>
-                <td className='TD'><InputTextarea  style={{ width: '200px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_4} onChange={(e) => handleChange(e, 'รหัสเอกสาร12')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '550px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_4} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์4')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '250px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_4} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม4')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '500px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อการประชุมวิชาการ_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ4')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '8vw ',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_4} onChange={(e) => handleChange(e, 'รหัสเอกสาร12')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '40vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_4} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์4')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_4} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม4')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อการประชุมวิชาการ_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ4')}></InputTextarea></td>
               </tr>
               <tr>
-                <td className='TD'><InputTextarea  style={{ width: '200px',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_5} onChange={(e) => handleChange(e, 'รหัสเอกสาร13')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '550px',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_5} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์5')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '250px',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_5} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม5')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '500px',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_2.ชื่อการประชุมวิชาการ_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ5')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '8vw ',height:'12vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_5} onChange={(e) => handleChange(e, 'รหัสเอกสาร13')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '40vw',height:'12vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_5} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์5')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_5} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม5')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_2.ชื่อการประชุมวิชาการ_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ5')}></InputTextarea></td>
               </tr>
               <tr>
-                <td className='TD'><InputTextarea  style={{ width: '200px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_6} onChange={(e) => handleChange(e, 'รหัสเอกสาร14')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '550px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_6} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์6')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '250px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_6} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม6')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{ width: '500px',height:'150px' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อการประชุมวิชาการ_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ6')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '8vw ',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.รหัสเอกสาร_รายการหลักฐานอ้างอิง_ผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_6} onChange={(e) => handleChange(e, 'รหัสเอกสาร14')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '40vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อบทความวิจัยฉบับสมบูรณ์ที่ได้รับการตีพิมพ์เผยแพร่_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_6} onChange={(e) => handleChange(e, 'ชื่อบทความวิจัยฉบับสมบูรณ์6')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อเจ้าของผลงานและผู้ร่วม_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_6} onChange={(e) => handleChange(e, 'ชื่อเจ้าของผลงานและผู้ร่วม6')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{ width: '16vw',height:'12vh' ,fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.ชื่อการประชุมวิชาการ_รายการหลักฐานอ้างอิง_ข้อมูลประกอบการคำนวณผลงานทางวิชาการของอาจารย์ประจําหลักสูตร_1} onChange={(e) => handleChange(e, 'ชื่อการประชุมวิชาการ6')}></InputTextarea></td>
               </tr>
             </tbody>
           </table><br/><br/>
-
-
-
             <span>ผลการดำเนินการในภาพรวม</span><br/><br/>
             <table>
               <tr>
@@ -875,7 +894,6 @@ function TQF7_2() {
               <tr>
                 <th>ตัวหาร</th>
               </tr>
-
               <tr>
                 <td rowspan="2">4.2.1 ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก 3 ร้อยละ 40</td>
                 <td><InputText style={{width: '100%',fontFamily: 'Kanit, sans-serif',marginLeft:'10px',textAlign:'center'}} value = {dataTqf7_2.ตัวตั้ง_ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก} onChange={(e) => handleChange(e, 'ตัวตั้ง_ร้อยละของอาจารย์ประจําหลักสูตรที่มีคุณวุฒิปริญญาเอก')}></InputText></td>
@@ -933,7 +951,7 @@ function TQF7_2() {
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ผลที่เกิดกับอาจารย์ประจําหลักสูตร">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="ผลที่เกิดกับอาจารย์ประจําหลักสูตร">
         <div>
           <table className='TA'>
             <thead>
@@ -1087,7 +1105,7 @@ function TQF7_2() {
 
             <span>4.3.2 ความพึงพอใจของอาจารย์</span><br/><br/>
             
-            <InputTextarea autoResize style={{width:'1200px',height:'200px',marginTop:'10px',fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_2.ความพึงพอใจของอาจารย์_เรื่องย่อ} onChange={(e) => handleChange(e, 'ความพึงพอใจของอาจารย์_เรื่องย่อ')}/><br/><br/>
+            <InputTextarea style={{width:'80vw',height:'20vh',marginTop:'10px',fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_2.ความพึงพอใจของอาจารย์_เรื่องย่อ} onChange={(e) => handleChange(e, 'ความพึงพอใจของอาจารย์_เรื่องย่อ')}/><br/><br/>
             <span>การประเมินตนเองจากผลการดำเนินงาน</span><br/><br/>
             <table className='TA'>
             <thead>
@@ -1125,7 +1143,7 @@ function TQF7_2() {
         </div>
       </Panel><br/><br/>
       {/***********************************************/}
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="สรุปผลการประเมินตนเอง">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="สรุปผลการประเมินตนเอง">
         <div>
             <span>องค์ประกอบที่ 4 อาจารย์ประจำหลักสูตร</span>
             <table className='TA'>
@@ -1172,10 +1190,9 @@ function TQF7_2() {
               <td className='TD' colspan = "2" ><InputText style={{marginLeft:'10px',textAlign:'center',width: '100%',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_2.สรุปผลการประเมินตนเอง_คะแนนเฉลี่ยผลการดำเนินงาน_องค์ประกอบที่4} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_คะแนนเฉลี่ยผลการดำเนินงาน_องค์ประกอบที่4')}></InputText></td>
               </tr>
             </tbody>
-          </table><br/><br/>
-          <Button type="submit" style={{ marginLeft: '40%',fontFamily: 'Kanit, sans-serif' }} label="ยืนยัน" onClick={handleGenerateDocx} />
+          </table>
         </div>
-      </Panel><br/><br/>
+      </Panel>
       </ScrollPanel>
       {/***********************************************/}
     </div>

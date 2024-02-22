@@ -8,6 +8,7 @@ import axios from 'axios';
 import * as XLSX from 'xlsx';
 import IconButton from '@mui/material/IconButton';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import '../css/TQF7_3.css';
 
 function TQF7_3() {
 
@@ -1090,9 +1091,32 @@ function TQF7_3() {
 
   return (
     <form onSubmit={handleGenerateDocx}  >
-    <div style={{ width: '100%',marginLeft: '10px'}}>
-      <ScrollPanel style={{ width: '100%', height: '950px' }}>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ข้อมูลนนักศึกษา">
+    <div style={{ width: '100%',marginLeft: '10px', margin:'10px'}}>
+    <button 
+            style={{ 
+              width: "100px", 
+              backgroundColor: '#426ec7', 
+              borderRadius: '50px', 
+              border: 'none', 
+              padding: '10px', 
+              color: 'white',
+              fontWeight: 'bold',
+              fontFamily: 'Kanit, sans-serif', 
+              cursor: 'pointer', 
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+              transition: '0.3s', 
+              position: 'fixed', /* ทำให้ปุ่มลอยโดด */
+              top: '20px', /* กำหนดตำแหน่งด้านบนของหน้าจอ */
+              right: '20px', /* กำหนดตำแหน่งด้านขวาของหน้าจอ */
+              zIndex: '1000', /* กำหนดค่า z-index ให้มากกว่าค่า z-index ของ panel */
+            }} 
+            type="button" 
+            onClick={handleGenerateDocx}
+          >
+            โหลด Docx
+          </button>
+          <ScrollPanel style={{ width: "100%", height: "100vh", overflowY:'auto' }}>
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="ข้อมูลนนักศึกษา">
         {/***********************************************/}
         <div>
           <span>ตารางข้อมูลนนักศึกษา</span><br/><br/>
@@ -1197,7 +1221,7 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.1.1 การรับนักศึกษา">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="3.1.1 การรับนักศึกษา">
         {/***********************************************/}
         <div>
             <span>การรับนักศึกษา</span><br/><br/>
@@ -1213,7 +1237,7 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.1.2 การเตรียมความพร้อมก่อนเข้าศึกษา">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="3.1.2 การเตรียมความพร้อมก่อนเข้าศึกษา">
         {/***********************************************/}
         <div>
             <span>ระบบกลไก</span>
@@ -1265,7 +1289,7 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.2.1 การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="3.2.1 การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี">
         {/***********************************************/}
         <div>
             <span>การควบคุมการดูแลการให้คําปรึกษาวิชาการและแนะแนวแก่นิสิตปริญญาตรี</span>
@@ -1279,7 +1303,7 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.2.2 กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่ 21">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="3.2.2 กิจกรรมการพัฒนาศักยภาพของนิสิตและการเสริมสร้างทักษะการเรียนรู้ในศตวรรษที่ 21">
         {/***********************************************/}
         <div>
             <span>ระบบกลไก</span>
@@ -1293,7 +1317,7 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.2.3 การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์ แก่บัณฑิตศึกษา">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="3.2.3 การควบคุมดูแลการให้คําปรึกษาวิทยานิพนธ์ แก่บัณฑิตศึกษา">
         {/***********************************************/}
         <div>
             <span>การประเมินตนเองจากผลการดำเนินงาน</span>
@@ -1341,7 +1365,7 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ผลที่เกิดกับนักศึกษา">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="ผลที่เกิดกับนักศึกษา">
         {/***********************************************/}
         <div>
             <span>ข้อมูลนักศึกษา และจำนวนผู้สำเร็จการศึกษาตามแผนการศึกษาและจำนวนผู้สำเร็จการศึกษา</span><br/><br/>
@@ -1659,7 +1683,7 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="การจัดการข้อร้องเรียนของนักศึกษา">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="การจัดการข้อร้องเรียนของนักศึกษา">
         {/***********************************************/}
         <div>
             <span>ระบบกลไก</span>
@@ -1674,15 +1698,15 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.3.1 การคงอยู่">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="3.3.1 การคงอยู่">
             <span>การคงอยู่</span>
             <InputTextarea autoResize style={{ width: '100%' ,fontFamily: 'Kanit, sans-serif'}} value={dataTqf7_3.การคงอยู่_การคงอยู่} onChange={(e) => handleChange(e, 'การคงอยู่_การคงอยู่')}/>
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.3.2 การสำเร็จการศึกษา">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="3.3.2 การสำเร็จการศึกษา">
             <span>การสำเร็จการศึกษา</span><br/><br/>
             <InputTextarea autoResize style={{ width: '100%',fontFamily: 'Kanit, sans-serif' }} value={dataTqf7_3.การสำเร็จการศึกษา_การสำเร็จการศึกษา} onChange={(e) => handleChange(e, 'การสำเร็จการศึกษา_การสำเร็จการศึกษา')}/><br/><br/>
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="3.3.3 ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="3.3.3 ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา">
             <span>ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา</span><br/><br/>
             <InputTextarea autoResize style={{ width: '100%',fontFamily: 'Kanit, sans-serif' }}value={dataTqf7_3.ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา} onChange={(e) => handleChange(e, 'ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา_ความพึงพอใจและผลการจัดการข้อร้องเรียนของนักศึกษา')}/><br/><br/>
             <span>การประเมินตนเองจากผลการดำเนินงาน</span><br/><br/>
@@ -1722,7 +1746,7 @@ function TQF7_3() {
           </table><br/><br/>
       </Panel><br/><br/>
         
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ตัวบ่งชี้ที่ 2.1 คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="ตัวบ่งชี้ที่ 2.1 คุณภาพบัณฑิตตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ">
         {/***********************************************/}
         <div>
             <span>ผลการดำเนินงาน</span>
@@ -1850,7 +1874,7 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ตัวบ่งชี้ที่ 2.2 ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน 1 ปี">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="ตัวบ่งชี้ที่ 2.2 ร้อยละของบัณฑิตปริญญาตรีที่ได้งานทําหรือประกอบอาชีพอิสระภายใน 1 ปี">
         {/***********************************************/}
         <div>
             <span>ผลการดำเนินงาน</span>
@@ -1943,7 +1967,7 @@ function TQF7_3() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="สรุปผลการประเมินตนเององค์ประกอบที่ 2 บัณฑิต และองค์ประกอบที่ 3 นักศึกษา">
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="สรุปผลการประเมินตนเององค์ประกอบที่ 2 บัณฑิต และองค์ประกอบที่ 3 นักศึกษา">
         {/***********************************************/}
         <div>
             <span>องค์ประกอบที่ 2 บัณฑิต</span><br/><br/>
@@ -2043,11 +2067,10 @@ function TQF7_3() {
                 <td className='TD'><InputTextarea style={{width:"100%",marginLeft:'10px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_3.สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน} onChange={(e) => handleChange(e, 'สรุปผลการประเมินตนเอง_รายการหลักฐานอ้างอิง_รายการเอกสารหลักฐาน')}/></td>
               </tr>
             </tbody>
-          </table><br/><br/>
-          <Button type="submit" style={{ marginLeft: '40%',fontFamily: 'Kanit, sans-serif' }} label="ยืนยัน"/>
+          </table>
         </div>
         {/***********************************************/}
-      </Panel><br/><br/>
+      </Panel>
       </ScrollPanel>
     </div>
     </form>
