@@ -6,7 +6,7 @@ import { Dropdown } from "primereact/dropdown";
 import { Checkbox } from "primereact/checkbox";
 import { ScrollPanel } from "primereact/scrollpanel";
 import { InputTextarea } from "primereact/inputtextarea";
-import './Meeting_report_training_seminar_study_visit_report_form.css';
+import '../css/Meeting_report_training_seminar_study_visit_report_form.css';
 
 
 function Meeting_report_training_seminar_study_visit_report_form() {

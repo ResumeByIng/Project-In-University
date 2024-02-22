@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Toast } from 'primereact/toast';
-import { Button } from 'primereact/button';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import { FaExclamationCircle, FaUserAlt, FaLock } from 'react-icons/fa';
-import './Login.css';
-import myImage1 from './ce.png';
+import { FaLock } from 'react-icons/fa';
+import '../css/Login.css';
+import myImage1 from '../images/ce.png';
 import RegisterDialog from './RegisterDialog';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -13,7 +12,6 @@ import withReactContent from 'sweetalert2-react-content'
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [visible, setVisible] = useState(false);
   const [registerDialogVisible, setRegisterDialogVisible] = useState(false);
   const [showOTPForm, setShowOTPForm] = useState(false);
   const [otp, setOTP] = useState('');

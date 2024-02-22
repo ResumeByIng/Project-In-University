@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
-import './RegisterDialog.css';
+import '../css/RegisterDialog.css';
 import axios from 'axios';
 import { Dropdown } from 'primereact/dropdown';
 

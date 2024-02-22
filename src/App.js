@@ -1,32 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+//////////////////////////////////  ALL //////////////////////////////////////////////
 import Sidebar from "./components/Sidebar";
-import TQF7_0 from "./pages/TQF7_0";
-import TQF7_1 from "./pages/TQF7_1";
-import TQF7_2 from "./pages/TQF7_2";
-import TQF7_3 from "./pages/TQF7_3";
-import Extrapoints from "./pages/Extrapoints";
-import AddAssessment from './pages/AddAssessment'; 
-import Assessment from "./pages/Assessment";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import HP_professor from './pages/HP_professor'
-import HP_Student from "./pages/HP_Student";
-import Data_Student from "./pages/Data_Student";
-import Data_professor from "./pages/Data_professor";
-import Daily_activities from "./pages/Daily_activities";
-import Complaint from "./pages/Complaint"
-import Meeting from "./pages/Meeting";
-import CheckExtrapoints from './pages/CheckExtrapoints';
-import Registerbyadmin from './pages/Registerbyadminna' ;
-import CheckComplaint from "./pages/CheckComplaint";
-import Data_Graduate from './pages/DataGraduate';
-import Data_AllUser from "./pages/DataAllUser";
-import Meeting_report_training_seminar_study_visit_report_form from "./pages/Meeting_report_training_seminar_study_visit_report_form";
-import Agenda from "./pages/Agenda";
-import Research from "./pages/Research";
-import ProjectList from "./pages/ProjectList";
-import EditDataAllUser from "./pages/EditDataAllUser";
+import Home from "./pages/pages main/js/Home";
+import Login from "./pages/pages main/js/Login";
+//////////////////////////////////  PROFESSOR ////////////////////////////////////////
+import TQF7_0 from "./pages/pages Role : อาจารย์(2)/js/TQF7_0";
+import TQF7_1 from "./pages/pages Role : อาจารย์(2)/js/TQF7_1";
+import TQF7_2 from "./pages/pages Role : อาจารย์(2)/js/TQF7_2";
+import TQF7_3 from "./pages/pages Role : อาจารย์(2)/js/TQF7_3";
+import AddAssessment from './pages/pages Role : อาจารย์(2)/js/AddAssessment';
+import HP_professor from './pages/pages Role : อาจารย์(2)/js/HP_professor'
+import Data_professor from "./pages/pages Role : อาจารย์(2)/js/Data_professor";
+import Meeting_report_training_seminar_study_visit_report_form from "./pages/pages Role : อาจารย์(2)/js/Meeting_report_training_seminar_study_visit_report_form";
+import Agenda from "./pages/pages Role : อาจารย์(2)/js/Agenda";
+import Research from "./pages/pages Role : อาจารย์(2)/js/Research";
+import ProjectList from "./pages/pages Role : อาจารย์(2)/js/ProjectList";
+// import Meeting from "./pages/pages Role : อาจารย์(2)/js/Meeting";
+import CheckExtrapoints from './pages/pages Role : อาจารย์(2)/js/CheckExtrapoints';
+import CheckComplaint from "./pages/pages Role : อาจารย์(2)/js/CheckComplaint";
+import Data_AllUser from "./pages/pages Role : อาจารย์(2)/js/DataAllUser";
+//////////////////////////////////  STUDENT //////////////////////////////////////////
+import Extrapoints from "./pages/pages Role : นักเรียน(1)/js/Extrapoints";
+import Assessment from "./pages/pages Role : นักเรียน(1)/js/Assessment";
+import HP_Student from "./pages/pages Role : นักเรียน(1)/js/HP_Student";
+import Data_Student from "./pages/pages Role : นักเรียน(1)/js/Data_Student";
+import Complaint from "./pages/pages Role : นักเรียน(1)/js/Complaint"
+//////////////////////////////////  GRADUATE /////////////////////////////////////////
+import Data_Graduate from './pages/pages Role : บัณฑิต(3)/js/DataGraduate';
+//////////////////////////////////  ADMIN ////////////////////////////////////////////
+import Registerbyadmin from './pages/pages Role : แอดมิน(4)/js/Registerbyadminna' ;
+import EditDataAllUser from "./pages/pages Role : แอดมิน(4)/js/EditDataAllUser";
+
+// import Daily_activities from "./pages/Daily_activities";
 
 
 function App() {
@@ -69,8 +75,8 @@ function App() {
           <Route path="/HP_Student" element={parseInt(user) === 1 ? <HP_Student /> : <Navigate to="/home" />} />
           <Route path="/Data_Student" element={parseInt(user) === 1 ? <Data_Student /> : <Navigate to="/home" />} />
           <Route path="/Data_professor" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Data_professor /> : <Navigate to="/home" />} />
-          <Route path="/Daily_activities" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Daily_activities /> : <Navigate to="/home" />} />
-          <Route path="/Meeting" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Meeting /> : <Navigate to="/home" />} />
+          {/* <Route path="/Daily_activities" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Daily_activities /> : <Navigate to="/home" />} /> */}
+          {/* <Route path="/Meeting" element={parseInt(user) === 2 || parseInt(user) === 4 ? <Meeting /> : <Navigate to="/home" />} /> */}
           <Route path="/Complaint" element={parseInt(user) === 1 ? <Complaint /> : <Navigate to="/home" />} />
           <Route path="/CheckComplaint" element={parseInt(user) === 2 || parseInt(user) === 4 ? <CheckComplaint /> : <Navigate to="/home" />} />
           <Route path="/CheckExtrapoints" element={parseInt(user) === 2 || parseInt(user) === 4 ? <CheckExtrapoints /> : <Navigate to="/home" />} />

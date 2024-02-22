@@ -4,7 +4,7 @@ import { Panel } from 'primereact/panel';
 import { ScrollPanel } from 'primereact/scrollpanel';
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
-import './Agenda.css';
+import '../css/Agenda.css';
 import { Dropdown } from 'primereact/dropdown';
 
 

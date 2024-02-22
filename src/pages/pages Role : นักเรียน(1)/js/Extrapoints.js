@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Button } from "primereact/button";
-import { ExtrapointsService } from "../data/ExtrapointsService";
+import { ExtrapointsService } from "../../../data/ExtrapointsService";
 import { FileUpload } from "primereact/fileupload";
 import { ScrollPanel } from "primereact/scrollpanel";
 import axios from "axios";

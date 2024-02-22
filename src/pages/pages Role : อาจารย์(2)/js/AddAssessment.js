@@ -6,7 +6,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Toast } from 'primereact/toast';
 import axios from 'axios';
-import './AddAssessment.css';
+import '../css/AddAssessment.css';
 
 const AddAssessment = () => {
   
