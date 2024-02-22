@@ -97,7 +97,7 @@ function Data_professor() {
   };
 
   return (
-    <div style={{ width: '100%',height:'100%', marginLeft: '20px', marginTop: '50px' }}>
+    <div style={{ width: '100%',height:'100%', marginLeft: '20px', marginTop: '50px',marginRight:'20px' }}>
       <div className='grid'>
         <div className='col'>
           <DataTable style={{ fontFamily: 'Kanit, sans-serif',fontSize:'20px' }} value={professorData}>
@@ -216,7 +216,7 @@ function Data_professor() {
           )}
         </Dialog>
       </div>
-      <button style={{ width: '200px', marginTop: '10px' }} onClick={() => handleEditClick(userData)}>
+      <button raised severity="success" style={{ background:'green', width: '200px', marginTop: '10px' }} onClick={() => handleEditClick(userData)}>
         แก้ไขข้อมูลส่วนตัว
       </button>
     </div>

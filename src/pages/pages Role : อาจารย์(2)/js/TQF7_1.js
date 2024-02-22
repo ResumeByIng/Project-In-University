@@ -8,7 +8,9 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { InputText } from 'primereact/inputtext';
 import { ScrollPanel } from 'primereact/scrollpanel';
 import axios from 'axios';
-import { Button } from 'primereact/button';
+import '../css/TQF7_1.css';
+
+
 
 function TQF7_1() {
 
@@ -130,14 +132,38 @@ function TQF7_1() {
   
       return (
         <form onSubmit={handleGenerateDocx}  >
-        <div style={{ width: '100%',marginLeft: '10px' }}>
-            <ScrollPanel style={{ width: '100%', height: '950px' }}>
-            <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="รหัสหลักสูตร">
+        <div style={{ width: '100%',marginLeft: '10px', marginRight:'10px' }}>
+        <button 
+            style={{ 
+              width: "100px", 
+              backgroundColor: '#426ec7', 
+              borderRadius: '50px', 
+              border: 'none', 
+              padding: '10px', 
+              color: 'white',
+              fontWeight: 'bold',
+              fontFamily: 'Kanit, sans-serif', 
+              cursor: 'pointer', 
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+              transition: '0.3s', 
+              position: 'fixed', /* ทำให้ปุ่มลอยโดด */
+              top: '20px', /* กำหนดตำแหน่งด้านบนของหน้าจอ */
+              right: '20px', /* กำหนดตำแหน่งด้านขวาของหน้าจอ */
+              zIndex: '1000', /* กำหนดค่า z-index ให้มากกว่าค่า z-index ของ panel */
+            }} 
+            type="button" 
+            onClick={handleGenerateDocx}
+          >
+            โหลด Docx
+          </button>
+        <ScrollPanel style={{ width: "100%", height: "100vh", overflowY:'auto' }}>
+            <Panel className="mypanel" toggleable style={{ fontFamily: 'Kanit, sans-serif'}} header="รหัสหลักสูตร" >
             {/***********************************************/}
             <div style={{ marginBottom: '10px' }}>
                 <span>รหัสหลักสูตร</span>
                 <InputText value={dataTqf7_1.รหัสหลักสูตร} 
-                style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' ,width:'50%',textAlign:'center',fontFamily: 'Kanit, sans-serif'}}
+                disabled
+                style={{ marginLeft: '10px',marginRight: '10px', padding: '5px', borderRadius: '3px', border: '1px solid #ccc' ,width:'15vw',textAlign:'center',fontFamily: 'Kanit, sans-serif'}}
                 /><br/><br/>
                 <span>วัตถุประสงค์ของหลักสูตร</span>
                 <InputTextarea value={dataTqf7_1.วัตถุประสงค์ของหลักสูตร}
@@ -152,7 +178,7 @@ function TQF7_1() {
             </div>
             {/***********************************************/}
           </Panel><br/><br/>
-          <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="รายชื่ออาจารย์ผู้รับผิดชอบหลักสูตร">
+          <Panel className="mypanel" toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="รายชื่ออาจารย์ผู้รับผิดชอบหลักสูตร">
             {/***********************************************/}
             <div>
               <table className='TA'>
@@ -165,36 +191,36 @@ function TQF7_1() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'250px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตามมคอ2_1} onChange={(e) => handleChange(e, 'ตามมคอ2_1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'100%',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชุดปัจจุบัน1} onChange={(e) => handleChange(e, 'ระดับคุณภาพ1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'100%',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.หมายเหตุ8} onChange={(e) => handleChange(e, 'หมายเหตุ8')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif'  }} value = {dataTqf7_1.ตามมคอ2_1} onChange={(e) => handleChange(e, 'ตามมคอ2_1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชุดปัจจุบัน1} onChange={(e) => handleChange(e, 'ระดับคุณภาพ1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'50vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.หมายเหตุ8} onChange={(e) => handleChange(e, 'หมายเหตุ8')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'250px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตามมคอ2_2} onChange={(e) => handleChange(e, 'ตามมคอ2_2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'100%',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชุดปัจจุบัน2} onChange={(e) => handleChange(e, 'ชุดปัจจุบัน2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'100%',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.หมายเหตุ9} onChange={(e) => handleChange(e, 'หมายเหตุ9')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif'  }} value = {dataTqf7_1.ตามมคอ2_2} onChange={(e) => handleChange(e, 'ตามมคอ2_2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชุดปัจจุบัน2} onChange={(e) => handleChange(e, 'ชุดปัจจุบัน2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'50vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.หมายเหตุ9} onChange={(e) => handleChange(e, 'หมายเหตุ9')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'250px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตามมคอ2_3} onChange={(e) => handleChange(e, 'ตามมคอ2_3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'100%',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชุดปัจจุบัน3} onChange={(e) => handleChange(e, 'ชุดปัจจุบัน3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'100%',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.หมายเหตุ10} onChange={(e) => handleChange(e, 'หมายเหตุ10')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif'  }} value = {dataTqf7_1.ตามมคอ2_3} onChange={(e) => handleChange(e, 'ตามมคอ2_3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชุดปัจจุบัน3} onChange={(e) => handleChange(e, 'ชุดปัจจุบัน3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'50vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.หมายเหตุ10} onChange={(e) => handleChange(e, 'หมายเหตุ10')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'250px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตามมคอ2_4} onChange={(e) => handleChange(e, 'ตามมคอ2_4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'100%',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชุดปัจจุบัน4} onChange={(e) => handleChange(e, 'ชุดปัจจุบัน4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'100%',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.หมายเหตุ11} onChange={(e) => handleChange(e, 'หมายเหตุ11')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif'  }} value = {dataTqf7_1.ตามมคอ2_4} onChange={(e) => handleChange(e, 'ตามมคอ2_4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชุดปัจจุบัน4} onChange={(e) => handleChange(e, 'ชุดปัจจุบัน4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{ width:'50vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.หมายเหตุ11} onChange={(e) => handleChange(e, 'หมายเหตุ11')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'250px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตามมคอ2_5} onChange={(e) => handleChange(e, 'ตามมคอ2_5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'100%',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชุดปัจจุบัน5} onChange={(e) => handleChange(e, 'ชุดปัจจุบัน5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea autoResize style={{ width:'100%',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.หมายเหตุ12} onChange={(e) => handleChange(e, 'หมายเหตุ12')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif'  }} value = {dataTqf7_1.ตามมคอ2_5} onChange={(e) => handleChange(e, 'ตามมคอ2_5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชุดปัจจุบัน5} onChange={(e) => handleChange(e, 'ชุดปัจจุบัน5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'50vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.หมายเหตุ12} onChange={(e) => handleChange(e, 'หมายเหตุ12')}></InputTextarea></td>
                   </tr>
                 </tbody>
               </table>
             </div>
             {/***********************************************/}
           </Panel><br/><br/>
-          <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="คุณวุฒิอาจารย์ผู้รับผิดชอบหลักสูตร">
+          <Panel className="mypanel" toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="คุณวุฒิอาจารย์ผู้รับผิดชอบหลักสูตร">
             {/***********************************************/}
             <div>
               <table className='TA'>
@@ -209,40 +235,40 @@ function TQF7_1() {
                 <tbody>
                   <tr>
                   <td className='TD'>1</td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'130px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชื่อ_นามสกุล1} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'130px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตำแหน่งทางวิชาการ1} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'130px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา1} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'13vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชื่อ_นามสกุล1} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตำแหน่งทางวิชาการ1} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'50vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา1} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา1')}></InputTextarea></td>
                   </tr>
                   <tr>
                     <td className='TD'>2</td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชื่อ_นามสกุล2} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตำแหน่งทางวิชาการ2} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา2} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'13vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชื่อ_นามสกุล2} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตำแหน่งทางวิชาการ2} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'50vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา2} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา2')}></InputTextarea></td>
                   </tr>
                   <tr>
                     <td className='TD'>3</td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชื่อ_นามสกุล3} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตำแหน่งทางวิชาการ3} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา3} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'13vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชื่อ_นามสกุล3} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตำแหน่งทางวิชาการ3} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'50vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา3} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา3')}></InputTextarea></td>
                   </tr>
                   <tr>
                     <td className='TD'>4</td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'120px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชื่อ_นามสกุล4} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'120px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตำแหน่งทางวิชาการ4} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'120px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา4} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'13vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชื่อ_นามสกุล4} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตำแหน่งทางวิชาการ4} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'50vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา4} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา4')}></InputTextarea></td>
                   </tr>
                   <tr>
                     <td className='TD'>5</td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชื่อ_นามสกุล5} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตำแหน่งทางวิชาการ5} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{ width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา5} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'13vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ชื่อ_นามสกุล5} onChange={(e) => handleChange(e, 'ชื่อ_นามสกุล5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ตำแหน่งทางวิชาการ5} onChange={(e) => handleChange(e, 'ตำแหน่งทางวิชาการ5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea autoResize style={{width:'50vw',height:'5vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_สาขาวิชา5} onChange={(e) => handleChange(e, 'คุณวุฒิ_สาขาวิชา5')}></InputTextarea></td>
                   </tr>
                 </tbody>
               </table>
             </div>
             {/***********************************************/}
           </Panel><br/><br/>
-          <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="รายชื่ออาจารย์ผู้สอน">
+          <Panel className="mypanel" toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="รายชื่ออาจารย์ผู้สอน">
             {/***********************************************/}
             <div>
               <table className='TA'>
@@ -255,36 +281,36 @@ function TQF7_1() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className='TD'><InputTextarea  style={{width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_1} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_1} onChange={(e) => handleChange(e, 'คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'100%',fontFamily: 'Kanit, sans-serif' ,width:'1000px',height:'100px'}} value = {dataTqf7_1.ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_1} onChange={(e) => handleChange(e, 'ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_1} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_1} onChange={(e) => handleChange(e, 'คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'50vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_1} onChange={(e) => handleChange(e, 'ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_1')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea  style={{width:'100%',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_2} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'100%',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_2} onChange={(e) => handleChange(e, 'คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'100%',fontFamily: 'Kanit, sans-serif' ,width:'1000px',height:'150px'}} value = {dataTqf7_1.ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_2} onChange={(e) => handleChange(e, 'ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_2} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_2} onChange={(e) => handleChange(e, 'คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'50vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_2} onChange={(e) => handleChange(e, 'ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_2')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea  style={{width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_3} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'100%',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_3} onChange={(e) => handleChange(e, 'คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'100%',fontFamily: 'Kanit, sans-serif' ,width:'1000px',height:'100px'}} value = {dataTqf7_1.ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_3} onChange={(e) => handleChange(e, 'ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_3} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_3} onChange={(e) => handleChange(e, 'คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'50vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_3} onChange={(e) => handleChange(e, 'ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_3')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea  style={{width:'100%',height:'220px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_4} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'100%',height:'220px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_4} onChange={(e) => handleChange(e, 'คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'100%',fontFamily: 'Kanit, sans-serif' ,width:'1000px',height:'220px'}} value = {dataTqf7_1.ประสบการณ์วิจัย4} onChange={(e) => handleChange(e, 'ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_4} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_4} onChange={(e) => handleChange(e, 'คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'50vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ประสบการณ์วิจัย4} onChange={(e) => handleChange(e, 'ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_4')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea  style={{width:'100%',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_5} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'100%',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_5} onChange={(e) => handleChange(e, 'คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'100%',fontFamily: 'Kanit, sans-serif' ,width:'1000px',height:'150px'}} value = {dataTqf7_1.ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_5} onChange={(e) => handleChange(e, 'ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_5} onChange={(e) => handleChange(e, 'อาจารย์ผู้สอน_รายชื่ออาจารย์ผู้สอน_5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_5} onChange={(e) => handleChange(e, 'คุณวุฒิ_รายชื่ออาจารย์ผู้สอน_5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'50vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_5} onChange={(e) => handleChange(e, 'ประสบการณ์วิจัย_รายชื่ออาจารย์ผู้สอน_5')}></InputTextarea></td>
                   </tr>
                 </tbody>
               </table>
             </div>
             {/***********************************************/}
           </Panel><br/><br/>
-          <Panel style={{ fontFamily: 'Kanit, sans-serif' }}header="องค์ประกอบที่ 1 การกำกับมาตรฐาน">
+          <Panel className="mypanel" toggleable style={{ fontFamily: 'Kanit, sans-serif' }}header="องค์ประกอบที่ 1 การกำกับมาตรฐาน">
           <span>ตัวบ่งชี้ที่ 1.1  การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา</span><br/><br/>
             {/***********************************************/}
             <div>
@@ -298,29 +324,29 @@ function TQF7_1() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className='TD'><InputTextarea  style={{width:'300px',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'800px',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'450px',height:'150px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'50vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_1')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea  style={{width:'300px',height:'1000px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'800px',height:'1000px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'450px',height:'1000px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea style={{width:'50vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_2')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea  style={{width:'300px',height:'120px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'800px',height:'120px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'450px',height:'120px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'50vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_3')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea  style={{width:'300px',height:'140px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'800px',height:'140px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'450px',height:'140px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'50vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_4')}></InputTextarea></td>
                   </tr>
                   <tr>
-                    <td className='TD'><InputTextarea  style={{width:'300px',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'800px',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5')}></InputTextarea></td>
-                    <td className='TD'><InputTextarea  style={{width:'450px',height:'100px',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5} onChange={(e) => handleChange(e, 'เกณฑ์การประเมิน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5')}></InputTextarea></td>
+                    <td className='TD'><InputTextarea  style={{width:'50vw',height:'20vh',fontFamily: 'Kanit, sans-serif' }} value = {dataTqf7_1.เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5} onChange={(e) => handleChange(e, 'เอกสารหลักฐาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา_5')}></InputTextarea></td>
                   </tr>
                 </tbody>
               </table>
@@ -328,9 +354,7 @@ function TQF7_1() {
                 <br/><br/>
                 <span>ผลการดำเนินงาน</span>
                 <br/><br/>
-                <InputTextarea  style={{width:'700px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_1.สรุปผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา} onChange={(e) => handleChange(e, 'สรุปผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา')}> </InputTextarea><br/><br/>
-                
-              <Button type="submit" style={{ marginLeft: '40%',marginTop:'0%',fontFamily: 'Kanit, sans-serif'}} label="ยืนยัน" onClick={handleGenerateDocx} />
+                <InputTextarea  autoResize style={{width:'700px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_1.สรุปผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา} onChange={(e) => handleChange(e, 'สรุปผลการดำเนินงาน_การบริหารจัดการหลักสูตรตามเกณฑ์มาตรฐานหลักสูตรที่กําหนดโดยสํานักงานคณะกรรมการการอุดมศึกษา')}> </InputTextarea><br/><br/>
             </div>
             {/***********************************************/}
           </Panel><br/><br/>

@@ -102,7 +102,30 @@ function Research() {
     return (
         <form onSubmit={handleGenerateDocx}>
           <div style={{ width: "1600px", marginLeft: "10px" }}>
-          <ScrollPanel style={{ width: "100%", height: "1000px" }}>
+          <button 
+            style={{ 
+              width: "100px", 
+              backgroundColor: '#426ec7', 
+              borderRadius: '50px', 
+              border: 'none', 
+              padding: '10px', 
+              color: 'white',
+              fontWeight: 'bold',
+              fontFamily: 'Kanit, sans-serif', 
+              cursor: 'pointer', 
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+              transition: '0.3s', 
+              position: 'fixed', /* ทำให้ปุ่มลอยโดด */
+              top: '20px', /* กำหนดตำแหน่งด้านบนของหน้าจอ */
+              right: '20px', /* กำหนดตำแหน่งด้านขวาของหน้าจอ */
+              zIndex: '1000', /* กำหนดค่า z-index ให้มากกว่าค่า z-index ของ panel */
+            }} 
+            type="button" 
+            onClick={handleGenerateDocx}
+          >
+            โหลด Docx
+          </button>
+          <ScrollPanel style={{ width: "100%", height: "100vh", overflowY:'auto' }}>
               {/*///////////////////////////////////////////////////////////////*/}
               <Panel
                 style={{ fontFamily: "Kanit, sans-serif" }}
@@ -286,9 +309,6 @@ function Research() {
                       style={{ fontFamily: "Kanit, sans-serif",width:'500px',height:'200px' }}
                     />
                   </div>
-                  <button style={{ width: "100px",marginLeft:'1300px',backgroundColor:'green' }} type="button" onClick={handleGenerateDocx}>
-                    ยืนยัน            
-                  </button>
                 </div>
               </Panel><br/>
     {/*///////////////////////////////////////////////////////////////*/}

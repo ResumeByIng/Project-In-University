@@ -144,7 +144,30 @@ function TQF7_0() {
   return (
     <form onSubmit={handleGenerateDocx}  >
     <div style={{ width: '1600px',marginLeft: '10px'}}>
-      <ScrollPanel style={{ width: '100%', height: '950px' }}>
+    <ScrollPanel style={{ width: "100%", height: "100vh", overflowY:'auto' }}>
+    <button 
+            style={{ 
+              width: "100px", 
+              backgroundColor: '#426ec7', 
+              borderRadius: '50px', 
+              border: 'none', 
+              padding: '10px', 
+              color: 'white',
+              fontWeight: 'bold',
+              fontFamily: 'Kanit, sans-serif', 
+              cursor: 'pointer', 
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+              transition: '0.3s', 
+              position: 'fixed', /* ทำให้ปุ่มลอยโดด */
+              top: '20px', /* กำหนดตำแหน่งด้านบนของหน้าจอ */
+              right: '20px', /* กำหนดตำแหน่งด้านขวาของหน้าจอ */
+              zIndex: '1000', /* กำหนดค่า z-index ให้มากกว่าค่า z-index ของ panel */
+            }} 
+            type="button" 
+            onClick={handleGenerateDocx}
+          >
+            โหลด Docx
+          </button>
       <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="สร้างผลการดำเนินงาน">
         {/***********************************************/}
       <div className="field col-12 md:col-4">
@@ -435,8 +458,6 @@ function TQF7_0() {
               </tr>
             </tbody>
           </table>
-          <br/><br/>
-          <Button type="submit" style={{ marginLeft: '40%' ,fontFamily: 'Kanit, sans-serif'}} label="ยืนยัน" onClick={handleGenerateDocx} />
         </div>
         {/***********************************************/}
       </Panel>

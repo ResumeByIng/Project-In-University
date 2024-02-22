@@ -1,0 +1,15 @@
+
+.mypanel .p-panel-header {
+    background-image: linear-gradient(to right, #bc3345,  #505050) !important; /* ไล่เฉดสีจากเลือดหมูไปขาว */
+    color: #ffffff !important; /* สีของตัวหนังสือเป็นสีขาว */
+}
+
+.mypanel {
+    width: 96.5%; /* กำหนดความกว้างของพาเนลให้เท่ากับ 50% ของหน้าจอ */
+    /* max-width: 500px; กำหนดความกว้างสูงสุดของพาเนลเป็น 500px */
+}
+
+.mypanel .p-panel-content {
+    background-color: #ffe4e8 !important; /* สีพื้นหลังของเนื้อความ */
+    padding: 20px; /* การเพิ่มระยะห่างระหว่างขอบและเนื้อความ */
+}
