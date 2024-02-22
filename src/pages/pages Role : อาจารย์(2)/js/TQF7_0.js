@@ -4,13 +4,12 @@ import 'primereact/resources/themes/saga-blue/theme.css'; // เลือก the
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { Panel } from 'primereact/panel';
-// import { Calendar } from 'primereact/calendar';
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
-import { Button } from 'primereact/button';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ScrollPanel } from 'primereact/scrollpanel';
 import axios from 'axios';
+import '../css/TQF7_0.css';
 
 function TQF7_0() {
 
@@ -143,8 +142,7 @@ function TQF7_0() {
 
   return (
     <form onSubmit={handleGenerateDocx}  >
-    <div style={{ width: '1600px',marginLeft: '10px'}}>
-    <ScrollPanel style={{ width: "100%", height: "100vh", overflowY:'auto' }}>
+    <div style={{ width: '100%',marginLeft: '10px', marginRight:'10px'}}>
     <button 
             style={{ 
               width: "100px", 
@@ -168,7 +166,8 @@ function TQF7_0() {
           >
             โหลด Docx
           </button>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="สร้างผลการดำเนินงาน">
+    <ScrollPanel style={{ width: "100%", height: "100vh", overflowY:'auto' }}>
+      <Panel className='mypanel' toggleable style={{ fontFamily: 'Kanit, sans-serif' }} header="สร้างผลการดำเนินงาน">
         {/***********************************************/}
       <div className="field col-12 md:col-4">
         <div style={{ marginBottom: '10px' }}>
@@ -199,7 +198,7 @@ function TQF7_0() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="เลือกหลักสูตร">
+      <Panel className='mypanel' toggleable  style={{ fontFamily: 'Kanit, sans-serif' }} header="เลือกหลักสูตร">
         {/***********************************************/}
         <div style={{ marginBottom: '20px' }}>
           <label>ชื่อหลักสูตร(ภาษาไทย)</label>
@@ -257,7 +256,7 @@ function TQF7_0() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="บทสรุปผู้บริหาร">
+      <Panel className='mypanel' toggleable  style={{ fontFamily: 'Kanit, sans-serif' }} header="บทสรุปผู้บริหาร">
         {/***********************************************/}
         <div style={{ display: 'flex', alignItems: 'flex-start'}}>
             <InputTextarea 
@@ -271,7 +270,7 @@ function TQF7_0() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="สรุปผลการประเมินตนเองตามองค์ประกอบ">
+      <Panel className='mypanel' toggleable  style={{ fontFamily: 'Kanit, sans-serif' }} header="สรุปผลการประเมินตนเองตามองค์ประกอบ">
         {/***********************************************/}
         <div>
           <table className='TA'>
@@ -331,7 +330,7 @@ function TQF7_0() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="คำนำ">
+      <Panel className='mypanel' toggleable  style={{ fontFamily: 'Kanit, sans-serif' }} header="คำนำ">
         {/***********************************************/}
         <div style={{ display: 'flex', alignItems: 'flex-start',marginBottom: '20px' ,fontFamily: 'Kanit, sans-serif'}}>
         <label>คำนำ</label>
@@ -357,7 +356,7 @@ function TQF7_0() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ประวัติความเป็นมาของหลักสูตร">
+      <Panel className='mypanel' toggleable  style={{ fontFamily: 'Kanit, sans-serif' }} header="ประวัติความเป็นมาของหลักสูตร">
         {/***********************************************/}
         <div style={{ display: 'flex', alignItems: 'flex-start' }}>
           <InputTextarea 
@@ -371,90 +370,90 @@ function TQF7_0() {
         </div>
         {/***********************************************/}
       </Panel><br/><br/>
-      <Panel style={{ fontFamily: 'Kanit, sans-serif' }} header="ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา">
+      <Panel className='mypanel' toggleable  style={{ fontFamily: 'Kanit, sans-serif' }} header="ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา">
         {/***********************************************/}
         <div>
           <table className='TA'>
             <thead>
               <tr>
-                <th className='TH'>จุดแข็ง แนวทางเสริมจุดแข็ง จุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ ปีการศึกษา 2564</th>
-                <th className='TH'>องค์ประกอบ/ตัวบ่งชี้/เกณฑ์การประเมิน</th>
-                <th className='TH'>การดำเนินการ/กิจกรรม/โครงการ</th>
-                <th className='TH'>ผลการดำเนินงาน</th>
+                <th className='TH' style={{width:'20vw',height:'5vh',fontFamily: 'Kanit, sans-serif'}} >จุดแข็ง แนวทางเสริมจุดแข็ง จุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ ปีการศึกษา 2564</th>
+                <th className='TH' style={{width:'15vw',height:'5vh',fontFamily: 'Kanit, sans-serif'}} >องค์ประกอบ/ตัวบ่งชี้/เกณฑ์การประเมิน</th>
+                <th className='TH' style={{width:'24vw',height:'5vh',fontFamily: 'Kanit, sans-serif'}} >การดำเนินการ/กิจกรรม/โครงการ</th>
+                <th className='TH' style={{width:'20vw',height:'5vh',fontFamily: 'Kanit, sans-serif'}} >ผลการดำเนินงาน</th>
               </tr>
             </thead>
             <tbody>
             องค์ประกอบที่ 1 การกำกับมาตรฐาน
               <tr>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'20vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'15vw',height:'20vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'24vw',height:'20vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'20vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_1')}></InputTextarea></td>
               </tr>
             องค์ประกอบที่ 2  บัณฑิต
               <tr>
-                <td className='TD'><InputTextarea style={{width:'100%',height:'150px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea style={{width:'100%',height:'150px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea style={{width:'100%',height:'150px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea style={{width:'100%',height:'150px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea style={{width:'15vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea style={{width:'24vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_2')}></InputTextarea></td>
               </tr>
             องค์ประกอบที่ 3 นักศึกษา
               <tr>
-                <td className='TD'><InputTextarea style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea style={{width:'15vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea style={{width:'24vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_1')}></InputTextarea></td>
               </tr>
               <tr>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'15vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'24vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_3_2')}></InputTextarea></td>
               </tr>
             องค์ประกอบที่ 4 อาจารย์
               <tr>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'15vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'24vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_1')}></InputTextarea></td>
               </tr>
               <tr>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'15vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'24vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_4_2')}></InputTextarea></td>
               </tr>
             องค์ประกอบที่ 5 หลักสูตร การเรียนการสอน  การประเมินผู้เรียน
               <tr>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'15vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'24vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_1')}></InputTextarea></td>
               </tr>
               <tr>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'300px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'300px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'300px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'300px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'15vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'24vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_2')}></InputTextarea></td>
               </tr>
               <tr>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'15vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'24vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_3')}></InputTextarea></td>
               </tr> 
               <tr>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'200px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'15vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'24vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_5_4')}></InputTextarea></td>
               </tr>
             6. สิ่งสนับสนุนการเรียนรู้
               <tr>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6')}></InputTextarea></td>
-                <td className='TD'><InputTextarea  style={{width:'100%',height:'250px',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6} onChange={(e) => handleChange(e, 'จุดแข็งแนวทางเสริมจุดแข็งจุดที่ควรพัฒนาและข้อเสนอแนะของคณะกรรมการประเมินฯ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'15vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6} onChange={(e) => handleChange(e, 'องค์ประกอบตัวบ่งชี้เกณฑ์การประเมิน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'24vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6} onChange={(e) => handleChange(e, 'การดำเนินการกิจกรรมโครงการ_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6')}></InputTextarea></td>
+                <td className='TD'><InputTextarea  style={{width:'20vw',height:'30vh',fontFamily: 'Kanit, sans-serif'}} value = {dataTqf7_0.ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6} onChange={(e) => handleChange(e, 'ผลการดำเนินงาน_การกำกับมาตรฐาน_ผลการปรับปรุงตามข้อเสนอแนะของผลการประเมินปีที่ผ่านมา_6')}></InputTextarea></td>
               </tr>
             </tbody>
           </table>
