@@ -1,0 +1,32 @@
+.mypanel .p-panel-header {
+    background-image: linear-gradient(to right, #bc3345,  #505050) !important; /* ไล่เฉดสีจากเลือดหมูไปขาว */
+    color: #ffffff !important; /* สีของตัวหนังสือเป็นสีขาว */
+}
+
+.mypanel {
+    width: 99.5%;
+}
+
+.mypanel .p-panel-content {
+    background-color: #ffe4e8 !important; /* สีพื้นหลังของเนื้อความ */
+    padding: 20px; /* การเพิ่มระยะห่างระหว่างขอบและเนื้อความ */
+}
+
+.mybutton {
+    width: 100px;
+    background-color: #426ec7; /* แก้ไขจาก backgroundColor เป็น background-color */
+    border-radius: 50px; 
+    border: none; 
+    padding: 10px;
+    color: white;
+    font-weight: bold; /* แก้ไขจาก fontWeight เป็น font-weight */
+    font-family: Kanit, sans-serif; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* แก้ไขจาก boxShadow เป็น box-shadow */
+    transition: 0.3s;
+    position: fixed; /* ทำให้ปุ่มลอยโดด */
+    top: 20px; /* กำหนดตำแหน่งด้านบนของหน้าจอ */
+    right: 20px; /* กำหนดตำแหน่งด้านขวาของหน้าจอ */
+    z-index: 1000; /* แก้ไขจาก zIndex เป็น z-index */
+}
+
